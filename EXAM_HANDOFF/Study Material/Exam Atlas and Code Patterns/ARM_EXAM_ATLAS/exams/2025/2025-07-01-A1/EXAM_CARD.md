@@ -2,9 +2,9 @@
 
 - Date: `2025-07-01`
 - Variant: `ARM1`
-- Source PDF: `Material (8)\Exams\24-25\2025_07_01\ARM1.pdf`
+- Source PDF: `Exams/24-25/2025_07_01/ARM1.pdf`
 - SHA-256: `62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2025-07-01_ARM1_LCG_Rhythm`
+- Answer collection: `Study Material/Solved Exams/2025-07-01_ARM1_LCG_Rhythm`
 - Tags: `abi:nonleaf`, `abi:stacked-args`, `alg:recurrence`, `board:gpio`, `board:joystick`, `board:timer`, `cpu:flags`, `mem:word-array`, `risk:irq-shared-state`, `risk:stack-alignment`, `state:event-loop`, `timing:periodic`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-AAPCS-STACKED-ARGS-001`, `PAT-ALG-RECURRENCE-001`, `PAT-CPU-FLAGS-001`, `PAT-GPIO-EVENT-001`, `PAT-GPIO-JOYSTICK-001`, `PAT-MEM-WORD-ARRAY-001`, `PAT-STATE-EVENT-LOOP-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
 - Related exams: `E2026-02-03-A3`, `E2025-07-01-A2`, `E2026-06-25-B2`, `E2026-06-25-B1`, `E2026-02-18-A2`

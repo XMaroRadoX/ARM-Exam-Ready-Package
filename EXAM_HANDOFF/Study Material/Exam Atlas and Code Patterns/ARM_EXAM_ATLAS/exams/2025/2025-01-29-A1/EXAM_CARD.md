@@ -2,9 +2,9 @@
 
 - Date: `2025-01-29`
 - Variant: `ARM1`
-- Source PDF: `Material (8)\Exams\24-25\2025_01_29\20250129_ARM1.pdf`
+- Source PDF: `Exams/24-25/2025_01_29/20250129_ARM1.pdf`
 - SHA-256: `81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2025-01-29_ARM1_Affine_Two_Timers`
+- Answer collection: `Study Material/Solved Exams/2025-01-29_ARM1_Affine_Two_Timers`
 - Tags: `abi:nonleaf`, `alg:fixed-point`, `board:gpio`, `board:timer`, `flow:nested-loop`, `mem:byte-array`, `mem:matrix-row-major`, `risk:irq-shared-state`, `risk:stack-alignment`, `timing:free-running`, `timing:periodic`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ALG-FIXED-POINT-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-GPIO-EVENT-001`, `PAT-MEM-BYTE-ARRAY-001`, `PAT-MEM-MATRIX-ROW-MAJOR-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-FREE-RUNNING-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
 - Related exams: `E2025-01-29-A3`, `E2025-01-29-A2`, `E2024-02-28`, `E2024-02-12`, `E2026-06-25-B2`

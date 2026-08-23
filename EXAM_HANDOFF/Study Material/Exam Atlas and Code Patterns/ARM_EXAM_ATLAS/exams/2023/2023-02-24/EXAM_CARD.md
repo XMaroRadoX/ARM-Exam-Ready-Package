@@ -2,9 +2,9 @@
 
 - Date: `2023-02-24`
 - Variant: `ARM`
-- Source PDF: `Material (8)\Exams\22-23\20230224 arm.pdf`
+- Source PDF: `Exams/22-23/20230224 arm.pdf`
 - SHA-256: `ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2023-02-24_Kaprekar_SVC`
+- Answer collection: `Study Material/Solved Exams/2023-02-24_Kaprekar_SVC`
 - Tags: `abi:nonleaf`, `alg:recurrence`, `alg:sorting`, `cpu:exception-frame`, `cpu:svc`, `flow:nested-loop`, `mem:byte-array`, `mem:matrix-row-major`, `risk:stack-alignment`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ALG-RECURRENCE-001`, `PAT-ALG-SORTING-001`, `PAT-CPU-EXCEPTION-FRAME-001`, `PAT-CPU-SVC-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-MEM-BYTE-ARRAY-001`, `PAT-MEM-MATRIX-ROW-MAJOR-001`
 - Related exams: `E2024-07-09`, `E2024-02-28`, `E2023-02-07`, `E2025-01-29-A3`, `E2025-01-29-A1`

@@ -8,8 +8,9 @@ project and must not be included with the submitted answer.
 Open the [study-material map](Start%20Here/README.md). It routes directly to
 the relevant code, previous question, simulator evidence or exam procedure.
 
-For live exam use, open the
-[exam navigator](Start%20Here/exam-navigator.md). For a shorter sequence of
+First read [how to use the project](Start%20Here/how-to-use-the-project.md) and
+the [current readiness audit](Tests%20and%20Reports/Repository%20Audit/EXAM_READINESS_AUDIT.md).
+For live exam use, open the [exam navigator](Start%20Here/exam-navigator.md). For a shorter sequence of
 checkpoints, open the [live exam guide](Start%20Here/live-exam-guide.md).
 
 ## Directory guide

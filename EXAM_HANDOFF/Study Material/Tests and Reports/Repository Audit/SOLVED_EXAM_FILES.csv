@@ -1,0 +1,173 @@
+﻿scope,relative_path,category,bytes,sha256,text_encoding,line_count,defines_c_main,defines_reset_handler,assembly_exports,assembly_imports,handlers,placeholder_marker
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/Answer Source/exam_asm.s,SOURCE,1738,b39b06a0cdb844f3992ff50ce325a4975e86d5374737edbb7e55fea7925fd2f1,utf-8-sig,62,False,False,copyData;insertionSort,,,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/Answer Source/exam_user.c,SOURCE,1222,e78a487b12a1e02f30d10b7c7e0ae2a6e5041661825e1228265ce3eb7d47f964,utf-8-sig,54,False,False,,,EINT0_IRQHandler;EINT1_IRQHandler,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-02-07_Sort_FreeRunning_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1322,059ca5408c0c4c7a75b986b8917263a8ba6e7bcac691fbcee091bec6aa9c3b00,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2023-02-24_Kaprekar_SVC/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/Answer Source/exam_user.c,SOURCE,155,034d200d006e5607130cc8cf617b89373a4e1c32f8c15e90a3e0141a27f9250a,utf-8-sig,10,False,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-02-24_Kaprekar_SVC/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1194,4bbc8ed9a70f687b548f305bd484eaf283e6da173f122a004d6e3a8fda2ab46d,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-05-17_Signed_64_Division/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2023-05-17_Signed_64_Division/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2023-05-17_Signed_64_Division/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2023-05-17_Signed_64_Division/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2023-05-17_Signed_64_Division/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2023-05-17_Signed_64_Division/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-05-17_Signed_64_Division/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1008,1354555ea0f5bb6522cd96cd57c56bd5c14be4a88cf38416fbda6ba2fb58f827,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/Answer Source/exam_asm.s,SOURCE,1962,f9f021fa7ced0abd37d498b855b4d84a2bf292b4a7def59aebb1a730e75a3191,utf-8-sig,73,False,False,isSociable,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/Answer Source/exam_user.c,SOURCE,1027,7bb59fead7b6b09efacfa8780206ff72b345c390b976dd9984164923acb55d44,utf-8-sig,47,False,False,,,TIMER1_IRQHandler,False
+Solved_Exams,2023-07-04_Sociable_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-07-04_Sociable_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1172,63b10152491311886f7c2988d4c349b77fc5abd2ac6b2dc266e6686ad0cff182,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-09-18_DigitAddition_Buttons/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2023-09-18_DigitAddition_Buttons/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2023-09-18_DigitAddition_Buttons/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2023-09-18_DigitAddition_Buttons/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2023-09-18_DigitAddition_Buttons/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2023-09-18_DigitAddition_Buttons/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2023-09-18_DigitAddition_Buttons/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1181,f61ffbcde69e8202578158f529699cbb9178fef3e46cc33beb10944cfb75ecfb,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-02-12_Maze_LCG_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2024-02-12_Maze_LCG_Timer/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2024-02-12_Maze_LCG_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2024-02-12_Maze_LCG_Timer/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2024-02-12_Maze_LCG_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2024-02-12_Maze_LCG_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-02-12_Maze_LCG_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1390,9b739a7517671b260c42d7e2156a40c8c9dbd0478a0ef1eeb595f1be4aab8d5c,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-02-28_ShortestPath_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2024-02-28_ShortestPath_Timer/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2024-02-28_ShortestPath_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2024-02-28_ShortestPath_Timer/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2024-02-28_ShortestPath_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2024-02-28_ShortestPath_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-02-28_ShortestPath_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1252,491938547a7a4cf99fa8a8073a452f0ad1901ba6d5a776c39ed4f2b8914fbeec,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-07-09_DFS_SysTick/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2024-07-09_DFS_SysTick/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2024-07-09_DFS_SysTick/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2024-07-09_DFS_SysTick/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2024-07-09_DFS_SysTick/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2024-07-09_DFS_SysTick/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-07-09_DFS_SysTick/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1202,560c3a507e3852774f7db9c2b87317d1399dd9c1de6e391f30e89a1e4539edbb,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-09-16_Kruskal_Buttons/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2024-09-16_Kruskal_Buttons/Answer Source/exam_asm.s,SOURCE,2777,48e006d73b0405be1cf0dc4eac464aef97b5f72efb3fedd35d1a3167df3c1ca6,utf-8-sig,73,False,False,exam_asm_example,,,True
+Solved_Exams,2024-09-16_Kruskal_Buttons/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2024-09-16_Kruskal_Buttons/Answer Source/exam_user.c,SOURCE,3249,914c1ee6415d057295e7cec90ce947ad562bf327bbb2449220091d7f72b0588b,utf-8-sig,121,False,False,,,,True
+Solved_Exams,2024-09-16_Kruskal_Buttons/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2024-09-16_Kruskal_Buttons/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2024-09-16_Kruskal_Buttons/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1367,aea4de6c8974e24bc795d6570c12890c4ab15fec0ec5f9a274f1a74f5d2461df,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/Answer Source/exam_asm.s,SOURCE,1518,5bbd9f5e58f3c536bd24565bd2da45ca83eeee76008714ecd00dc8f4c6ab1c56,utf-8-sig,51,False,False,bitwiseAffineTransformation,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/Answer Source/exam_user.c,SOURCE,2039,65dbdbe6bfbf78641114e0f36061b845634cb6725a83c3353a7de915dbf3ea3c,utf-8-sig,80,False,False,,,EINT0_IRQHandler;EINT1_IRQHandler;TIMER0_IRQHandler,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM1_Affine_Two_Timers/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1325,c9df9e21b96209405d710816318a06e2069a0679ff156801dfdc97c7a4f07897,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/exam_asm.s,SOURCE,2058,e0fd7256bc719af509033b4067d948dd8f1cee7194b3b5f78ee6d668d76df325,utf-8-sig,73,False,False,bitMatrixMultiplication,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/exam_user.c,SOURCE,1766,bbf80efff35d242c7fdc7dcf22a97235dfc3452128ac484243da2983d68f40a2,utf-8-sig,81,False,False,,,EINT0_IRQHandler;EINT1_IRQHandler;TIMER0_IRQHandler,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM2_Matrix_Two_Timers/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1291,edb43176947c95d9c326120bc5929f28b9c282559adf3997f5433f56f0b1b0a2,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/Answer Source/exam_asm.s,SOURCE,1567,e4a72473b7ca950251ebd85cf661fbb9cfc25a5c7f0d3d04e6f6b28ea0119bfc,utf-8-sig,59,False,False,transpose,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/Answer Source/exam_user.c,SOURCE,1595,e9ee40b2ba25a56d2c770dc871136762cd410a95ed51b1110789312c958453d2,utf-8-sig,78,False,False,,,EINT0_IRQHandler;EINT1_IRQHandler;EINT2_IRQHandler,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-01-29_ARM3_Transpose_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1334,51775059ad21942bceb4e36cb8c3a1a1b294fb34817598fec9566510374c850c,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/Answer Source/exam_asm.s,SOURCE,1414,2c904cf324e70239bd00cc185dd7987a68e026c5d19ea57ddcf760c23b031331,utf-8-sig,44,False,False,Maclaurin,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/Answer Source/exam_user.c,SOURCE,1252,87cb4acf1662c75e05d44871c5f9b55abad3e2500387c5e622400385e2fc2562,utf-8-sig,63,False,False,,,EINT0_IRQHandler;TIMER0_IRQHandler,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-02-12_ARM1_Sine_DAC/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1388,44f77d1897d968de46b9735f5d13f1508a2600483c7fe45291cfea7c5c82c5cd,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/Answer Source/exam_asm.s,SOURCE,1389,2c26461c6b9f7c6d850f8a3b762cec8cff85214d170ce8c6584ee6013efb70e8,utf-8-sig,43,False,False,Maclaurin_cos,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/Answer Source/exam_user.c,SOURCE,1269,183dbdcd67e27cd2a214a91235b23408784614dc4559b3bb0a48b253c890418f,utf-8-sig,63,False,False,,,EINT1_IRQHandler;TIMER1_IRQHandler,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-02-12_ARM2_Cosine_DAC/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1211,68c8f18b4974e61edff0f7d0403f4787babad186a367b5770a27afc031ceba76,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/Answer Source/exam_asm.s,SOURCE,1702,bf6b5d66147627b4ec78d6b4e00e142a02e9ef2b0b03c1428f37286578f42b8b,utf-8-sig,55,False,True,Reset_Handler;nextElementLCG,__main,Reset_Handler,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/Answer Source/exam_user.c,SOURCE,1930,c4b2d6ab3eade5350a318b4c88e057387323d484e83f71301e90d359299fc247,utf-8-sig,86,False,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-07-01_ARM1_LCG_Rhythm/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1556,5a15607e44b60ca564ed7e3e03b5bbfaac8a348a595635d60f4b46151baaa850,utf-8-sig,12,False,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/Answer Source/exam_asm.s,SOURCE,1524,a4117e9ae5b0fade0204e2ab3c958705666dc6a700a8adb8d02a2f02fdef14d8,utf-8-sig,53,False,True,LCGsequence;Reset_Handler,__main,Reset_Handler,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/Answer Source/exam_user.c,SOURCE,1871,d4e8eb788be891d2b8bdf38793164488128f9719d1bf5a61e447eaa38b45720a,utf-8-sig,85,False,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2025-07-01_ARM2_LCG_Rhythm/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1482,5678b67e58a70a35cebbad2c706bb80e5d8f5c81d54e0c8360c15a97ba201133,utf-8-sig,12,False,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/Answer Source/exam_asm.s,SOURCE,1830,0a650a40ed05cb075dc838630f0a7d6300b2b38c72c9210d70526b09f55ef9bb,utf-8-sig,61,False,False,Look_and_Say,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/Answer Source/exam_user.c,SOURCE,734,08598c7d36b7410c63613cb78229c0d5db82569d8739407e51312d7b1d24920e,utf-8-sig,36,False,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-03_ARM1_LookAndSay_ADC/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1282,711ede9152e5a8963c5eabbdd9f9edc92326c1ced2e93993b04d59c5f3e34dc2,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/Answer Source/exam_asm.s,SOURCE,1848,7f833152d7eb8fd8b159cbdc5e08c9832156edb03ab71ab5a4097b35849d6567,utf-8-sig,61,False,False,run_length_encoding,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/Answer Source/exam_user.c,SOURCE,748,b24bde2cb637aa45a09b1158f82b9ad302d60e8db3105773507e68708a5e21cf,utf-8-sig,36,False,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-03_ARM2_RLE_ADC/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1158,f035b9a7b2ea4395a41f1bfd26a0467e33bce10eba4f6ee5dbfc6a4377e9c288,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/exam_asm.s,SOURCE,1526,f0af649d61da3737bb4d39a173e00388e6cbcd1e67547fd482223966a9bde6cb,utf-8-sig,57,False,False,Recaman,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/exam_user.c,SOURCE,1701,6fc515dae5e5f23510a17e27538463df9287a693488a9affc513d7eba75137a4,utf-8-sig,78,False,False,,,TIMER0_IRQHandler,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-03_ARM3_Recaman_ADC_Timer/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1278,5dd1ba82a0b2312087aabfa7c63346629bbbde8d73a8a00a9b9037ad085f575d,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/Answer Source/exam_asm.s,SOURCE,1511,1098895ccc6295114404195d5379db1e64b1836409431beaaa738a45f90a4554,utf-8-sig,59,False,False,HofstadterQ,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/Answer Source/exam_user.c,SOURCE,4068,b4b65e37417169896faf660c244ef1b238b177a467778dc95c264c0160d178ef,utf-8-sig,145,False,False,,,TIMER0_IRQHandler;TIMER1_IRQHandler;TIMER2_IRQHandler,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-18_ARM1_Three_Timers/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1432,cc4de62a72535bd6d4ab82c4d3123d9ea08c78a5471cb90f46f0e393a9882871,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/Answer Source/exam_asm.s,SOURCE,1452,b5ea711b86f61645600fcac0b823816f3c799ca3686747e43d77c5348cd4c724,utf-8-sig,58,False,False,HofstadterConway,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/Answer Source/exam_user.c,SOURCE,4078,15a8bcf0cab654024585802d650f78be554a9e840ddd6044705272f65ff5dc5d,utf-8-sig,145,False,False,,,TIMER0_IRQHandler;TIMER1_IRQHandler;TIMER2_IRQHandler,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/Answer Source/exam_user.h,SOURCE,514,9135170f9093ba5673dffdef38ea121ebdca5b0d5615cb08f1040e3e501fbf9d,utf-8-sig,21,False,False,,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-02-18_ARM2_Three_Timers/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1391,c7eb8b334ba039157bb5ca00420c301b18f089e9250622c0a57a9e4bc0acf34c,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/Answer Source/exam_asm.s,SOURCE,1984,1c72a07a33336c3764e987162263c01dfc97d6e62d34b11caaa9fa2f7232ded3,utf-8-sig,62,False,False,BullsAndCows,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/Answer Source/exam_user.c,SOURCE,3416,287290ee57fc1c1381bb8383c6a9f8bf7deb7c1720bdde0489e12e3651aba54e,utf-8-sig,143,False,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/Answer Source/exam_user.h,SOURCE,413,ba339e54bc0fe61dfca2e8878e7506002290575e5c7aa70055bd44fc53df5a6a,utf-8-sig,16,False,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-06-25_ARM1_BullsAndCows/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1494,cb44ec214bc0b072f8e8392186e2450c03db648a39c39fb646af4c77f871b6ae,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/ADAPTATION_MAP.md,DOCUMENTATION_OR_DATA,826,af37c4adda9f1bfffd40059fb28ebc0d564abfdf50f71590b9803020051f2107,utf-8-sig,13,False,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/Answer Source/exam_asm.s,SOURCE,2329,a11d5b501cbc92bb224a930d8a852a13eb062b280608ba15b6c85004e6130020,utf-8-sig,72,False,False,Mastermind,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/Answer Source/exam_main.c,SOURCE,205,12747d5be96b12862713ffa84d8212e0eeb7fe0acbeeecaa298b47d374753ce1,utf-8-sig,13,True,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/Answer Source/exam_user.c,SOURCE,3360,8569b0149946245ce1ee3a396e14d7d2cc0b54fda4c5ab01a683502adf80f592,utf-8-sig,143,False,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/Answer Source/exam_user.h,SOURCE,413,ba339e54bc0fe61dfca2e8878e7506002290575e5c7aa70055bd44fc53df5a6a,utf-8-sig,16,False,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/CHANGE_BUDGET.md,DOCUMENTATION_OR_DATA,497,97c2b491024550f613be3a1ad2d30f347fffabe6f4556c831972ef63c82be23a,utf-8-sig,11,False,False,,,,False
+Solved_Exams,2026-06-25_ARM2_Mastermind/EXAM_MAPPING.md,DOCUMENTATION_OR_DATA,1495,f317038e4af78966b45e4cd55801cd958a64c74a6fc0d18798aff001e8c2a309,utf-8-sig,11,False,False,,,,False
+Solved_Exams,FULL_SOLUTION_STATUS.md,DOCUMENTATION_OR_DATA,2030,ea0a1b2c9a2e740c813fa675fce4311e203cd053f5a92bc6c993690c8a8cd49e,utf-8-sig,45,False,False,,,,True
+Solved_Exams,README.md,DOCUMENTATION_OR_DATA,851,25caeb38cde657b1562fdc30ff7fdc688849fb3aaf55035fb13aa6b44e1fec1d,utf-8-sig,20,False,False,,,,False
+Solved_Exams,Source Paper Text/20230224 arm.txt,DOCUMENTATION_OR_DATA,2383,e9361b5a4fe912b9cc73044a2b02f33d53cd5764ad230d4c331a52ef9d332315,utf-8-sig,57,False,False,,,,False
+Solved_Exams,Source Paper Text/20230517 arm.txt,DOCUMENTATION_OR_DATA,4079,29c5c676511cf49f7973ce27d5c97d76b2cda32d049ebfdc17d7583dc3e40ecc,utf-8-sig,100,False,False,,,,False
+Solved_Exams,Source Paper Text/20230918 arm.txt,DOCUMENTATION_OR_DATA,3658,ae2d55593253289f253757db5fc16d363b5ddf517559363a8c17898b61ff1282,utf-8-sig,70,False,False,,,,False
+Solved_Exams,Source Paper Text/20240212 arm.txt,DOCUMENTATION_OR_DATA,5801,68b5e5bdd39ed5a85c594c6932154a934ce75545c02b6b0792cfd8bc5e05e6ed,utf-8-sig,114,False,False,,,,False
+Solved_Exams,Source Paper Text/20240228 arm.txt,DOCUMENTATION_OR_DATA,3721,c9623fd01158f42b1152586b42541e2462e32ff38666fc9329a770385cf089ec,utf-8-sig,80,False,False,,,,False
+Solved_Exams,Source Paper Text/20240709 arm.txt,DOCUMENTATION_OR_DATA,8022,d8b048e960f79525623620757025d37a2e53e0f87d8dd1b08d6d38583673ea80,utf-8-sig,174,False,False,,,,False
+Solved_Exams,Source Paper Text/20240916 arm.txt,DOCUMENTATION_OR_DATA,7263,a7991faa9be2d8034642f176d13d911667690295af875c62a93f025e505eb546,utf-8-sig,216,False,False,,,,False
+Solved_Exams,Validation/missing_exam_oracles.c,SOURCE,5387,3300618c254db42372cee7980030e175e311734b9b64e0e165fc1549b2553a57,utf-8-sig,117,True,False,,,,False
+Solved_Exams,Validation/missing_exam_oracles.exe,BINARY_OR_OTHER,69556,f23be21eca0ec22193077f50cdc867bfc214cfd97efc1ea07de196f2c537eb85,not_text,0,False,False,,,,False

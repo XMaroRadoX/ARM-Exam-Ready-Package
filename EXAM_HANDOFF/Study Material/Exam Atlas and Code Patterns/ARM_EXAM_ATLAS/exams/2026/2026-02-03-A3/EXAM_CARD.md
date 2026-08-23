@@ -2,9 +2,9 @@
 
 - Date: `2026-02-03`
 - Variant: `ARM3`
-- Source PDF: `Material 2026\Exams\20260203_ARM_3.pdf`
+- Source PDF: `Exams/Exam 03.02.2026/20260203_ARM_3.pdf`
 - SHA-256: `3b7d7638803bf8e8c0329eca34265667b4df7ad4c19a500b45b0e1566074d46b`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2026-02-03_ARM3_Recaman_ADC_Timer`
+- Answer collection: `Study Material/Solved Exams/2026-02-03_ARM1_LookAndSay_ADC`
 - Tags: `abi:nonleaf`, `alg:recurrence`, `board:adc`, `board:dac`, `board:gpio`, `board:timer`, `cpu:flags`, `flow:nested-loop`, `mem:word-array`, `risk:irq-shared-state`, `risk:stack-alignment`, `state:event-loop`, `timing:periodic`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ADC-SAMPLE-001`, `PAT-ALG-RECURRENCE-001`, `PAT-CPU-FLAGS-001`, `PAT-DAC-STREAM-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-GPIO-EVENT-001`, `PAT-MEM-WORD-ARRAY-001`, `PAT-STATE-EVENT-LOOP-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
 - Related exams: `E2026-02-18-A2`, `E2026-02-18-A1`, `E2025-02-12-A1`, `E2026-02-03-A1`, `E2025-07-01-A1`

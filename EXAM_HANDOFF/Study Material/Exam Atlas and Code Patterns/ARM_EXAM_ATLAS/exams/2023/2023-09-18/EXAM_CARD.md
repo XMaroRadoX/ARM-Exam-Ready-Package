@@ -2,9 +2,9 @@
 
 - Date: `2023-09-18`
 - Variant: `ARM`
-- Source PDF: `Material (8)\Exams\22-23\20230918 arm.pdf`
+- Source PDF: `Exams/22-23/20230918 arm.pdf`
 - SHA-256: `2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2023-09-18_DigitAddition_Buttons`
+- Answer collection: `Study Material/Solved Exams/2023-09-18_DigitAddition_Buttons`
 - Tags: `abi:nonleaf`, `alg:recurrence`, `board:gpio`, `cpu:flags`, `flow:nested-loop`, `mem:matrix-row-major`, `risk:irq-shared-state`, `risk:stack-alignment`, `state:debounce`, `state:event-loop`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ALG-RECURRENCE-001`, `PAT-CPU-FLAGS-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-GPIO-EVENT-001`, `PAT-MEM-MATRIX-ROW-MAJOR-001`, `PAT-STATE-DEBOUNCE-001`, `PAT-STATE-EVENT-LOOP-001`, `PAT-STATE-IRQ-HANDOFF-001`
 - Related exams: `E2024-09-16`, `E2024-02-12`, `E2026-02-03-A3`, `E2026-02-03-A1`, `E2025-02-12-A1`

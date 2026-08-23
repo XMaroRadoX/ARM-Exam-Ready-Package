@@ -5,16 +5,20 @@ organized by the question being answered, not by filename alone.
 
 ## Documents to open first
 
-1. [Ultimate exam navigator](exam-navigator.md) — the tutor-style route
+1. [How to use the Keil project](how-to-use-the-project.md) — where execution
+   starts, which files to edit, how C calls assembly and how interrupt ownership works.
+2. [Current exam-readiness audit](../Tests%20and%20Reports/Repository%20Audit/EXAM_READINESS_AUDIT.md) —
+   the honest file-by-file verdict and the historical answers that must not be trusted yet.
+3. [Ultimate exam navigator](exam-navigator.md) — the tutor-style route
    from receiving the paper to submitting the final Keil project.
-2. [Live exam companion](live-exam-guide.md) — checkpoint-by-checkpoint
+4. [Live exam companion](live-exam-guide.md) — checkpoint-by-checkpoint
    directions to follow after the paper is placed in front of you.
-3. [USB package instructions](usb-package-guide.md) — what to copy, edit and submit.
-4. [Code-template index](../Exam%20Atlas%20and%20Code%20Patterns/CODE_TEMPLATES/00_TEMPLATE_INDEX.md)
+5. [USB package instructions](usb-package-guide.md) — what to copy, edit and submit.
+6. [Code-template index](../Exam%20Atlas%20and%20Code%20Patterns/CODE_TEMPLATES/00_TEMPLATE_INDEX.md)
    — direct access to reusable C and assembly source patterns.
-5. [API and assembly coverage](api-and-pattern-coverage.md) — all 28
+7. [API and assembly coverage](api-and-pattern-coverage.md) — all 28
    recurring tags mapped to APIs, source templates, indexed questions and gaps.
-6. [Template cleanup and improvements](template-cleanup-and-improvements.md) —
+8. [Template cleanup and improvements](template-cleanup-and-improvements.md) —
    the clean submission layout, completed cleanup and remaining verification work.
 
 ## “I need to recognize this question”
@@ -49,8 +53,8 @@ Each exam directory follows the same four-file structure:
 | `Q1_ASSEMBLY.md` | Assembly interpretation and linked solution |
 | `Q2_BOARD.md` | C/peripheral interpretation and linked solution |
 
-The corresponding answer projects are under
-[`Solved Exams`](../Solved%20Exams). Use the audit before trusting an older
+The corresponding answer-source collections are under
+[`Solved Exams`](../Solved%20Exams). They are not standalone Keil projects. Use the audit before trusting an older
 answer: [solution-completeness audit](../Tests%20and%20Reports/FINAL_PROJECT_TEMPLATE_AND_EXAM_AUDIT.md).
 
 ## “I need an assembly pattern”
@@ -103,7 +107,7 @@ answer: [solution-completeness audit](../Tests%20and%20Reports/FINAL_PROJECT_TEM
 All build logs, coverage matrices and validation results belong in
 [`Tests and Reports`](../Tests%20and%20Reports). These files are evidence,
 not exam instructions. The most important current report is the
-[final project and solution audit](../Tests%20and%20Reports/FINAL_PROJECT_TEMPLATE_AND_EXAM_AUDIT.md).
+[repository exam-readiness audit](../Tests%20and%20Reports/Repository%20Audit/EXAM_READINESS_AUDIT.md).
 
 Local documentation links are checked by
 `Tools/test-markdown-links.ps1`. Its latest machine-readable

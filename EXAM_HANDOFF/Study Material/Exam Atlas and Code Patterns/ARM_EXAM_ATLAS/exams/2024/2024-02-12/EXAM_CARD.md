@@ -2,9 +2,9 @@
 
 - Date: `2024-02-12`
 - Variant: `ARM`
-- Source PDF: `Material (8)\Exams\23-24\20240212 arm.pdf`
+- Source PDF: `Exams/23-24/20240212 arm.pdf`
 - SHA-256: `857211aa08989b7cd8e4630443c80fe33a4ad8e94d34a17636626deac8230ede`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2024-02-12_Maze_LCG_Timer`
+- Answer collection: `Study Material/Solved Exams/2024-02-12_Maze_LCG_Timer`
 - Tags: `abi:nonleaf`, `alg:graph-search`, `board:gpio`, `board:timer`, `cpu:flags`, `flow:early-break`, `flow:nested-loop`, `mem:byte-array`, `mem:matrix-row-major`, `risk:irq-shared-state`, `risk:stack-alignment`, `state:debounce`, `state:event-loop`, `timing:free-running`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ALG-GRAPH-SEARCH-001`, `PAT-CPU-FLAGS-001`, `PAT-FLOW-EARLY-BREAK-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-GPIO-EVENT-001`, `PAT-MEM-BYTE-ARRAY-001`, `PAT-MEM-MATRIX-ROW-MAJOR-001`, `PAT-STATE-DEBOUNCE-001`, `PAT-STATE-EVENT-LOOP-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-FREE-RUNNING-001`, `PAT-TIMER-OWNERSHIP-001`
 - Related exams: `E2025-01-29-A3`, `E2024-09-16`, `E2026-06-25-B2`, `E2025-01-29-A2`, `E2024-02-28`

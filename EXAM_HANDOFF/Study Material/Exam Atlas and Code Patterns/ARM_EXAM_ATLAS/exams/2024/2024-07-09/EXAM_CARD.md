@@ -2,9 +2,9 @@
 
 - Date: `2024-07-09`
 - Variant: `ARM`
-- Source PDF: `Material (8)\Exams\23-24\20240709 arm.pdf`
+- Source PDF: `Exams/23-24/20240709 arm.pdf`
 - SHA-256: `072489aedf62543620d5bb60295fb085204bae358d5316fb342c1150475a9a98`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2024-07-09_DFS_SysTick`
+- Answer collection: `Study Material/Solved Exams/2024-07-09_DFS_SysTick`
 - Tags: `abi:four-register-args`, `abi:nonleaf`, `alg:graph-search`, `alg:recurrence`, `board:timer`, `flow:nested-loop`, `mem:byte-array`, `mem:matrix-row-major`, `risk:stack-alignment`, `timing:periodic`
 - Patterns: `PAT-AAPCS-FOUR-ARGS-001`, `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ALG-GRAPH-SEARCH-001`, `PAT-ALG-RECURRENCE-001`, `PAT-FLOW-NESTED-LOOP-001`, `PAT-MEM-BYTE-ARRAY-001`, `PAT-MEM-MATRIX-ROW-MAJOR-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
 - Related exams: `E2024-02-28`, `E2025-01-29-A3`, `E2025-01-29-A1`, `E2024-09-16`, `E2024-02-12`

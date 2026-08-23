@@ -1,5 +1,11 @@
 # Tools
 
+- `audit-repository.py` reads and hashes the clean project, solved-exam
+  collection and extracted professor templates, then regenerates the
+  machine-readable inventories under `Tests and Reports/Repository Audit`.
+- `render-exam-contact-sheets.py` renders every page of all 23 indexed ARM
+  papers into temporary contact sheets for visual review.
+
 Only tools that operate on the current directory layout are kept here.
 
 | Tool | Purpose |
@@ -12,4 +18,3 @@ Only tools that operate on the current directory layout are kept here.
 The previous generators, regression script and Python package environment are
 preserved in `Original and Legacy Archives/Previous_Tool_Environment.zip`.
 They are not active because they target the superseded `deliverables` layout.
-

@@ -2,9 +2,9 @@
 
 - Date: `2025-02-12`
 - Variant: `ARM2`
-- Source PDF: `Material (8)\Exams\24-25\2025_02_12\20250212_ARM2.pdf`
+- Source PDF: `Exams/24-25/2025_02_12/20250212_ARM2.pdf`
 - SHA-256: `6260e7e253a7ddd3c5e186b84f08ef3366e0f4d062501001dadd1abb872a8b10`
-- Project: `C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\deliverables\solved_exam_examples\2025-02-12_ARM2_Cosine_DAC`
+- Answer collection: `Study Material/Solved Exams/2025-02-12_ARM1_Sine_DAC`
 - Tags: `abi:nonleaf`, `alg:fixed-point`, `alg:recurrence`, `board:adc`, `board:dac`, `board:gpio`, `board:timer`, `mem:word-array`, `risk:irq-shared-state`, `risk:stack-alignment`, `timing:periodic`
 - Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-ADC-SAMPLE-001`, `PAT-ALG-FIXED-POINT-001`, `PAT-ALG-RECURRENCE-001`, `PAT-DAC-STREAM-001`, `PAT-GPIO-EVENT-001`, `PAT-MEM-WORD-ARRAY-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
 - Related exams: `E2025-02-12-A1`, `E2026-02-18-A1`, `E2026-02-03-A3`, `E2026-02-18-A2`, `E2026-06-25-B1`

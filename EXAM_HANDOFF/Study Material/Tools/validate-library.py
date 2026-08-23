@@ -17,12 +17,12 @@ def main():
     patterns = load_csv("patterns.csv")
     links = load_csv("exam_pattern_links.csv")
     atlas = json.loads((ATLAS / "indexes" / "atlas.json").read_text(encoding="utf-8"))
-    projects = [p for p in PROJECTS.iterdir()
+    answer_collections = [p for p in PROJECTS.iterdir()
                 if p.is_dir() and (p / "Answer Source").is_dir()]
     assert len(exams) == 23, len(exams)
     assert len(questions) == 48, len(questions)
     assert len(patterns) == 28, len(patterns)
-    assert len(projects) == 23, len(projects)
+    assert len(answer_collections) == 23, len(answer_collections)
     assert atlas["schema_version"] == "1.0"
     assert len({e["exam_id"] for e in exams}) == len(exams)
     assert len({q["question_id"] for q in questions}) == len(questions)
@@ -40,10 +40,11 @@ def main():
     required = ["EXAM_MAPPING.md", "ADAPTATION_MAP.md", "CHANGE_BUDGET.md",
                 "Answer Source/exam_asm.s", "Answer Source/exam_main.c",
                 "Answer Source/exam_user.c", "Answer Source/exam_user.h"]
-    for project in projects:
+    for project in answer_collections:
         for item in required:
             assert (project / item).is_file(), project / item
     print(json.dumps({"exams":len(exams),"questions":len(questions),"patterns":len(patterns),
-                      "links":len(links),"projects":len(projects),"status":"PASS"}, indent=2))
+                      "links":len(links),"answer_collections":len(answer_collections),
+                      "status":"STRUCTURAL_PASS"}, indent=2))
 
 if __name__ == "__main__": main()
