@@ -1,0 +1,22 @@
+# Preserve binary deliverables byte-for-byte.
+*.zip binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.axf binary
+*.o binary
+*.lib binary
+
+# Keil and source files use Windows line endings when checked out.
+*.uvprojx text eol=crlf
+*.uvoptx text eol=crlf
+*.c text eol=crlf
+*.h text eol=crlf
+*.s text eol=crlf
+*.ps1 text eol=crlf
+

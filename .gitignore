@@ -1,0 +1,21 @@
+# Keil user state and generated output
+*.uvguix.*
+**/Build/*
+**/Listings/*
+**/Objects/*
+
+# Host test output
+*.exe
+*.obj
+*.pdb
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Editor and operating-system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+

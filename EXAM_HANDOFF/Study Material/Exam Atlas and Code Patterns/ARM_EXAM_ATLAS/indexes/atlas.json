@@ -1,0 +1,2753 @@
+{
+  "schema_version": "1.0",
+  "statuses": [
+    "SIMULATOR_EXECUTED_PASS",
+    "HARDWARE_BUILD_PASS",
+    "COMPILE_ONLY",
+    "PHYSICAL_BOARD_NOT_TESTED"
+  ],
+  "exams": [
+    {
+      "exam_id": "E2023-02-07",
+      "date": "2023-02-07",
+      "year": "2023",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230207 arm.pdf",
+      "source_sha256": "77929b413afda671274838630078b32bbebe1e643e1102a00412a7209879ce26",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2023-02-07_Sort_FreeRunning_Timer",
+      "tags": "abi:nonleaf;alg:sorting;board:gpio;board:timer;cpu:svc;flow:early-break;flow:nested-loop;mem:byte-array;risk:irq-shared-state;risk:stack-alignment;risk:vector-ownership;state:debounce;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-SORTING-001;PAT-CPU-SVC-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-VECTOR-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "date": "2023-02-24",
+      "year": "2023",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230224 arm.pdf",
+      "source_sha256": "ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2023-02-24_Kaprekar_SVC",
+      "tags": "abi:nonleaf;alg:recurrence;alg:sorting;cpu:exception-frame;cpu:svc;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-RECURRENCE-001;PAT-ALG-SORTING-001;PAT-CPU-EXCEPTION-FRAME-001;PAT-CPU-SVC-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "date": "2023-05-17",
+      "year": "2023",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230517 arm.pdf",
+      "source_sha256": "94a30856a4f9a56bb908dbab2def2de9fee9973a4471ac5111399a992509bbab",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2023-05-17_Signed_64_Division",
+      "tags": "abi:nonleaf;board:adc;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "date": "2023-07-04",
+      "year": "2023",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230704 arm.pdf",
+      "source_sha256": "00b04fb9ee48348d35f760dc4be463f251c7e107e6fece712f732e2ce8e0a82c",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2023-07-04_Sociable_Timer",
+      "tags": "abi:nonleaf;alg:recurrence;board:gpio;board:timer;flow:nested-loop;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "date": "2023-09-18",
+      "year": "2023",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230918 arm.pdf",
+      "source_sha256": "2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2023-09-18_DigitAddition_Buttons",
+      "tags": "abi:nonleaf;alg:recurrence;board:gpio;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "date": "2024-02-12",
+      "year": "2024",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240212 arm.pdf",
+      "source_sha256": "857211aa08989b7cd8e4630443c80fe33a4ad8e94d34a17636626deac8230ede",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2024-02-12_Maze_LCG_Timer",
+      "tags": "abi:nonleaf;alg:graph-search;board:gpio;board:timer;cpu:flags;flow:early-break;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-GRAPH-SEARCH-001;PAT-CPU-FLAGS-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "date": "2024-02-28",
+      "year": "2024",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240228 arm.pdf",
+      "source_sha256": "772f6c10718ce63a360fd71027fbfce97bacac7b86829e48cf4bd3763d966783",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2024-02-28_ShortestPath_Timer",
+      "tags": "abi:nonleaf;alg:graph-search;alg:recurrence;board:gpio;board:timer;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-GRAPH-SEARCH-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "date": "2024-07-09",
+      "year": "2024",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240709 arm.pdf",
+      "source_sha256": "072489aedf62543620d5bb60295fb085204bae358d5316fb342c1150475a9a98",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2024-07-09_DFS_SysTick",
+      "tags": "abi:four-register-args;abi:nonleaf;alg:graph-search;alg:recurrence;board:timer;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-GRAPH-SEARCH-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "date": "2024-09-16",
+      "year": "2024",
+      "variant": "ARM",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240916 arm.pdf",
+      "source_sha256": "bbadd5254928052d8fdf6f824af902ed80a57c58adbb8028e7ec666d2935e3c1",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2024-09-16_Kruskal_Buttons",
+      "tags": "abi:four-register-args;abi:nonleaf;abi:stacked-args;alg:graph-search;board:gpio;cpu:flags;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-GRAPH-SEARCH-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "date": "2025-01-29",
+      "year": "2025",
+      "variant": "ARM1",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM1.pdf",
+      "source_sha256": "81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-01-29_ARM1_Affine_Two_Timers",
+      "tags": "abi:nonleaf;alg:fixed-point;board:gpio;board:timer;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-FIXED-POINT-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "date": "2025-01-29",
+      "year": "2025",
+      "variant": "ARM2",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM2.pdf",
+      "source_sha256": "af077d82dca1acfbbac322ee1774a4d6c4ec796d42721c073e0b0fc20543e50b",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-01-29_ARM2_Matrix_Two_Timers",
+      "tags": "board:gpio;board:timer;cpu:flags;flow:early-break;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-STACK-SAFETY-001;PAT-CPU-FLAGS-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "date": "2025-01-29",
+      "year": "2025",
+      "variant": "ARM3",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM3.pdf",
+      "source_sha256": "761ce33d98721985812e9dac30fedd846893bfc2ccbc7b16513615d24cde2a6e",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-01-29_ARM3_Transpose_Timer",
+      "tags": "abi:nonleaf;board:dac;board:gpio;board:timer;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-DAC-STREAM-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "date": "2025-02-12",
+      "year": "2025",
+      "variant": "ARM1",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM1.pdf",
+      "source_sha256": "04bdc71658fd0d480ff738ea259fb791ea48991a1e45b2f4d8ec082de65a597f",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-02-12_ARM1_Sine_DAC",
+      "tags": "abi:nonleaf;alg:fixed-point;alg:recurrence;board:adc;board:dac;board:gpio;board:timer;cpu:flags;mem:matrix-row-major;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:debounce;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-FIXED-POINT-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "date": "2025-02-12",
+      "year": "2025",
+      "variant": "ARM2",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM2.pdf",
+      "source_sha256": "6260e7e253a7ddd3c5e186b84f08ef3366e0f4d062501001dadd1abb872a8b10",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-02-12_ARM2_Cosine_DAC",
+      "tags": "abi:nonleaf;alg:fixed-point;alg:recurrence;board:adc;board:dac;board:gpio;board:timer;mem:word-array;risk:irq-shared-state;risk:stack-alignment;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-FIXED-POINT-001;PAT-ALG-RECURRENCE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "date": "2025-07-01",
+      "year": "2025",
+      "variant": "ARM1",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM1.pdf",
+      "source_sha256": "62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-07-01_ARM1_LCG_Rhythm",
+      "tags": "abi:nonleaf;abi:stacked-args;alg:recurrence;board:gpio;board:joystick;board:timer;cpu:flags;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "date": "2025-07-01",
+      "year": "2025",
+      "variant": "ARM2",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM2.pdf",
+      "source_sha256": "61b5bc6866d95a1ce17fd0356cb661d342641945037f71924afc4050cfba1e81",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2025-07-01_ARM2_LCG_Rhythm",
+      "tags": "abi:nonleaf;abi:stacked-args;alg:recurrence;board:gpio;board:joystick;board:timer;flow:nested-loop;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "date": "2026-02-03",
+      "year": "2026",
+      "variant": "ARM1",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_1.pdf",
+      "source_sha256": "4d1f2a9349357a96f0785b83bf347553e73bcd551ccac6d4086dbe5a545488f4",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-02-03_ARM1_LookAndSay_ADC",
+      "tags": "abi:nonleaf;alg:recurrence;board:adc;board:dac;board:gpio;cpu:flags;mem:byte-array;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "date": "2026-02-03",
+      "year": "2026",
+      "variant": "ARM2",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_2.pdf",
+      "source_sha256": "ecc909cda345d5f4bbd6c6978f0417a8921c5647290b8feaadba497438a44829",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-02-03_ARM2_RLE_ADC",
+      "tags": "abi:nonleaf;board:adc;board:dac;board:gpio;flow:early-break;mem:byte-array;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:debounce",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-FLOW-EARLY-BREAK-001;PAT-GPIO-EVENT-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "date": "2026-02-03",
+      "year": "2026",
+      "variant": "ARM3",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_3.pdf",
+      "source_sha256": "3b7d7638803bf8e8c0329eca34265667b4df7ad4c19a500b45b0e1566074d46b",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-02-03_ARM3_Recaman_ADC_Timer",
+      "tags": "abi:nonleaf;alg:recurrence;board:adc;board:dac;board:gpio;board:timer;cpu:flags;flow:nested-loop;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-DAC-STREAM-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "date": "2026-02-18",
+      "year": "2026",
+      "variant": "ARM1",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_1.pdf",
+      "source_sha256": "0ef4f9295c4d1d486e29a037ebdd0f159208e131d2fa26ce3723b223b0887fa2",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-02-18_ARM1_Three_Timers",
+      "tags": "abi:nonleaf;alg:frequency-count;alg:recurrence;board:adc;board:dac;board:gpio;board:timer;mem:word-array;risk:irq-shared-state;risk:stack-alignment;risk:vector-ownership;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ALG-RECURRENCE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001;PAT-TIMER-VECTOR-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "date": "2026-02-18",
+      "year": "2026",
+      "variant": "ARM2",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_2.pdf",
+      "source_sha256": "4dfecf2ee5556c9aa2b55184743e35fad063e50c0960233a80f5404312d458ea",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-02-18_ARM2_Three_Timers",
+      "tags": "abi:nonleaf;alg:frequency-count;alg:recurrence;board:adc;board:dac;board:timer;cpu:flags;mem:matrix-row-major;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-DAC-STREAM-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "date": "2026-06-25",
+      "year": "2026",
+      "variant": "ARM1",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_1.pdf",
+      "source_sha256": "a3f7eaca07f96a281382237948255abc1fadcf2d2a3502d2e4d604921128fa2a8",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-06-25_ARM1_BullsAndCows",
+      "tags": "abi:four-register-args;abi:nonleaf;alg:frequency-count;board:adc;board:gpio;board:joystick;board:timer;mem:matrix-row-major;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ADC-SAMPLE-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "date": "2026-06-25",
+      "year": "2026",
+      "variant": "ARM2",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_2.pdf",
+      "source_sha256": "b643106147d4a20efe44ea7d6d39f1ec8dfc44d76d1625114779893efacb7124",
+      "project": "C:\\Personal\\College\\CA 2026\\CA\\ARM_Exam_Ready_Package\\deliverables\\solved_exam_examples\\2026-06-25_ARM2_Mastermind",
+      "tags": "abi:four-register-args;abi:nonleaf;alg:frequency-count;board:gpio;board:joystick;board:timer;flow:early-break;flow:nested-loop;mem:word-array;risk:irq-shared-state;risk:stack-alignment;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACK-SAFETY-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-OWNERSHIP-001;PAT-TIMER-PERIODIC-001"
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "E2023-02-07-Q1",
+      "exam_id": "E2023-02-07",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Copy signed byte values into a working array, then perform insertion sort while preserving signed ordering and array bounds.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230207 arm.pdf",
+      "source_sha256": "77929b413afda671274838630078b32bbebe1e643e1102a00412a7209879ce26",
+      "tags": "abi:nonleaf;alg:sorting;cpu:svc;flow:early-break;flow:nested-loop;mem:byte-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-SORTING-001;PAT-CPU-SVC-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-02-07-Q2",
+      "exam_id": "E2023-02-07",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Use Timer1 as a free-running counter reset at 0xFF without an IRQ; INT0 captures array data and alternates LEDs 6/7; KEY1 invokes the assembly sort.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230207 arm.pdf",
+      "source_sha256": "77929b413afda671274838630078b32bbebe1e643e1102a00412a7209879ce26",
+      "tags": "abi:nonleaf;alg:sorting;board:gpio;board:timer;flow:nested-loop;risk:irq-shared-state;risk:vector-ownership;state:debounce;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-SORTING-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-FLOW-NESTED-LOOP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-VECTOR-OWNERSHIP-001;PAT-STATE-DEBOUNCE-001;PAT-TIMER-FREE-RUNNING-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-02-24-Q1",
+      "exam_id": "E2023-02-24",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement the Kaprekar digit transformation, including digit extraction, reordering, subtraction and repeated convergence logic.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230224 arm.pdf",
+      "source_sha256": "ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4",
+      "tags": "abi:nonleaf;alg:recurrence;alg:sorting;flow:nested-loop;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-ALG-SORTING-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-02-24-Q2",
+      "exam_id": "E2023-02-24",
+      "question": "Q2",
+      "delivery_mode": "ASM exception",
+      "requirement": "Handle SVC #50, locate the correct exception stack frame, decode the SVC immediate from the instruction before stacked PC, repeatedly call the Kaprekar routine, and return the iteration count in R6.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230224 arm.pdf",
+      "source_sha256": "ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4",
+      "tags": "abi:nonleaf;alg:recurrence;cpu:exception-frame;cpu:svc;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-CPU-EXCEPTION-FRAME-001;PAT-CPU-SVC-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-05-17-Q1",
+      "exam_id": "E2023-05-17",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL, using sign normalization, a 64-bit shift/subtract loop, and quotient-bit construction.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230517 arm.pdf",
+      "source_sha256": "94a30856a4f9a56bb908dbab2def2de9fee9973a4471ac5111399a992509bbab",
+      "tags": "board:adc;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-ADC-SAMPLE-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-05-17-Q2",
+      "exam_id": "E2023-05-17",
+      "question": "Q2",
+      "delivery_mode": "ASM flags",
+      "requirement": "Set or report the required N, Z, C and V status according to the division outcome using program-status-register operations.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230517 arm.pdf",
+      "source_sha256": "94a30856a4f9a56bb908dbab2def2de9fee9973a4471ac5111399a992509bbab",
+      "tags": "abi:nonleaf;cpu:flags;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-CPU-FLAGS-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-07-04-Q1",
+      "exam_id": "E2023-07-04",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Compute aliquot sums and detect a sociable-number sequence using divisor tests, nested loops and subroutine calls.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230704 arm.pdf",
+      "source_sha256": "00b04fb9ee48348d35f760dc4be463f251c7e107e6fece712f732e2ce8e0a82c",
+      "tags": "abi:nonleaf;alg:recurrence;flow:nested-loop;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-07-04-Q2",
+      "exam_id": "E2023-07-04",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Configure Timer1 for a two-second periodic event, advance a circular sequence array, call the assembly routine, and display the result on LEDs.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230704 arm.pdf",
+      "source_sha256": "00b04fb9ee48348d35f760dc4be463f251c7e107e6fece712f732e2ce8e0a82c",
+      "tags": "abi:nonleaf;alg:recurrence;board:gpio;board:timer;mem:word-array;risk:irq-shared-state;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-09-18-Q1",
+      "exam_id": "E2023-09-18",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement digitSum and digitaddition so one assembly subroutine calls another and reports arithmetic overflow correctly.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230918 arm.pdf",
+      "source_sha256": "2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b",
+      "tags": "abi:nonleaf;cpu:flags;flow:nested-loop;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2023-09-18-Q2",
+      "exam_id": "E2023-09-18",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Use KEY1 and KEY2 to build a binary value K, trigger processing from INT0, manage arrays, call assembly and show the comparison result on LEDs.",
+      "source_pdf": "Material (8)\\Exams\\22-23\\20230918 arm.pdf",
+      "source_sha256": "2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b",
+      "tags": "abi:nonleaf;alg:recurrence;board:gpio;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:irq-shared-state;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-GPIO-EVENT-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-02-12-Q1",
+      "exam_id": "E2024-02-12",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Solve a two-dimensional byte maze by repeatedly propagating reachable distances until the destination is reached or no progress remains.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240212 arm.pdf",
+      "source_sha256": "857211aa08989b7cd8e4630443c80fe33a4ad8e94d34a17636626deac8230ede",
+      "tags": "abi:nonleaf;alg:graph-search;flow:early-break;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-GRAPH-SEARCH-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-02-12-Q2",
+      "exam_id": "E2024-02-12",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Generate a random maze with an LCG seeded from a free-running Timer0, start from KEY2, fill the byte matrix safely, and call the assembly solver.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240212 arm.pdf",
+      "source_sha256": "857211aa08989b7cd8e4630443c80fe33a4ad8e94d34a17636626deac8230ede",
+      "tags": "abi:nonleaf;alg:graph-search;board:gpio;board:timer;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:irq-shared-state;state:debounce;state:event-loop;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-GRAPH-SEARCH-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-FREE-RUNNING-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-02-28-Q1",
+      "exam_id": "E2024-02-28",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Compute a shortest path through a two-dimensional byte maze while respecting walls, bounds and distance updates.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240228 arm.pdf",
+      "source_sha256": "772f6c10718ce63a360fd71027fbfce97bacac7b86829e48cf4bd3763d966783",
+      "tags": "abi:nonleaf;alg:graph-search;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-GRAPH-SEARCH-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-02-28-Q2",
+      "exam_id": "E2024-02-28",
+      "question": "Q2",
+      "delivery_mode": "C",
+      "requirement": "Configure a timer for a 0.5-second sequence and move an LED indication through the required states without losing events.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240228 arm.pdf",
+      "source_sha256": "772f6c10718ce63a360fd71027fbfce97bacac7b86829e48cf4bd3763d966783",
+      "tags": "alg:graph-search;alg:recurrence;board:gpio;board:timer;risk:irq-shared-state;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-ALG-GRAPH-SEARCH-001;PAT-ALG-RECURRENCE-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-07-09-Q1",
+      "exam_id": "E2024-07-09",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Solve a maze with depth-first search using an explicit stack, four parameters and a nested call to chooseNeighbor.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240709 arm.pdf",
+      "source_sha256": "072489aedf62543620d5bb60295fb085204bae358d5316fb342c1150475a9a98",
+      "tags": "abi:four-register-args;abi:nonleaf;alg:graph-search;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-ALG-GRAPH-SEARCH-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-07-09-Q2",
+      "exam_id": "E2024-07-09",
+      "question": "Q2",
+      "delivery_mode": "ASM startup/exception",
+      "requirement": "Configure SysTick directly in Reset_Handler, collect available moves, choose one using modulo arithmetic, and keep the stack balanced across all branches.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240709 arm.pdf",
+      "source_sha256": "072489aedf62543620d5bb60295fb085204bae358d5316fb342c1150475a9a98",
+      "tags": "abi:nonleaf;alg:graph-search;alg:recurrence;board:timer;risk:stack-alignment;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-GRAPH-SEARCH-001;PAT-ALG-RECURRENCE-001;PAT-TIMER-OWNERSHIP-001;PAT-AAPCS-STACK-SAFETY-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-09-16-Q1",
+      "exam_id": "E2024-09-16",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement the Kruskal-style maze operation across three arrays with seven parameters, including min/max selection, component replacement and row-major access.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240916 arm.pdf",
+      "source_sha256": "bbadd5254928052d8fdf6f824af902ed80a57c58adbb8028e7ec666d2935e3c1",
+      "tags": "abi:four-register-args;abi:nonleaf;abi:stacked-args;alg:graph-search;cpu:flags;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-GRAPH-SEARCH-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2024-09-16-Q2",
+      "exam_id": "E2024-09-16",
+      "question": "Q2",
+      "delivery_mode": "C",
+      "requirement": "Implement a two-button state machine that increments a value and applies the required offset while handling event order and button behavior.",
+      "source_pdf": "Material (8)\\Exams\\23-24\\20240916 arm.pdf",
+      "source_sha256": "bbadd5254928052d8fdf6f824af902ed80a57c58adbb8028e7ec666d2935e3c1",
+      "tags": "abi:nonleaf;board:gpio;cpu:flags;mem:matrix-row-major;risk:irq-shared-state;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-GPIO-EVENT-001;PAT-CPU-FLAGS-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A1-Q1",
+      "exam_id": "E2025-01-29-A1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Apply the requested bitwise affine transformation to a packed 8x8 binary matrix while preserving the specified bit and row order.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM1.pdf",
+      "source_sha256": "81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575",
+      "tags": "alg:fixed-point;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-ALG-FIXED-POINT-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A1-Q2",
+      "exam_id": "E2025-01-29-A1",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Run Timer1 freely with reset at 0xFFFF and no IRQ; INT0 collects bytes and XORs/displays them; KEY1 calls the assembly transform; Timer0 blinks rows with a 0.5-second full period.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM1.pdf",
+      "source_sha256": "81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575",
+      "tags": "abi:nonleaf;board:gpio;board:timer;risk:irq-shared-state;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A2-Q1",
+      "exam_id": "E2025-01-29-A2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Multiply two packed binary matrices using bit-level dot products and store the packed result with the required orientation.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM2.pdf",
+      "source_sha256": "af077d82dca1acfbbac322ee1774a4d6c4ec796d42721c073e0b0fc20543e50b",
+      "tags": "flow:early-break;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A2-Q2",
+      "exam_id": "E2025-01-29-A2",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Use the specified free-running timer and interrupts to fill matrices A and B; invoke multiplication on KEY1; display result rows on LEDs every 0.5 seconds.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM2.pdf",
+      "source_sha256": "af077d82dca1acfbbac322ee1774a4d6c4ec796d42721c073e0b0fc20543e50b",
+      "tags": "board:gpio;board:timer;cpu:flags;flow:nested-loop;mem:matrix-row-major;risk:irq-shared-state;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-CPU-FLAGS-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A3-Q1",
+      "exam_id": "E2025-01-29-A3",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Transpose a packed binary matrix by exchanging row/column bit coordinates without corrupting unrelated bits.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM3.pdf",
+      "source_sha256": "761ce33d98721985812e9dac30fedd846893bfc2ccbc7b16513615d24cde2a6e",
+      "tags": "board:dac;flow:nested-loop;mem:byte-array;mem:matrix-row-major;risk:stack-alignment",
+      "pattern_ids": "PAT-DAC-STREAM-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-01-29-A3-Q2",
+      "exam_id": "E2025-01-29-A3",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Use Timer2 and KEY1/KEY2 to fill arrays, then use INT0 to verify the requested algebraic property and display pass/fail on LEDs.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_01_29\\20250129_ARM3.pdf",
+      "source_sha256": "761ce33d98721985812e9dac30fedd846893bfc2ccbc7b16513615d24cde2a6e",
+      "tags": "abi:nonleaf;board:dac;board:gpio;board:timer;risk:irq-shared-state;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-02-12-A1-Q1",
+      "exam_id": "E2025-02-12-A1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Generate sine values with the stated Maclaurin/fixed-point recurrence, maintaining scale, signs, loop limits and array storage.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM1.pdf",
+      "source_sha256": "04bdc71658fd0d480ff738ea259fb791ea48991a1e45b2f4d8ec082de65a597f",
+      "tags": "alg:fixed-point;alg:recurrence;board:dac;cpu:flags;mem:matrix-row-major;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-ALG-FIXED-POINT-001;PAT-ALG-RECURRENCE-001;PAT-DAC-STREAM-001;PAT-CPU-FLAGS-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-02-12-A1-Q2",
+      "exam_id": "E2025-02-12-A1",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "On INT0, call the assembly generator for sineValues[45]; configure Timer0 every 1263 cycles and stream the samples to the DAC; no debouncing is required.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM1.pdf",
+      "source_sha256": "04bdc71658fd0d480ff738ea259fb791ea48991a1e45b2f4d8ec082de65a597f",
+      "tags": "abi:nonleaf;alg:fixed-point;board:adc;board:dac;board:gpio;board:timer;mem:matrix-row-major;risk:irq-shared-state;state:debounce;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-FIXED-POINT-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-02-12-A2-Q1",
+      "exam_id": "E2025-02-12-A2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Generate cosine values with the required fixed-point recurrence, scale and array bounds.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM2.pdf",
+      "source_sha256": "6260e7e253a7ddd3c5e186b84f08ef3366e0f4d062501001dadd1abb872a8b10",
+      "tags": "alg:fixed-point;alg:recurrence;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-ALG-FIXED-POINT-001;PAT-ALG-RECURRENCE-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-02-12-A2-Q2",
+      "exam_id": "E2025-02-12-A2",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Use KEY1 to generate the waveform, configure Timer1 every 1592 cycles, and stream the table through the DAC according to the stated trigger behavior.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_02_12\\20250212_ARM2.pdf",
+      "source_sha256": "6260e7e253a7ddd3c5e186b84f08ef3366e0f4d062501001dadd1abb872a8b10",
+      "tags": "abi:nonleaf;board:adc;board:dac;board:gpio;board:timer;risk:irq-shared-state;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A1-Q1",
+      "exam_id": "E2025-07-01-A1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement the requested linear congruential generator with five parameters and correct unsigned wraparound/modulo behavior.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM1.pdf",
+      "source_sha256": "62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843",
+      "tags": "abi:stacked-args;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-STACKED-ARGS-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A1-Q2",
+      "exam_id": "E2025-07-01-A1",
+      "question": "Q2",
+      "delivery_mode": "ASM startup",
+      "requirement": "Call the LCG repeatedly from Reset_Handler and maintain the required sequence/state without violating startup or call conventions.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM1.pdf",
+      "source_sha256": "62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843",
+      "tags": "abi:nonleaf;abi:stacked-args;alg:recurrence;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-RECURRENCE-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A1-Q3",
+      "exam_id": "E2025-07-01-A1",
+      "question": "Q3",
+      "delivery_mode": "C",
+      "requirement": "Use Timer0 for a three-second LED sequence and accept only the joystick's first movement for the rhythm-game state transition.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM1.pdf",
+      "source_sha256": "62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843",
+      "tags": "alg:recurrence;board:gpio;board:joystick;board:timer;cpu:flags;risk:irq-shared-state;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-ALG-RECURRENCE-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-TIMER-OWNERSHIP-001;PAT-CPU-FLAGS-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A2-Q1",
+      "exam_id": "E2025-07-01-A2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement the variant LCG with its shift operation and five-argument interface, preserving the specified arithmetic order.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM2.pdf",
+      "source_sha256": "61b5bc6866d95a1ce17fd0356cb661d342641945037f71924afc4050cfba1e81",
+      "tags": "abi:stacked-args;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-STACKED-ARGS-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A2-Q2",
+      "exam_id": "E2025-07-01-A2",
+      "question": "Q2",
+      "delivery_mode": "ASM startup",
+      "requirement": "Drive the variant generator from Reset_Handler with correct argument construction and persistent loop state.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM2.pdf",
+      "source_sha256": "61b5bc6866d95a1ce17fd0356cb661d342641945037f71924afc4050cfba1e81",
+      "tags": "abi:nonleaf;abi:stacked-args;alg:recurrence;flow:nested-loop;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-AAPCS-STACKED-ARGS-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2025-07-01-A2-Q3",
+      "exam_id": "E2025-07-01-A2",
+      "question": "Q3",
+      "delivery_mode": "C",
+      "requirement": "Use Timer1 for a 2.5-second LED sequence and process only the joystick's first movement in the game logic.",
+      "source_pdf": "Material (8)\\Exams\\24-25\\2025_07_01\\ARM2.pdf",
+      "source_sha256": "61b5bc6866d95a1ce17fd0356cb661d342641945037f71924afc4050cfba1e81",
+      "tags": "alg:recurrence;board:gpio;board:joystick;board:timer;risk:irq-shared-state;state:event-loop",
+      "pattern_ids": "PAT-ALG-RECURRENCE-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A1-Q1",
+      "exam_id": "E2026-02-03-A1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Generate the Look-and-Say sequence in the required digit representation, grouping equal runs and writing count/value pairs without overrunning the output buffer.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_1.pdf",
+      "source_sha256": "4d1f2a9349357a96f0785b83bf347553e73bcd551ccac6d4086dbe5a545488f4",
+      "tags": "abi:nonleaf;alg:recurrence;cpu:flags;mem:byte-array;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-CPU-FLAGS-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A1-Q2",
+      "exam_id": "E2026-02-03-A1",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Read the potentiometer through ADC, show the top eight bits on LEDs, and on INT0 call the assembly routine with physical debouncing enabled.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_1.pdf",
+      "source_sha256": "4d1f2a9349357a96f0785b83bf347553e73bcd551ccac6d4086dbe5a545488f4",
+      "tags": "abi:nonleaf;board:adc;board:dac;board:gpio;risk:irq-shared-state;state:debounce;state:event-loop",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A2-Q1",
+      "exam_id": "E2026-02-03-A2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Run-length encode the digit array into the required count/value format, including final-run handling and output length.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_2.pdf",
+      "source_sha256": "ecc909cda345d5f4bbd6c6978f0417a8921c5647290b8feaadba497438a44829",
+      "tags": "flow:early-break;mem:byte-array;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-FLOW-EARLY-BREAK-001;PAT-MEM-BYTE-ARRAY-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A2-Q2",
+      "exam_id": "E2026-02-03-A2",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Read the potentiometer with ADC, show its high eight bits on LEDs, and invoke the encoder from KEY1 with the required debounce behavior.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_2.pdf",
+      "source_sha256": "ecc909cda345d5f4bbd6c6978f0417a8921c5647290b8feaadba497438a44829",
+      "tags": "abi:nonleaf;board:adc;board:dac;board:gpio;risk:irq-shared-state;state:debounce",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A3-Q1",
+      "exam_id": "E2026-02-03-A3",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Fill a word array with the Recaman sequence, selecting subtraction only when positive and not already present, otherwise addition.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_3.pdf",
+      "source_sha256": "3b7d7638803bf8e8c0329eca34265667b4df7ad4c19a500b45b0e1566074d46b",
+      "tags": "abi:nonleaf;alg:recurrence;flow:nested-loop;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-03-A3-Q2",
+      "exam_id": "E2026-02-03-A3",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Read/display ADC data, use KEY2 to generate the sequence, and use a two-second timer to display sequence values on LEDs.",
+      "source_pdf": "Material 2026\\Exams\\20260203_ARM_3.pdf",
+      "source_sha256": "3b7d7638803bf8e8c0329eca34265667b4df7ad4c19a500b45b0e1566074d46b",
+      "tags": "alg:recurrence;board:adc;board:dac;board:gpio;board:timer;cpu:flags;mem:word-array;risk:irq-shared-state;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-ALG-RECURRENCE-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-CPU-FLAGS-001;PAT-MEM-WORD-ARRAY-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-18-A1-Q1",
+      "exam_id": "E2026-02-18-A1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Generate the iterative Hofstadter Q sequence in a word array and return or track the required maximum while handling early indices safely.",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_1.pdf",
+      "source_sha256": "0ef4f9295c4d1d486e29a037ebdd0f159208e131d2fa26ce3723b223b0887fa2",
+      "tags": "abi:nonleaf;alg:recurrence;mem:word-array;risk:stack-alignment;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001;PAT-TIMER-FREE-RUNNING-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-18-A1-Q2",
+      "exam_id": "E2026-02-18-A1",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Coordinate three timers for A/B/C states, stream SinTable[45] through the DAC, use a 50 ms scheduler tick, compute frequency/duration values, and track whether each timer is running.",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_1.pdf",
+      "source_sha256": "0ef4f9295c4d1d486e29a037ebdd0f159208e131d2fa26ce3723b223b0887fa2",
+      "tags": "abi:nonleaf;alg:frequency-count;board:adc;board:dac;board:gpio;board:timer;risk:irq-shared-state;risk:vector-ownership;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-GPIO-EVENT-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-TIMER-VECTOR-OWNERSHIP-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-18-A2-Q1",
+      "exam_id": "E2026-02-18-A2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Generate the Hofstadter-Conway variant iteratively in a word array with correct seeds, recurrence-derived indexes and requested aggregate/result.",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_2.pdf",
+      "source_sha256": "4dfecf2ee5556c9aa2b55184743e35fad063e50c0960233a80f5404312d458ea",
+      "tags": "abi:nonleaf;alg:recurrence;mem:matrix-row-major;mem:word-array;risk:stack-alignment;timing:free-running",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-RECURRENCE-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001;PAT-TIMER-FREE-RUNNING-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-02-18-A2-Q2",
+      "exam_id": "E2026-02-18-A2",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Implement the three-timer, DAC and 50 ms scheduling variant, including frequency/duration calculations and explicit running/stopped states.",
+      "source_pdf": "Material 2026\\Exams\\20260218_ARM_2.pdf",
+      "source_sha256": "4dfecf2ee5556c9aa2b55184743e35fad063e50c0960233a80f5404312d458ea",
+      "tags": "abi:nonleaf;alg:frequency-count;board:adc;board:dac;board:timer;cpu:flags;mem:matrix-row-major;risk:irq-shared-state;state:event-loop;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ADC-SAMPLE-001;PAT-DAC-STREAM-001;PAT-TIMER-OWNERSHIP-001;PAT-CPU-FLAGS-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-06-25-B1-Q1",
+      "exam_id": "E2026-06-25-B1",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement BullsAndCows over four word arrays, count exact matches and frequency-based partial matches, and return the encoded result.",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_1.pdf",
+      "source_sha256": "a3f7eaca07f96a281382237948255abc1fadcf2d2a3502d2e4d604921128fa2a8",
+      "tags": "abi:four-register-args;alg:frequency-count;board:adc;mem:matrix-row-major;mem:word-array;risk:stack-alignment",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ADC-SAMPLE-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-06-25-B1-Q2",
+      "exam_id": "E2026-06-25-B1",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Build a debounced joystick-driven Bulls and Cows game, seed a four-digit secret from a free-running timer, show the guess and encoded result on LEDs, and retain the secret across guesses.",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_1.pdf",
+      "source_sha256": "a3f7eaca07f96a281382237948255abc1fadcf2d2a3502d2e4d604921128fa2a8",
+      "tags": "abi:nonleaf;alg:frequency-count;board:adc;board:gpio;board:joystick;board:timer;mem:matrix-row-major;risk:irq-shared-state;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-ADC-SAMPLE-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-TIMER-OWNERSHIP-001;PAT-MEM-MATRIX-ROW-MAJOR-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-06-25-B2-Q1",
+      "exam_id": "E2026-06-25-B2",
+      "question": "Q1",
+      "delivery_mode": "ASM",
+      "requirement": "Implement Mastermind over four word arrays, mark exact matches, find unmatched partial matches with a nested search and break, and return the encoded result.",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_2.pdf",
+      "source_sha256": "b643106147d4a20efe44ea7d6d39f1ec8dfc44d76d1625114779893efacb7124",
+      "tags": "abi:four-register-args;alg:frequency-count;flow:early-break;flow:nested-loop;mem:word-array;risk:stack-alignment;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-FOUR-ARGS-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-FLOW-EARLY-BREAK-001;PAT-FLOW-NESTED-LOOP-001;PAT-MEM-WORD-ARRAY-001;PAT-AAPCS-STACK-SAFETY-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    },
+    {
+      "question_id": "E2026-06-25-B2-Q2",
+      "exam_id": "E2026-06-25-B2",
+      "question": "Q2",
+      "delivery_mode": "C + ASM call",
+      "requirement": "Build the corresponding debounced joystick-driven Mastermind game with timer-derived secret, per-digit LED fields, repeated guesses and encoded result display.",
+      "source_pdf": "Exams\\Exam 25.06.2206\\20260625_ARM_2.pdf",
+      "source_sha256": "b643106147d4a20efe44ea7d6d39f1ec8dfc44d76d1625114779893efacb7124",
+      "tags": "abi:nonleaf;alg:frequency-count;board:gpio;board:joystick;board:timer;risk:irq-shared-state;state:debounce;state:event-loop;timing:free-running;timing:periodic",
+      "pattern_ids": "PAT-AAPCS-NONLEAF-001;PAT-ALG-FREQUENCY-COUNT-001;PAT-GPIO-EVENT-001;PAT-GPIO-JOYSTICK-001;PAT-TIMER-OWNERSHIP-001;PAT-STATE-IRQ-HANDOFF-001;PAT-STATE-DEBOUNCE-001;PAT-STATE-EVENT-LOOP-001;PAT-TIMER-FREE-RUNNING-001;PAT-TIMER-PERIODIC-001",
+      "simulator_status": "COMPILE_ONLY",
+      "hardware_status": "COMPILE_ONLY",
+      "physical_status": "PHYSICAL_BOARD_NOT_TESTED"
+    }
+  ],
+  "patterns": [
+    {
+      "pattern_id": "PAT-ALG-SORTING-001",
+      "category": "algorithms",
+      "title": "Signed and unsigned array sorting",
+      "primary_tag": "alg:sorting",
+      "exam_ids": "E2023-02-07;E2023-02-24"
+    },
+    {
+      "pattern_id": "PAT-ALG-RECURRENCE-001",
+      "category": "algorithms",
+      "title": "Bounded recurrence into an array",
+      "primary_tag": "alg:recurrence",
+      "exam_ids": "E2023-02-24;E2023-07-04;E2023-09-18;E2024-02-28;E2024-07-09;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2"
+    },
+    {
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001",
+      "category": "algorithms",
+      "title": "Matrix and graph traversal",
+      "primary_tag": "alg:graph-search",
+      "exam_ids": "E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16"
+    },
+    {
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001",
+      "category": "algorithms",
+      "title": "Frequency-count comparison",
+      "primary_tag": "alg:frequency-count",
+      "exam_ids": "E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-ALG-FIXED-POINT-001",
+      "category": "algorithms",
+      "title": "Fixed-point multiply and recurrence",
+      "primary_tag": "alg:fixed-point",
+      "exam_ids": "E2025-01-29-A1;E2025-02-12-A1;E2025-02-12-A2"
+    },
+    {
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001",
+      "category": "control-flow",
+      "title": "Nested loops with preserved outer state",
+      "primary_tag": "flow:nested-loop",
+      "exam_ids": "E2023-02-07;E2023-02-24;E2023-05-17;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-07-01-A2;E2026-02-03-A3;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001",
+      "category": "control-flow",
+      "title": "Balanced early exit from inner search",
+      "primary_tag": "flow:early-break",
+      "exam_ids": "E2023-02-07;E2024-02-12;E2025-01-29-A2;E2026-02-03-A2;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001",
+      "category": "memory",
+      "title": "Signed and unsigned byte arrays",
+      "primary_tag": "mem:byte-array",
+      "exam_ids": "E2023-02-07;E2023-02-24;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2026-02-03-A1;E2026-02-03-A2"
+    },
+    {
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001",
+      "category": "memory",
+      "title": "Word-array traversal",
+      "primary_tag": "mem:word-array",
+      "exam_ids": "E2023-07-04;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001",
+      "category": "memory",
+      "title": "Row-major matrix addressing",
+      "primary_tag": "mem:matrix-row-major",
+      "exam_ids": "E2023-02-24;E2023-05-17;E2023-09-18;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2026-02-18-A2;E2026-06-25-B1"
+    },
+    {
+      "pattern_id": "PAT-AAPCS-FOUR-ARGS-001",
+      "category": "aapcs",
+      "title": "Four-register argument contract",
+      "primary_tag": "abi:four-register-args",
+      "exam_ids": "E2024-07-09;E2024-09-16;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001",
+      "category": "aapcs",
+      "title": "Fifth and later arguments",
+      "primary_tag": "abi:stacked-args",
+      "exam_ids": "E2024-09-16;E2025-07-01-A1;E2025-07-01-A2"
+    },
+    {
+      "pattern_id": "PAT-AAPCS-NONLEAF-001",
+      "category": "aapcs",
+      "title": "Non-leaf prologue and epilogue",
+      "primary_tag": "abi:nonleaf",
+      "exam_ids": "E2023-02-07;E2023-02-24;E2023-05-17;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-CPU-FLAGS-001",
+      "category": "exceptions",
+      "title": "APSR flag contract",
+      "primary_tag": "cpu:flags",
+      "exam_ids": "E2023-05-17;E2023-09-18;E2024-02-12;E2024-09-16;E2025-01-29-A2;E2025-02-12-A1;E2025-07-01-A1;E2026-02-03-A1;E2026-02-03-A3;E2026-02-18-A2"
+    },
+    {
+      "pattern_id": "PAT-CPU-SVC-001",
+      "category": "exceptions",
+      "title": "SVC immediate decoding",
+      "primary_tag": "cpu:svc",
+      "exam_ids": "E2023-02-07;E2023-02-24"
+    },
+    {
+      "pattern_id": "PAT-CPU-EXCEPTION-FRAME-001",
+      "category": "exceptions",
+      "title": "MSP/PSP exception-frame selection",
+      "primary_tag": "cpu:exception-frame",
+      "exam_ids": "E2023-02-24"
+    },
+    {
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001",
+      "category": "timers",
+      "title": "Timer setup and ownership",
+      "primary_tag": "board:timer",
+      "exam_ids": "E2023-02-07;E2023-07-04;E2024-02-12;E2024-02-28;E2024-07-09;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-GPIO-EVENT-001",
+      "category": "gpio-input",
+      "title": "GPIO event capture",
+      "primary_tag": "board:gpio",
+      "exam_ids": "E2023-02-07;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-GPIO-JOYSTICK-001",
+      "category": "gpio-input",
+      "title": "Joystick event state machine",
+      "primary_tag": "board:joystick",
+      "exam_ids": "E2025-07-01-A1;E2025-07-01-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-ADC-SAMPLE-001",
+      "category": "adc-dac",
+      "title": "ADC sample conversion",
+      "primary_tag": "board:adc",
+      "exam_ids": "E2023-05-17;E2025-02-12-A1;E2025-02-12-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1"
+    },
+    {
+      "pattern_id": "PAT-DAC-STREAM-001",
+      "category": "adc-dac",
+      "title": "DAC table streaming",
+      "primary_tag": "board:dac",
+      "exam_ids": "E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2"
+    },
+    {
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001",
+      "category": "state-machines",
+      "title": "ISR-to-foreground event loop",
+      "primary_tag": "state:event-loop",
+      "exam_ids": "E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A3;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-STATE-DEBOUNCE-001",
+      "category": "state-machines",
+      "title": "Deterministic debounce",
+      "primary_tag": "state:debounce",
+      "exam_ids": "E2023-02-07;E2023-09-18;E2024-02-12;E2024-09-16;E2025-01-29-A3;E2025-02-12-A1;E2026-02-03-A1;E2026-02-03-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-TIMER-PERIODIC-001",
+      "category": "timers",
+      "title": "Periodic match scheduling",
+      "primary_tag": "timing:periodic",
+      "exam_ids": "E2023-07-04;E2024-02-28;E2024-07-09;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001",
+      "category": "timers",
+      "title": "Free-running timer seed",
+      "primary_tag": "timing:free-running",
+      "exam_ids": "E2023-02-07;E2024-02-12;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001",
+      "category": "aapcs",
+      "title": "Register preservation and stack safety",
+      "primary_tag": "risk:stack-alignment",
+      "exam_ids": "E2023-02-07;E2023-02-24;E2023-05-17;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001",
+      "category": "state-machines",
+      "title": "Atomic ISR event handoff",
+      "primary_tag": "risk:irq-shared-state",
+      "exam_ids": "E2023-02-07;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2"
+    },
+    {
+      "pattern_id": "PAT-TIMER-VECTOR-OWNERSHIP-001",
+      "category": "timers",
+      "title": "Exclusive interrupt-vector ownership",
+      "primary_tag": "risk:vector-ownership",
+      "exam_ids": "E2023-02-07;E2026-02-18-A1"
+    }
+  ],
+  "links": [
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-ALG-SORTING-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-CPU-SVC-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-ALG-SORTING-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-TIMER-VECTOR-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2023-02-07",
+      "question_id": "E2023-02-07-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-ALG-SORTING-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-CPU-EXCEPTION-FRAME-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-CPU-SVC-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-02-24",
+      "question_id": "E2023-02-24-Q2",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q1",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q1",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-05-17",
+      "question_id": "E2023-05-17-Q2",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-07-04",
+      "question_id": "E2023-07-04-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q1",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2023-09-18",
+      "question_id": "E2023-09-18-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-12",
+      "question_id": "E2024-02-12-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-02-28",
+      "question_id": "E2024-02-28-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-AAPCS-FOUR-ARGS-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2024-07-09",
+      "question_id": "E2024-07-09-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-AAPCS-FOUR-ARGS-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-ALG-GRAPH-SEARCH-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2024-09-16",
+      "question_id": "E2024-09-16-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q1",
+      "pattern_id": "PAT-ALG-FIXED-POINT-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A1",
+      "question_id": "E2025-01-29-A1-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q1",
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A2",
+      "question_id": "E2025-01-29-A2-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q1",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2025-01-29-A3",
+      "question_id": "E2025-01-29-A3-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-ALG-FIXED-POINT-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-ALG-FIXED-POINT-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A1",
+      "question_id": "E2025-02-12-A1-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q1",
+      "pattern_id": "PAT-ALG-FIXED-POINT-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-02-12-A2",
+      "question_id": "E2025-02-12-A2-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q2",
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q2",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q2",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-GPIO-JOYSTICK-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A1",
+      "question_id": "E2025-07-01-A1-Q3",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-AAPCS-STACKED-ARGS-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q2",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-GPIO-JOYSTICK-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2025-07-01-A2",
+      "question_id": "E2025-07-01-A2-Q3",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A1",
+      "question_id": "E2026-02-03-A1-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q1",
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q1",
+      "pattern_id": "PAT-MEM-BYTE-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A2",
+      "question_id": "E2026-02-03-A2-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-03-A3",
+      "question_id": "E2026-02-03-A3-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q1",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-TIMER-VECTOR-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A1",
+      "question_id": "E2026-02-18-A1-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-ALG-RECURRENCE-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q1",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-DAC-STREAM-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-CPU-FLAGS-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-02-18-A2",
+      "question_id": "E2026-02-18-A2-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-AAPCS-FOUR-ARGS-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-ADC-SAMPLE-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-GPIO-JOYSTICK-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-MEM-MATRIX-ROW-MAJOR-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B1",
+      "question_id": "E2026-06-25-B1-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-AAPCS-FOUR-ARGS-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-FLOW-EARLY-BREAK-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-FLOW-NESTED-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-MEM-WORD-ARRAY-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-AAPCS-STACK-SAFETY-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q1",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-AAPCS-NONLEAF-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-ALG-FREQUENCY-COUNT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-GPIO-EVENT-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-GPIO-JOYSTICK-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-TIMER-OWNERSHIP-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-STATE-IRQ-HANDOFF-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-STATE-DEBOUNCE-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-STATE-EVENT-LOOP-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-TIMER-FREE-RUNNING-001"
+    },
+    {
+      "exam_id": "E2026-06-25-B2",
+      "question_id": "E2026-06-25-B2-Q2",
+      "pattern_id": "PAT-TIMER-PERIODIC-001"
+    }
+  ]
+}
