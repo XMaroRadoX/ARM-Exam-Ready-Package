@@ -9,16 +9,22 @@ organized by the question being answered, not by filename alone.
    starts, which files to edit, how C calls assembly and how interrupt ownership works.
 2. [Current exam-readiness audit](../Tests%20and%20Reports/Repository%20Audit/EXAM_READINESS_AUDIT.md) —
    the honest file-by-file verdict and the historical answers that must not be trusted yet.
-3. [Ultimate exam navigator](exam-navigator.md) — the tutor-style route
+3. [One-week zero-to-exam-ready plan](ONE_WEEK_ZERO_TO_EXAM_READY.md) —
+   seven days of learning, implementation, mock exams and USB rehearsal.
+4. [Assembly instruction handbook PDF](../output/pdf/ARM_ASSEMBLY_INSTRUCTION_HANDBOOK.pdf) —
+   searchable explanations, variants, combinations, examples and constraints.
+5. [Complete ordered ARM PDF library](../output/pdf/ARM_COMPLETE_ORDERED_LIBRARY.pdf) —
+   all 25 ARM-directory PDFs and all 1,553 original pages, with an index and bookmarks.
+6. [Ultimate exam navigator](exam-navigator.md) — the tutor-style route
    from receiving the paper to submitting the final Keil project.
-4. [Live exam companion](live-exam-guide.md) — checkpoint-by-checkpoint
+7. [Live exam companion](live-exam-guide.md) — checkpoint-by-checkpoint
    directions to follow after the paper is placed in front of you.
-5. [USB package instructions](usb-package-guide.md) — what to copy, edit and submit.
-6. [Code-template index](../Exam%20Atlas%20and%20Code%20Patterns/CODE_TEMPLATES/00_TEMPLATE_INDEX.md)
+8. [USB package instructions](usb-package-guide.md) — what to copy, edit and submit.
+9. [Code-template index](../Exam%20Atlas%20and%20Code%20Patterns/CODE_TEMPLATES/00_TEMPLATE_INDEX.md)
    — direct access to reusable C and assembly source patterns.
-7. [API and assembly coverage](api-and-pattern-coverage.md) — all 28
+10. [API and assembly coverage](api-and-pattern-coverage.md) — all 28
    recurring tags mapped to APIs, source templates, indexed questions and gaps.
-8. [Template cleanup and improvements](template-cleanup-and-improvements.md) —
+11. [Template cleanup and improvements](template-cleanup-and-improvements.md) —
    the clean submission layout, completed cleanup and remaining verification work.
 
 ## “I need to recognize this question”

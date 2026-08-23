@@ -13,8 +13,8 @@ must not be described that way:
 - Six of those seven also have generic Q2 C code.
 - The 23 historical folders are answer-source collections, not self-contained
   Keil projects; none contains a `.uvprojx` file.
-- One exam-specific solution has the wrong affine-matrix byte order
-  (`E2025-01-29-A1`).
+- The affine-matrix byte-order defect found in `E2025-01-29-A1` was corrected
+  during this audit.
 - One uses 1,000 elements where the paper requires 10,000
   (`E2026-02-18-A2`), with an unresolved 40,000-byte placement problem.
 - Several otherwise relevant C answers define interrupt handlers directly.
@@ -166,12 +166,12 @@ The following are not solutions: 2023-02-24 Q1; both questions for
 2023-05-17, 2023-09-18, 2024-02-12, 2024-02-28, 2024-07-09 and 2024-09-16.
 Their generic `exam_asm_example` and tutorial C must not be copied as answers.
 
-### Affine transformation constant
+### Corrected affine transformation constant
 
 The 29 January 2025 ARM1 paper specifies rows in the order
-`F8, 7C, 3E, 1F, 8F, C7, E3, F1`. The historical C answer stores
-`8F, C7, E3, F1, F8, 7C, 3E, 1F`. The assembly routine is structurally
-reasonable, but the Q2 call uses the wrong matrix.
+`F8, 7C, 3E, 1F, 8F, C7, E3, F1`. The historical C answer previously stored
+the two four-row halves in the wrong order. It now uses the exact order from
+the paper. The routine still requires integration and linked execution tests.
 
 ### Hofstadter-Conway length and RAM
 
@@ -215,4 +215,3 @@ You may say the clean project is a self-contained LPC1768 starting template
 with one Keil target and broad historical peripheral coverage. Do not say that
 all 23 solutions are complete, that all assembly was simulator-executed, or
 that the board behavior was physically verified.
-
