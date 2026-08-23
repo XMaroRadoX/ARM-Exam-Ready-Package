@@ -1,7 +1,8 @@
 #include "exam_user.h"
 
 /* The core clock, LED pins and fault support are ready before this function.
- * Timers, input devices, ADC, DAC, RIT and SysTick remain available but off. */
+ * Optional exam_config.h startup flags run first. The debugger-visible
+ * started and failure masks report the result for every selected resource. */
 void exam_user_init(void)
 {
 }

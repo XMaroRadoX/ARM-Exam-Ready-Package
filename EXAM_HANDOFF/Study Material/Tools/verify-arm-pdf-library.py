@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import tempfile
 from pathlib import Path
 
 import pypdfium2 as pdfium
@@ -15,7 +16,7 @@ STUDY = Path(__file__).resolve().parents[1]
 HANDOFF = STUDY.parent
 ARM = HANDOFF / "ARM"
 OUT = STUDY / "output" / "pdf"
-TMP = STUDY / "tmp" / "pdfs" / "qa"
+TMP = Path(tempfile.gettempdir()) / "arm-exam-pdfs" / "qa"
 TMP.mkdir(parents=True, exist_ok=True)
 
 

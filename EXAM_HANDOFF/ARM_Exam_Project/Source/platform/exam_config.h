@@ -43,6 +43,46 @@
 #define EXAM_RIT_DIRECT_MODE 0
 #endif
 
+/* Optional startup selection. The default keeps every exam-specific resource
+ * unclaimed. Set a flag to 1 when that resource is part of the answer. */
+#ifndef EXAM_AUTO_START_BUTTONS
+#define EXAM_AUTO_START_BUTTONS 0
+#endif
+#ifndef EXAM_AUTO_START_JOYSTICK
+#define EXAM_AUTO_START_JOYSTICK 0
+#endif
+#ifndef EXAM_AUTO_START_TIMER0
+#define EXAM_AUTO_START_TIMER0 0
+#endif
+#ifndef EXAM_AUTO_START_TIMER1
+#define EXAM_AUTO_START_TIMER1 0
+#endif
+#ifndef EXAM_AUTO_START_TIMER2
+#define EXAM_AUTO_START_TIMER2 0
+#endif
+#ifndef EXAM_AUTO_START_TIMER3
+#define EXAM_AUTO_START_TIMER3 0
+#endif
+#ifndef EXAM_AUTO_START_RIT
+#define EXAM_AUTO_START_RIT 0
+#endif
+#ifndef EXAM_AUTO_START_SYSTICK
+#define EXAM_AUTO_START_SYSTICK 0
+#endif
+#ifndef EXAM_AUTO_START_ADC
+#define EXAM_AUTO_START_ADC 0
+#endif
+#ifndef EXAM_AUTO_START_DAC
+#define EXAM_AUTO_START_DAC 0
+#endif
+
+/* Automatically started timers are free-running at the selected PCLK and PR.
+ * Periodic matches still belong in the answer because their periods are
+ * question-specific. */
+#define EXAM_AUTO_TIMER_CLOCK_DIVIDER 4u
+#define EXAM_AUTO_TIMER_PRESCALER     0u
+#define EXAM_AUTO_SYSTICK_PERIOD_MS   10u
+
 #define RIT_SCHEDULER 1
 #define RIT_RAW       2
 #if EXAM_RIT_DIRECT_MODE
@@ -80,6 +120,19 @@
 
 #if (CA_BUTTON_CONFIRM_MS % CA_RIT_TICK_MS) != 0
 #error CA_BUTTON_CONFIRM_MS must be a multiple of CA_RIT_TICK_MS
+#endif
+
+#if EXAM_RIT_DIRECT_MODE && (EXAM_AUTO_START_BUTTONS || EXAM_AUTO_START_JOYSTICK || EXAM_AUTO_START_RIT)
+#error RIT direct mode cannot share the RIT scheduler used by automatic input startup
+#endif
+#if EXAM_AUTO_START_BUTTONS && (EXAM_OWN_EINT0_HANDLER || EXAM_OWN_EINT1_HANDLER || EXAM_OWN_EINT2_HANDLER)
+#error Automatic buttons require the template EINT handlers
+#endif
+#if EXAM_AUTO_START_SYSTICK && EXAM_OWN_SYSTICK_HANDLER
+#error Automatic SysTick requires the template SysTick handler
+#endif
+#if EXAM_AUTO_START_ADC && EXAM_OWN_ADC_HANDLER
+#error Automatic ADC startup requires the template ADC handler
 #endif
 
 #endif

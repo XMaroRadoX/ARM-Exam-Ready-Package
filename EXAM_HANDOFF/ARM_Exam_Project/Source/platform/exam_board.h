@@ -31,6 +31,24 @@ enum {
   JOYSTICK_RIGHT  = 1u << 3,
   JOYSTICK_UP     = 1u << 4
 };
+
+enum {
+  AUTO_INIT_BUTTONS = 1u << 0,
+  AUTO_INIT_JOYSTICK = 1u << 1,
+  AUTO_INIT_TIMER0 = 1u << 2,
+  AUTO_INIT_TIMER1 = 1u << 3,
+  AUTO_INIT_TIMER2 = 1u << 4,
+  AUTO_INIT_TIMER3 = 1u << 5,
+  AUTO_INIT_RIT = 1u << 6,
+  AUTO_INIT_SYSTICK = 1u << 7,
+  AUTO_INIT_ADC = 1u << 8,
+  AUTO_INIT_DAC = 1u << 9
+};
+
+/* The started mask records successful resources; zero failures means every
+ * startup feature selected in exam_config.h succeeded. */
+extern volatile uint32_t exam_auto_init_started;
+extern volatile uint32_t exam_auto_init_failures;
 typedef void (*joystick_callback_t)(uint32_t current_mask, uint32_t changed_mask);
 
 /* Match actions can be ORed independently, exactly like the MCR I/R/S bits. */

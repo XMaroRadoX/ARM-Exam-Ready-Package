@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import tempfile
 from pathlib import Path
 
 from pypdf import PdfReader, PdfWriter
@@ -12,14 +13,14 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
-from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import PageBreak, Paragraph, Preformatted, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 STUDY = Path(__file__).resolve().parents[1]
 HANDOFF = STUDY.parent
 ARM = HANDOFF / "ARM"
 OUT = STUDY / "output" / "pdf"
-TMP = STUDY / "tmp" / "pdfs"
+TMP = Path(tempfile.gettempdir()) / "arm-exam-pdfs"
 OUT.mkdir(parents=True, exist_ok=True)
 TMP.mkdir(parents=True, exist_ok=True)
 
@@ -103,6 +104,327 @@ DIRECTIVES = [
     ("ALIGN", "Align the following location."), ("LTORG", "Emit the current literal pool."), ("END", "End the assembly source."),
 ]
 
+ASSEMBLY_RECIPES = [
+    ("Leaf function with four register arguments", "A short formula or comparison with no nested function call.", """; uint32_t f(uint32_t a, uint32_t b, uint32_t c, uint32_t d)
+f PROC
+        ADD     r0, r0, r1
+        MLA     r0, r2, r3, r0
+        BX      lr
+        ENDP""", "R0-R3 are caller-saved. No stack frame is needed when no callee-saved register or nested BL is used."),
+    ("Non-leaf function with aligned frame", "The routine calls a helper and needs values to survive the call.", """outer PROC
+        PUSH    {r4-r6, lr}      ; 16 bytes, still 8-byte aligned
+        MOV     r4, r0           ; preserve input across BL
+        BL      helper
+        ADD     r0, r0, r4
+        POP     {r4-r6, pc}
+        ENDP""", "Save incoming LR before the first BL. Restore every saved register on every return path."),
+    ("Fifth and sixth stacked arguments", "The C prototype has more than four 32-bit arguments.", """; uint32_t f(a,b,c,d,e,f)
+f PROC
+        PUSH    {r4, lr}         ; SP moved by 8 bytes
+        LDR     r4, [sp, #8]     ; original [SP] = fifth argument
+        LDR     r12,[sp, #12]    ; original [SP,#4] = sixth
+        ADD     r0, r0, r4
+        ADD     r0, r0, r12
+        POP     {r4, pc}
+        ENDP""", "Stacked offsets are measured after accounting for the callee's own push. Record the frame size before writing offsets."),
+    ("Bounded word-array sum", "Traverse uint32_t/int32_t words without reading past length.", """; r0=base, r1=count, returns r0=sum
+sum_words PROC
+        MOV     r2, r0
+        MOVS    r0, #0
+        CBZ     r1, sum_done
+sum_loop
+        LDR     r3, [r2], #4
+        ADD     r0, r0, r3
+        SUBS    r1, r1, #1
+        BNE     sum_loop
+sum_done
+        BX      lr
+        ENDP""", "Test count before the first load. ADD wraps modulo 2^32 unless the contract requires overflow handling."),
+    ("Signed byte minimum", "The paper gives int8_t elements or negative byte values.", """; r0=base, r1=count; count must be nonzero
+min_s8 PROC
+        LDRSB   r2, [r0], #1
+        SUBS    r1, r1, #1
+min_loop
+        CBZ     r1, min_done
+        LDRSB   r3, [r0], #1
+        CMP     r3, r2
+        BGE     min_keep
+        MOV     r2, r3
+min_keep
+        SUBS    r1, r1, #1
+        B       min_loop
+min_done
+        MOV     r0, r2
+        BX      lr
+        ENDP""", "LDRSB plus BGE makes both the load and comparison signed. Define behavior for an empty input."),
+    ("Row-major matrix element", "Compute matrix[row][column] for a flat word matrix.", """; r0=base, r1=row, r2=column, r3=column_count
+matrix_get PROC
+        MLA     r1, r1, r3, r2  ; row*columns + column
+        LDR     r0, [r0, r1, LSL #2]
+        BX      lr
+        ENDP""", "The scale is #2 only for four-byte elements. Validate row/column outside this helper if bounds are part of the contract."),
+    ("Nested search with early exit", "Find the first equal pair or stop as soon as the required relation is found.", """; r0=base, r1=count; returns index pair packed, or -1
+find_pair PROC
+        PUSH    {r4-r7, lr}
+        MOV     r4, r0
+        MOV     r5, r1
+        MOVS    r6, #0
+outer
+        ADD     r7, r6, #1
+inner
+        CMP     r7, r5
+        BHS     next_outer
+        LDR     r0, [r4, r6, LSL #2]
+        LDR     r1, [r4, r7, LSL #2]
+        CMP     r0, r1
+        BEQ     found
+        ADD     r7, r7, #1
+        B       inner
+next_outer
+        ADD     r6, r6, #1
+        CMP     r6, r5
+        BLO     outer
+        MVN     r0, #0
+        POP     {r4-r7, pc}
+found
+        ORR     r0, r7, r6, LSL #16
+        POP     {r4-r7, pc}
+        ENDP""", "Use unsigned bounds for indexes. Every early return must use the same epilogue."),
+    ("Frequency table for bytes", "Count occurrences, digits, symbols, or small bounded keys.", """; r0=input, r1=count, r2=256-word frequency table (zeroed)
+count_bytes PROC
+        CBZ     r1, freq_done
+freq_loop
+        LDRB    r3, [r0], #1
+        LDR     r12,[r2, r3, LSL #2]
+        ADD     r12,r12,#1
+        STR     r12,[r2, r3, LSL #2]
+        SUBS    r1, r1, #1
+        BNE     freq_loop
+freq_done
+        BX      lr
+        ENDP""", "The output table must have 256 words and must be cleared unless accumulation is required."),
+    ("Insertion sort signed bytes", "Small in-place signed array sorting.", """; r0=base, r1=count
+sort_s8 PROC
+        PUSH    {r4-r7, lr}
+        MOV     r4, r0
+        MOVS    r5, #1
+sort_outer
+        CMP     r5, r1
+        BHS     sort_done
+        LDRSB   r6, [r4, r5]
+        MOV     r7, r5
+sort_inner
+        CBZ     r7, sort_place
+        SUB     r2, r7, #1
+        LDRSB   r3, [r4, r2]
+        CMP     r3, r6
+        BLE     sort_place
+        STRB    r3, [r4, r7]
+        MOV     r7, r2
+        B       sort_inner
+sort_place
+        STRB    r6, [r4, r7]
+        ADD     r5, r5, #1
+        B       sort_outer
+sort_done
+        POP     {r4-r7, pc}
+        ENDP""", "Signed load and signed branch must agree. Count 0 and 1 should perform no data access beyond the array."),
+    ("Recurrence with a policy helper", "Generate a sequence where only the recurrence formula is likely to change.", """; r0=output, r1=count
+sequence PROC
+        PUSH    {r4-r6, lr}
+        MOV     r4, r0
+        MOV     r5, r1
+        MOVS    r6, #0
+seq_loop
+        CMP     r6, r5
+        BHS     seq_done
+        MOV     r0, r6
+        BL      recurrence_rule
+        STR     r0, [r4, r6, LSL #2]
+        ADD     r6, r6, #1
+        B       seq_loop
+seq_done
+        MOV     r0, r4
+        POP     {r4-r6, pc}
+        ENDP""", "Keep the output base and loop state in callee-saved registers because BL may destroy R0-R3 and LR."),
+    ("Unsigned division and remainder", "Split decimal digits, calculate modulo, or test divisibility.", """; r0=value, r1=divisor; returns quotient r0, remainder r1
+divmod_u32 PROC
+        UDIV    r2, r0, r1
+        MLS     r1, r2, r1, r0  ; value - quotient*divisor
+        MOV     r0, r2
+        BX      lr
+        ENDP""", "Check divisor zero before UDIV when trapping or defined error behavior matters."),
+    ("64-bit addition and subtraction", "Operate on low/high word pairs.", """; a=r1:r0, b=r3:r2, returns r1:r0
+add_u64 PROC
+        ADDS    r0, r0, r2
+        ADC     r1, r1, r3
+        BX      lr
+        ENDP
+sub_u64 PROC
+        SUBS    r0, r0, r2
+        SBC     r1, r1, r3
+        BX      lr
+        ENDP""", "The low-word S instruction establishes carry/no-borrow for the high word."),
+    ("Return condition flags deliberately", "The paper grades APSR flags as well as register output.", """; perform all bookkeeping before the final flag-setting instruction
+compare_return PROC
+        CMP     r0, r1
+        BX      lr              ; BX does not change flags
+        ENDP""", "No flag-setting instruction may appear between the required final comparison/arithmetic and return."),
+    ("SVC immediate and MSP/PSP frame selection", "Decode a supervisor service from the faulting instruction.", """SVC_Handler PROC
+        TST     lr, #4
+        ITE     EQ
+        MRSEQ   r0, MSP
+        MRSNE   r0, PSP
+        LDR     r1, [r0, #24]   ; stacked PC
+        LDRB    r1, [r1, #-2]   ; SVC immediate
+        B       svc_dispatch_asm
+        ENDP""", "The basic exception frame is r0,r1,r2,r3,r12,lr,pc,xPSR. Account for extended frames only if the target uses them."),
+    ("Atomic update with LDREX/STREX", "Update shared memory without disabling interrupts for the whole operation.", """atomic_inc PROC
+retry
+        LDREX   r1, [r0]
+        ADD     r1, r1, #1
+        STREX   r2, r1, [r0]
+        CBNZ    r2, retry
+        DMB
+        MOV     r0, r1
+        BX      lr
+        ENDP""", "STREX success is zero. A retry is mandatory because an interrupt or competing write can clear the exclusive reservation."),
+]
+
+C_RECIPES = [
+    ("C calls an assembly routine", "Use an exact prototype shared with the assembly EXPORT.", """extern uint32_t count_matches(const uint8_t *data,
+                              uint32_t count,
+                              uint8_t key);
+
+uint32_t answer = count_matches(values, value_count, target);""", "Pointer element type, signedness and return type must match what the assembly actually loads and returns."),
+    ("Deferred event state machine", "Keep callbacks short and perform decisions in the foreground.", """enum { EVENT_TICK = 1u << 0, EVENT_PRESS = 1u << 1 };
+
+static void timer_cb(uint8_t timer, uint32_t flags)
+{
+  if (timer == 0u && exam_timer_match_happened(flags, 0u))
+    exam_events_set(EVENT_TICK);
+}
+
+void exam_user_loop(void)
+{
+  uint32_t events = exam_events_take(EVENT_TICK | EVENT_PRESS);
+  if (events & EVENT_PRESS) { /* transition state */ }
+  if (events & EVENT_TICK)  { /* advance timed output */ }
+}""", "A bit records that an event occurred, not necessarily how many times. Use a counter when every occurrence must be preserved."),
+    ("Automatic startup flags", "Select simple resource startup without adding visible initialization calls to the answer.", """/* exam_config.h */
+#define EXAM_AUTO_START_BUTTONS 1
+#define EXAM_AUTO_START_JOYSTICK 1
+#define EXAM_AUTO_START_TIMER0 1
+#define EXAM_AUTO_START_ADC 1
+#define EXAM_AUTO_START_DAC 1
+
+/* exam_user.c */
+void exam_user_init(void)
+{
+  if (exam_auto_init_failures != 0u) {
+    /* visible debug breakpoint location */
+  }
+  /* exam_auto_init_started contains successful AUTO_INIT_* bits. */
+}""", "Automatic timers are free-running. Periodic match values remain question-specific and should use the timer API or direct registers."),
+    ("All supported devices concurrently", "Start independent resources together while retaining one owner per vector.", """#define EXAM_AUTO_START_BUTTONS 1
+#define EXAM_AUTO_START_JOYSTICK 1
+#define EXAM_AUTO_START_TIMER0 1
+#define EXAM_AUTO_START_TIMER1 1
+#define EXAM_AUTO_START_TIMER2 1
+#define EXAM_AUTO_START_TIMER3 1
+#define EXAM_AUTO_START_RIT 1
+#define EXAM_AUTO_START_SYSTICK 1
+#define EXAM_AUTO_START_ADC 1
+#define EXAM_AUTO_START_DAC 1""", "Buttons and joystick intentionally share scheduler-mode RIT. Raw RIT cannot coexist with that scheduler. DAC table playback later claims one timer, so stop/reassign that timer first."),
+    ("Periodic timer callback", "A paper gives a period or rate and accepts a helper-based setup.", """static void tick(uint8_t timer, uint32_t flags)
+{
+  if (timer == 1u && exam_timer_match_happened(flags, 0u))
+    exam_events_set(1u);
+}
+
+void exam_user_init(void)
+{
+  exam_status_t status = exam_timer_every_ms(1, 500, tick);
+  (void)status;
+}""", "The helper owns MR0 and starts the timer. Do not auto-start the same timer first."),
+    ("Direct Timer register configuration", "The paper explicitly asks for PR, MR, MCR, TCR or IR values.", """void timer0_periodic(uint32_t match)
+{
+  LPC_SC->PCONP |= 1u << 1;
+  LPC_TIM0->TCR = 2u;
+  LPC_TIM0->PR = 0u;
+  LPC_TIM0->MR0 = match;
+  LPC_TIM0->MCR = (1u << 0) | (1u << 1);
+  LPC_TIM0->IR = 0x3Fu;
+  NVIC_ClearPendingIRQ(TIMER0_IRQn);
+  NVIC_EnableIRQ(TIMER0_IRQn);
+  LPC_TIM0->TCR = 1u;
+}""", "Calculate match from the real PCLK. IR is write-one-to-clear. If defining TIMER0_IRQHandler, transfer vector ownership in exam_config.h."),
+    ("Free-running elapsed timer", "Measure time without reset-on-match interrupts.", """void exam_user_init(void)
+{
+  (void)exam_timer_clock_divider(2u, 4u);
+  (void)exam_timer_prescaler(2u, 24u);
+  (void)exam_timer_reset(2u);
+  (void)exam_timer_start(2u);
+}
+
+uint32_t elapsed_ticks(void)
+{
+  return exam_timer_count(2u);
+}""", "With 100 MHz core, divider 4 and PR 24, TC advances at 1 MHz. Confirm the course clock configuration before relying on that number."),
+    ("Debounced buttons", "INT0/KEY input should create one logical press despite bounce.", """static void button_cb(exam_button_t button, exam_button_event_t event)
+{
+  if (button == EXAM_BUTTON_INT0 && event == EXAM_PRESS)
+    exam_events_set(1u);
+}
+
+void exam_user_init(void)
+{
+  (void)exam_buttons_start(button_cb);
+}""", "The helper starts scheduler-mode RIT. A direct EINT handler and the callback owner must not own the same vector."),
+    ("Joystick direction masks", "Accept single or diagonal joystick input.", """static void joystick_cb(uint32_t current, uint32_t changed)
+{
+  uint32_t new_presses = current & changed;
+  if (new_presses & EXAM_JOY_UP) exam_events_set(1u << 0);
+  if (new_presses & EXAM_JOY_RIGHT) exam_events_set(1u << 1);
+}""", "The values are masks, not mutually exclusive enum alternatives. Test with bitwise AND."),
+    ("ADC conversion stream", "Read the LandTiger potentiometer repeatedly.", """void exam_user_init(void)
+{
+  (void)exam_pot_start();
+}
+
+void exam_user_loop(void)
+{
+  int sample;
+  if (exam_pot_read(&sample) == EXAM_OK) {
+    uint8_t level = (uint8_t)((sample * 255L + 2047L) / 4095L);
+    (void)exam_led_write(level);
+  }
+}""", "The API returns EXAM_NOT_READY until a fresh conversion completes and then automatically starts the next conversion."),
+    ("DAC lookup-table waveform", "Output sine/cosine/custom samples at a fixed sample rate.", """static const uint16_t wave[] = {512, 724, 874, 936, 874, 724, 512,
+                                300, 150, 88, 150, 300};
+
+void exam_user_init(void)
+{
+  (void)dac_play_samples(wave,
+      sizeof wave / sizeof wave[0], 12000u, 3u);
+}""", "Every sample must be 0..1023. Playback claims the chosen timer; it cannot share that timer with another running use."),
+    ("Critical snapshot of shared state", "Read or modify a multi-field IRQ-shared object consistently.", """uint32_t saved = exam_critical_enter();
+local_count = shared_count;
+local_state = shared_state;
+exam_critical_exit(saved);""", "Pass the saved PRIMASK back unchanged. Volatile provides visibility but does not make a multi-step update atomic."),
+    ("Direct active-low GPIO input", "The paper grades direct GPIO interpretation.", """uint32_t pressed;
+LPC_GPIO2->FIODIR &= ~(1u << 10);
+pressed = ((LPC_GPIO2->FIOPIN & (1u << 10)) == 0u);""", "Confirm the exact board pin in the paper/schematic. Active-low means a zero electrical level represents pressed."),
+    ("SVC service in C", "Dispatch services after the assembly wrapper selects and decodes the exception frame.", """void svc_dispatch(uint8_t service, svc_context_t *frame)
+{
+  switch (service) {
+    case 1u: frame->r0 = frame->r0 + frame->r1; break;
+    case 2u: frame->r0 = exam_led_read(); break;
+    default: frame->r0 = 0xFFFFFFFFu; break;
+  }
+}""", "Only modify stacked fields intentionally. The service number comes from the SVC instruction, not stacked R0."),
+]
+
 
 def natural_key(path: Path):
     name = path.name
@@ -126,6 +448,7 @@ def build_guide():
     styles.add(ParagraphStyle(name="Inst", parent=styles["Heading2"], fontName="Helvetica-Bold", fontSize=12, leading=15, textColor=colors.HexColor("#8A2D1C"), spaceBefore=9, spaceAfter=4))
     styles.add(ParagraphStyle(name="Body2", parent=styles["BodyText"], fontSize=9.2, leading=12.5, spaceAfter=5))
     styles.add(ParagraphStyle(name="Code2", parent=styles["Code"], fontName="Courier", fontSize=8.3, leading=10.5, leftIndent=8, backColor=colors.HexColor("#F2F4F7"), borderPadding=5, spaceAfter=5))
+    styles.add(ParagraphStyle(name="RecipeCode", parent=styles["Code"], fontName="Courier", fontSize=7.7, leading=9.6, leftIndent=5, rightIndent=5, backColor=colors.HexColor("#F2F4F7"), borderPadding=5, spaceAfter=6))
     story = [Paragraph("ARM Assembly Instruction Handbook", styles["Title2"]), Paragraph("Exam-focused Cortex-M3 / Thumb-2 reference derived from the ARM lecture set, all 23 indexed ARM papers, professor assembly templates and historical answer sources.", styles["Body2"]), Spacer(1, 8*mm)]
     story += [Paragraph("How to use this during an exam", styles["Group"]), Paragraph("Start from the operation you need, then check four things before copying a pattern: element width, signedness, flags, and AAPCS preservation. The examples use Keil assembly syntax. Instruction availability and immediate encoding depend on Thumb-2; when an immediate is rejected, load it into a register or use a literal.", styles["Body2"])]
     story += [Paragraph("AAPCS checkpoint", styles["Group"]), Paragraph("R0-R3 carry the first four arguments and the return begins in R0. Additional arguments are at the caller's stack. R4-R11 and SP are callee-saved. LR must be saved by any non-leaf routine. Keep SP 8-byte aligned whenever control crosses a public function boundary.", styles["Body2"])]
@@ -139,6 +462,17 @@ def build_guide():
             story += [Paragraph(name, styles["Inst"]), Paragraph("<b>Use:</b> " + purpose, styles["Body2"]), Paragraph(example.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;"), styles["Code2"]), Paragraph("<b>Constraints:</b> " + constraint, styles["Body2"])]
             md += [f"### {name}", "", f"Use: {purpose}", "", "```asm", example, "```", "", f"Constraints: {constraint}", ""]
         story.append(PageBreak())
+    story += [Paragraph("Assembly solution recipes", styles["Group"]), Paragraph("These are complete shapes rather than isolated instructions. Match the paper's prototype, widths, signedness and output contract before adapting one.", styles["Body2"])]
+    md += ["## Assembly solution recipes", "", "These recipes are complete shapes. Adapt the contract rather than copying blindly.", ""]
+    for title, recognition, code, checks in ASSEMBLY_RECIPES:
+        story += [Paragraph(title, styles["Inst"]), Paragraph("<b>Recognition:</b> " + recognition, styles["Body2"]), Preformatted(code, styles["RecipeCode"]), Paragraph("<b>Checks:</b> " + checks, styles["Body2"]), Spacer(1, 2*mm)]
+        md += [f"### {title}", "", f"Recognition: {recognition}", "", "```asm", code, "```", "", f"Checks: {checks}", ""]
+    story += [Paragraph("C and peripheral solution recipes", styles["Group"]), Paragraph("The high-level API is appropriate when a peripheral is a tool. Use the direct-register variants when configuration itself is graded.", styles["Body2"])]
+    md += ["## C and peripheral solution recipes", "", "Use high-level APIs when the device is a tool and direct registers when configuration is graded.", ""]
+    for title, recognition, code, checks in C_RECIPES:
+        story += [Paragraph(title, styles["Inst"]), Paragraph("<b>Recognition:</b> " + recognition, styles["Body2"]), Preformatted(code, styles["RecipeCode"]), Paragraph("<b>Checks:</b> " + checks, styles["Body2"]), Spacer(1, 2*mm)]
+        md += [f"### {title}", "", f"Recognition: {recognition}", "", "```c", code, "```", "", f"Checks: {checks}", ""]
+    story.append(PageBreak())
     story.append(Paragraph("Assembler directives that appear in the material", styles["Group"])); md += ["## Assembler directives", ""]
     for name, description in DIRECTIVES:
         story += [Paragraph(name, styles["Inst"]), Paragraph(description, styles["Body2"])]

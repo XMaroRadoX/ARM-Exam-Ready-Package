@@ -46,6 +46,47 @@ already established the following state:
 This opt-in state is deliberate. Starting every peripheral automatically would
 consume timers and interrupt vectors before the question assigns them.
 
+### Configuration-flag startup
+
+Simple resources can be selected in `Source/platform/exam_config.h` without
+adding initialization calls to the answer:
+
+```c
+#define EXAM_AUTO_START_BUTTONS 1
+#define EXAM_AUTO_START_JOYSTICK 1
+#define EXAM_AUTO_START_TIMER0  1
+#define EXAM_AUTO_START_TIMER1  1
+#define EXAM_AUTO_START_TIMER2  1
+#define EXAM_AUTO_START_TIMER3  1
+#define EXAM_AUTO_START_RIT     1
+#define EXAM_AUTO_START_SYSTICK 1
+#define EXAM_AUTO_START_ADC     1
+#define EXAM_AUTO_START_DAC     1
+```
+
+All ten flags can be enabled together. Buttons and joystick share the one RIT
+scheduler instead of trying to own separate RIT handlers. The four timers start
+as independent free-running counters. ADC starts the potentiometer conversion,
+DAC is initialized at zero output, and SysTick uses
+`EXAM_AUTO_SYSTICK_PERIOD_MS`.
+
+The debugger-visible `exam_auto_init_started` mask contains one `AUTO_INIT_*`
+bit for each successful resource. `exam_auto_init_failures` remains zero when
+every selected startup succeeds and otherwise identifies the failed resource.
+
+Automatic startup cannot remove physical ownership rules:
+
+- scheduler-mode RIT cannot coexist with raw/direct RIT mode;
+- an automatically serviced interrupt cannot coexist with a user-owned copy of
+  the same vector;
+- a periodic timer helper cannot configure a timer that was already
+  automatically started as free-running;
+- DAC table playback claims its selected timer, so that timer must not already
+  be used for another purpose.
+
+The header emits a compile-time error for conflicting modes it can determine
+before execution. Runtime ownership conflicts return `EXAM_BUSY`.
+
 ### Minimal initialization shapes
 
 Only the calls relevant to the paper belong in `exam_user_init()`:

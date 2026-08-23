@@ -181,6 +181,87 @@ static void joystick_service_10ms(void)
 
 void __attribute__((weak)) exam_user_10ms_hook(void) { }
 
+volatile uint32_t exam_auto_init_started;
+volatile uint32_t exam_auto_init_failures;
+
+#if EXAM_AUTO_START_TIMER0 || EXAM_AUTO_START_TIMER1 || EXAM_AUTO_START_TIMER2 || EXAM_AUTO_START_TIMER3
+static void auto_init_timer(uint8_t timer, uint32_t failure_bit)
+{
+  board_status_t status;
+  status = timer_set_clock_divider(timer, EXAM_AUTO_TIMER_CLOCK_DIVIDER);
+  if (status == BOARD_OK) status = timer_set_prescaler(timer, EXAM_AUTO_TIMER_PRESCALER);
+  if (status == BOARD_OK) status = timer_reset(timer);
+  if (status == BOARD_OK) status = timer_start(timer);
+  if (status == BOARD_OK) exam_auto_init_started |= failure_bit;
+  else exam_auto_init_failures |= failure_bit;
+}
+#endif
+
+static void board_auto_init(void)
+{
+#if EXAM_AUTO_START_BUTTONS || EXAM_AUTO_START_JOYSTICK || EXAM_AUTO_START_RIT || \
+    EXAM_AUTO_START_SYSTICK || EXAM_AUTO_START_ADC || EXAM_AUTO_START_DAC
+  board_status_t status;
+#endif
+  exam_auto_init_started = 0u;
+  exam_auto_init_failures = 0u;
+
+#if EXAM_AUTO_START_BUTTONS || EXAM_AUTO_START_JOYSTICK || EXAM_AUTO_START_RIT
+  status = rit_scheduler_start();
+  if (status != BOARD_OK) {
+    exam_auto_init_failures |= AUTO_INIT_RIT;
+#if EXAM_AUTO_START_BUTTONS
+    exam_auto_init_failures |= AUTO_INIT_BUTTONS;
+#endif
+#if EXAM_AUTO_START_JOYSTICK
+    exam_auto_init_failures |= AUTO_INIT_JOYSTICK;
+#endif
+  }
+  else {
+    exam_auto_init_started |= AUTO_INIT_RIT;
+  }
+#endif
+#if EXAM_AUTO_START_BUTTONS
+  if (status == BOARD_OK) {
+    buttons_init(0);
+    exam_auto_init_started |= AUTO_INIT_BUTTONS;
+  }
+#endif
+#if EXAM_AUTO_START_JOYSTICK
+  if (status == BOARD_OK) {
+    joystick_init(0);
+    exam_auto_init_started |= AUTO_INIT_JOYSTICK;
+  }
+#endif
+#if EXAM_AUTO_START_TIMER0
+  auto_init_timer(0u, AUTO_INIT_TIMER0);
+#endif
+#if EXAM_AUTO_START_TIMER1
+  auto_init_timer(1u, AUTO_INIT_TIMER1);
+#endif
+#if EXAM_AUTO_START_TIMER2
+  auto_init_timer(2u, AUTO_INIT_TIMER2);
+#endif
+#if EXAM_AUTO_START_TIMER3
+  auto_init_timer(3u, AUTO_INIT_TIMER3);
+#endif
+#if EXAM_AUTO_START_SYSTICK
+  status = systick_start_periodic_ms(EXAM_AUTO_SYSTICK_PERIOD_MS);
+  if (status == BOARD_OK) exam_auto_init_started |= AUTO_INIT_SYSTICK;
+  else exam_auto_init_failures |= AUTO_INIT_SYSTICK;
+#endif
+#if EXAM_AUTO_START_ADC
+  status = potentiometer_start();
+  if (status == BOARD_OK) exam_auto_init_started |= AUTO_INIT_ADC;
+  else exam_auto_init_failures |= AUTO_INIT_ADC;
+#endif
+#if EXAM_AUTO_START_DAC
+  status = dac_init();
+  if (status == BOARD_OK) exam_auto_init_started |= AUTO_INIT_DAC;
+  else exam_auto_init_failures |= AUTO_INIT_DAC;
+#endif
+}
+
 void board_init(void)
 {
   SystemInit();
@@ -192,6 +273,7 @@ void board_init(void)
 #endif
   /* Peripherals are opt-in so unused resources remain unclaimed. */
   fault_traps_configure();
+  board_auto_init();
 }
 
 void board_idle(void)
