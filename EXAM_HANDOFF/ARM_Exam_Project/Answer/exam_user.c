@@ -1,6 +1,7 @@
 #include "exam_user.h"
 
-/* One-time peripheral and application initialization. */
+/* The core clock, LED pins and fault support are ready before this function.
+ * Timers, input devices, ADC, DAC, RIT and SysTick remain available but off. */
 void exam_user_init(void)
 {
 }

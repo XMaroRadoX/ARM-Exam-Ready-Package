@@ -22,6 +22,93 @@ interrupt handler, change debounce policy or change an optional platform mode.
 Do not create another C `main`. The existing one initializes the platform and
 calls `exam_user_init()` once, then `exam_user_loop()` forever.
 
+## What is ready before your answer runs
+
+The startup path is `Reset_Handler` → C runtime → `main()` → `exam_init()` →
+`exam_user_init()`. By the time `exam_user_init()` starts, the template has
+already established the following state:
+
+| Resource | State on entry to `exam_user_init()` | Additional answer setup |
+|---|---|---|
+| C runtime | stack and initialized C data are ready | none |
+| core/system clock | configured; `SystemFrequency` is current | none unless the paper explicitly changes the clock |
+| LEDs 4–11 | GPIO function selected, outputs enabled, all off | call the desired `exam_led_*` function |
+| fault support | configured from `exam_config.h` | none for ordinary questions |
+| timers 0–3 | not running and not claimed | start/configure only the timer named by the paper |
+| RIT | not running | `exam_buttons_start`, `exam_joystick_start`, or `exam_rit_start` starts scheduler mode |
+| external buttons | not configured | `exam_buttons_start(callback)` for confirmed events, or `exam_button_irq_start` for a direct IRQ exercise |
+| joystick | not configured | `exam_joystick_start(callback)` for serviced input; direct polling also has low-level helpers |
+| SysTick | not running | `exam_systick_every_ms(period)` when the paper calls for SysTick |
+| ADC/potentiometer | powered down and no conversion pending | `exam_pot_start()` initializes channel 5 and starts the first conversion |
+| DAC/speaker | not configured | `exam_dac_write(value)` initializes the DAC automatically on its first call |
+| Ethernet, CAN, MIDI and LCD | not included in the submission project | historical papers did not justify carrying these into the exam template |
+
+This opt-in state is deliberate. Starting every peripheral automatically would
+consume timers and interrupt vectors before the question assigns them.
+
+### Minimal initialization shapes
+
+Only the calls relevant to the paper belong in `exam_user_init()`:
+
+```c
+/* No board peripheral in the question. */
+void exam_user_init(void)
+{
+}
+```
+
+```c
+/* LEDs only: the LEDs already have their GPIO setup. */
+void exam_user_init(void)
+{
+  (void)exam_led_write(0u);
+}
+```
+
+```c
+/* One periodic timer. The helper configures MR0, registers the callback,
+ * clears stale state and starts the selected timer. */
+static void timer_event(uint8_t timer, uint32_t flags)
+{
+  if (timer == 0u && exam_timer_match_happened(flags, 0u)) {
+    exam_events_set(1u);
+  }
+}
+
+void exam_user_init(void)
+{
+  (void)exam_timer_every_ms(0, 1000, timer_event);
+}
+```
+
+```c
+/* Debounced external buttons. The call also starts the 10 ms RIT service. */
+static void button_event(exam_button_t button, exam_button_event_t event)
+{
+  if (button == EXAM_BUTTON_INT0 && event == EXAM_PRESS) {
+    exam_events_set(1u);
+  }
+}
+
+void exam_user_init(void)
+{
+  (void)exam_buttons_start(button_event);
+}
+```
+
+```c
+/* Potentiometer. The first conversion begins during initialization. */
+void exam_user_init(void)
+{
+  (void)exam_pot_start();
+}
+```
+
+Return values are useful debugger evidence. `EXAM_OK` means the peripheral was
+accepted; `EXAM_BUSY` usually means an interrupt vector or timer already has a
+different owner; `EXAM_RANGE` indicates an invalid timer, period, rate, channel
+or sample value.
+
 ## Translate Q1 into a contract
 
 Before writing instructions, note:
@@ -167,4 +254,3 @@ the required pins, then test the shortest observable sequence first.
 
 Before trusting an old answer, consult the
 [exam-by-exam audit](../Tests%20and%20Reports/Repository%20Audit/EXAM_READINESS_AUDIT.md).
-
