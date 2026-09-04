@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Generate and validate a sociable-number chain, stopping within eight elements.; Every two seconds test the next source value and display the result as a one-hot LED value.">
+  <title>2023-07-04 Sociable Timer · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2023-07-04 Sociable Timer</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2023-07-04 Sociable Timer</h1><p>Generate and validate a sociable-number chain, stopping within eight elements.; Every two seconds test the next source value and display the result as a one-hot LED value.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2023-07-04</dd></div><div class="fact"><dt>Variant</dt><dd>Sociable Timer</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Timer1, Timer IRQ, Acknowledgement, Periodic, Delays</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/22-23/20230704%20arm.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Generate and validate a sociable-number chain, stopping within eight elements.</p><div class="tag-list"><span class="tag">Arrays</span><span class="tag">Recurrence</span></div><p><a href="2023-07-04-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/sorted-merge.html">Study Arrays</a> · <a href="../algorithms/indirect-index-recurrence.html">Study Recurrence</a></p></article><article class="question"><h3>Q2</h3><p>Every two seconds test the next source value and display the result as a one-hot LED value.</p><div class="tag-list"><span class="tag">Arrays</span><span class="tag">Recurrence</span><span class="tag">LED</span><span class="tag">Timer1</span><span class="tag">Periodic</span><span class="tag">Delays</span></div><p><a href="2023-07-04-q2.html">Read complete solution for Q2</a></p><p><a href="../algorithms/sorted-merge.html">Study Arrays</a> · <a href="../algorithms/indirect-index-recurrence.html">Study Recurrence</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Timer1, Timer IRQ, Acknowledgement, Periodic, Delays.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Arrays, Recurrence. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-07-04_Sociable_Timer/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 4 July 2023, questions 1 and 2. */
+#include &lt;stdint.h&gt;
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+extern uint32_t isSociable(uint32_t number);
+
+static const uint32_t numbers[7] = {
+  8128u, 5564u, 5400u, 14264u, 1305184u, 1598470u, 4938136u
+};
+
+static uint32_t current_number;
+
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  uint32_t result;
+
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  result = isSociable(numbers[current_number]);
+  current_number++;
+  if (current_number == 7u) {
+    current_number = 0u;
+  }
+
+  exam_led_clear();
+  if ((result &gt;= 1u) &amp;&amp; (result &lt;= 8u)) {
+    /* result 1 -&gt; physical LD4; result 8 -&gt; LD11. */
+    (void)exam_led_on((uint8_t)(result + 3u));
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  (void)exam_timer_config_ms(EXAM_TIMER1, 2000u, EXAM_TIMER_PERIODIC);
+  exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-07-04_Sociable_Timer/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  isSociable
+
+; uint32_t isSociable(uint32_t number)
+isSociable      PROC
+                PUSH    {R4-R6, LR}
+                MOV     R4, R0          ; Original number.
+                MOV     R5, R0          ; Current sequence value.
+                MOVS    R6, #0          ; Number of computed terms.
+
+sociable_loop
+                MOV     R0, R5
+                BL      aliquotSum
+                ADDS    R6, R6, #1
+
+                CMP     R0, R4
+                BEQ     sociable_found
+                CMP     R0, #1
+                BEQ     sociable_not_found
+                CMP     R6, #8
+                BEQ     sociable_not_found
+
+                MOV     R5, R0
+                B       sociable_loop
+
+sociable_found
+                MOV     R0, R6
+                POP     {R4-R6, PC}
+
+sociable_not_found
+                MOVS    R0, #0
+                POP     {R4-R6, PC}
+                ENDP
+
+; R0 = n. Return the aliquot sum in R0.
+aliquotSum      PROC
+                MOVS    R1, #1          ; sum = 1.
+                MOVS    R2, #2          ; a = 2.
+
+divisor_loop
+                UDIV    R3, R0, R2      ; b = n / a.
+                MLS     R12, R3, R2, R0 ; remainder = n - b*a.
+                CMP     R12, #0
+                BNE     next_divisor
+
+                CMP     R2, R3
+                BLO     add_divisor_pair
+                BEQ     add_square_root
+
+                MOV     R0, R1
+                BX      LR
+
+add_divisor_pair
+                ADDS    R1, R1, R2
+                ADDS    R1, R1, R3
+                B       next_divisor
+
+add_square_root
+                ADDS    R1, R1, R2
+                MOV     R0, R1
+                BX      LR
+
+next_divisor
+                ADDS    R2, R2, #1
+                B       divisor_loop
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/bounded-recurrence-into-an-array.html">Bounded recurrence into an array</a></li><li><a href="../patterns/fixed-point-multiply-and-recurrence.html">Fixed-point multiply and recurrence</a></li><li><a href="../patterns/signed-and-unsigned-byte-arrays.html">Signed and unsigned byte arrays</a></li><li><a href="../patterns/periodic-match-scheduling.html">Periodic match scheduling</a></li><li><a href="../patterns/indirect-index-recurrence.html">Indirect-index recurrence</a></li><li><a href="../algorithms/indirect-index-recurrence.html">Indirect-index recurrence</a></li><li><a href="../algorithms/indirect-index-recurrence-safety.html">Indirect-index recurrence safety</a></li><li><a href="../algorithms/sorted-merge.html">Merge two sorted arrays</a></li><li><a href="../algorithms/array-bit-differences.html">Total bit differences between word arrays</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

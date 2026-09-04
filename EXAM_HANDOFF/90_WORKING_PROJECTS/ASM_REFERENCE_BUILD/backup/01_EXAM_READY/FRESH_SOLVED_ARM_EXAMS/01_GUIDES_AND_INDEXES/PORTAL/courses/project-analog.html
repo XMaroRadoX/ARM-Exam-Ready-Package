@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Read, trace, attempt, check, then progress.">
+  <title>3. Guided project: timed ADC to DAC workflow · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Courses" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Courses</a><span aria-hidden="true">/</span><span aria-current="page">3. Guided project: timed ADC to DAC workflow</span></nav><header class="page-heading"><p class="eyebrow">Courses</p><h1>3. Guided project: timed ADC to DAC workflow</h1><p>Read, trace, attempt, check, then progress.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-before-this-lesson">Before this lesson</a><a href="#section-understand-the-idea">Understand the idea</a><a href="#section-worked-example">Worked example</a><a href="#section-execution-trace">Execution trace</a><a href="#section-try-it-before-the-answer">Try it before the answer</a><a href="#section-common-mistakes-and-symptoms">Common mistakes and symptoms</a><a href="#section-checkpoint">Checkpoint</a><a href="#section-complete-project-solution">Complete project solution</a><a href="#section-connect-this-skill-to-the-exam">Connect this skill to the exam</a></nav><div class="page-body"><section class="section-block" data-course-lesson="project-analog"><p class="eyebrow">Guided projects and exam practice · Exam core</p><h2 id="section-before-this-lesson">Before this lesson</h2><p><a href="project-timed.html">2. Guided project: timer calls a real ARM computation</a> — finish its checkpoint first.</p><h2 id="section-understand-the-idea">Understand the idea</h2><p>Sample the potentiometer on a 50 ms scheduling request, show its high eight bits on LEDs, and map the fresh 12-bit sample to the 10-bit DAC range. This is an analog-following project, not an audio waveform generator.</p><p>Milestone 1: confirm ADC initialization and one conversion/capture/take. Milestone 2: test the integer scaling function with 0 and 4095 without hardware. Milestone 3: initialize DAC and write bounded test levels. Milestone 4: connect Timer0 scheduling to a single in-flight conversion and use only fresh samples.</p><p>in_flight prevents starting another conversion while one is pending. Timer requests while busy are deliberately coalesced/dropped; every-sample acquisition would require a different contract. A failure to receive ADC completion is a troubleshooting checkpoint, not a reason to continuously restart it.</p><h2 id="section-worked-example">Worked example</h2><p class="notice">Illustrative fragment unless explicitly marked as a complete project below. Read the contract and required placement before copying.</p><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* endpoint mapping */
+uint32_t scaled=((uint32_t)sample*1023u)/4095u;</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-execution-trace">Execution trace</h2><p>Timer request → start ADC → ADC IRQ captures → main takes sample4095 → DAC1023, LEDs0xFF.</p><h2 id="section-try-it-before-the-answer">Try it before the answer</h2><p>Test the output endpoints and explain why writing the raw ADC sample directly to DAC is wrong.</p><details class="lesson-reveal"><summary>Hint 1</summary><p>Source is 12-bit; destination is 10-bit.</p></details><details class="lesson-reveal"><summary>Hint 2</summary><p>Take must report a fresh result before processing.</p></details><details class="lesson-reveal"><summary>Reveal the worked answer</summary><p>Raw ADC can reach4095, but DAC accepts at most1023. Widen before multiplying, divide by4095, and check the write status. Test zero, maximum, and midpoint. Physical output needs board measurement; a software build alone cannot validate it.</p></details><h2 id="section-common-mistakes-and-symptoms">Common mistakes and symptoms</h2><p>Starting conversions repeatedly hides a missing ADC handler. Treating the same stale value as fresh violates the flow.</p><h2 id="section-checkpoint">Checkpoint</h2><p>Demonstrate one in-flight conversion, fresh consumption, range-safe output, and stable repeated operation.</p><label class="completion-control js-only"><input type="checkbox" data-lesson-complete="project-analog"> I can explain and demonstrate this checkpoint</label><h2 id="section-complete-project-solution">Complete project solution</h2><p>Compare after your attempt. Copy this whole project into your working area before editing. The other driver/startup files remain the supplied template.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-analog/sample.uvprojx">Open the complete teaching project</a><h3>Source/sample.c</h3><p>Complete replacement file in this teaching project. <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-analog/Source/sample.c">Read this source file</a></p><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+static void stop_on_error(void) { exam_led_write(0xFFu); for (;;) {} }
+
+int main(void)
+{
+    uint8_t in_flight=0u;
+    exam_init();
+    exam_adc_init();
+    exam_dac_init();
+    if (exam_timer_config_ms(EXAM_TIMER0,50u,EXAM_TIMER_PERIODIC)!=EXAM_OK)
+        stop_on_error();
+    exam_timer_start(EXAM_TIMER0);
+    for (;;) {
+        uint16_t sample;
+        if (exam_adc_take(&amp;sample)) {
+            in_flight=0u;
+            uint32_t scaled=((uint32_t)sample*1023u)/4095u;
+            if (exam_dac_write((int32_t)scaled)!=EXAM_OK) stop_on_error();
+            exam_adc_show_high8(sample);
+        }
+        if ((exam_events_take(1u)&amp;1u) &amp;&amp; !in_flight) {
+            in_flight=1u;
+            exam_adc_start();
+        }
+    }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Source/timer/IRQ_timer.c</h3><p>Complete replacement file in this teaching project. <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-analog/Source/timer/IRQ_timer.c">Read this source file</a></p><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+
+void TIMER0_IRQHandler(void) {
+    uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+    if (flags &amp; 1u) exam_events_set(1u);
+}
+void TIMER1_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER1); }
+void TIMER2_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER2); }
+void TIMER3_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER3); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-connect-this-skill-to-the-exam">Connect this skill to the exam</h2><ul><li>Pattern: <a href="../patterns/adc-sample-conversion.html">ADC sample conversion</a></li><li>Pattern: <a href="../patterns/multi-peripheral-ownership-plan.html">Multi-peripheral ownership plan</a></li><li><a href="../exams/2023-02-07-q2.html">2023-02-07-Q2: Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.</a></li><li><a href="../exams/2023-07-04-q2.html">2023-07-04-Q2: Every two seconds test the next source value and display the result as a one-hot LED value.</a></li><li><a href="../search.html">Search related patterns, implementations, and API calls</a></li><li><a href="coverage.html">See all lecture and question mappings</a></li></ul><nav class="lesson-navigation" aria-label="Lesson navigation"><a href="project-timed.html">← 2. Guided project: timer calls a real ARM computation</a><a href="practice-exam.html">4. Independent practice: remove the scaffolding →</a></nav></section><div class="progress-tools js-only"><button type="button" data-progress-export>Export progress</button><label>Import progress<input type="file" data-progress-import accept="application/json,.json"></label></div><p data-storage-status role="status"></p></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

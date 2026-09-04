@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Transpose an 8x8 bit matrix stored as eight bytes.">
+  <title>2025-01-29 ARM 3 Transpose Timer — Q1 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2025-01-29-a3.html">2025-01-29 ARM 3 Transpose Timer</a><span aria-hidden="true">/</span><span aria-current="page">Q1</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-01-29 ARM 3 Transpose Timer — Q1</h1><p>Transpose an 8x8 bit matrix stored as eight bytes.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-complete-arm-assembly-answer">Complete ARM assembly answer</a><a href="#section-why-the-important-lines-are-there">Why the important lines are there</a><a href="#section-complexity-and-memory">Complexity and memory</a><a href="#section-common-wrong-answers">Common wrong answers</a><a href="#section-source-status">Source status</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Transpose an 8x8 bit matrix stored as eight bytes.</dd></div><div class="fact"><dt>Required answer</dt><dd>Assembly</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>transposition</dd></div><div class="fact"><dt>Architecture</dt><dd>assembly bit algorithm</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM3.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>R0 input address, R1 output address</p><p><strong>Constants:</strong> 8 bytes</p><p><strong>Components:</strong> Bits, Matrix</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><h2 id="section-complete-arm-assembly-answer">Complete ARM assembly answer</h2><details class="code-panel" open><summary>Show complete assembly solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q1/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 1">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  transpose
+
+; void transpose(const uint8_t *source, uint8_t *destination)
+transpose       PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+
+                MOVS    R6, #0
+transpose_clear
+                CMP     R6, #8
+                BHS     transpose_rows
+                MOVS    R7, #0
+                STRB    R7, [R5, R6]
+                ADDS    R6, R6, #1
+                B       transpose_clear
+
+transpose_rows
+                MOVS    R6, #0          ; i.
+transpose_row_loop
+                CMP     R6, #8
+                BHS     transpose_done
+                LDRB    R7, [R4, R6]
+                MOVS    R8, #0          ; j.
+
+transpose_bit_loop
+                CMP     R8, #8
+                BHS     transpose_next_row
+
+                MOVS    R9, #0x80
+                LSR     R9, R9, R8
+                TST     R7, R9
+                BEQ     transpose_next_bit
+
+                LDRB    R10, [R5, R8]
+                MOVS    R9, #0x80
+                LSR     R9, R9, R6
+                ORRS    R10, R10, R9
+                STRB    R10, [R5, R8]
+
+transpose_next_bit
+                ADDS    R8, R8, #1
+                B       transpose_bit_loop
+
+transpose_next_row
+                ADDS    R6, R6, #1
+                B       transpose_row_loop
+
+transpose_done
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-why-the-important-lines-are-there">Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2 id="section-complexity-and-memory">Complexity and memory</h2><p>The algorithm tags are Bits, Matrix. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2 id="section-common-wrong-answers">Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2 id="section-source-status">Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><ul><li><a href="../algorithms/packed-binary-matrix-multiplication.html">Study Packed binary matrix multiplication</a></li><li><a href="../algorithms/packed-8x8-bit-matrix-transpose.html">Study Packed 8x8 bit-matrix transpose</a></li><li><a href="../algorithms/packed-matrix-row-and-column-addressing.html">Study Packed matrix row and column addressing</a></li><li><a href="../algorithms/rectangular-matrix-transpose.html">Study Rectangular matrix transpose</a></li><li><a href="../algorithms/reverse-32-bits.html">Study Reverse all 32 bits</a></li><li><a href="../algorithms/matrix-row-column-sums.html">Study Matrix row and column sums</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

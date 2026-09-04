@@ -1,0 +1,68 @@
+{
+  "checks": 1462,
+  "records": 7603,
+  "prepareMs": 2148.1313999999998,
+  "timings": [
+    {
+      "query": "digitSum",
+      "maxMs": 5.352700000000368,
+      "medianMs": 3.904000000000451
+    },
+    {
+      "query": "20230918",
+      "maxMs": 6.473299999999654,
+      "medianMs": 3.356499999999869
+    },
+    {
+      "query": "18 September 2023",
+      "maxMs": 9.329799999999523,
+      "medianMs": 8.525100000000748
+    },
+    {
+      "query": "Q1 Timer0",
+      "maxMs": 12.961200000000645,
+      "medianMs": 10.81590000000051
+    },
+    {
+      "query": "Hofstadter",
+      "maxMs": 7.811800000000403,
+      "medianMs": 5.332800000000134
+    },
+    {
+      "query": "exam_timer_config_ms",
+      "maxMs": 6.4682999999995445,
+      "medianMs": 5.235300000000279
+    },
+    {
+      "query": "fifth argument",
+      "maxMs": 14.439800000000105,
+      "medianMs": 7.788199999999961
+    },
+    {
+      "query": "Timer0 ADC",
+      "maxMs": 13.375600000000304,
+      "medianMs": 12.774699999999939
+    },
+    {
+      "query": "graph shortest path",
+      "maxMs": 18.01969999999892,
+      "medianMs": 8.609499999998661
+    },
+    {
+      "query": "quicksort",
+      "maxMs": 3.4686000000001513,
+      "medianMs": 2.7666000000008353
+    },
+    {
+      "query": "LDRSB",
+      "maxMs": 5.614900000000489,
+      "medianMs": 3.4764999999988504
+    },
+    {
+      "query": "short-circuit",
+      "maxMs": 67.9987000000001,
+      "medianMs": 25.249699999998484
+    }
+  ],
+  "status": "PASS"
+}

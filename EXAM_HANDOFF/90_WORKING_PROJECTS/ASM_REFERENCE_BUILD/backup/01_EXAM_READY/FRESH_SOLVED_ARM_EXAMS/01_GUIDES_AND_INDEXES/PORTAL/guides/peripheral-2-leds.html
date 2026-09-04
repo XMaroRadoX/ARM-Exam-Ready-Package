@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Logical indexes, byte patterns, atomic writes, and physical labels.">
+  <title>2. LEDs · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Guides" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Guides</a><span aria-hidden="true">/</span><span aria-current="page">2. LEDs</span></nav><header class="page-heading"><p class="eyebrow">Guides</p><h1>2. LEDs</h1><p>Logical indexes, byte patterns, atomic writes, and physical labels.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-canonical-contract">Canonical contract</a></nav><div class="page-body"><section class="section-block"><div class="tag-list"><span class="tag">LED</span></div><p>Single-LED calls use printed board labels <strong>4 through 11</strong>. For example, <code>exam_led_on(11u)</code> lights LD11. Whole-display masks keep their original bit order.</p><div class="table-wrap"><table><thead><tr><th>Board label</th><th>GPIO pin</th><th>Display bit</th><th>Mask</th></tr></thead><tbody><tr><td>LD4</td><td>P2.7</td><td>7</td><td>0x80</td></tr><tr><td>LD5</td><td>P2.6</td><td>6</td><td>0x40</td></tr><tr><td>LD6</td><td>P2.5</td><td>5</td><td>0x20</td></tr><tr><td>LD7</td><td>P2.4</td><td>4</td><td>0x10</td></tr><tr><td>LD8</td><td>P2.3</td><td>3</td><td>0x08</td></tr><tr><td>LD9</td><td>P2.2</td><td>2</td><td>0x04</td></tr><tr><td>LD10</td><td>P2.1</td><td>1</td><td>0x02</td></tr><tr><td>LD11</td><td>P2.0</td><td>0</td><td>0x01</td></tr></tbody></table></div><p><strong>Numbering change:</strong> older single-LED API calls used indexes 0..7. Convert each old index to <code>11 - old_index</code>; do not change whole-display masks. Values 4..7 are valid under both contracts but select different LEDs. The low-level professor functions retain their original index convention.</p><details class="code-panel" open><summary>Show C code</summary><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">exam_led_on(4u);       /* LED4 */
+exam_led_one_hot(8u);  /* only LED8; returns EXAM_OK, not a bit mask */
+exam_led_write(0x81u); /* LED4 and LED11 */</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div></details><p>Check the returned status for single-LED calls; labels outside 4..11 leave the display unchanged. <code>exam_led_write()</code> writes the full logical byte atomically; <code>exam_led_read()</code> returns that logical byte and <code>exam_led_clear()</code> turns all eight off.</p><p><a href="../../PERIPHERALS_CANONICAL.md">Read the complete peripheral guide</a></p></section><section class="section-block"><h2 id="section-canonical-contract">Canonical contract</h2><p><a href="../../../../02_STARTING_TEMPLATES/Official%20Combined%20Exam%20API/EXAM_API_QUICK_REFERENCE.md">Read the Official Combined Exam API quick reference</a> · <a href="../../../../02_STARTING_TEMPLATES/Official%20Combined%20Exam%20API/Source/exam_api/exam_api.h">Read exam_api.h</a></p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

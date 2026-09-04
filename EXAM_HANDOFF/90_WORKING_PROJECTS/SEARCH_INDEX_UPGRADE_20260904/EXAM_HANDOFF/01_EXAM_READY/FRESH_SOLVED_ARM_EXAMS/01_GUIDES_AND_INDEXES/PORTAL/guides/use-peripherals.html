@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Use the sole Official Combined Exam API reference for buttons, timers, ADC, DAC, and interrupts.">
+  <title>Use peripherals · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Guides" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Guides</a><span aria-hidden="true">/</span><span aria-current="page">Use peripherals</span></nav><header class="page-heading"><p class="eyebrow">Guides</p><h1>Use peripherals</h1><p>Use the sole Official Combined Exam API reference for buttons, timers, ADC, DAC, and interrupts.</p></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-learn-one-responsibility-at-a-time">Learn one responsibility at a time</a><a href="#section-1-project-main-and-waiting">1. Project, main(), and waiting</a><a href="#section-2-leds">2. LEDs</a><a href="#section-3-raw-buttons">3. Raw buttons</a><a href="#section-4-interrupt-ownership">4. Interrupt ownership</a><a href="#section-5-timer0-timer3">5. Timer0-Timer3</a><a href="#section-6-button-debouncing">6. Button debouncing</a><a href="#section-7-systick">7. SysTick</a><a href="#section-8-rit">8. RIT</a><a href="#section-9-joystick">9. Joystick</a><a href="#section-10-adc-potentiometer">10. ADC / potentiometer</a><a href="#section-11-dac-speaker">11. DAC / speaker</a><a href="#section-12-irq-to-main-events">12. IRQ-to-main events</a><a href="#section-13-combining-peripherals">13. Combining peripherals</a><a href="#section-14-choose-the-correct-level">14. Choose the correct level</a></nav><div class="page-body"><section class="section-block"><h2 id="section-learn-one-responsibility-at-a-time">Learn one responsibility at a time</h2><p>All 14 lessons below were rewritten for the sole Official Combined Exam API. Each lesson uses declarations present in its canonical header and states when direct registers are still required.</p><div class="grid"><article class="card" >
+      <div class="card-body"><h2 id="section-1-project-main-and-waiting">1. Project, main(), and waiting</h2><p>Start from zero with the sole Official Combined project.</p><div class="tag-list"></div></div>
+      <a class="card-link" href="peripheral-1-project-main-and-waiting.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-2-leds">2. LEDs</h2><p>Logical indexes, byte patterns, atomic writes, and physical labels.</p><div class="tag-list"><span class="tag">LED</span></div></div>
+      <a class="card-link" href="peripheral-2-leds.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-3-raw-buttons">3. Raw buttons</h2><p>EINT0-EINT2, active-low inputs, acknowledgement, and handler ownership.</p><div class="tag-list"><span class="tag">Buttons</span></div></div>
+      <a class="card-link" href="peripheral-3-raw-buttons.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-4-interrupt-ownership">4. Interrupt ownership</h2><p>Exactly one handler, acknowledgement, and bounded interrupt work.</p><div class="tag-list"></div></div>
+      <a class="card-link" href="peripheral-4-interrupt-ownership.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-5-timer0-timer3">5. Timer0-Timer3</h2><p>MR0 ticks, milliseconds, hertz, periodic and one-shot modes.</p><div class="tag-list"><span class="tag">Timer0</span><span class="tag">Timer1</span><span class="tag">Timer2</span><span class="tag">Timer3</span></div></div>
+      <a class="card-link" href="peripheral-5-timer0-timer3.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-6-button-debouncing">6. Button debouncing</h2><p>One confirmed press driven by an explicitly selected time source.</p><div class="tag-list"><span class="tag">Buttons</span><span class="tag">Debounce</span><span class="tag">Timer0</span><span class="tag">SysTick</span><span class="tag">RIT</span></div></div>
+      <a class="card-link" href="peripheral-6-button-debouncing.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-7-systick">7. SysTick</h2><p>The 24-bit CPU timer and safe millisecond/tick configuration.</p><div class="tag-list"><span class="tag">SysTick</span></div></div>
+      <a class="card-link" href="peripheral-7-systick.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-8-rit">8. RIT</h2><p>Repetitive timing with explicit start and acknowledgement.</p><div class="tag-list"><span class="tag">RIT</span></div></div>
+      <a class="card-link" href="peripheral-8-rit.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-9-joystick">9. Joystick</h2><p>Active-low normalization and pressed-edge detection.</p><div class="tag-list"><span class="tag">Joystick</span></div></div>
+      <a class="card-link" href="peripheral-9-joystick.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-10-adc-potentiometer">10. ADC / potentiometer</h2><p>One conversion at a time with a fresh 12-bit result.</p><div class="tag-list"><span class="tag">ADC</span></div></div>
+      <a class="card-link" href="peripheral-10-adc-potentiometer.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-11-dac-speaker">11. DAC / speaker</h2><p>Validated 10-bit samples and timer-driven table playback.</p><div class="tag-list"><span class="tag">DAC</span><span class="tag">Speaker</span></div></div>
+      <a class="card-link" href="peripheral-11-dac-speaker.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-12-irq-to-main-events">12. IRQ-to-main events</h2><p>Short handlers, event flags, volatile data, and critical sections.</p><div class="tag-list"><span class="tag">Buttons</span></div></div>
+      <a class="card-link" href="peripheral-12-irq-to-main-events.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-13-combining-peripherals">13. Combining peripherals</h2><p>A single-owner plan for buttons, timers, ADC, DAC, and assembly.</p><div class="tag-list"><span class="tag">Buttons</span><span class="tag">Timer0</span><span class="tag">Timer1</span><span class="tag">ADC</span><span class="tag">DAC</span></div></div>
+      <a class="card-link" href="peripheral-13-combining-peripherals.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article><article class="card" >
+      <div class="card-body"><h2 id="section-14-choose-the-correct-level">14. Choose the correct level</h2><p>A decision table for the API, professor functions, and direct registers.</p><div class="tag-list"></div></div>
+      <a class="card-link" href="peripheral-14-choose-the-correct-level.html">Read peripheral lesson <span aria-hidden="true">→</span></a>
+    </article></div><p><a href="../api/index.html">Read the Official Combined Exam API quick reference</a></p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

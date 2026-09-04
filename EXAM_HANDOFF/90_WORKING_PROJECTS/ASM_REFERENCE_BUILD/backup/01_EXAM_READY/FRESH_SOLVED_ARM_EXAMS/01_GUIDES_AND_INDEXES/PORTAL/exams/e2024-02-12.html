@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Propagate maze direction letters from the exit until no additional cells can be labelled.; Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.">
+  <title>2024-02-12 Maze LCG Timer · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2024-02-12 Maze LCG Timer</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2024-02-12 Maze LCG Timer</h1><p>Propagate maze direction letters from the exit until no additional cells can be labelled.; Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2024-02-12</dd></div><div class="fact"><dt>Variant</dt><dd>Maze LCG Timer</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>Buttons, Debounce, Timer0, EINT, Timer IRQ, Acknowledgement</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/23-24/20240212%20arm.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Propagate maze direction letters from the exit until no additional cells can be labelled.</p><div class="tag-list"><span class="tag">Maze</span></div><p><a href="2024-02-12-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/flood-fill-and-maze-propagation.html">Study Maze</a></p></article><article class="question"><h3>Q2</h3><p>Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.</p><div class="tag-list"><span class="tag">Recurrence</span><span class="tag">Maze</span><span class="tag">Buttons</span><span class="tag">Debounce</span><span class="tag">Timer0</span><span class="tag">C-to-assembly</span></div><p><a href="2024-02-12-q2.html">Read complete solution for Q2</a></p><p><a href="../algorithms/indirect-index-recurrence.html">Study Recurrence</a> · <a href="../algorithms/flood-fill-and-maze-propagation.html">Study Maze</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: Buttons, Debounce, Timer0, EINT, Timer IRQ, Acknowledgement.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Maze, Recurrence. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2024-02-12_Maze_LCG_Timer/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+static void leds_fill(void)
+{
+  (void)exam_led_write(0xFFu);
+}
+#define NUM_ROWS 10u
+#define NUM_COLUMNS 8u
+extern uint32_t mazeSolver(uint32_t rows, uint32_t columns, uint8_t *maze);
+static uint8_t maze[NUM_ROWS][NUM_COLUMNS];
+static volatile uint32_t longest_path;
+
+static uint32_t lcg_next(uint32_t value) { return (value * 18u) % 101u; }
+
+static void generate_maze(uint32_t seed)
+{
+  uint32_t r, c, value = seed;
+  for (r=0u; r&lt;NUM_ROWS; ++r) for (c=0u; c&lt;NUM_COLUMNS; ++c) {
+    if ((r==0u||r==NUM_ROWS-1u) &amp;&amp; (c==0u||c==NUM_COLUMNS-1u)) maze[r][c]=&#x27;*&#x27;;
+    else {
+      value=lcg_next(value);
+      if (r==0u) maze[r][c]=value&lt;90u?&#x27;*&#x27;:&#x27;n&#x27;;
+      else if (c==NUM_COLUMNS-1u) maze[r][c]=value&lt;90u?&#x27;*&#x27;:&#x27;e&#x27;;
+      else if (r==NUM_ROWS-1u) maze[r][c]=value&lt;90u?&#x27;*&#x27;:&#x27;s&#x27;;
+      else if (c==0u) maze[r][c]=value&lt;90u?&#x27;*&#x27;:&#x27;w&#x27;;
+      else maze[r][c]=value&lt;60u?&#x27; &#x27;:&#x27;*&#x27;;
+    }
+  }
+}
+
+void EINT2_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY2);
+  generate_maze(exam_timer_read(EXAM_TIMER0));
+  longest_path=mazeSolver(NUM_ROWS,NUM_COLUMNS,&amp;maze[0][0]);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_led_clear();
+  exam_buttons_init();
+  if (exam_timer_config_ticks(EXAM_TIMER0, UINT32_MAX,
+                              EXAM_TIMER_MODULO_NO_IRQ) != EXAM_OK) {
+    leds_fill();
+  } else {
+    exam_timer_start(EXAM_TIMER0);
+  }
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2024-02-12_Maze_LCG_Timer/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  mazeSolver
+
+; uint32_t mazeSolver(uint32_t rows, uint32_t columns, uint8_t *maze)
+mazeSolver      PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MUL     R7, R4, R5      ; number of cells
+                MOVS    R8, #0          ; completed propagation iterations
+ms_iteration    MOVS    R9, #0          ; changed
+                MOVS    R10, #0         ; linear index
+ms_phase1       CMP     R10, R7
+                BHS     ms_phase2_begin
+                LDRB    R0, [R6, R10]
+                CMP     R0, #&#x27; &#x27;
+                BNE     ms_p1_next
+                SUB     R1, R10, R5
+                LDRB    R0, [R6, R1]
+                CMP     R0, #&#x27;a&#x27;
+                BLO     ms_right
+                CMP     R0, #&#x27;z&#x27;
+                BHI     ms_right
+                MOVS    R0, #&#x27;N&#x27;
+                B       ms_mark
+ms_right        ADD     R1, R10, #1
+                LDRB    R0, [R6, R1]
+                CMP     R0, #&#x27;a&#x27;
+                BLO     ms_bottom
+                CMP     R0, #&#x27;z&#x27;
+                BHI     ms_bottom
+                MOVS    R0, #&#x27;E&#x27;
+                B       ms_mark
+ms_bottom       ADD     R1, R10, R5
+                LDRB    R0, [R6, R1]
+                CMP     R0, #&#x27;a&#x27;
+                BLO     ms_left
+                CMP     R0, #&#x27;z&#x27;
+                BHI     ms_left
+                MOVS    R0, #&#x27;S&#x27;
+                B       ms_mark
+ms_left         SUB     R1, R10, #1
+                LDRB    R0, [R6, R1]
+                CMP     R0, #&#x27;a&#x27;
+                BLO     ms_p1_next
+                CMP     R0, #&#x27;z&#x27;
+                BHI     ms_p1_next
+                MOVS    R0, #&#x27;W&#x27;
+ms_mark         STRB    R0, [R6, R10]
+                MOVS    R9, #1
+ms_p1_next      ADDS    R10, R10, #1
+                B       ms_phase1
+
+ms_phase2_begin MOVS    R10, #0
+ms_phase2       CMP     R10, R7
+                BHS     ms_phase_done
+                LDRB    R0, [R6, R10]
+                CMP     R0, #&#x27;N&#x27;
+                BEQ     ms_lower
+                CMP     R0, #&#x27;E&#x27;
+                BEQ     ms_lower
+                CMP     R0, #&#x27;S&#x27;
+                BEQ     ms_lower
+                CMP     R0, #&#x27;W&#x27;
+                BNE     ms_p2_next
+ms_lower        ADDS    R0, R0, #32
+                STRB    R0, [R6, R10]
+ms_p2_next      ADDS    R10, R10, #1
+                B       ms_phase2
+ms_phase_done   CMP     R9, #0
+                BEQ     ms_done
+                ADDS    R8, R8, #1
+                B       ms_iteration
+ms_done         MOV     R0, R8
+                POP     {R4-R11, R12, PC}
+                ENDP
+                END
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/bounded-recurrence-into-an-array.html">Bounded recurrence into an array</a></li><li><a href="../patterns/fixed-point-multiply-and-recurrence.html">Fixed-point multiply and recurrence</a></li><li><a href="../patterns/deterministic-debounce.html">Deterministic debounce</a></li><li><a href="../patterns/indirect-index-recurrence.html">Indirect-index recurrence</a></li><li><a href="../patterns/flood-fill-and-maze-propagation.html">Flood fill and maze propagation</a></li><li><a href="../algorithms/flood-fill-and-maze-propagation.html">Flood fill and maze propagation</a></li><li><a href="../algorithms/indirect-index-recurrence.html">Indirect-index recurrence</a></li><li><a href="../algorithms/indirect-index-recurrence-safety.html">Indirect-index recurrence safety</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

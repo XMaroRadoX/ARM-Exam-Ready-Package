@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "constantSelections": 25,
+  "resultSelections": 8,
+  "mazeSelections": 5,
+  "answerFiles": [
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/main.c",
+    "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c"
+  ],
+  "otherApiImplementation": "Unchanged",
+  "lowLevelLedDriver": "Unchanged"
+}

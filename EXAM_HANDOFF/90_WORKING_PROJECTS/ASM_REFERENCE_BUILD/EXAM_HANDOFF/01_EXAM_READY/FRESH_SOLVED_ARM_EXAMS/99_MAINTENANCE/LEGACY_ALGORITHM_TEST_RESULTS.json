@@ -1,0 +1,637 @@
+{
+  "native_armasm": "NOT_RUN: Keil ARMASM not located",
+  "results": [
+    {
+      "slug": "pat-alg-array-reversal-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "c05610eff3a3b362947c2c7a6a21c49ee34b5920db1748c22c08339f6cbc2e88",
+      "c_sha256": "7f462fb2e4f326f42aacdcbfdcf87a91e00c2703724ad85931b6e4389ab6ed80",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_array_reversal_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-array-rotation-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "146b76079d56dbf64f2f4f875638b0893b60abb5cac2570ff9ed1b7b391ad15e",
+      "c_sha256": "db0a66ef3cd617a663b0b035785976f92f3f0073c9ad195b4a0b3526e87a4cb6",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_array_rotation_001",
+        "pat_alg_array_rotation_001_right",
+        "pat_alg_array_rotation_001_with_scratch"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-bfs-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "1f506f0b81c4b8ee726f5607de02966670dc2f6d780001e6e7e12be81ca037f4",
+      "c_sha256": "bcdaf3fcf3f09ee9da3a0cc16a1108599c1b766c5b52837e8aaaec7ca790abd5",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_bfs_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-binary-search-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "9d42b4cbca06193b68d5c34b45ec18f7d6e01c70f52ac885fb0a58a5c5f062ca",
+      "c_sha256": "ba01edac0a1be64a1fc77cf30eb8e6c3eff49ef2224930bbf1a6428dfb065b5a",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_binary_search_001",
+        "pat_alg_binary_search_001_exact"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-bitfield-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "15aa71fd3060f58e3207cfb2765cbb30e8d95a570e5864f18c42b0592d5a6bd0",
+      "c_sha256": "0d08bc0a28d637c0682e7153a3d4088cc7c5f4201dbd2f0161d3320ac5faabfb",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_bitfield_001",
+        "pat_alg_bitfield_001_extract",
+        "pat_alg_bitfield_001_pack_u16"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-bubble-sort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "8b085b8ad870031a89050a91eb973ecca38ca2c91fd1b8b6e4f87388d74e4aa2",
+      "c_sha256": "5262895130b4de94e852f6a9de01f4a4217a79903a967bbc87e44426ec70dc0a",
+      "assertions": 91,
+      "executed_exports": [
+        "pat_alg_bubble_sort_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-checksum-crc-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e3a9e9b6dcaf0390c56d7198a7a53f8cf6d76a38a5f8122fdd4fd3f66d8ff7c5",
+      "c_sha256": "68633aadbe87168eb45a76e59d1ed1c43fc8be4adeb436209b21479f27500366",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_checksum_crc_001",
+        "pat_alg_checksum_crc_001_crc32_table"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-coin-change-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "52b036e0d71d37a19e23390ac4453807e54c6b53fcdc72ae107a1651ec1395cc",
+      "c_sha256": "004908e849a20cf417105fc1ee1645729bfec0e16f7e98769f3018c03d715d34",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_coin_change_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-component-merge-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "a131d9503272059f79c81c6463696f22653908b360b1cf5522c042171027194a",
+      "c_sha256": "68f85793b1dd965b4810fa00a6009fcdbc8ca3920775c57d0a501059b2e053bc",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_component_merge_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-consume-once-match-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e888af4003a588e4e44c3306875a4809545d56fe51464038caaa9be0c013087c",
+      "c_sha256": "8597bb71618f88695ff937f4dee7c966a6486b71cb7566042df45fc49738c1d7",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_consume_once_match_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-counting-sort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "7f7d7ecb25d1471b58e3e44fd1f0485923c672d4d27cc8c89588cb8ed8727e22",
+      "c_sha256": "58bdaefef2068aa311ae88eb3ab24968036c6c53883eeda734c1758dc34a7205",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_counting_sort_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-decimal-digits-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "2566a7d9afec40c0a1ce373b38b5925bfc6870f044330f312cd755742bffe821",
+      "c_sha256": "4b1b60d527db9da38d22712af057f21e87386c9052d77f3808b1ccd54bad9de7",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_decimal_digits_001",
+        "pat_alg_decimal_digits_001_extract",
+        "pat_alg_decimal_digits_001_is_palindrome",
+        "pat_alg_decimal_digits_001_kaprekar_4",
+        "pat_alg_decimal_digits_001_reconstruct"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-dfs-stack-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "24d1b1b88a69f8577123b51b7b44fce897ef1580cf0aec7ea6f4d29832fbea13",
+      "c_sha256": "184e27f4c6abe583d5283b69e2dcb48b6126c656ae066d20684e3efba66ea9b6",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_dfs_stack_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-dijkstra-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "423da02f87f2cee7d10f19db03cc65a94c4a099223af2473bfa68a8045b716aa",
+      "c_sha256": "80b38863605e4e8fe1081fd8793937a3cdaf999a1cceab8aa53ca5294d1d667b",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_dijkstra_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-edit-distance-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "08262f48a9d7c13be6a34f5eccc7317a5e14e67f28df63622ad21d95f5e202c1",
+      "c_sha256": "cb74dfc6274290880ca0767fe84a7f4d8bce9197f40127ea850d10b3104bc78c",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_edit_distance_001",
+        "pat_alg_edit_distance_001_full"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-fast-power-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "94ccf27dc20c63a158325a65024cf6c9a975f0038b3fbe3db6c24e1636ba3a24",
+      "c_sha256": "1660c5e182a956c383ae1b7f3f38617c7b193d56eeaf89d16485929fe29924a6",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_fast_power_001",
+        "pat_alg_fast_power_001_checked"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-flood-fill-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "cda244ff4c4449f66ff042c7d5c1bacd92586abe28dc412dfee0362240abb3df",
+      "c_sha256": "a2a352989de0f7f77daaa022a0d266ef38773363d49fd848e3b13c7928e10169",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_flood_fill_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-gcd-lcm-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "9d480c1b0e16c43e3023ca3a43be482c81097a2ef3e3b314d30845b79b3f2a3e",
+      "c_sha256": "8c937fbd0aeffd431db1d5348bb09e4c7466ea2f3785a2e2c60df09998856bf8",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_gcd_lcm_001",
+        "pat_alg_gcd_lcm_001_lcm"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-heap-sort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "3e5c297aa7a4631372fdc2f77d40095ecfd75b63fac82dfd1adda2c2f426498d",
+      "c_sha256": "ecdb30b8c212a88b9d05b78fa38adc48b998f57de8e973d7da020534d5847adb",
+      "assertions": 97,
+      "executed_exports": [
+        "down",
+        "pat_alg_heap_sort_001"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "pat-alg-histogram-mode-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "a80ee87f0367f7674affd576b81dfa3b3611aa9fa4aa2e7daab404387ce86ad3",
+      "c_sha256": "51b5c3e49b9fe27ed20d80607208d22e0259f3dc30ff0385607c9d1cc2799237",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_histogram_mode_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-horner-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "baf881778becc8ac97a23cb2237d7b693eaebc3a419a543603c6d910d9d5a116",
+      "c_sha256": "9373f4b27a844c3b4ff6bc752449c583fb42ed6c6100c8c3c2f994d905dc937b",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_horner_001",
+        "pat_alg_horner_001_checked"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-indirect-recurrence-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "f8866b65bb5064ca9317cb2b6d5ab00fb96806ab43fbd5c096eb800d4cda2ed4",
+      "c_sha256": "a09af4e1b06d207683ba9175b22bedf15131d127e8ccb39e95fa3ce1e01773d0",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_indirect_recurrence_001",
+        "pat_alg_indirect_recurrence_001_hofstadter_q"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-integer-sqrt-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "70d759fe3bb571b6c9f9b53c3b27dc81b7614eab18cc4feb3ffc8e917b86f451",
+      "c_sha256": "bafe2d17d00bd0189071536c2d89c896141e37ee588616aa1de731728a32ee14",
+      "assertions": 32,
+      "executed_exports": [
+        "pat_alg_integer_sqrt_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-knapsack-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "19baf8630fa5bf6c0fda203c1c835808fd11343c145beda45d809ed897fc468a",
+      "c_sha256": "f735edca45e288d5b7d69247a072716a1a219fb84b39d4572464b92b8afb4157",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_knapsack_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-lcg-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "10b61e6eba0e26d0c3226189bb6edf948baaf5ab3b30fbe0c74c1535f7e14b13",
+      "c_sha256": "210b8b64b096d34fea097ba6b66f07b05b5070556c530a17af2ac283c14a7e31",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_lcg_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-linear-search-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e21471f87485106caf8ced76641bad77cce4782dfe379c477e185d9bbded7e5c",
+      "c_sha256": "114990535015bf3ec00fad918f677586a5b7f1d5ffe192265cc62b7bb8a660bb",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_linear_search_001",
+        "pat_alg_linear_search_001_all",
+        "pat_alg_linear_search_001_last"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-lis-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "24851b851b86ca09607594d8806209e6e84a43ba772c63ff53682352fa1fe066",
+      "c_sha256": "4348b2828a67279b3e1e62449ef01ecb545fcda6e80c8b58a88d0184a2781e8b",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_lis_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-look-and-say-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "da61d83bba188c880663bca73f52674cad6a266e6da66de84a51d81af944ade5",
+      "c_sha256": "c4f556b6ed4a0d946be568357b83b828d788e355f4fd541efe2a90e27ce59ab3",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_look_and_say_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-memmove-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "7293dcc38e540a5790d2264fcaaddf9f9c2577a4984e598b6e983552402c84fc",
+      "c_sha256": "518bf82ebae5240b8268d3682e5d80dc4c023f7e45be4922e16a4a14d6a084af",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_memmove_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-merge-sort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "d8a63f60de52624e6d4166819c98218cfa275f22005b6447fbfb7cdfcbfb5f47",
+      "c_sha256": "91123179dd99a31419da7c66e6a6b4493069c77a11394bb4ed6642abdc788ade",
+      "assertions": 0,
+      "executed_exports": [
+        "merge",
+        "ms",
+        "pat_alg_merge_sort_001"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "pat-alg-moving-average-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e028688de94c63fbfdda6f4ee4a2e2b56505cc389d275bd4aed3241d5f5809c0",
+      "c_sha256": "5c449d36f632306ab9d156746ec159b7e9dece28ab6713835a5509e56f650208",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_moving_average_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-packed-matmul-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "1234941609530a92ebfcfc1d10ce346bd2797660343133334a1cae3032bbd47b",
+      "c_sha256": "0d91be78f60592f4978fe612429160b6aeb1eff56bd1869fc4400f7e1cb49ed0",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_packed_matmul_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-popcount-parity-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "6a52c1b263a3fff18f515d71dd5ebf60fc6ae3a28e767106c8266ea540e4edfd",
+      "c_sha256": "305a37bf6f56276e3bd6b45716b1570fe295f97d066dd8f92f1fc377beeb6884",
+      "assertions": 32,
+      "executed_exports": [
+        "pat_alg_popcount_parity_001",
+        "pat_alg_popcount_parity_001_parity"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-prefix-sum-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "76b46a6018d1281987bff36c681288e295fdc074aba8667950130657614b80ea",
+      "c_sha256": "5ab9f268b3bdee2ef8aedece37d3a20536fad1ae6f66146904bc6f56ec1cd0fc",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_prefix_sum_001",
+        "pat_alg_prefix_sum_001_range"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-prime-factorization-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "08b6730a698452521bc596d494010a9f23fd29933f5657cd78c1a0ce6648e998",
+      "c_sha256": "4238bc38946952a54ac7711161ece9eb6dd51ab5fe507e7a16c2e02d5288e57d",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_prime_factorization_001",
+        "pat_alg_prime_factorization_001_factorize"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-quicksort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "52010abc878813412566868834f216a71c9a3595de3f18ac1da1fe79d797cfe8",
+      "c_sha256": "32fb51c8bf1632e5fc0c22baa9b86e8831bb2db4cbae58ae2338f18a9f4a8a2e",
+      "assertions": 91,
+      "executed_exports": [
+        "pat_alg_quicksort_001",
+        "qs"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-recursive-dfs-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "c9dd79ba1b82d2cd9251a2a671e03c7c2c138f609b326a651523703fce2fff48",
+      "c_sha256": "8575f5613def94dcb5e7db793f0b451b30d78e8789888cdb374fcde68b97ef17",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_recursive_dfs_001",
+        "visit"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-reduction-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "1f8a148978e0b579121d148268cdccb89ba4ae6e8306dae45de6c893963fc577",
+      "c_sha256": "180c1b1589102f32c3af762ab870f98afea3bb8166c66242078bebdfa291c8fb",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_reduction_001",
+        "pat_alg_reduction_001_unsigned"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-run-length-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "c9e123a8bbf7fdbe7bd7a20ef910f6a29f524f17c773040a944becd995a59a60",
+      "c_sha256": "1ac9584c34fa59fedb93ee870c03b1ab95c5bca2aa6abe494a37f66e29f827bb",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_run_length_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-saturating-arithmetic-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "250bbf945fdfa7cce2bef50262bd14fc40f6b531f6e1fe7d543cda0e676335ff",
+      "c_sha256": "ee55f771a1e3dbbbd4b03f33210baa76fdec53b624cac4a250245364a418436c",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_saturating_arithmetic_001",
+        "pat_alg_saturating_arithmetic_001_abs_i32",
+        "pat_alg_saturating_arithmetic_001_add_i32"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-selection-sort-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "bc643d2a4b36a59eef738997ea225b2e3c65469fa40061155d4697d25b7c60f1",
+      "c_sha256": "266af93040dd87eac918149b6e27d030f3ba5a7882fb442f022e5a230b9b8af5",
+      "assertions": 91,
+      "executed_exports": [
+        "pat_alg_selection_sort_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-string-primitives-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "500427345554225b042838a2251b08609b61208f624c5049f8202a78cd90fbc8",
+      "c_sha256": "8308e2ea8b9f290d384147c599fbe6dc0149e7548f7d00c31b053d209bb42f44",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_alg_string_primitives_001",
+        "pat_alg_string_primitives_001_compare",
+        "pat_alg_string_primitives_001_copy",
+        "pat_alg_string_primitives_001_length"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-alg-wide-division-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "744cd4c786e82ce428bcdd402fb110318e714f2b4cc6d7ae85f25abf483d25f7",
+      "c_sha256": "887d6099dd55c8b510e1d136872f8045a1ea55b1c50ea6685690189af7cc19fe",
+      "assertions": 6,
+      "executed_exports": [
+        "pat_alg_wide_division_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-data-asm-objects-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e448710a15b40327f4d35f9cd6a468e93d3fa63e6b4eef59ec1be43375ff0032",
+      "c_sha256": "352bbf5a69191fb69b91ed33b71c06083ecef16df5354360775eda1744dc9d80",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_data_asm_objects_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-ds-circular-queue-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "809fc5efb3be61283919308b37af0f889b943d06fa00ffb389543fbf915abdf2",
+      "c_sha256": "deeefdd4b97059a70e299e1f70579c5e3007775e0619b77dad7995f8392c4e70",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_ds_circular_queue_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-ds-linked-list-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "7dd6580af8de49dbe7fd0bb0ee3d4b68960af47611445453b482fdd1c247471e",
+      "c_sha256": "7e8b67d1e0a21d7ea4b1fd5d92f031edfc36c5ebc9c1a4505301b49ece96dadf",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_ds_linked_list_001",
+        "pat_ds_linked_list_001_insert_after",
+        "pat_ds_linked_list_001_remove_first"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-ds-ring-buffer-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "9470c9432d0df1424274af876443cecfb39e8e499be86013983cdecb761f949a",
+      "c_sha256": "c600e669e2ab82eebc4bb1ed36594adfc0388bcb8228be5bf7c5065f4410f75e",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_ds_ring_buffer_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-ds-stack-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e6dd2158f8760aac1ad850216e77863aa3b618e547a370133a65fe234fc84774",
+      "c_sha256": "ed9f4e13ce8ac00eeff0c539bf52669ce3df4efa0522ca33912eac0198f2d3e9",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_ds_stack_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-ds-union-find-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "f75035d74abb125d93f665cdc5aae672445b71f41f53073c85a660ece17976b3",
+      "c_sha256": "6cf84ab20e6cd0ed59de49442e2c90f616e0cdf059134214fa2afe706c144d71",
+      "assertions": 0,
+      "executed_exports": [
+        "find",
+        "pat_ds_union_find_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    },
+    {
+      "slug": "pat-mem-packed-transpose-001",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "a9c39a98d70d87898ebeac735769df6684b76e4123f44d8e8d4d3b295e2f3771",
+      "c_sha256": "507589e5a076d485f6098546dd2cd7c8293572850f6ea437a65ec6f2e0322c90",
+      "assertions": 0,
+      "executed_exports": [
+        "pat_mem_packed_transpose_001"
+      ],
+      "untested_exports": [],
+      "build": "reused matching source and fixture artifacts"
+    }
+  ]
+}

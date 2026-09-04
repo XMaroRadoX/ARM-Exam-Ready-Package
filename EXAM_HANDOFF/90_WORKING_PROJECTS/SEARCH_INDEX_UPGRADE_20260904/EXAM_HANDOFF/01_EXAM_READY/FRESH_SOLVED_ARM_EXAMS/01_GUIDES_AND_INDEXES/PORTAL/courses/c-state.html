@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Read, trace, attempt, check, then progress.">
+  <title>9. Structures, enums, and explicit state machines · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Courses" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Courses</a><span aria-hidden="true">/</span><span aria-current="page">9. Structures, enums, and explicit state machines</span></nav><header class="page-heading"><p class="eyebrow">Courses</p><h1>9. Structures, enums, and explicit state machines</h1><p>Read, trace, attempt, check, then progress.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-before-this-lesson">Before this lesson</a><a href="#section-understand-the-idea">Understand the idea</a><a href="#section-worked-example">Worked example</a><a href="#section-execution-trace">Execution trace</a><a href="#section-try-it-before-the-answer">Try it before the answer</a><a href="#section-common-mistakes-and-symptoms">Common mistakes and symptoms</a><a href="#section-checkpoint">Checkpoint</a><a href="#section-deeper-explanation-and-source-examples">Deeper explanation and source examples</a><a href="#section-connect-this-skill-to-the-exam">Connect this skill to the exam</a></nav><div class="page-body"><section class="section-block" data-course-lesson="c-state"><p class="eyebrow">C from zero · Exam core</p><h2 id="section-before-this-lesson">Before this lesson</h2><p><a href="c-collections.html">8. Arrays, strings, matrices, and bounds</a> — finish its checkpoint first.</p><h2 id="section-understand-the-idea">Understand the idea</h2><p>A structure groups named fields. Use a dot for an object field and -&gt; for a pointed-to object&#x27;s field. The compiler may insert padding for alignment. When assembly shares a structure, determine the actual target offsets rather than summing field widths.</p><p>An enum names states. A state machine defines current state, event, next state, and action. An event records something that happened; a state records what remains true afterwards. Write a transition table before code.</p><p>Separate persistent data from per-round data. A secret, calibration, or accumulated score may need to survive restart. Explicit state prevents one event from accidentally meaning both submit and restart in the same pass.</p><h2 id="section-worked-example">Worked example</h2><p class="notice">Illustrative fragment unless explicitly marked as a complete project below. Read the contract and required placement before copying.</p><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">enum phase { EDITING, SHOWING };
+struct game { enum phase phase; uint32_t guess; uint32_t secret; };
+static void select_pressed(struct game *g)
+{
+    if (g-&gt;phase == EDITING) {
+        g-&gt;phase = SHOWING; /* compute/display result here */
+    } else {
+        g-&gt;guess = 0u;
+        g-&gt;phase = EDITING;
+    }
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-execution-trace">Execution trace</h2><p>EDITING, guess=3, secret=7 → first press enters SHOWING → second press clears guess and returns to EDITING; secret stays 7.</p><h2 id="section-try-it-before-the-answer">Try it before the answer</h2><p>Add FINISHED, which ignores select. Write transition rows before editing.</p><details class="lesson-reveal"><summary>Hint 1</summary><p>Handle FINISHED before the existing branches.</p></details><details class="lesson-reveal"><summary>Hint 2</summary><p>Winning is a deliberate transition, not a reset.</p></details><details class="lesson-reveal"><summary>Reveal the worked answer</summary><p>Return immediately in FINISHED. In EDITING compute the result: winning enters FINISHED, otherwise SHOWING. SHOWING+select clears only guess and enters EDITING. Distinguish distinct presses from a held level.</p></details><h2 id="section-common-mistakes-and-symptoms">Common mistakes and symptoms</h2><p>Several independent flags may form impossible states. Clearing the whole structure also destroys persistent fields.</p><h2 id="section-checkpoint">Checkpoint</h2><p>List every transition and every field that survives restart.</p><label class="completion-control js-only"><input type="checkbox" data-lesson-complete="c-state"> I can explain and demonstrate this checkpoint</label><h2 id="section-deeper-explanation-and-source-examples">Deeper explanation and source examples</h2><details class="lesson-reveal"><summary>Continue into the maintained reference chapter</summary><p>Model legal states explicitly:</p><details class="code-panel" open><summary>Show C code</summary><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">typedef enum {
+  STATE_WAIT_START = 0,
+  STATE_EDIT_GUESS,
+  STATE_SHOW_RESULT,
+  STATE_FINISHED
+} app_state_t;
+
+static app_state_t state;</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div></details><p>Keep transitions in one foreground function:</p><details class="code-panel" open><summary>Show C code</summary><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">static void handle_select(void)
+{
+  switch (state) {
+    case STATE_WAIT_START:
+      start_game();
+      state = STATE_EDIT_GUESS;
+      break;
+    case STATE_EDIT_GUESS:
+      evaluate_guess();
+      state = won ? STATE_FINISHED : STATE_SHOW_RESULT;
+      break;
+    case STATE_SHOW_RESULT:
+      clear_guess();
+      state = STATE_EDIT_GUESS;
+      break;
+    case STATE_FINISHED:
+      break;
+    default:
+      state = STATE_WAIT_START;
+      break;
+  }
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div></details><p>Write a state/event table before coding. For each transition list current state, event, guard, actions, next state, and which data must persist.</p></details><h2 id="section-connect-this-skill-to-the-exam">Connect this skill to the exam</h2><ul><li>Pattern: <a href="../patterns/restart-and-persistent-state.html">Restart and persistent state</a></li><li><a href="../exams/2023-02-07-q2.html">2023-02-07-Q2: Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.</a></li><li><a href="../exams/2023-02-24-q2.html">2023-02-24-Q2: Handle SVC number 50, read the stacked argument, run Kaprekar, and return the count through the exception frame.</a></li><li><a href="../exams/2023-05-17-q2.html">2023-05-17-Q2: Extend signed 64/32 division with the requested N, Z, C and V result flags.</a></li><li><a href="../exams/2023-07-04-q2.html">2023-07-04-Q2: Every two seconds test the next source value and display the result as a one-hot LED value.</a></li><li><a href="../search.html">Search related patterns, implementations, and API calls</a></li><li><a href="coverage.html">See all lecture and question mappings</a></li></ul><nav class="lesson-navigation" aria-label="Lesson navigation"><a href="c-collections.html">← 8. Arrays, strings, matrices, and bounds</a><a href="c-files.html">10. Headers, declarations, and ownership →</a></nav></section><div class="progress-tools js-only"><button type="button" data-progress-export>Export progress</button><label>Import progress<input type="file" data-progress-import accept="application/json,.json"></label></div><p data-storage-status role="status"></p></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "pages": 400,
+  "links": 15594,
+  "inline_listings": 1120,
+  "copy_controls": 1120,
+  "page_bytes": {
+    "median": 11247,
+    "maximum": 110060
+  },
+  "asset_bytes": {
+    "portal-data.js": 325767,
+    "portal.css": 20712,
+    "portal.js": 11406,
+    "portal_logic.js": 2235,
+    "theme.js": 374
+  },
+  "theme_text_contrast": {
+    "light:ink/paper": 14.61,
+    "light:muted/paper": 6.15,
+    "light:muted/wash": 5.68,
+    "light:accent/paper": 7.68,
+    "light:accent/accent-soft": 6.38,
+    "light:code-ink/code": 13.99,
+    "light:warning-ink/warning": 7.92,
+    "dark:ink/paper": 12.82,
+    "dark:muted/paper": 7.72,
+    "dark:muted/wash": 8.63,
+    "dark:accent/paper": 9.44,
+    "dark:accent/accent-soft": 6.96,
+    "dark:code-ink/code": 15.9,
+    "dark:warning-ink/warning": 9.82
+  },
+  "source_notice_pages": [
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/index.html"
+  ],
+  "issues": []
+}

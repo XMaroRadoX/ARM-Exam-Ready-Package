@@ -1,0 +1,2747 @@
+[
+  {
+    "features": [
+      "LED",
+      "Buttons"
+    ],
+    "scenario": "mix-led-buttons",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick"
+    ],
+    "scenario": "mix-led-joystick",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer"
+    ],
+    "scenario": "mix-led-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT"
+    ],
+    "scenario": "mix-led-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "SysTick"
+    ],
+    "scenario": "mix-led-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "ADC"
+    ],
+    "scenario": "mix-led-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "DAC"
+    ],
+    "scenario": "mix-led-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick"
+    ],
+    "scenario": "mix-buttons-joystick",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer"
+    ],
+    "scenario": "mix-buttons-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT"
+    ],
+    "scenario": "mix-buttons-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer"
+    ],
+    "scenario": "mix-joystick-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT"
+    ],
+    "scenario": "mix-joystick-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "SysTick"
+    ],
+    "scenario": "mix-joystick-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Joystick",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick"
+    ],
+    "scenario": "mix-led-buttons-joystick",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer"
+    ],
+    "scenario": "mix-led-buttons-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT"
+    ],
+    "scenario": "mix-led-buttons-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer"
+    ],
+    "scenario": "mix-led-joystick-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT"
+    ],
+    "scenario": "mix-led-joystick-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "SysTick"
+    ],
+    "scenario": "mix-led-joystick-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-led-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-led-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-led-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer"
+    ],
+    "scenario": "mix-buttons-joystick-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT"
+    ],
+    "scenario": "mix-buttons-joystick-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-joystick-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-buttons-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-joystick-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-joystick-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-joystick-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-joystick-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-adc",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-led-buttons-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-led-joystick-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-led-joystick-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-joystick-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-joystick-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-joystick-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-joystick-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-adc-dac",
+    "status": "Complete project",
+    "qualification": "Unpaced foreground polling. No elapsed-time or electrical debounce guarantee; use clean inputs."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-joystick-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-systick",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-joystick-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-systick-adc",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-systick-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-joystick-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-buttons-joystick-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  },
+  {
+    "features": [
+      "LED",
+      "Buttons",
+      "Joystick",
+      "Timer",
+      "RIT",
+      "SysTick",
+      "ADC",
+      "DAC"
+    ],
+    "scenario": "mix-led-buttons-joystick-timer-rit-systick-adc-dac",
+    "status": "Complete project",
+    "qualification": "10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe)."
+  }
+]

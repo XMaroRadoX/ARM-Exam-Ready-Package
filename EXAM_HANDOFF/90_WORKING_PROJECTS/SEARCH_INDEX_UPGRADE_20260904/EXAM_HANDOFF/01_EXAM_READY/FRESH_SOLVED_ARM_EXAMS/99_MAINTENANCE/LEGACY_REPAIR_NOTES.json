@@ -1,0 +1,103 @@
+{
+  "PAT-ALG-DECIMAL-DIGITS-001": [
+    "Fix numeric palindrome comparison: use the full reversed value, not the 16-bit packed summary."
+  ],
+  "PAT-ALG-COUNTING-SORT-001": [
+    "Do not underflow exhausted frequency counters."
+  ],
+  "PAT-DS-CIRCULAR-QUEUE-001": [
+    "Validate head, tail and count before a buffer access."
+  ],
+  "PAT-DS-RING-BUFFER-001": [
+    "Validate head, tail and count before a buffer access."
+  ],
+  "PAT-DS-STACK-001": [
+    "Reject a corrupted top index for pop as well as push."
+  ],
+  "PAT-DS-LINKED-LIST-001": [
+    "Reject self-insertion, which otherwise creates a cycle."
+  ],
+  "PAT-ALG-FLOOD-FILL-001": [
+    "Reject zero columns and overflowing matrix dimensions before address arithmetic."
+  ],
+  "PAT-ALG-BFS-001": [
+    "Bound matrix indexing; recursive DFS additionally has an explicit 256-vertex stack-depth bound."
+  ],
+  "PAT-ALG-DIJKSTRA-001": [
+    "Bound matrix indexing; recursive DFS additionally has an explicit 256-vertex stack-depth bound."
+  ],
+  "PAT-ALG-RECURSIVE-DFS-001": [
+    "Bound matrix indexing; recursive DFS additionally has an explicit 256-vertex stack-depth bound.",
+    "Validate a directly called recursive helper before indexing seen."
+  ],
+  "PAT-ALG-DFS-STACK-001": [
+    "Mark vertices when pushed so duplicate pending entries cannot exhaust the n-element stack and drop reachable vertices."
+  ],
+  "PAT-ALG-COIN-CHANGE-001": [
+    "Validate scratch and coin pointers; prevent amount+1 wrap and word-address overflow."
+  ],
+  "PAT-ALG-KNAPSACK-001": [
+    "Reject invalid pointers and oversized DP dimensions; bound item-value sums to 32 bits."
+  ],
+  "PAT-ALG-LIS-001": [
+    "Guard null nonempty inputs."
+  ],
+  "PAT-ALG-HISTOGRAM-MODE-001": [
+    "Validate histogram storage and byte-domain range."
+  ],
+  "PAT-ALG-MOVING-AVERAGE-001": [
+    "Validate pointers and prevent unsigned windows from becoming a negative signed divisor."
+  ],
+  "PAT-ALG-EDIT-DISTANCE-001": [
+    "Prevent increment wrap and reject aliasing scratch rows.",
+    "Reject wrapped row count and tables whose word offsets exceed the address range."
+  ],
+  "PAT-ALG-ARRAY-REVERSAL-001": [
+    "Make a null input a no-op rather than dereferencing it."
+  ],
+  "PAT-ALG-BUBBLE-SORT-001": [
+    "Make a null input a no-op rather than dereferencing it."
+  ],
+  "PAT-ALG-SELECTION-SORT-001": [
+    "Make a null input a no-op rather than dereferencing it."
+  ],
+  "PAT-ALG-HEAP-SORT-001": [
+    "Make a null input a no-op rather than dereferencing it.",
+    "Stop heap descent at a leaf before child-index arithmetic."
+  ],
+  "PAT-ALG-QUICKSORT-001": [
+    "Reject unsigned lengths not representable by the signed partition indexes."
+  ],
+  "PAT-ALG-MERGE-SORT-001": [
+    "Reject identical scratch and input buffers."
+  ],
+  "PAT-ALG-MEMMOVE-001": [
+    "Use integer addresses for ordering distinct objects and guard null pointers.",
+    "Avoid relational comparison between pointers to unrelated objects."
+  ],
+  "PAT-ALG-ARRAY-ROTATION-001": [
+    "Reject identical scratch and input buffers.",
+    "Avoid overflowing index+rotation before normalization."
+  ],
+  "PAT-ALG-STRING-PRIMITIVES-001": [
+    "Avoid overflow in substring bound checking."
+  ],
+  "PAT-ALG-PREFIX-SUM-001": [
+    "Reject prefix arrays whose count+1 or byte offsets cannot be represented."
+  ],
+  "PAT-ALG-HORNER-001": [
+    "Define legacy Horner wraparound explicitly, avoiding C signed-overflow undefined behavior."
+  ],
+  "PAT-ALG-WIDE-DIVISION-001": [
+    "Avoid negating INT64_MIN in C. INT64_MIN/-1 retains the existing INT64_MIN bit-pattern result; document the overflow case."
+  ],
+  "PAT-ALG-REDUCTION-001": [
+    "Add the missing unsigned-reduction ARM export already present in C and its tests."
+  ],
+  "PAT-ALG-INDIRECT-RECURRENCE-001": [
+    "Validate computed Hofstadter dependency indexes and addition; supply its missing ARM entry point."
+  ],
+  "PAT-DATA-ASM-OBJECTS-001": [
+    "Export the canonical C data names and magic constant, preserving old aliases."
+  ]
+}

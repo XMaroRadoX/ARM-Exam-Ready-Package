@@ -1,0 +1,22 @@
+#include "exam_api.h"
+#include "LPC17xx.h"
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+volatile uint32_t tick_count;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags = exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags, 0u)) {
+    ++tick_count;
+    exam_led_write((uint8_t)tick_count);
+  }
+}
+void EINT0_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_INT0);exam_timer_stop(EXAM_TIMER0); }
+void EINT1_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_KEY1);exam_timer_start(EXAM_TIMER0); }
+void EINT2_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_KEY2);exam_timer_reset(EXAM_TIMER0);(void)exam_timer_ack(EXAM_TIMER0);exam_timer_start(EXAM_TIMER0); }
+int main(void) {
+  exam_init();exam_buttons_init();
+  require(exam_timer_config_ms(EXAM_TIMER0, 500u, EXAM_TIMER_PERIODIC));
+  exam_timer_start(EXAM_TIMER0);
+  for (;;) {}
+}

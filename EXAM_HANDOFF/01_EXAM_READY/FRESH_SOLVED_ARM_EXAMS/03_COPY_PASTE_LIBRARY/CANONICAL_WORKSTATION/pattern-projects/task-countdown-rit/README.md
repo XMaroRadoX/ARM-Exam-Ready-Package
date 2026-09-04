@@ -1,0 +1,25 @@
+# task-countdown-rit
+
+Count down from three seconds; pause with INT0; reset with KEY2; zero stays zero.
+
+## Run and inspect
+
+300 steps: alarm 1, remaining 0; further steps cannot underflow.
+
+## Resource ownership
+
+- P2.0–P2.7: board labels LD11–LD4; byte display mask
+- P2.10 INT0, P2.11 KEY1, P2.12 KEY2; active low
+- 10 ms input sampling; RIT_IRQHandler acknowledges the interrupt
+- Foreground: sole controller state owner; bounded FIFO of 31 usable snapshots; loss counter on overflow
+
+## Files to replace
+
+Open sample.uvprojx. All files below are already installed in this project. To adapt another template copy, replace these exact files; do not add a second handler.
+- Source/sample.c
+- Source/ASM_funct.s
+- Source/button_EXINT/IRQ_button.c
+- Source/timer/IRQ_timer.c
+- Source/RIT/IRQ_RIT.c
+- Source/systick/IRQ_systick.c
+- Source/adc/IRQ_adc.c

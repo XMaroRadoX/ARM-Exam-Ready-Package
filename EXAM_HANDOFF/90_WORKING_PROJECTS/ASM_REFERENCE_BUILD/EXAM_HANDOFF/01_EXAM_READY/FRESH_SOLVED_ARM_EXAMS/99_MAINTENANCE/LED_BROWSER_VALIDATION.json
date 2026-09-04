@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "pages": [
+    "api/exam-led-on.html",
+    "courses/board-leds.html",
+    "exams/2023-09-18-q2.html"
+  ],
+  "viewports": [
+    1440,
+    390
+  ],
+  "pageErrors": [],
+  "checks": "Updated declarations, examples, migrated answer, and no page overflow"
+}

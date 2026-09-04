@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Horner polynomial evaluation · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Horner polynomial evaluation</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Horner polynomial evaluation</h1><p>A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Loops and state</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Extra practice</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Evaluate coefficients efficiently.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Coefficient order must be known.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Choose highest-first versus lowest-first layout explicitly.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Start highest coefficient
+2. repeatedly result=result*x+next
+3. check intermediate width</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>2x^2+3x+4 atx2:2-&gt;7-&gt;18.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Choose highest-first versus lowest-first layout explicitly.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Coefficient order must be known.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Choose highest-first versus lowest-first layout explicitly.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>degree0; x0; negative; overflow.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Coefficient order must be known. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-HORNER-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Horner polynomial evaluation.
+ * Recognition cue: evaluate polynomial with multiply accumulate.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+int64_t pat_alg_horner_001(const int32_t *c, uint32_t n, int32_t x) {
+  uint64_t y=0;
+  if(!c)return 0;
+  while(n)y=y*(uint64_t)(int64_t)x+(uint64_t)(int64_t)c[--n];
+  if(y&lt;=INT64_MAX)return (int64_t)y;
+  return INT64_MIN+(int64_t)(y-(UINT64_C(1)&lt;&lt;63));
+}
+
+int pat_alg_horner_001_checked(const int32_t *c, uint32_t n, int32_t x, int64_t *out) {
+  if(!out||(!c&amp;&amp;n))return 0;
+  int64_t y=0;
+  while(n){
+    if(x==-1){if(y==INT64_MIN)return 0;y=-y;}
+    else {
+      if(x&gt;0&amp;&amp;(y&gt;INT64_MAX/x||y&lt;INT64_MIN/x))return 0;
+      if(x&lt; -1&amp;&amp;((y&gt;0&amp;&amp;y&gt;INT64_MIN/x)||(y&lt;0&amp;&amp;y&lt;INT64_MAX/x)))return 0;
+      y*=x;
+    }
+    int32_t term=c[--n];
+    if((term&gt;0&amp;&amp;y&gt;INT64_MAX-term)||(term&lt;0&amp;&amp;y&lt;INT64_MIN-term))return 0;
+    y+=term;
+  }
+  *out=y;return 1;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  int32_t c[] = {1, 2};
+  return pat_alg_horner_001(c, 2, 3) == 7;
+}
+static int pattern_edge_vectors(void) {
+  int64_t checked=99;int32_t ok_poly[3]={1,2,3},overflow_poly[4]={0,0,0,INT32_MAX}; if(!pat_alg_horner_001_checked(ok_poly,3,2,&amp;checked)||checked!=17)return 0;checked=99;if(pat_alg_horner_001_checked(overflow_poly,4,INT32_MAX,&amp;checked)||checked!=99)return 0;
+  if(pat_alg_horner_001(NULL,3,2)!=0)return 0;
+  int32_t c[] = {5};
+  return pat_alg_horner_001(c, 0, 7) == 0 &amp;&amp; pat_alg_horner_001(c, 1, 7) == 5;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-HORNER-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT pat_alg_horner_001
+        EXPORT pat_alg_horner_001_checked
+        IMPORT __aeabi_ldivmod
+        IMPORT __aeabi_uldivmod
+        ALIGN 2
+pat_alg_horner_001
+        mov	r12, r0
+        cmp	r0, #0
+        mov.w	r0, #0
+        beq	_LBB0_5
+        mov.w	r3, #0
+        cbz	r1, _LBB0_6
+        push	{r4, r5, r7, lr}
+        add	r7, sp, #8
+        sub.w	r12, r12, #4
+        movs	r0, #0
+        asr.w	lr, r2, #31
+        movs	r3, #0
+        ALIGN 2
+_LBB0_3
+        umull	r4, r5, r0, r2
+        mla	r0, r0, lr, r5
+        ldr.w	r5, [r12, r1, lsl #2]
+        mla	r3, r3, r2, r0
+        subs	r1, #1
+        adds	r0, r4, r5
+        adc.w	r3, r3, r5, asr #31
+        cmp	r1, #0
+        bne	_LBB0_3
+        pop.w	{r4, r5, r7, lr}
+        mov	r1, r3
+        bx	lr
+_LBB0_5
+        movs	r3, #0
+_LBB0_6
+        mov	r1, r3
+        bx	lr
+_Lfunc_end0
+        ALIGN 2
+pat_alg_horner_001_checked
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        push.w	{r8, r9, r10, r11}
+        sub	sp, #4
+        cmp	r3, #0
+        beq.w	_LBB1_24
+        mov	r6, r2
+        mov	r5, r1
+        mov.w	r10, #0
+        cbnz	r0, _LBB1_3
+        cmp	r5, #0
+        bne.w	_LBB1_25
+_LBB1_3
+        sub.w	r11, r0, #4
+        adds	r4, r6, #1
+        mov.w	r8, #0
+        mov.w	r9, #0
+        str	r3, [sp]
+        b	_LBB1_6
+        ALIGN 2
+_LBB1_4
+        movs	r0, #0
+_LBB1_5
+        cmp	r0, #0
+        sub.w	r5, r5, #1
+        beq	_LBB1_24
+_LBB1_6
+        cmp	r5, #0
+        beq	_LBB1_26
+        cmp	r4, #0
+        beq	_LBB1_17
+        cmp	r6, #1
+        blt	_LBB1_11
+        mov.w	r0, #-1
+        mvn	r1, #-2147483648
+        mov	r2, r6
+        movs	r3, #0
+        bl	__aeabi_uldivmod
+        subs.w	r0, r0, r8
+        sbcs.w	r0, r1, r9
+        blt	_LBB1_24
+        movs	r0, #0
+        mov.w	r1, #-2147483648
+        mov	r2, r6
+        movs	r3, #0
+        bl	__aeabi_ldivmod
+        subs.w	r0, r8, r0
+        sbcs.w	r0, r9, r1
+        blt	_LBB1_24
+_LBB1_11
+        cmn.w	r6, #2
+        bgt	_LBB1_16
+        subs.w	r0, r8, #1
+        sbcs	r0, r9, #0
+        blt	_LBB1_14
+        asrs	r3, r6, #31
+        movs	r0, #0
+        mov.w	r1, #-2147483648
+        mov	r2, r6
+        bl	__aeabi_ldivmod
+        subs.w	r0, r0, r8
+        sbcs.w	r0, r1, r9
+        blt	_LBB1_24
+_LBB1_14
+        cmp.w	r9, #-1
+        bgt	_LBB1_16
+        asrs	r3, r6, #31
+        mov.w	r0, #-1
+        mvn	r1, #-2147483648
+        mov	r2, r6
+        bl	__aeabi_ldivmod
+        subs.w	r0, r8, r0
+        sbcs.w	r0, r9, r1
+        blt	_LBB1_24
+        ALIGN 2
+_LBB1_16
+        umull	r0, r1, r8, r6
+        asrs	r2, r6, #31
+        mla	r1, r8, r2, r1
+        mov	r8, r0
+        mla	r9, r9, r6, r1
+        b	_LBB1_19
+        ALIGN 2
+_LBB1_17
+        mov.w	r0, #-2147483648
+        eor.w	r0, r0, r9
+        orrs.w	r0, r0, r8
+        beq	_LBB1_24
+        rsbs.w	r8, r8, #0
+        sbc.w	r9, r10, r9
+_LBB1_19
+        ldr.w	r0, [r11, r5, lsl #2]
+        cmp	r0, #1
+        blt	_LBB1_21
+        mvns	r1, r0
+        subs.w	r1, r1, r8
+        mvn	r1, #-2147483648
+        sbcs.w	r1, r1, r9
+        blt	_LBB1_4
+_LBB1_21
+        cmp.w	r0, #-1
+        bgt	_LBB1_23
+        rsbs	r1, r0, #0
+        mov.w	r2, #-2147483648
+        sbc.w	r2, r2, r0, asr #31
+        subs.w	r1, r8, r1
+        sbcs.w	r1, r9, r2
+        blt.w	_LBB1_4
+_LBB1_23
+        adds.w	r8, r8, r0
+        adc.w	r9, r9, r0, asr #31
+        movs	r0, #1
+        b	_LBB1_5
+_LBB1_24
+        mov.w	r10, #0
+_LBB1_25
+        mov	r0, r10
+        add	sp, #4
+        pop.w	{r8, r9, r10, r11}
+        pop	{r4, r5, r6, r7, pc}
+_LBB1_26
+        ldr	r0, [sp]
+        mov.w	r10, #1
+        strd	r8, r9, [r0]
+        b	_LBB1_25
+_Lfunc_end1
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

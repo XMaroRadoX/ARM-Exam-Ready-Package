@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Undirected symmetric weight matrix with zero meaning no edge; n=1..256. Supply n best words and n used bytes. Return MST weight, or UINT_MAX for invalid input, disconnection or unrepresentable total. UINT_MAX is reserved.">
+  <title>Prim minimum spanning tree · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Prim minimum spanning tree</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Prim minimum spanning tree</h1><p>Undirected symmetric weight matrix with zero meaning no edge; n=1..256. Supply n best words and n used bytes. Return MST weight, or UINT_MAX for invalid input, disconnection or unrepresentable total. UINT_MAX is reserved.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Graphs</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(V squared) with arrays.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Undirected symmetric weight matrix with zero meaning no edge; n=1..256. Supply n best words and n used bytes. Return MST weight, or UINT_MAX for invalid input, disconnection or unrepresentable total. UINT_MAX is reserved.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>unsigned prim_mst(const unsigned *w, size_t n, size_t start, unsigned *best, unsigned char *used)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>prim_mst</code></td><td><code>const unsigned *w</code></td><td><code>R0</code></td></tr><tr><td><code>prim_mst</code></td><td><code>size_t n</code></td><td><code>R1</code></td></tr><tr><td><code>prim_mst</code></td><td><code>size_t start</code></td><td><code>R2</code></td></tr><tr><td><code>prim_mst</code></td><td><code>unsigned *best</code></td><td><code>R3</code></td></tr><tr><td><code>prim_mst</code></td><td><code>unsigned char *used</code></td><td><code>[entry SP]</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Start one vertex at cost zero.</li><li>Add the unused vertex with smallest connection cost.</li><li>Update neighbor costs and check the accumulated weight.</li></ol><h3>Worked trace</h3><p>Triangle weights 0-1=2,1-2=3,0-2=9 -&gt; MST weight 5.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prim-mst/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Prim minimum spanning tree
+; unsigned prim_mst(const unsigned *w, size_t n, size_t start, unsigned *best, unsigned char *used)
+; Undirected symmetric weight matrix with zero meaning no edge; n=1..256. Supply n best words and n used bytes. Return MST weight, or UINT_MAX for invalid input, disconnection or unrepresentable total. UINT_MAX is reserved.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT prim_mst
+prim_mst
+        cmp r0,#0
+        beq pr_bad
+        cmp r3,#0
+        beq pr_bad
+        cmp r2,r1
+        bhs pr_bad
+        cmp r1,#256
+        bhi pr_bad
+        push {r4-r11,lr}
+        sub sp,sp,#4
+        ldr r4,[sp,#40]
+        cmp r4,#0
+        beq pr_fail
+        movs r9,#0
+        mvn r10,#0
+        movs r11,#0
+pr_init
+        cmp r9,r1
+        bhs pr_start
+        str r10,[r3,r9,lsl #2]
+        strb r11,[r4,r9]
+        adds r9,#1
+        b pr_init
+pr_start
+        str r11,[r3,r2,lsl #2]
+        movs r5,#0
+        movs r6,#0
+pr_outer
+        cmp r6,r1
+        bhs pr_done
+        mov r7,r1
+        mvn r8,#0
+        movs r9,#0
+pr_select
+        cmp r9,r1
+        bhs pr_accept
+        ldrb r10,[r4,r9]
+        cmp r10,#0
+        bne pr_sn
+        ldr r10,[r3,r9,lsl #2]
+        cmp r10,r8
+        bhs pr_sn
+        mov r8,r10
+        mov r7,r9
+pr_sn
+        adds r9,#1
+        b pr_select
+pr_accept
+        cmp r7,r1
+        beq pr_fail
+        adds r5,r5,r8
+        bcs pr_fail
+        cmn r5,#1
+        beq pr_fail
+        movs r10,#1
+        strb r10,[r4,r7]
+        movs r9,#0
+pr_edges
+        cmp r9,r1
+        bhs pr_next
+        ldrb r10,[r4,r9]
+        cmp r10,#0
+        bne pr_en
+        mla r12,r7,r1,r9
+        ldr r10,[r0,r12,lsl #2]
+        cmp r10,#0
+        beq pr_en
+        ldr r11,[r3,r9,lsl #2]
+        cmp r10,r11
+        bhs pr_en
+        str r10,[r3,r9,lsl #2]
+pr_en
+        adds r9,#1
+        b pr_edges
+pr_next
+        adds r6,#1
+        b pr_outer
+pr_done
+        mov r0,r5
+        b pr_return
+pr_fail
+        mvn r0,#0
+pr_return
+        add sp,sp,#4
+        pop {r4-r11,pc}
+pr_bad
+        mvn r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prim-mst/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+unsigned prim_mst(const unsigned *w, size_t n, size_t s, unsigned *b,
+                  unsigned char *u) {
+  if (!w || !b || !u || s &gt;= n || n &gt; 256)
+    return UINT_MAX;
+  for (size_t i = 0; i &lt; n; i++) {
+    b[i] = UINT_MAX;
+    u[i] = 0;
+  }
+  b[s] = 0;
+  unsigned total = 0;
+  for (size_t k = 0; k &lt; n; k++) {
+    size_t v = n;
+    unsigned low = UINT_MAX;
+    for (size_t i = 0; i &lt; n; i++)
+      if (!u[i] &amp;&amp; b[i] &lt; low) {
+        low = b[i];
+        v = i;
+      }
+    if (v == n || low &gt;= UINT_MAX - total)
+      return UINT_MAX;
+    u[v] = 1;
+    total += low;
+    for (size_t i = 0; i &lt; n; i++)
+      if (!u[i] &amp;&amp; w[v * n + i] &amp;&amp; w[v * n + i] &lt; b[i])
+        b[i] = w[v * n + i];
+  }
+  return total;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prim-mst/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+unsigned prim_mst(const unsigned *w, size_t n, size_t start, unsigned *best,
+                  unsigned char *used);
+int test_main(void) {
+  unsigned w[] = {0, 2, 9, 2, 0, 3, 9, 3, 0}, b[3];
+  unsigned char u[3];
+  CHECK(prim_mst(w, 3, 0, b, u) == 5);
+  unsigned d[] = {0, 0, 0, 0};
+  CHECK(prim_mst(d, 2, 0, b, u) == UINT_MAX);
+  CHECK(prim_mst(d, 1, 0, b, u) == 0);
+  unsigned big[] = {0, UINT_MAX - 1, 0, UINT_MAX - 1, 0, 2, 0, 2, 0};
+  CHECK(prim_mst(big, 3, 0, b, u) == UINT_MAX);
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

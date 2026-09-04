@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Normalize rotation modulo count. Left/right variants mutate in place; scratch rotation requires disjoint scratch_count&gt;=count.">
+  <title>Left and right array rotation · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Left and right array rotation</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Left and right array rotation</h1><p>Normalize rotation modulo count. Left/right variants mutate in place; scratch rotation requires disjoint scratch_count&gt;=count.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(n) time; O(1) for reversal or O(n) caller scratch.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Normalize rotation modulo count. Left/right variants mutate in place; scratch rotation requires disjoint scratch_count&gt;=count.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>void algorithm_left_and_right_array_rotation(int32_t *values, uint32_t count, uint32_t positions);
+void algorithm_left_and_right_array_rotation_right(int32_t *values, uint32_t count, uint32_t positions);
+int algorithm_left_and_right_array_rotation_with_scratch(int32_t *values, uint32_t count, uint32_t positions, int32_t *scratch, uint32_t scratch_count);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_left_and_right_array_rotation</code></td><td><code>int32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation</code></td><td><code>uint32_t positions</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_right</code></td><td><code>int32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_right</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_right</code></td><td><code>uint32_t positions</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_with_scratch</code></td><td><code>int32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_with_scratch</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_with_scratch</code></td><td><code>uint32_t positions</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_with_scratch</code></td><td><code>int32_t *scratch</code></td><td><code>R3</code></td></tr><tr><td><code>algorithm_left_and_right_array_rotation_with_scratch</code></td><td><code>uint32_t scratch_count</code></td><td><code>[entry SP]</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Normalize k.</li><li>Reverse the first and second regions.</li><li>Reverse the whole array.</li><li>Derive right rotation or use scratch mapping.</li></ol><h3>Worked trace</h3><p>[1,2,3,4], left 1 -&gt; [2,3,4,1]; right 1 -&gt; [4,1,2,3].</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-and-right-array-rotation/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT algorithm_left_and_right_array_rotation
+        EXPORT algorithm_left_and_right_array_rotation_right
+        EXPORT algorithm_left_and_right_array_rotation_with_scratch
+        ALIGN 2
+algorithm_left_and_right_array_rotation
+        cmp	r0, #0
+        beq	_LBB0_13
+        cmp	r1, #2
+        it	lo
+        bxlo	lr
+_LBB0_2
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        udiv	r3, r2, r1
+        mls	lr, r3, r1, r2
+        cmp.w	lr, #0
+        beq	_LBB0_12
+        subs.w	r3, lr, #1
+        beq	_LBB0_6
+        movs	r2, #0
+        ALIGN 2
+_LBB0_5
+        ldr.w	r12, [r0, r3, lsl #2]
+        ldr.w	r4, [r0, r2, lsl #2]
+        str.w	r12, [r0, r2, lsl #2]
+        str.w	r4, [r0, r3, lsl #2]
+        adds	r2, #1
+        subs	r3, #1
+        cmp	r2, r3
+        blo	_LBB0_5
+_LBB0_6
+        subs	r3, r1, #1
+        cmp	lr, r3
+        bhs	_LBB0_9
+        sub.w	r12, r0, #4
+        ALIGN 2
+_LBB0_8
+        ldr.w	r2, [r12, r1, lsl #2]
+        ldr.w	r4, [r0, lr, lsl #2]
+        str.w	r2, [r0, lr, lsl #2]
+        add.w	lr, lr, #1
+        subs	r2, r1, #2
+        str.w	r4, [r12, r1, lsl #2]
+        subs	r1, #1
+        cmp	lr, r2
+        blo	_LBB0_8
+_LBB0_9
+        cbz	r3, _LBB0_12
+        movs	r1, #0
+        ALIGN 2
+_LBB0_11
+        ldr.w	r2, [r0, r3, lsl #2]
+        ldr.w	r4, [r0, r1, lsl #2]
+        str.w	r2, [r0, r1, lsl #2]
+        str.w	r4, [r0, r3, lsl #2]
+        adds	r1, #1
+        subs	r3, #1
+        cmp	r1, r3
+        blo	_LBB0_11
+_LBB0_12
+        pop.w	{r4, r6, r7, lr}
+_LBB0_13
+        bx	lr
+_Lfunc_end0
+        ALIGN 2
+algorithm_left_and_right_array_rotation_right
+        cmp	r1, #0
+        it	eq
+        bxeq	lr
+_LBB1_1
+        cmp	r0, #0
+        it	ne
+        cmpne	r1, #1
+        bne	_LBB1_3
+        bx	lr
+_LBB1_3
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        udiv	r3, r2, r1
+        muls	r3, r1, r3
+        subs	r2, r3, r2
+        add	r2, r1
+        udiv	r3, r2, r1
+        mls	lr, r3, r1, r2
+        cmp.w	lr, #0
+        beq	_LBB1_13
+        subs.w	r3, lr, #1
+        beq	_LBB1_7
+        movs	r2, #0
+        ALIGN 2
+_LBB1_6
+        ldr.w	r12, [r0, r3, lsl #2]
+        ldr.w	r4, [r0, r2, lsl #2]
+        str.w	r12, [r0, r2, lsl #2]
+        str.w	r4, [r0, r3, lsl #2]
+        adds	r2, #1
+        subs	r3, #1
+        cmp	r2, r3
+        blo	_LBB1_6
+_LBB1_7
+        subs	r3, r1, #1
+        cmp	lr, r3
+        bhs	_LBB1_10
+        sub.w	r12, r0, #4
+        ALIGN 2
+_LBB1_9
+        ldr.w	r2, [r12, r1, lsl #2]
+        ldr.w	r4, [r0, lr, lsl #2]
+        str.w	r2, [r0, lr, lsl #2]
+        add.w	lr, lr, #1
+        subs	r2, r1, #2
+        str.w	r4, [r12, r1, lsl #2]
+        subs	r1, #1
+        cmp	lr, r2
+        blo	_LBB1_9
+_LBB1_10
+        cbz	r3, _LBB1_13
+        movs	r1, #0
+        ALIGN 2
+_LBB1_12
+        ldr.w	r2, [r0, r3, lsl #2]
+        ldr.w	r4, [r0, r1, lsl #2]
+        str.w	r2, [r0, r1, lsl #2]
+        str.w	r4, [r0, r3, lsl #2]
+        adds	r1, #1
+        subs	r3, #1
+        cmp	r1, r3
+        blo	_LBB1_12
+_LBB1_13
+        pop.w	{r4, r6, r7, lr}
+        bx	lr
+_Lfunc_end1
+        ALIGN 2
+algorithm_left_and_right_array_rotation_with_scratch
+        cmp	r0, r3
+        mov.w	r12, #0
+        it	ne
+        cmpne	r0, #0
+        bne	_LBB2_2
+_LBB2_1
+        mov	r0, r12
+        bx	lr
+_LBB2_2
+        cmp	r3, #0
+        beq	_LBB2_1
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        ldr.w	lr, [r7, #8]
+        cmp	lr, r1
+        blo	_LBB2_10
+        cbz	r1, _LBB2_9
+        udiv	r12, r2, r1
+        mls	r12, r12, r1, r2
+        movs	r2, #0
+        sub.w	lr, r1, r12
+        ALIGN 2
+_LBB2_6
+        mov	r4, r12
+        cmp	r2, lr
+        it	hs
+        rsbhs.w	r4, lr, #0
+        add.w	r4, r0, r4, lsl #2
+        ldr.w	r4, [r4, r2, lsl #2]
+        str.w	r4, [r3, r2, lsl #2]
+        adds	r2, #1
+        cmp	r1, r2
+        bne	_LBB2_6
+        subs	r0, #4
+        subs	r2, r3, #4
+        ALIGN 2
+_LBB2_8
+        ldr	r3, [r2, #4]!
+        subs	r1, #1
+        str	r3, [r0, #4]!
+        bne	_LBB2_8
+_LBB2_9
+        mov.w	r12, #1
+_LBB2_10
+        pop.w	{r4, r6, r7, lr}
+        mov	r0, r12
+        bx	lr
+_Lfunc_end2
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-and-right-array-rotation/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Left and right array rotation.
+ * Recognition cue: rotate array using reversal.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+static void algorithm_left_and_right_array_rotation_reverse_range(int32_t *values,
+                                                                  uint32_t left,
+                                                                  uint32_t right) {
+  while (left &lt; right) {
+    int32_t temporary = values[left];
+    values[left] = values[right];
+    values[right] = temporary;
+    ++left;
+    --right;
+  }
+}
+
+void algorithm_left_and_right_array_rotation(int32_t *values, uint32_t count,
+                                             uint32_t positions) {
+  if ((values == NULL) || (count &lt; 2u)) {
+    return;
+  }
+  positions %= count;
+  if (positions == 0u) {
+    return;
+  }
+  algorithm_left_and_right_array_rotation_reverse_range(values, 0u, positions - 1u);
+  algorithm_left_and_right_array_rotation_reverse_range(values, positions, count - 1u);
+  algorithm_left_and_right_array_rotation_reverse_range(values, 0u, count - 1u);
+}
+
+void algorithm_left_and_right_array_rotation_right(int32_t *values, uint32_t count,
+                                                   uint32_t positions) {
+  if (count != 0u) {
+    algorithm_left_and_right_array_rotation(values, count, count - (positions % count));
+  }
+}
+
+int algorithm_left_and_right_array_rotation_with_scratch(int32_t *values,
+                                                         uint32_t count,
+                                                         uint32_t positions,
+                                                         int32_t *scratch,
+                                                         uint32_t scratch_count) {
+  uint32_t index;
+
+  if ((values == NULL) || (scratch == NULL) || (scratch_count &lt; count) ||
+      values == scratch) {
+    return 0;
+  }
+  if (count == 0u) {
+    return 1;
+  }
+  positions %= count;
+  for (index = 0u; index &lt; count; ++index) {
+    scratch[index] = values[index &gt;= count - positions ? index - (count - positions)
+                                                       : index + positions];
+  }
+  for (index = 0u; index &lt; count; ++index) {
+    values[index] = scratch[index];
+  }
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-and-right-array-rotation/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Left and right array rotation.
+ * Recognition cue: rotate array using reversal.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+static void algorithm_left_and_right_array_rotation_reverse_range(int32_t *values,
+                                                                  uint32_t left,
+                                                                  uint32_t right);
+
+void algorithm_left_and_right_array_rotation(int32_t *values, uint32_t count,
+                                             uint32_t positions);
+
+void algorithm_left_and_right_array_rotation_right(int32_t *values, uint32_t count,
+                                                   uint32_t positions);
+
+int algorithm_left_and_right_array_rotation_with_scratch(int32_t *values,
+                                                         uint32_t count,
+                                                         uint32_t positions,
+                                                         int32_t *scratch,
+                                                         uint32_t scratch_count);
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {1, 2, 3, 4};
+  algorithm_left_and_right_array_rotation(a, 4, 2);
+  return a[0] == 3 &amp;&amp; a[1] == 4 &amp;&amp; a[2] == 1 &amp;&amp; a[3] == 2;
+}
+static int pattern_edge_vectors(void) {
+  int32_t a[] = {1, 2, 3, 4}, b[] = {1, 2, 3}, t[3];
+  algorithm_left_and_right_array_rotation_right(a, 4, 1);
+  return a[0] == 4 &amp;&amp; a[1] == 1 &amp;&amp; a[3] == 3 &amp;&amp;
+         algorithm_left_and_right_array_rotation_with_scratch(b, 3, 1, t, 3) &amp;&amp;
+         b[0] == 2 &amp;&amp; b[2] == 1 &amp;&amp;
+         !algorithm_left_and_right_array_rotation_with_scratch(b, 3, 1, t, 2);
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

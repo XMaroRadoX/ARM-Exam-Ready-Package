@@ -1,0 +1,12 @@
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include <limits.h>
+#include <stddef.h>
+#include <stdint.h>
+uint32_t trailing_zero_count(uint32_t value);
+int test_main(void) {
+  CHECK(trailing_zero_count(8) == 3);
+  CHECK(trailing_zero_count(0) == 32);
+  CHECK(trailing_zero_count(0xffffffffu) == 0);
+  return 0;
+}

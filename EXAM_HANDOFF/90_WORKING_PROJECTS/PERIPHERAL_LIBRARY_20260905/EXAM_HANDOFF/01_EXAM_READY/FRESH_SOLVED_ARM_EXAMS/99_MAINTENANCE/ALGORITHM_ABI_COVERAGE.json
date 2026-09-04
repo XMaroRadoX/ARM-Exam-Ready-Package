@@ -1,0 +1,1068 @@
+[
+  {
+    "slug": "pat-alg-array-reversal-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_array_reversal_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-array-rotation-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_array_rotation_001",
+      "pat_alg_array_rotation_001_right",
+      "pat_alg_array_rotation_001_with_scratch"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-bfs-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_bfs_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-binary-search-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_binary_search_001",
+      "pat_alg_binary_search_001_exact"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-bitfield-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_bitfield_001",
+      "pat_alg_bitfield_001_extract",
+      "pat_alg_bitfield_001_pack_u16"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-bubble-sort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_bubble_sort_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-checksum-crc-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_checksum_crc_001",
+      "pat_alg_checksum_crc_001_crc32_table"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-coin-change-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_coin_change_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-component-merge-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_component_merge_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-consume-once-match-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_consume_once_match_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-counting-sort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_counting_sort_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-decimal-digits-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_decimal_digits_001",
+      "pat_alg_decimal_digits_001_extract",
+      "pat_alg_decimal_digits_001_is_palindrome",
+      "pat_alg_decimal_digits_001_kaprekar_4",
+      "pat_alg_decimal_digits_001_reconstruct"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-dfs-stack-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_dfs_stack_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-dijkstra-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_dijkstra_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-edit-distance-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_edit_distance_001",
+      "pat_alg_edit_distance_001_full"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-fast-power-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_fast_power_001",
+      "pat_alg_fast_power_001_checked"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-flood-fill-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_flood_fill_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-gcd-lcm-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_gcd_lcm_001",
+      "pat_alg_gcd_lcm_001_lcm"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-heap-sort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "down",
+      "pat_alg_heap_sort_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-histogram-mode-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_histogram_mode_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-horner-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_horner_001",
+      "pat_alg_horner_001_checked"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-indirect-recurrence-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_indirect_recurrence_001",
+      "pat_alg_indirect_recurrence_001_hofstadter_q"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-integer-sqrt-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_integer_sqrt_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-knapsack-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_knapsack_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-lcg-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_lcg_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-linear-search-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_linear_search_001",
+      "pat_alg_linear_search_001_all",
+      "pat_alg_linear_search_001_last"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-lis-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_lis_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-look-and-say-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_look_and_say_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-memmove-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_memmove_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-merge-sort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "merge",
+      "ms",
+      "pat_alg_merge_sort_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-moving-average-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_moving_average_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-packed-matmul-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_packed_matmul_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-popcount-parity-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_popcount_parity_001",
+      "pat_alg_popcount_parity_001_parity"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-prefix-sum-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_prefix_sum_001",
+      "pat_alg_prefix_sum_001_range"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-prime-factorization-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_prime_factorization_001",
+      "pat_alg_prime_factorization_001_factorize"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-quicksort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_quicksort_001",
+      "qs"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-recursive-dfs-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_recursive_dfs_001",
+      "visit"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-reduction-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_reduction_001",
+      "pat_alg_reduction_001_unsigned"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-run-length-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_run_length_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-saturating-arithmetic-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_saturating_arithmetic_001",
+      "pat_alg_saturating_arithmetic_001_abs_i32",
+      "pat_alg_saturating_arithmetic_001_add_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-selection-sort-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_selection_sort_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-string-primitives-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_string_primitives_001",
+      "pat_alg_string_primitives_001_compare",
+      "pat_alg_string_primitives_001_copy",
+      "pat_alg_string_primitives_001_length"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-alg-wide-division-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_alg_wide_division_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-data-asm-objects-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_data_asm_objects_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-ds-circular-queue-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_ds_circular_queue_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-ds-linked-list-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_ds_linked_list_001",
+      "pat_ds_linked_list_001_insert_after",
+      "pat_ds_linked_list_001_remove_first"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-ds-ring-buffer-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_ds_ring_buffer_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-ds-stack-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_ds_stack_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-ds-union-find-001",
+    "status": "PASS",
+    "executed_exports": [
+      "find",
+      "pat_ds_union_find_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pat-mem-packed-transpose-001",
+    "status": "PASS",
+    "executed_exports": [
+      "pat_mem_packed_transpose_001"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "insertion-sort",
+    "status": "PASS",
+    "executed_exports": [
+      "insertion_sort"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "cocktail-sort",
+    "status": "PASS",
+    "executed_exports": [
+      "cocktail_sort"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "shell-sort",
+    "status": "PASS",
+    "executed_exports": [
+      "shell_sort"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "radix-sort",
+    "status": "PASS",
+    "executed_exports": [
+      "radix_sort_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "upper-bound-equal-range",
+    "status": "PASS",
+    "executed_exports": [
+      "upper_bound_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "quickselect",
+    "status": "PASS",
+    "executed_exports": [
+      "quickselect"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "rectangular-matrix-transpose",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_transpose"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "subset-sum",
+    "status": "PASS",
+    "executed_exports": [
+      "subset_sum"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "base-conversion",
+    "status": "PASS",
+    "executed_exports": [
+      "u32_to_base"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "debounce-state-machine",
+    "status": "PASS",
+    "executed_exports": [
+      "debounce_update"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "threshold-hysteresis",
+    "status": "PASS",
+    "executed_exports": [
+      "hysteresis_update"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "topological-sort",
+    "status": "PASS",
+    "executed_exports": [
+      "topological_sort"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "bipartite-test",
+    "status": "PASS",
+    "executed_exports": [
+      "graph_is_bipartite"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "directed-cycle-detection",
+    "status": "PASS",
+    "executed_exports": [
+      "directed_cycle"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "prim-mst",
+    "status": "PASS",
+    "executed_exports": [
+      "prim_mst"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "kruskal-mst",
+    "status": "PASS",
+    "executed_exports": [
+      "kruskal_mst"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "bellman-ford",
+    "status": "PASS",
+    "executed_exports": [
+      "bellman_ford"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "floyd-warshall",
+    "status": "PASS",
+    "executed_exports": [
+      "floyd_warshall"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "a-star-grid",
+    "status": "PASS",
+    "executed_exports": [
+      "astar_grid"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "factorial-iterative",
+    "status": "PASS",
+    "executed_exports": [
+      "factorial_iterative"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "factorial-recursive",
+    "status": "PASS",
+    "executed_exports": [
+      "factorial_recursive"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "fibonacci-number",
+    "status": "PASS",
+    "executed_exports": [
+      "fibonacci_number"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "fibonacci-array",
+    "status": "PASS",
+    "executed_exports": [
+      "fibonacci_array"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "tribonacci-array",
+    "status": "PASS",
+    "executed_exports": [
+      "tribonacci_array"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "bounded-collatz",
+    "status": "PASS",
+    "executed_exports": [
+      "bounded_collatz"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "decimal-digit-count",
+    "status": "PASS",
+    "executed_exports": [
+      "decimal_digit_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "decimal-digit-product",
+    "status": "PASS",
+    "executed_exports": [
+      "decimal_digit_product"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "digital-root",
+    "status": "PASS",
+    "executed_exports": [
+      "digital_root"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-decimal-reversal",
+    "status": "PASS",
+    "executed_exports": [
+      "reverse_decimal"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "digit-sum-any-base",
+    "status": "PASS",
+    "executed_exports": [
+      "digit_sum_base"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "armstrong-number",
+    "status": "PASS",
+    "executed_exports": [
+      "armstrong_number"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "divisor-sum",
+    "status": "PASS",
+    "executed_exports": [
+      "divisor_sum"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "perfect-number",
+    "status": "PASS",
+    "executed_exports": [
+      "perfect_number"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "divisor-count",
+    "status": "PASS",
+    "executed_exports": [
+      "divisor_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "sieve-of-eratosthenes",
+    "status": "PASS",
+    "executed_exports": [
+      "prime_sieve"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-binomial",
+    "status": "PASS",
+    "executed_exports": [
+      "binomial_coefficient"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "modular-exponentiation",
+    "status": "PASS",
+    "executed_exports": [
+      "modular_power"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "word-hamming-distance",
+    "status": "PASS",
+    "executed_exports": [
+      "word_hamming"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "reverse-32-bits",
+    "status": "PASS",
+    "executed_exports": [
+      "reverse_bits"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "longest-one-bit-run",
+    "status": "PASS",
+    "executed_exports": [
+      "longest_one_run"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "trailing-zero-count",
+    "status": "PASS",
+    "executed_exports": [
+      "trailing_zero_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "leading-zero-count",
+    "status": "PASS",
+    "executed_exports": [
+      "leading_zero_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "bit-width-palindrome",
+    "status": "PASS",
+    "executed_exports": [
+      "bit_palindrome"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "second-largest",
+    "status": "PASS",
+    "executed_exports": [
+      "second_largest"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "second-smallest",
+    "status": "PASS",
+    "executed_exports": [
+      "second_smallest"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "extrema-indexes",
+    "status": "PASS",
+    "executed_exports": [
+      "extrema_indexes"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-above-threshold",
+    "status": "PASS",
+    "executed_exports": [
+      "count_above"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "stable-threshold-filter",
+    "status": "PASS",
+    "executed_exports": [
+      "threshold_filter"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "majority-element",
+    "status": "PASS",
+    "executed_exports": [
+      "majority_element"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "unique-sorted",
+    "status": "PASS",
+    "executed_exports": [
+      "unique_sorted"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "unique-unsorted",
+    "status": "PASS",
+    "executed_exports": [
+      "unique_unsorted"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "sorted-merge",
+    "status": "PASS",
+    "executed_exports": [
+      "sorted_merge"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "sorted-intersection",
+    "status": "PASS",
+    "executed_exports": [
+      "sorted_intersection"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "sorted-union",
+    "status": "PASS",
+    "executed_exports": [
+      "sorted_union"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "longest-equal-run",
+    "status": "PASS",
+    "executed_exports": [
+      "longest_equal_run"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "longest-increasing-run",
+    "status": "PASS",
+    "executed_exports": [
+      "longest_increasing_run"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "maximum-subarray-sum",
+    "status": "PASS",
+    "executed_exports": [
+      "maximum_subarray"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "first-interior-peak",
+    "status": "PASS",
+    "executed_exports": [
+      "first_peak"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "dot-i16",
+    "status": "PASS",
+    "executed_exports": [
+      "dot_i16"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "array-bit-differences",
+    "status": "PASS",
+    "executed_exports": [
+      "array_bit_differences"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "squared-differences-i16",
+    "status": "PASS",
+    "executed_exports": [
+      "squared_differences_i16"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "byte-string-palindrome",
+    "status": "PASS",
+    "executed_exports": [
+      "bytes_palindrome"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "byte-string-reversal",
+    "status": "PASS",
+    "executed_exports": [
+      "bytes_reverse"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "byte-character-count",
+    "status": "PASS",
+    "executed_exports": [
+      "byte_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "substring-first",
+    "status": "PASS",
+    "executed_exports": [
+      "substring_first"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "substring-count",
+    "status": "PASS",
+    "executed_exports": [
+      "substring_count"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "byte-anagram-test",
+    "status": "PASS",
+    "executed_exports": [
+      "byte_anagram"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "parse-u32",
+    "status": "PASS",
+    "executed_exports": [
+      "parse_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "parse-i32",
+    "status": "PASS",
+    "executed_exports": [
+      "parse_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "format-signed-decimal",
+    "status": "PASS",
+    "executed_exports": [
+      "format_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "trim-ascii-whitespace",
+    "status": "PASS",
+    "executed_exports": [
+      "trim_ascii"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "bounded-run-length-decoding",
+    "status": "PASS",
+    "executed_exports": [
+      "rle_decode"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "eight-digit-packed-bcd",
+    "status": "PASS",
+    "executed_exports": [
+      "packed_bcd"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "matrix-row-column-sums",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_sums"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "matrix-diagonal-sums",
+    "status": "PASS",
+    "executed_exports": [
+      "diagonal_sums"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "matrix-symmetry",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_symmetric"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "matrix-clockwise-rotation",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_rotate_clockwise"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "integer-matrix-multiplication",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_multiply_i16"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "recursive-binary-search",
+    "status": "PASS",
+    "executed_exports": [
+      "recursive_binary_search"
+    ],
+    "untested_exports": []
+  }
+]

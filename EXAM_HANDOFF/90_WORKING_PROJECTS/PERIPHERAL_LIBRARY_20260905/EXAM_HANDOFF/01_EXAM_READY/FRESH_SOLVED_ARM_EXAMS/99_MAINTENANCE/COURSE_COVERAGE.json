@@ -1,0 +1,635 @@
+{
+  "lessons": [
+    "c-program",
+    "c-values",
+    "c-decisions",
+    "c-loops",
+    "c-functions",
+    "c-bits",
+    "c-pointers",
+    "c-collections",
+    "c-state",
+    "c-files",
+    "c-events",
+    "c-integration",
+    "arm-machine",
+    "arm-file",
+    "arm-contract",
+    "arm-flags",
+    "arm-constants",
+    "arm-memory",
+    "arm-loops",
+    "arm-layout",
+    "arm-stack",
+    "arm-extra",
+    "arm-wide",
+    "arm-recursion",
+    "arm-exceptions",
+    "arm-debug",
+    "board-start",
+    "board-leds",
+    "board-buttons",
+    "board-irq",
+    "board-timers",
+    "board-debounce",
+    "board-systick",
+    "board-rit",
+    "board-joystick",
+    "board-adc",
+    "board-dac",
+    "board-events",
+    "board-combine",
+    "board-power",
+    "board-interface",
+    "board-lcd",
+    "project-buttons",
+    "project-timed",
+    "project-analog",
+    "practice-exam"
+  ],
+  "lectures": {
+    "02_ORIGINAL_MATERIALS/ARM/10_exceptions.pdf": [
+      "arm-exceptions"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/11_ARMandC.pdf": [
+      "c-integration",
+      "arm-contract",
+      "arm-extra"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/12_toolchain.pdf": [
+      "c-program",
+      "arm-file"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/13_LPC1768_led.pdf": [
+      "board-leds"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/14_LPC1768_button.pdf": [
+      "board-buttons",
+      "board-irq"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/15_LPC1768_powerControl.pdf": [
+      "board-power"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/16_LPC1768_timer.pdf": [
+      "board-timers"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/17_Switch_Bouncing.pdf": [
+      "board-debounce"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/18_Joystick.pdf": [
+      "board-joystick"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/19_ADC_DAC.pdf": [
+      "board-adc",
+      "board-dac"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/1_introduction.pdf": [
+      "arm-machine",
+      "board-start"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/20_display_controller_datasheet.pdf": [
+      "board-lcd"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/20_LCD_and_Touch_Panel.pdf": [
+      "board-lcd"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/21_exam-style exercises.pdf": [
+      "practice-exam"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/2_v7Marchitecture.pdf": [
+      "arm-machine",
+      "arm-exceptions"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/3_directives.pdf": [
+      "arm-file",
+      "arm-constants"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/4_memory.pdf": [
+      "arm-memory",
+      "arm-layout"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/5_literalPool.pdf": [
+      "arm-constants"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/6_ALUinstructions.pdf": [
+      "arm-flags",
+      "arm-wide"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/7_branches.pdf": [
+      "arm-flags",
+      "arm-loops"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/8_stack.pdf": [
+      "arm-stack",
+      "arm-extra"
+    ],
+    "02_ORIGINAL_MATERIALS/ARM/9_subroutines.pdf": [
+      "arm-contract",
+      "arm-stack",
+      "arm-recursion"
+    ]
+  },
+  "questions": {
+    "2023-02-07-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2023-02-07-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2023-02-24-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2023-02-24-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-exceptions",
+      "arm-stack",
+      "arm-extra"
+    ],
+    "2023-05-17-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2023-05-17-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-rit",
+      "c-bits",
+      "arm-wide"
+    ],
+    "2023-07-04-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit"
+    ],
+    "2023-07-04-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-timers"
+    ],
+    "2023-09-18-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit",
+      "c-bits",
+      "arm-wide"
+    ],
+    "2023-09-18-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2024-02-12-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2024-02-12-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-timers",
+      "board-rit",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2024-02-28-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2024-02-28-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers"
+    ],
+    "2024-07-09-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-recursion",
+      "board-systick"
+    ],
+    "2024-07-09-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-recursion",
+      "board-systick",
+      "arm-stack",
+      "arm-extra"
+    ],
+    "2024-09-16-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit",
+      "arm-stack",
+      "arm-extra"
+    ],
+    "2024-09-16-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-rit",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2025-01-29_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-layout",
+      "board-rit"
+    ],
+    "2025-01-29_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-memory",
+      "board-timers",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2025-01-29_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-layout",
+      "board-rit"
+    ],
+    "2025-01-29_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-layout",
+      "board-timers",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2025-01-29_ARM3-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-layout",
+      "board-rit"
+    ],
+    "2025-01-29_ARM3-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-layout",
+      "board-timers",
+      "board-buttons",
+      "board-debounce"
+    ],
+    "2025-02-12_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2025-02-12_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-dac"
+    ],
+    "2025-02-12_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2025-02-12_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-dac"
+    ],
+    "2025-07-01_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit",
+      "arm-stack",
+      "arm-extra"
+    ],
+    "2025-07-01_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide"
+    ],
+    "2025-07-01_ARM1-Q3": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-joystick"
+    ],
+    "2025-07-01_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit"
+    ],
+    "2025-07-01_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide"
+    ],
+    "2025-07-01_ARM2-Q3": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-joystick"
+    ],
+    "2026-02-03_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2026-02-03_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-memory",
+      "board-buttons",
+      "board-debounce",
+      "board-adc"
+    ],
+    "2026-02-03_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2026-02-03_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-memory",
+      "board-buttons",
+      "board-debounce",
+      "board-adc"
+    ],
+    "2026-02-03_ARM3-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit"
+    ],
+    "2026-02-03_ARM3-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-timers",
+      "board-buttons",
+      "board-debounce",
+      "board-adc"
+    ],
+    "2026-02-18_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit"
+    ],
+    "2026-02-18_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-timers",
+      "board-dac"
+    ],
+    "2026-02-18_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "arm-wide",
+      "board-rit"
+    ],
+    "2026-02-18_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "arm-wide",
+      "board-timers",
+      "board-dac"
+    ],
+    "2026-06-25_ARM1-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2026-06-25_ARM1-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-joystick"
+    ],
+    "2026-06-25_ARM2-Q1": [
+      "c-integration",
+      "arm-contract",
+      "arm-debug",
+      "arm-memory",
+      "arm-loops",
+      "c-collections",
+      "board-rit"
+    ],
+    "2026-06-25_ARM2-Q2": [
+      "c-integration",
+      "arm-contract",
+      "board-start",
+      "board-irq",
+      "board-combine",
+      "c-state",
+      "board-timers",
+      "board-rit",
+      "board-joystick"
+    ]
+  }
+}

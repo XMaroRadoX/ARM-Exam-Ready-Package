@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.">
+  <title>2025-02-12 ARM2 Cosine DAC · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">2025-02-12 ARM2 Cosine DAC</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>2025-02-12 ARM2 Cosine DAC</h1><p>Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-observable-behavior">Problem and observable behavior</a><a href="#section-resource-and-interrupt-ownership">Resource and interrupt ownership</a><a href="#section-state-transitions-and-event-sequence">State transitions and event sequence</a><a href="#section-setup-values-and-timing">Setup values and timing</a><a href="#section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</a><a href="#section-verification">Verification</a><a href="#section-complete-replacement-files">Complete replacement files</a><a href="#section-related-references">Related references</a></nav><div class="page-body"><section class="section-block"><p class="eyebrow">Appeared in past exams</p><h2 id="section-problem-and-observable-behavior">Problem and observable behavior</h2><p>Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.</p><p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/paper-e2025-02-12-a2.zip">Download complete project ZIP</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/sample.uvprojx">Open complete Keil project</a></p><h2 id="section-resource-and-interrupt-ownership">Resource and interrupt ownership</h2><table><thead><tr><th>Resource</th><th>Role</th></tr></thead><tbody><tr><td>Timer</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>DAC</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr></tbody></table><ul><li>2025-02-12_ARM2-Q2: main; answer_timer1; Timer1 IRQ writes one DAC sample and wraps index; 45 samples; k=1592</li><li>Unused enabled button vectors: acknowledge only in Source/unused_buttons.c; preserve the paper answer files.</li></ul><h2 id="section-state-transitions-and-event-sequence">State transitions and event sequence</h2><p>Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.</p><h2 id="section-setup-values-and-timing">Setup values and timing</h2><p>45 samples; k=1592</p><h2 id="section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</h2><p>Follow the exact input sequence and expected result in the linked original question and reviewed mapping.</p><p>Check initial state, press and release, simultaneous reset and action, held inputs, endpoints, restart, and delayed foreground processing. No physical-board result is claimed.</p><p><a href="../exams/2025-02-12-arm2-q2.html">2025-02-12_ARM2-Q2 — exact question and reviewed answer</a></p><p><a href="../../../../../02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM2.pdf">Original paper</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-02-12_ARM2_Cosine_DAC/EXAM_MAPPING.md">EXAM MAPPING</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-02-12_ARM2_Cosine_DAC/ADAPTATION_MAP.md">ADAPTATION MAP</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-02-12_ARM2_Cosine_DAC/REVISION_REVIEW.md">REVISION REVIEW</a></p><h2 id="section-verification">Verification</h2><p><a href="../../../99_MAINTENANCE/SCENARIO_VALIDATION.json">Behavioral and structural results</a> · <a href="../../../99_MAINTENANCE/SCENARIO_NATIVE_BUILDS.json">Native build results</a>. Reports identify tests actually run; simulation does not establish electrical or analog behavior.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-replacement-files">Complete replacement files</h2><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 12 February 2025, ARM2, questions 1 and 2. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+extern int32_t Maclaurin_cos(int32_t y, uint32_t order);
+
+int cosineValues[45];
+static int repeat_count;
+static int ticks;
+static uint32_t started;
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+  if (started) {
+    return;
+  }
+  started = 1u;
+
+  if (exam_timer_config_ticks(EXAM_TIMER1,1592u,
+                              EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER1);
+}
+
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  float scaled_input;
+  int input;
+  int output;
+
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  if (repeat_count &lt; 200) {
+    scaled_input = 1.428f * (float)ticks;
+    input = (int)(scaled_input + ((scaled_input &gt;= 0.0f) ? 0.5f : -0.5f));
+    output = 500 + Maclaurin_cos(input, 3u) / 2;
+    cosineValues[ticks + 22] = output;
+    (void)exam_dac_write(output);
+
+    ticks++;
+    if (ticks &gt; 22) {
+      ticks = -22;
+      repeat_count++;
+    }
+  } else {
+    (void)exam_dac_write(0);
+    exam_timer_stop(EXAM_TIMER1);
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  exam_dac_init();
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Maclaurin_cos
+
+; int32_t Maclaurin_cos(int32_t y, uint32_t order)
+Maclaurin_cos   PROC
+                PUSH    {R4-R9, LR}
+                SUB     SP, SP, #4      ; Keep the public stack 8-byte aligned.
+                MOV     R4, R0          ; y.
+                MOV     R5, R1          ; Maximum order.
+                MOVS    R6, #100        ; t0 = 100.
+                MOV     R7, R6          ; Sum.
+                MOVS    R8, #1          ; i = 1.
+
+sin_term_loop
+                CMP     R8, R5
+                BHI     sin_done
+
+                MUL     R0, R4, R4      ; y^2.
+                MUL     R0, R6, R0      ; previous term * y^2.
+                RSBS    R0, R0, #0      ; Negate numerator.
+
+                LSLS    R2, R8, #1      ; 2*i.
+                SUBS    R1, R2, #1      ; 2*i-1.
+                MUL     R1, R1, R2
+                MOVS    R2, #100
+                MUL     R1, R1, R2      ; Denominator.
+                SDIV    R6, R0, R1
+                ADDS    R7, R7, R6
+                ADDS    R8, R8, #1
+                B       sin_term_loop
+
+sin_done
+                MOV     R0, R7
+                ADD     SP, SP, #4
+                POP     {R4-R9, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/unused_buttons.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-02-12-a2/Source/unused_buttons.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+/* Acknowledge enabled buttons unused by this paper. The answer source is unchanged. */
+void EINT0_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_INT0); }
+void EINT2_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_KEY2); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-references">Related references</h2><p><a href="../algorithms/index.html">Algorithms</a> · <a href="index.html">All peripheral combinations</a></p><a href="../api/exam-button-ack.html">exam_button_ack</a> <a href="../api/exam-buttons-init.html">exam_buttons_init</a> <a href="../api/exam-dac-init.html">exam_dac_init</a> <a href="../api/exam-dac-write.html">exam_dac_write</a> <a href="../api/exam-init.html">exam_init</a> <a href="../api/exam-timer-ack.html">exam_timer_ack</a> <a href="../api/exam-timer-config-ticks.html">exam_timer_config_ticks</a> <a href="../api/exam-timer-start.html">exam_timer_start</a> <a href="../api/exam-timer-stop.html">exam_timer_stop</a> </section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

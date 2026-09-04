@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Binary search and lower bound · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Binary search and lower bound</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Binary search and lower bound</h1><p>A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Loops and state</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Extra practice</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Sorted data supports interval halving.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Wrong on unsorted data.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>State sort order and exact-match versus insertion-point result.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Maintain half-open [lo,hi)
+2. mid=lo+(hi-lo)/2
+3. move one boundary
+4. return insertion point</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>[1,3,3,8],key3 -&gt; lower_bound1.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. State sort order and exact-match versus insertion-point result.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Wrong on unsorted data.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>State sort order and exact-match versus insertion-point result.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>empty; beforefirst; afterlast; duplicates.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Wrong on unsorted data. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-BINARY-SEARCH-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Binary search and lower bound.
+ * Recognition cue: sorted array binary search insertion position.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t pat_alg_binary_search_001(const int32_t *values, uint32_t count,
+                                   int32_t key) {
+  uint32_t low = 0u;
+  uint32_t high = count;
+
+  if (values == NULL) {
+    return 0u;
+  }
+  while (low &lt; high) {
+    uint32_t middle = low + (high - low) / 2u;
+    if (values[middle] &lt; key) {
+      low = middle + 1u;
+    } else {
+      high = middle;
+    }
+  }
+  return low;
+}
+
+int32_t pat_alg_binary_search_001_exact(const int32_t *values, uint32_t count,
+                                        int32_t key) {
+  uint32_t position = pat_alg_binary_search_001(values, count, key);
+  if ((values != NULL) &amp;&amp; (position &lt; count) &amp;&amp; (values[position] == key)) {
+    return (int32_t)position;
+  }
+  return -1;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  int32_t a[] = {1, 3, 3, 8};
+  return pat_alg_binary_search_001(a, 4, 3) == 1 &amp;&amp;
+         pat_alg_binary_search_001(a, 4, 5) == 3;
+}
+static int pattern_edge_vectors(void) {
+  int32_t a[] = {1, 3, 3, 8};
+  return pat_alg_binary_search_001(a, 0, 2) == 0 &amp;&amp;
+         pat_alg_binary_search_001_exact(a, 4, 3) == 1 &amp;&amp;
+         pat_alg_binary_search_001_exact(a, 4, 5) == -1 &amp;&amp;
+         pat_alg_binary_search_001(NULL, 4, 1) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-BINARY-SEARCH-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from reference.c.
+; Verification status: COMPILE_ONLY until executed in a simulator/board.
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  pat_alg_binary_search_001
+                EXPORT  pat_alg_binary_search_001_exact
+
+                ALIGN   2
+pat_alg_binary_search_001
+; %bb.0:
+	cmp	r0, #0
+	mov.w	r12, #0
+	it	ne
+	cmpne	r1, #0
+	bne	LBB0_2
+; %bb.1:
+	mov	r0, r12
+	bx	lr
+LBB0_2
+	push	{r7, lr}
+	mov	r7, sp
+	mov.w	r12, #0
+                ALIGN   2
+LBB0_3                                ; =&gt;This Inner Loop Header: Depth=1
+	sub.w	r3, r1, r12
+	add.w	lr, r12, r3, lsr #1
+	ldr.w	r3, [r0, lr, lsl #2]
+	cmp	r3, r2
+	ite	lt
+	addlt.w	r12, lr, #1
+	movge	r1, lr
+	cmp	r12, r1
+	blo	LBB0_3
+; %bb.4:
+	pop.w	{r7, lr}
+	mov	r0, r12
+	bx	lr
+Lfunc_end0
+                                        ; -- End function
+                ALIGN   2
+pat_alg_binary_search_001_exact
+; %bb.0:
+	push	{r4, r6, r7, lr}
+	add	r7, sp, #8
+	mov	r12, r0
+	cmp	r0, #0
+	mov.w	r0, #0
+	it	ne
+	cmpne	r1, #0
+	beq	LBB1_3
+; %bb.1:
+	mov	lr, r1
+                ALIGN   2
+LBB1_2                                ; =&gt;This Inner Loop Header: Depth=1
+	sub.w	r3, lr, r0
+	add.w	r3, r0, r3, lsr #1
+	ldr.w	r4, [r12, r3, lsl #2]
+	cmp	r4, r2
+	ite	lt
+	addlt	r0, r3, #1
+	movge	lr, r3
+	cmp	r0, lr
+	blo	LBB1_2
+LBB1_3
+	cmp.w	r12, #0
+	beq	LBB1_6
+; %bb.4:
+	cmp	r0, r1
+	bhs	LBB1_6
+; %bb.5:
+	ldr.w	r1, [r12, r0, lsl #2]
+	cmp	r1, r2
+	it	ne
+	movne.w	r0, #-1
+	pop	{r4, r6, r7, pc}
+LBB1_6
+	mov.w	r0, #-1
+	pop	{r4, r6, r7, pc}
+Lfunc_end1
+                                        ; -- End function
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

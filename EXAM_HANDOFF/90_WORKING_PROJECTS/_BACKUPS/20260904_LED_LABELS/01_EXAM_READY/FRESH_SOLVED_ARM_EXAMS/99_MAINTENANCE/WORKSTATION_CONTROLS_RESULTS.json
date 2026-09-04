@@ -1,0 +1,78 @@
+{
+  "checks": 87,
+  "catalogSize": 6660,
+  "indexPreparationMs": 375.862,
+  "searchTimings": [
+    {
+      "query": "Mastermind",
+      "maxMs": 20.448600000000056,
+      "medianMs": 2.672300000000064
+    },
+    {
+      "query": "fifth argument",
+      "maxMs": 5.150899999999979,
+      "medianMs": 3.0638999999999896
+    },
+    {
+      "query": "Timer0 ADC",
+      "maxMs": 28.048400000000015,
+      "medianMs": 17.18610000000001
+    },
+    {
+      "query": "graph shortest path",
+      "maxMs": 20.787899999999922,
+      "medianMs": 12.106600000000071
+    },
+    {
+      "query": "quicksort",
+      "maxMs": 4.361799999999903,
+      "medianMs": 2.3746000000001004
+    },
+    {
+      "query": "exam_timer_config_ms",
+      "maxMs": 4.0516999999999825,
+      "medianMs": 2.1589000000001306
+    },
+    {
+      "query": "exam_adc_take",
+      "maxMs": 6.725500000000011,
+      "medianMs": 2.185799999999972
+    },
+    {
+      "query": "stack alignment",
+      "maxMs": 8.333300000000008,
+      "medianMs": 6.881900000000087
+    },
+    {
+      "query": "interrupt handler",
+      "maxMs": 7.056600000000117,
+      "medianMs": 6.7345000000000255
+    },
+    {
+      "query": "LDRSB",
+      "maxMs": 1.9492999999999938,
+      "medianMs": 1.7562000000000353
+    },
+    {
+      "query": "undefined symbol",
+      "maxMs": 3.8146999999999025,
+      "medianMs": 3.534400000000005
+    },
+    {
+      "query": "collection destination",
+      "maxMs": 2.7277999999998883,
+      "medianMs": 2.587199999999939
+    },
+    {
+      "query": "zero byte",
+      "maxMs": 6.334800000000087,
+      "medianMs": 5.712500000000091
+    },
+    {
+      "query": "confirmation_ms",
+      "maxMs": 1.5838000000001102,
+      "medianMs": 1.5330999999998767
+    }
+  ],
+  "within200ms": true
+}

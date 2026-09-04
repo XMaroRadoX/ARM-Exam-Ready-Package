@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable arrays and memory method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Circular ring buffer · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Circular ring buffer</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Circular ring buffer</h1><p>A reusable arrays and memory method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Arrays and memory</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Extra practice</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Fixed-capacity streaming data storage.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>An event bit cannot hold ordered payloads.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>State usable capacity and overflow policy.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Define head/tail/full convention
+2. push with full check
+3. pop with empty check
+4. wrap indexes</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>capacity4 with one slot unused -&gt;three queued items maximum.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. State usable capacity and overflow policy.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. An event bit cannot hold ordered payloads.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>State usable capacity and overflow policy.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>wrap; empty; full; producer/consumer race.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>An event bit cannot hold ordered payloads. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-DS-RING-BUFFER-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Circular ring buffer.
+ * Recognition cue: bounded FIFO head tail insertion removal.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+typedef struct {
+  int32_t *b;
+  uint32_t cap, head, tail, count;
+} ring_t;
+int pat_ds_ring_buffer_001(ring_t *q, int put, int32_t *value) {
+  if (!q || !q-&gt;b || !q-&gt;cap || !value || q-&gt;head &gt;= q-&gt;cap || q-&gt;tail &gt;= q-&gt;cap || q-&gt;count &gt; q-&gt;cap)
+    return 0;
+  if (put) {
+    if (q-&gt;count == q-&gt;cap)
+      return 0;
+    q-&gt;b[q-&gt;head] = *value;
+    q-&gt;head = (q-&gt;head + 1) % q-&gt;cap;
+    q-&gt;count++;
+  } else {
+    if (!q-&gt;count)
+      return 0;
+    *value = q-&gt;b[q-&gt;tail];
+    q-&gt;tail = (q-&gt;tail + 1) % q-&gt;cap;
+    q-&gt;count--;
+  }
+  return 1;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  int32_t b[2], v = 7, o = 0;
+  ring_t q = {b, 2, 0, 0, 0};
+  return pat_ds_ring_buffer_001(&amp;q, 1, &amp;v) &amp;&amp;
+         pat_ds_ring_buffer_001(&amp;q, 0, &amp;o) &amp;&amp; o == 7;
+}
+static int pattern_edge_vectors(void) {
+  int32_t guard_data[2]={7,8},guard_value=9; ring_t badq={guard_data,2,2,0,0}; if(pat_ds_ring_buffer_001(&amp;badq,1,&amp;guard_value)||guard_data[0]!=7) return 0;
+  int32_t b[1], v = 1, o = 0;
+  ring_t q = {b, 1, 0, 0, 0};
+  return !pat_ds_ring_buffer_001(&amp;q, 0, &amp;o) &amp;&amp;
+         pat_ds_ring_buffer_001(&amp;q, 1, &amp;v) &amp;&amp;
+         !pat_ds_ring_buffer_001(&amp;q, 1, &amp;v) &amp;&amp;
+         pat_ds_ring_buffer_001(&amp;q, 0, &amp;o) &amp;&amp; o == 1;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-DS-RING-BUFFER-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT pat_ds_ring_buffer_001
+        ALIGN 2
+pat_ds_ring_buffer_001
+        cbz	r0, _LBB0_10
+        ldr.w	r12, [r0]
+        cmp.w	r12, #0
+        beq	_LBB0_10
+        mov.w	r3, #0
+        cbz	r2, _LBB0_11
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        str	r8, [sp, #-4]!
+        ldr.w	lr, [r0, #4]
+        cmp.w	lr, #0
+        beq	_LBB0_16
+        mov	r3, r0
+        ldr	r4, [r3, #8]!
+        cmp	r4, lr
+        bhs	_LBB0_15
+        mov	r5, r0
+        ldr	r6, [r5, #12]!
+        cmp	r6, lr
+        bhs	_LBB0_15
+        ldr.w	r8, [r0, #16]
+        cmp	r8, lr
+        bhi	_LBB0_15
+        cbz	r1, _LBB0_12
+        cmp	r8, lr
+        beq	_LBB0_15
+        ldr	r1, [r2]
+        str.w	r1, [r12, r4, lsl #2]
+        movs	r1, #1
+        b	_LBB0_14
+_LBB0_10
+        movs	r3, #0
+_LBB0_11
+        mov	r0, r3
+        bx	lr
+_LBB0_12
+        cmp.w	r8, #0
+        beq	_LBB0_15
+        ldr.w	r1, [r12, r6, lsl #2]
+        mov	r3, r5
+        str	r1, [r2]
+        mov.w	r1, #-1
+_LBB0_14
+        ldr	r2, [r3]
+        ldr	r6, [r0, #4]
+        adds	r2, #1
+        udiv	r5, r2, r6
+        mls	r2, r5, r6, r2
+        ldr	r6, [r0, #16]
+        str	r2, [r3]
+        add	r1, r6
+        movs	r3, #1
+        str	r1, [r0, #16]
+        b	_LBB0_16
+_LBB0_15
+        movs	r3, #0
+_LBB0_16
+        ldr	r8, [sp], #4
+        pop.w	{r4, r5, r6, r7, lr}
+        mov	r0, r3
+        bx	lr
+_Lfunc_end0
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

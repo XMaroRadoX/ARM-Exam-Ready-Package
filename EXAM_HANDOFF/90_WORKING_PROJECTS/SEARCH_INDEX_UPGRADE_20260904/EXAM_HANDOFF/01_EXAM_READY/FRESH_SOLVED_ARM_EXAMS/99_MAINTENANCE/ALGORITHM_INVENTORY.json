@@ -1,0 +1,2457 @@
+[
+  {
+    "slug": "in-place-array-reversal",
+    "title": "In-place array reversal",
+    "source_group": "PAT-ALG-ARRAY-REVERSAL-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void algorithm_in_place_array_reversal(int32_t *a, uint32_t n);",
+    "assembly_exports": [
+      "algorithm_in_place_array_reversal"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/in-place-array-reversal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/in-place-array-reversal/implementation.s"
+  },
+  {
+    "slug": "left-and-right-array-rotation",
+    "title": "Left and right array rotation",
+    "source_group": "PAT-ALG-ARRAY-ROTATION-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void algorithm_left_and_right_array_rotation(int32_t *values, uint32_t count, uint32_t positions);\nvoid algorithm_left_and_right_array_rotation_right(int32_t *values, uint32_t count, uint32_t positions);\nint algorithm_left_and_right_array_rotation_with_scratch(int32_t *values, uint32_t count, uint32_t positions, int32_t *scratch, uint32_t scratch_count);",
+    "assembly_exports": [
+      "algorithm_left_and_right_array_rotation",
+      "algorithm_left_and_right_array_rotation_right",
+      "algorithm_left_and_right_array_rotation_with_scratch"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-and-right-array-rotation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-and-right-array-rotation/implementation.s"
+  },
+  {
+    "slug": "breadth-first-search",
+    "title": "Breadth-first search",
+    "source_group": "PAT-ALG-BFS-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_breadth_first_search(const uint8_t *adj, uint32_t n, uint32_t start, uint8_t *seen, uint32_t *q);",
+    "assembly_exports": [
+      "algorithm_breadth_first_search"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/breadth-first-search/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/breadth-first-search/implementation.s"
+  },
+  {
+    "slug": "binary-search-and-lower-bound",
+    "title": "Binary search and lower bound",
+    "source_group": "PAT-ALG-BINARY-SEARCH-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_binary_search_and_lower_bound(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_binary_search_and_lower_bound_exact(const int32_t *values, uint32_t count, int32_t key);",
+    "assembly_exports": [
+      "algorithm_binary_search_and_lower_bound",
+      "algorithm_binary_search_and_lower_bound_exact"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/binary-search-and-lower-bound/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/binary-search-and-lower-bound/implementation.s"
+  },
+  {
+    "slug": "bitfield-extraction-insertion-and-packing",
+    "title": "Bitfield extraction insertion and packing",
+    "source_group": "PAT-ALG-BITFIELD-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_bitfield_extraction_insertion_and_packing(uint32_t word, uint32_t value, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_extraction_insertion_and_packing_extract(uint32_t word, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_extraction_insertion_and_packing_pack_u16(uint16_t high, uint16_t low);",
+    "assembly_exports": [
+      "algorithm_bitfield_extraction_insertion_and_packing",
+      "algorithm_bitfield_extraction_insertion_and_packing_extract",
+      "algorithm_bitfield_extraction_insertion_and_packing_pack_u16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-extraction-insertion-and-packing/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-extraction-insertion-and-packing/implementation.s"
+  },
+  {
+    "slug": "bubble-sort-with-early-termination",
+    "title": "Bubble sort with early termination",
+    "source_group": "PAT-ALG-BUBBLE-SORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void algorithm_bubble_sort_with_early_termination(int32_t *a, uint32_t n);",
+    "assembly_exports": [
+      "algorithm_bubble_sort_with_early_termination"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bubble-sort-with-early-termination/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bubble-sort-with-early-termination/implementation.s"
+  },
+  {
+    "slug": "checksums-and-crc-table-structure",
+    "title": "Checksums and CRC table structure",
+    "source_group": "PAT-ALG-CHECKSUM-CRC-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_checksums_and_crc_table_structure(const uint8_t *bytes, uint32_t count);\nuint32_t algorithm_checksums_and_crc_table_structure_crc32_table(const uint8_t *bytes, uint32_t count, const uint32_t table[256]);",
+    "assembly_exports": [
+      "algorithm_checksums_and_crc_table_structure",
+      "algorithm_checksums_and_crc_table_structure_crc32_table"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checksums-and-crc-table-structure/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checksums-and-crc-table-structure/implementation.s"
+  },
+  {
+    "slug": "coin-change",
+    "title": "Coin change",
+    "source_group": "PAT-ALG-COIN-CHANGE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_coin_change(const uint16_t *coin, uint32_t n, uint32_t amount, uint32_t *dp);",
+    "assembly_exports": [
+      "algorithm_coin_change"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/coin-change/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/coin-change/implementation.s"
+  },
+  {
+    "slug": "component-label-merge",
+    "title": "Component-label merge",
+    "source_group": "PAT-ALG-COMPONENT-MERGE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_component_label_merge(uint32_t *label, uint32_t n, uint32_t from, uint32_t to, uint32_t limit);",
+    "assembly_exports": [
+      "algorithm_component_label_merge"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/component-label-merge/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/component-label-merge/implementation.s"
+  },
+  {
+    "slug": "consume-once-duplicate-safe-matching",
+    "title": "Consume-once duplicate-safe matching",
+    "source_group": "PAT-ALG-CONSUME-ONCE-MATCH-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_consume_once_duplicate_safe_matching(const uint8_t *secret, const uint8_t *guess, uint32_t n, uint32_t *cows);",
+    "assembly_exports": [
+      "algorithm_consume_once_duplicate_safe_matching"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/consume-once-duplicate-safe-matching/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/consume-once-duplicate-safe-matching/implementation.s"
+  },
+  {
+    "slug": "bounded-counting-sort",
+    "title": "Bounded counting sort",
+    "source_group": "PAT-ALG-COUNTING-SORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_bounded_counting_sort(uint8_t *a, uint32_t n, uint32_t range, uint32_t *count);",
+    "assembly_exports": [
+      "algorithm_bounded_counting_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-counting-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-counting-sort/implementation.s"
+  },
+  {
+    "slug": "decimal-digit-algorithms",
+    "title": "Decimal digit algorithms",
+    "source_group": "PAT-ALG-DECIMAL-DIGITS-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_decimal_digit_algorithms(uint32_t value);\nuint32_t algorithm_decimal_digit_algorithms_extract(uint32_t value, uint8_t *digits, uint32_t capacity);\nuint32_t algorithm_decimal_digit_algorithms_reconstruct(const uint8_t *digits, uint32_t count);\nint algorithm_decimal_digit_algorithms_is_palindrome(uint32_t value);\nuint32_t algorithm_decimal_digit_algorithms_kaprekar_4(uint32_t value);",
+    "assembly_exports": [
+      "algorithm_decimal_digit_algorithms",
+      "algorithm_decimal_digit_algorithms_extract",
+      "algorithm_decimal_digit_algorithms_reconstruct",
+      "algorithm_decimal_digit_algorithms_is_palindrome",
+      "algorithm_decimal_digit_algorithms_kaprekar_4"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-algorithms/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-algorithms/implementation.s"
+  },
+  {
+    "slug": "bounded-dfs-with-an-explicit-stack",
+    "title": "Bounded DFS with an explicit stack",
+    "source_group": "PAT-ALG-DFS-STACK-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_bounded_dfs_with_an_explicit_stack(const uint8_t *adj, uint32_t n, uint32_t start, uint8_t *seen, uint32_t *stack);",
+    "assembly_exports": [
+      "algorithm_bounded_dfs_with_an_explicit_stack"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-dfs-with-an-explicit-stack/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-dfs-with-an-explicit-stack/implementation.s"
+  },
+  {
+    "slug": "dijkstra-shortest-path",
+    "title": "Dijkstra shortest path",
+    "source_group": "PAT-ALG-DIJKSTRA-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_dijkstra_shortest_path(const uint32_t *w, uint32_t n, uint32_t start, uint32_t *dist, uint8_t *done);",
+    "assembly_exports": [
+      "algorithm_dijkstra_shortest_path"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/dijkstra-shortest-path/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/dijkstra-shortest-path/implementation.s"
+  },
+  {
+    "slug": "edit-distance",
+    "title": "Edit distance",
+    "source_group": "PAT-ALG-EDIT-DISTANCE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_edit_distance(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *previous, uint32_t *current);\nuint32_t algorithm_edit_distance_full(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *table, uint32_t table_elements);",
+    "assembly_exports": [
+      "algorithm_edit_distance",
+      "algorithm_edit_distance_full"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/edit-distance/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/edit-distance/implementation.s"
+  },
+  {
+    "slug": "exponentiation-by-squaring",
+    "title": "Exponentiation by squaring",
+    "source_group": "PAT-ALG-FAST-POWER-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_exponentiation_by_squaring(uint32_t base, uint32_t exponent, uint32_t modulus);\nint algorithm_exponentiation_by_squaring_checked(uint32_t base, uint32_t exponent, uint32_t *result);",
+    "assembly_exports": [
+      "algorithm_exponentiation_by_squaring",
+      "algorithm_exponentiation_by_squaring_checked"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/exponentiation-by-squaring/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/exponentiation-by-squaring/implementation.s"
+  },
+  {
+    "slug": "flood-fill-and-maze-propagation",
+    "title": "Flood fill and maze propagation",
+    "source_group": "PAT-ALG-FLOOD-FILL-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_flood_fill_and_maze_propagation(uint8_t *g, uint32_t rows, uint32_t cols, uint32_t start, uint8_t oldv, uint8_t newv, uint32_t *q);",
+    "assembly_exports": [
+      "algorithm_flood_fill_and_maze_propagation"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/flood-fill-and-maze-propagation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/flood-fill-and-maze-propagation/implementation.s"
+  },
+  {
+    "slug": "euclidean-gcd-and-overflow-aware-lcm",
+    "title": "Euclidean GCD and overflow-aware LCM",
+    "source_group": "PAT-ALG-GCD-LCM-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_euclidean_gcd_and_overflow_aware_lcm(uint32_t first, uint32_t second);\nint algorithm_euclidean_gcd_and_overflow_aware_lcm_lcm(uint32_t first, uint32_t second, uint32_t *result);",
+    "assembly_exports": [
+      "algorithm_euclidean_gcd_and_overflow_aware_lcm",
+      "algorithm_euclidean_gcd_and_overflow_aware_lcm_lcm"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/euclidean-gcd-and-overflow-aware-lcm/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/euclidean-gcd-and-overflow-aware-lcm/implementation.s"
+  },
+  {
+    "slug": "heap-construction-and-heap-sort",
+    "title": "Heap construction and heap sort",
+    "source_group": "PAT-ALG-HEAP-SORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void down(int32_t *a, uint32_t n, uint32_t i);\nvoid algorithm_heap_construction_and_heap_sort(int32_t *a, uint32_t n);",
+    "assembly_exports": [
+      "down",
+      "algorithm_heap_construction_and_heap_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/heap-construction-and-heap-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/heap-construction-and-heap-sort/implementation.s"
+  },
+  {
+    "slug": "histogram-frequency-and-mode",
+    "title": "Histogram frequency and mode",
+    "source_group": "PAT-ALG-HISTOGRAM-MODE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_histogram_frequency_and_mode(const uint8_t *a, uint32_t n, uint32_t range, uint32_t *freq);",
+    "assembly_exports": [
+      "algorithm_histogram_frequency_and_mode"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/histogram-frequency-and-mode/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/histogram-frequency-and-mode/implementation.s"
+  },
+  {
+    "slug": "horner-polynomial-evaluation",
+    "title": "Horner polynomial evaluation",
+    "source_group": "PAT-ALG-HORNER-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int64_t algorithm_horner_polynomial_evaluation(const int32_t *c, uint32_t n, int32_t x);\nint algorithm_horner_polynomial_evaluation_checked(const int32_t *c, uint32_t n, int32_t x, int64_t *out);",
+    "assembly_exports": [
+      "algorithm_horner_polynomial_evaluation",
+      "algorithm_horner_polynomial_evaluation_checked"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/horner-polynomial-evaluation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/horner-polynomial-evaluation/implementation.s"
+  },
+  {
+    "slug": "indirect-index-recurrence",
+    "title": "Indirect-index recurrence",
+    "source_group": "PAT-ALG-INDIRECT-RECURRENCE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_indirect_index_recurrence(uint32_t *output, uint32_t count);\nuint32_t algorithm_indirect_index_recurrence_hofstadter_q(uint32_t *output,uint32_t count);",
+    "assembly_exports": [
+      "algorithm_indirect_index_recurrence",
+      "algorithm_indirect_index_recurrence_hofstadter_q"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/indirect-index-recurrence/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/indirect-index-recurrence/implementation.s"
+  },
+  {
+    "slug": "integer-square-root",
+    "title": "Integer square root",
+    "source_group": "PAT-ALG-INTEGER-SQRT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_integer_square_root(uint32_t n);",
+    "assembly_exports": [
+      "algorithm_integer_square_root"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-square-root/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-square-root/implementation.s"
+  },
+  {
+    "slug": "bounded-zero-one-knapsack",
+    "title": "Bounded zero-one knapsack",
+    "source_group": "PAT-ALG-KNAPSACK-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_bounded_zero_one_knapsack(const uint16_t *wt, const uint16_t *val, uint32_t n, uint32_t cap, uint32_t *dp);",
+    "assembly_exports": [
+      "algorithm_bounded_zero_one_knapsack"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-zero-one-knapsack/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-zero-one-knapsack/implementation.s"
+  },
+  {
+    "slug": "five-argument-linear-congruential-generator",
+    "title": "Five-argument linear congruential generator",
+    "source_group": "PAT-ALG-LCG-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_five_argument_linear_congruential_generator(uint32_t x, uint32_t a, uint32_t c, uint32_t m, uint32_t shift);",
+    "assembly_exports": [
+      "algorithm_five_argument_linear_congruential_generator"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/five-argument-linear-congruential-generator/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/five-argument-linear-congruential-generator/implementation.s"
+  },
+  {
+    "slug": "linear-search-variants",
+    "title": "Linear search variants",
+    "source_group": "PAT-ALG-LINEAR-SEARCH-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int32_t algorithm_linear_search_variants(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_linear_search_variants_last(const int32_t *values, uint32_t count, int32_t key);\nuint32_t algorithm_linear_search_variants_all(const int32_t *values, uint32_t count, int32_t key, uint32_t *indexes, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_linear_search_variants",
+      "algorithm_linear_search_variants_last",
+      "algorithm_linear_search_variants_all"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/linear-search-variants/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/linear-search-variants/implementation.s"
+  },
+  {
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest increasing subsequence",
+    "source_group": "PAT-ALG-LIS-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_longest_increasing_subsequence(const int32_t *a, uint32_t n, uint32_t *dp);",
+    "assembly_exports": [
+      "algorithm_longest_increasing_subsequence"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-increasing-subsequence/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-increasing-subsequence/implementation.s"
+  },
+  {
+    "slug": "bounded-look-and-say-generation",
+    "title": "Bounded look-and-say generation",
+    "source_group": "PAT-ALG-LOOK-AND-SAY-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_bounded_look_and_say_generation(const uint8_t *in, uint32_t n, uint8_t *out, uint32_t cap);",
+    "assembly_exports": [
+      "algorithm_bounded_look_and_say_generation"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-look-and-say-generation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-look-and-say-generation/implementation.s"
+  },
+  {
+    "slug": "overlap-safe-memory-movement",
+    "title": "Overlap-safe memory movement",
+    "source_group": "PAT-ALG-MEMMOVE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void *algorithm_overlap_safe_memory_movement(void *d, const void *s, uint32_t n);",
+    "assembly_exports": [
+      "algorithm_overlap_safe_memory_movement"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overlap-safe-memory-movement/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overlap-safe-memory-movement/implementation.s"
+  },
+  {
+    "slug": "stable-merge-sort",
+    "title": "Stable merge sort",
+    "source_group": "PAT-ALG-MERGE-SORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void merge(int32_t *a, int32_t *t, uint32_t l, uint32_t m, uint32_t r);\nvoid ms(int32_t *a, int32_t *t, uint32_t l, uint32_t r);\nvoid algorithm_stable_merge_sort(int32_t *a, uint32_t n, int32_t *scratch);",
+    "assembly_exports": [
+      "merge",
+      "ms",
+      "algorithm_stable_merge_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/stable-merge-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/stable-merge-sort/implementation.s"
+  },
+  {
+    "slug": "moving-average-and-sliding-window",
+    "title": "Moving average and sliding window",
+    "source_group": "PAT-ALG-MOVING-AVERAGE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_moving_average_and_sliding_window(const int32_t *a, uint32_t n, uint32_t w, int32_t *out);",
+    "assembly_exports": [
+      "algorithm_moving_average_and_sliding_window"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/moving-average-and-sliding-window/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/moving-average-and-sliding-window/implementation.s"
+  },
+  {
+    "slug": "packed-binary-matrix-multiplication",
+    "title": "Packed binary matrix multiplication",
+    "source_group": "PAT-ALG-PACKED-MATMUL-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint64_t algorithm_packed_binary_matrix_multiplication(uint64_t a, uint64_t b);",
+    "assembly_exports": [
+      "algorithm_packed_binary_matrix_multiplication"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-binary-matrix-multiplication/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-binary-matrix-multiplication/implementation.s"
+  },
+  {
+    "slug": "population-count-and-parity",
+    "title": "Population count and parity",
+    "source_group": "PAT-ALG-POPCOUNT-PARITY-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_population_count_and_parity(uint32_t value);\nuint32_t algorithm_population_count_and_parity_parity(uint32_t value);",
+    "assembly_exports": [
+      "algorithm_population_count_and_parity",
+      "algorithm_population_count_and_parity_parity"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/population-count-and-parity/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/population-count-and-parity/implementation.s"
+  },
+  {
+    "slug": "prefix-sums-and-range-sums",
+    "title": "Prefix sums and range sums",
+    "source_group": "PAT-ALG-PREFIX-SUM-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_prefix_sums_and_range_sums(const int32_t *values, uint32_t count, int64_t *prefix);\nint algorithm_prefix_sums_and_range_sums_range(const int64_t *prefix, uint32_t count, uint32_t begin, uint32_t end, int64_t *sum);",
+    "assembly_exports": [
+      "algorithm_prefix_sums_and_range_sums",
+      "algorithm_prefix_sums_and_range_sums_range"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prefix-sums-and-range-sums/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prefix-sums-and-range-sums/implementation.s"
+  },
+  {
+    "slug": "prime-testing-and-trial-factorization",
+    "title": "Prime testing and trial factorization",
+    "source_group": "PAT-ALG-PRIME-FACTORIZATION-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_prime_testing_and_trial_factorization(uint32_t value);\nuint32_t algorithm_prime_testing_and_trial_factorization_factorize(uint32_t value, uint32_t *factors, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_prime_testing_and_trial_factorization",
+      "algorithm_prime_testing_and_trial_factorization_factorize"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prime-testing-and-trial-factorization/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prime-testing-and-trial-factorization/implementation.s"
+  },
+  {
+    "slug": "partition-based-quicksort",
+    "title": "Partition-based quicksort",
+    "source_group": "PAT-ALG-QUICKSORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void qs(int32_t *a, int32_t l, int32_t r);\nvoid algorithm_partition_based_quicksort(int32_t *a, uint32_t n);",
+    "assembly_exports": [
+      "qs",
+      "algorithm_partition_based_quicksort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/partition-based-quicksort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/partition-based-quicksort/implementation.s"
+  },
+  {
+    "slug": "recursive-dfs-with-depth-contract",
+    "title": "Recursive DFS with depth contract",
+    "source_group": "PAT-ALG-RECURSIVE-DFS-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t visit(const uint8_t *a, uint32_t n, uint32_t v, uint8_t *s, uint32_t depth);\nuint32_t algorithm_recursive_dfs_with_depth_contract(const uint8_t *a, uint32_t n, uint32_t start, uint8_t *s);",
+    "assembly_exports": [
+      "visit",
+      "algorithm_recursive_dfs_with_depth_contract"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/recursive-dfs-with-depth-contract/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/recursive-dfs-with-depth-contract/implementation.s"
+  },
+  {
+    "slug": "signed-min-max-and-sum-reduction",
+    "title": "Signed min max and sum reduction",
+    "source_group": "PAT-ALG-REDUCTION-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_signed_min_max_and_sum_reduction(const int32_t *values, uint32_t count, algorithm_signed_min_max_and_sum_reduction_signed_result_t *result);\nint algorithm_signed_min_max_and_sum_reduction_unsigned( const uint32_t *values, uint32_t count, algorithm_signed_min_max_and_sum_reduction_unsigned_result_t *result);",
+    "assembly_exports": [
+      "algorithm_signed_min_max_and_sum_reduction",
+      "algorithm_signed_min_max_and_sum_reduction_unsigned"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-min-max-and-sum-reduction/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-min-max-and-sum-reduction/implementation.s"
+  },
+  {
+    "slug": "run-length-encoding",
+    "title": "Run-length encoding",
+    "source_group": "PAT-ALG-RUN-LENGTH-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_run_length_encoding(const uint8_t *in, uint32_t n, uint8_t *value, uint8_t *run, uint32_t cap);",
+    "assembly_exports": [
+      "algorithm_run_length_encoding"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/run-length-encoding/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/run-length-encoding/implementation.s"
+  },
+  {
+    "slug": "clamp-absolute-saturation-and-overflow",
+    "title": "Clamp absolute saturation and overflow",
+    "source_group": "PAT-ALG-SATURATING-ARITHMETIC-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int32_t algorithm_clamp_absolute_saturation_and_overflow(int64_t value, int32_t minimum, int32_t maximum);\nuint32_t algorithm_clamp_absolute_saturation_and_overflow_abs_i32(int32_t value);\nint32_t algorithm_clamp_absolute_saturation_and_overflow_add_i32(int32_t first, int32_t second);",
+    "assembly_exports": [
+      "algorithm_clamp_absolute_saturation_and_overflow",
+      "algorithm_clamp_absolute_saturation_and_overflow_abs_i32",
+      "algorithm_clamp_absolute_saturation_and_overflow_add_i32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/clamp-absolute-saturation-and-overflow/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/clamp-absolute-saturation-and-overflow/implementation.s"
+  },
+  {
+    "slug": "selection-sort",
+    "title": "Selection sort",
+    "source_group": "PAT-ALG-SELECTION-SORT-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void algorithm_selection_sort(int32_t *a, uint32_t n);",
+    "assembly_exports": [
+      "algorithm_selection_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/selection-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/selection-sort/implementation.s"
+  },
+  {
+    "slug": "bounded-string-primitives",
+    "title": "Bounded string primitives",
+    "source_group": "PAT-ALG-STRING-PRIMITIVES-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_bounded_string_primitives_length(const char *text, uint32_t limit);\nint32_t algorithm_bounded_string_primitives_compare(const char *first, const char *second, uint32_t limit);\nuint32_t algorithm_bounded_string_primitives_copy(char *destination, uint32_t capacity, const char *source);\nint32_t algorithm_bounded_string_primitives(const char *text, const char *needle, uint32_t limit);",
+    "assembly_exports": [
+      "algorithm_bounded_string_primitives_length",
+      "algorithm_bounded_string_primitives_compare",
+      "algorithm_bounded_string_primitives_copy",
+      "algorithm_bounded_string_primitives"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-string-primitives/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-string-primitives/implementation.s"
+  },
+  {
+    "slug": "signed-64-by-32-restoring-division",
+    "title": "Signed 64-by-32 restoring division",
+    "source_group": "PAT-ALG-WIDE-DIVISION-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int64_t algorithm_signed_64_by_32_restoring_division(int64_t dividend, int32_t divisor, int32_t *remainder);",
+    "assembly_exports": [
+      "algorithm_signed_64_by_32_restoring_division"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-64-by-32-restoring-division/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-64-by-32-restoring-division/implementation.s"
+  },
+  {
+    "slug": "assembly-objects-and-exported-symbols",
+    "title": "Assembly objects and exported symbols",
+    "source_group": "PAT-DATA-ASM-OBJECTS-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t algorithm_assembly_objects_and_exported_symbols(const uint32_t *values, uint32_t count);",
+    "assembly_exports": [
+      "algorithm_assembly_objects_and_exported_symbols",
+      "pattern_initialized_words",
+      "algorithm_assembly_objects_and_exported_symbols_initialized_words",
+      "pattern_workspace",
+      "algorithm_assembly_objects_and_exported_symbols_workspace",
+      "pattern_masks",
+      "algorithm_assembly_objects_and_exported_symbols_magic",
+      "algorithm_assembly_objects_and_exported_symbols_masks"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/assembly-objects-and-exported-symbols/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/assembly-objects-and-exported-symbols/implementation.s"
+  },
+  {
+    "slug": "circular-queue",
+    "title": "Circular queue",
+    "source_group": "PAT-DS-CIRCULAR-QUEUE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_circular_queue(queue_t *q, int enqueue, int32_t *value);",
+    "assembly_exports": [
+      "algorithm_circular_queue"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/circular-queue/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/circular-queue/implementation.s"
+  },
+  {
+    "slug": "singly-linked-list-operations",
+    "title": "Singly linked-list operations",
+    "source_group": "PAT-DS-LINKED-LIST-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "algorithm_singly_linked_list_operations_node_t * algorithm_singly_linked_list_operations(algorithm_singly_linked_list_operations_node_t *head, int32_t key);\nint algorithm_singly_linked_list_operations_insert_after(algorithm_singly_linked_list_operations_node_t *position, algorithm_singly_linked_list_operations_node_t *node);\nalgorithm_singly_linked_list_operations_node_t * algorithm_singly_linked_list_operations_remove_first(algorithm_singly_linked_list_operations_node_t **head, int32_t key);",
+    "assembly_exports": [
+      "algorithm_singly_linked_list_operations",
+      "algorithm_singly_linked_list_operations_insert_after",
+      "algorithm_singly_linked_list_operations_remove_first"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/singly-linked-list-operations/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/singly-linked-list-operations/implementation.s"
+  },
+  {
+    "slug": "circular-ring-buffer",
+    "title": "Circular ring buffer",
+    "source_group": "PAT-DS-RING-BUFFER-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_circular_ring_buffer(ring_t *q, int put, int32_t *value);",
+    "assembly_exports": [
+      "algorithm_circular_ring_buffer"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/circular-ring-buffer/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/circular-ring-buffer/implementation.s"
+  },
+  {
+    "slug": "array-backed-stack",
+    "title": "Array-backed stack",
+    "source_group": "PAT-DS-STACK-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int algorithm_array_backed_stack(int32_t *a, uint32_t cap, uint32_t *top, int push, int32_t *value);",
+    "assembly_exports": [
+      "algorithm_array_backed_stack"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/array-backed-stack/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/array-backed-stack/implementation.s"
+  },
+  {
+    "slug": "union-find-with-compression-and-rank",
+    "title": "Union-find with compression and rank",
+    "source_group": "PAT-DS-UNION-FIND-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t find(uint32_t *p, uint32_t x);\nint algorithm_union_find_with_compression_and_rank(uint32_t *p, uint8_t *r, uint32_t n, uint32_t a, uint32_t b);",
+    "assembly_exports": [
+      "find",
+      "algorithm_union_find_with_compression_and_rank"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/union-find-with-compression-and-rank/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/union-find-with-compression-and-rank/implementation.s"
+  },
+  {
+    "slug": "packed-8x8-bit-matrix-transpose",
+    "title": "Packed 8x8 bit-matrix transpose",
+    "source_group": "PAT-MEM-PACKED-TRANSPOSE-001",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint64_t algorithm_packed_8x8_bit_matrix_transpose(uint64_t x);",
+    "assembly_exports": [
+      "algorithm_packed_8x8_bit_matrix_transpose"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-8x8-bit-matrix-transpose/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-8x8-bit-matrix-transpose/implementation.s"
+  },
+  {
+    "slug": "initialized-constant-and-reserved-arm-objects",
+    "title": "Initialized, constant and reserved ARM objects",
+    "source_group": "PAT-DATA-ASM-OBJECTS-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_initialized_constant_and_reserved_arm_objects",
+    "prototype": "uint32_t algorithm_initialized_constant_and_reserved_arm_objects(const uint32_t *values, uint32_t count);",
+    "assembly_exports": [
+      "algorithm_initialized_constant_and_reserved_arm_objects",
+      "pattern_initialized_words",
+      "algorithm_initialized_constant_and_reserved_arm_objects_initialized_words",
+      "pattern_workspace",
+      "algorithm_initialized_constant_and_reserved_arm_objects_workspace",
+      "pattern_masks",
+      "algorithm_initialized_constant_and_reserved_arm_objects_magic",
+      "algorithm_initialized_constant_and_reserved_arm_objects_masks"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/initialized-constant-and-reserved-arm-objects/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/initialized-constant-and-reserved-arm-objects/implementation.s"
+  },
+  {
+    "slug": "restoring-division-quotient-and-remainder",
+    "title": "Restoring division quotient and remainder",
+    "source_group": "PAT-ALG-WIDE-DIVISION-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_restoring_division_quotient_and_remainder",
+    "prototype": "int64_t algorithm_restoring_division_quotient_and_remainder(int64_t dividend, int32_t divisor, int32_t *remainder);",
+    "assembly_exports": [
+      "algorithm_restoring_division_quotient_and_remainder"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/restoring-division-quotient-and-remainder/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/restoring-division-quotient-and-remainder/implementation.s"
+  },
+  {
+    "slug": "packed-matrix-row-and-column-addressing",
+    "title": "Packed matrix row and column addressing",
+    "source_group": "PAT-MEM-PACKED-TRANSPOSE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_packed_matrix_row_and_column_addressing",
+    "prototype": "uint64_t algorithm_packed_matrix_row_and_column_addressing(uint64_t x);",
+    "assembly_exports": [
+      "algorithm_packed_matrix_row_and_column_addressing"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-matrix-row-and-column-addressing/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/packed-matrix-row-and-column-addressing/implementation.s"
+  },
+  {
+    "slug": "gf-2-row-column-dot-products",
+    "title": "GF(2) row-column dot products",
+    "source_group": "PAT-ALG-PACKED-MATMUL-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_gf_2_row_column_dot_products",
+    "prototype": "uint64_t algorithm_gf_2_row_column_dot_products(uint64_t a, uint64_t b);",
+    "assembly_exports": [
+      "algorithm_gf_2_row_column_dot_products"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/gf-2-row-column-dot-products/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/gf-2-row-column-dot-products/implementation.s"
+  },
+  {
+    "slug": "explicit-stack-graph-traversal",
+    "title": "Explicit-stack graph traversal",
+    "source_group": "PAT-ALG-DFS-STACK-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_explicit_stack_graph_traversal",
+    "prototype": "uint32_t algorithm_explicit_stack_graph_traversal(const uint8_t *adj, uint32_t n, uint32_t start, uint8_t *seen, uint32_t *stack);",
+    "assembly_exports": [
+      "algorithm_explicit_stack_graph_traversal"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/explicit-stack-graph-traversal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/explicit-stack-graph-traversal/implementation.s"
+  },
+  {
+    "slug": "seven-argument-component-merge",
+    "title": "Five-argument component-label replacement",
+    "source_group": "PAT-ALG-COMPONENT-MERGE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_seven_argument_component_merge",
+    "prototype": "uint32_t algorithm_seven_argument_component_merge(uint32_t *label, uint32_t n, uint32_t from, uint32_t to, uint32_t limit);",
+    "assembly_exports": [
+      "algorithm_seven_argument_component_merge"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/seven-argument-component-merge/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/seven-argument-component-merge/implementation.s"
+  },
+  {
+    "slug": "five-argument-lcg-and-stack-argument",
+    "title": "Five-argument LCG and stack argument",
+    "source_group": "PAT-ALG-LCG-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_five_argument_lcg_and_stack_argument",
+    "prototype": "uint32_t algorithm_five_argument_lcg_and_stack_argument(uint32_t x, uint32_t a, uint32_t c, uint32_t m, uint32_t shift);",
+    "assembly_exports": [
+      "algorithm_five_argument_lcg_and_stack_argument"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/five-argument-lcg-and-stack-argument/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/five-argument-lcg-and-stack-argument/implementation.s"
+  },
+  {
+    "slug": "run-length-final-run-handling",
+    "title": "Run-length final-run handling",
+    "source_group": "PAT-ALG-RUN-LENGTH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_run_length_final_run_handling",
+    "prototype": "uint32_t algorithm_run_length_final_run_handling(const uint8_t *in, uint32_t n, uint8_t *value, uint8_t *run, uint32_t cap);",
+    "assembly_exports": [
+      "algorithm_run_length_final_run_handling"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/run-length-final-run-handling/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/run-length-final-run-handling/implementation.s"
+  },
+  {
+    "slug": "bounded-look-and-say-generation-focused-method",
+    "title": "Bounded look-and-say generation \u2014 focused method",
+    "source_group": "PAT-ALG-LOOK-AND-SAY-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_bounded_look_and_say_generation_focused_method",
+    "prototype": "uint32_t algorithm_bounded_look_and_say_generation_focused_method(const uint8_t *in, uint32_t n, uint8_t *out, uint32_t cap);",
+    "assembly_exports": [
+      "algorithm_bounded_look_and_say_generation_focused_method"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-look-and-say-generation-focused-method/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-look-and-say-generation-focused-method/implementation.s"
+  },
+  {
+    "slug": "indirect-index-recurrence-safety",
+    "title": "Indirect-index recurrence safety",
+    "source_group": "PAT-ALG-INDIRECT-RECURRENCE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_indirect_index_recurrence_safety",
+    "prototype": "uint32_t algorithm_indirect_index_recurrence_safety(uint32_t *output, uint32_t count);\nuint32_t algorithm_indirect_index_recurrence_safety_hofstadter_q(uint32_t *output,uint32_t count);",
+    "assembly_exports": [
+      "algorithm_indirect_index_recurrence_safety",
+      "algorithm_indirect_index_recurrence_safety_hofstadter_q"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/indirect-index-recurrence-safety/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/indirect-index-recurrence-safety/implementation.s"
+  },
+  {
+    "slug": "single-pass-minimum-maximum-and-sum",
+    "title": "Single-pass minimum, maximum and sum",
+    "source_group": "PAT-ALG-REDUCTION-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_single_pass_minimum_maximum_and_sum",
+    "prototype": "int algorithm_single_pass_minimum_maximum_and_sum(const int32_t *values, uint32_t count, algorithm_single_pass_minimum_maximum_and_sum_signed_result_t *result);\nint algorithm_single_pass_minimum_maximum_and_sum_unsigned( const uint32_t *values, uint32_t count, algorithm_single_pass_minimum_maximum_and_sum_unsigned_result_t *result);",
+    "assembly_exports": [
+      "algorithm_single_pass_minimum_maximum_and_sum",
+      "algorithm_single_pass_minimum_maximum_and_sum_unsigned"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/single-pass-minimum-maximum-and-sum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/single-pass-minimum-maximum-and-sum/implementation.s"
+  },
+  {
+    "slug": "duplicate-safe-bulls-and-cows-matching",
+    "title": "Duplicate-safe Bulls and Cows matching",
+    "source_group": "PAT-ALG-CONSUME-ONCE-MATCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_duplicate_safe_bulls_and_cows_matching",
+    "prototype": "uint32_t algorithm_duplicate_safe_bulls_and_cows_matching(const uint8_t *secret, const uint8_t *guess, uint32_t n, uint32_t *cows);",
+    "assembly_exports": [
+      "algorithm_duplicate_safe_bulls_and_cows_matching"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/duplicate-safe-bulls-and-cows-matching/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/duplicate-safe-bulls-and-cows-matching/implementation.s"
+  },
+  {
+    "slug": "first-matching-array-element",
+    "title": "First matching array element",
+    "source_group": "PAT-ALG-LINEAR-SEARCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_first_matching_array_element",
+    "prototype": "int32_t algorithm_first_matching_array_element(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_first_matching_array_element_last(const int32_t *values, uint32_t count, int32_t key);\nuint32_t algorithm_first_matching_array_element_all(const int32_t *values, uint32_t count, int32_t key, uint32_t *indexes, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_first_matching_array_element",
+      "algorithm_first_matching_array_element_last",
+      "algorithm_first_matching_array_element_all"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/first-matching-array-element/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/first-matching-array-element/implementation.s"
+  },
+  {
+    "slug": "last-matching-array-element",
+    "title": "Last matching array element",
+    "source_group": "PAT-ALG-LINEAR-SEARCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_last_matching_array_element_last",
+    "prototype": "int32_t algorithm_last_matching_array_element(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_last_matching_array_element_last(const int32_t *values, uint32_t count, int32_t key);\nuint32_t algorithm_last_matching_array_element_all(const int32_t *values, uint32_t count, int32_t key, uint32_t *indexes, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_last_matching_array_element",
+      "algorithm_last_matching_array_element_last",
+      "algorithm_last_matching_array_element_all"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/last-matching-array-element/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/last-matching-array-element/implementation.s"
+  },
+  {
+    "slug": "collect-every-matching-index",
+    "title": "Collect every matching index",
+    "source_group": "PAT-ALG-LINEAR-SEARCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_collect_every_matching_index_all",
+    "prototype": "int32_t algorithm_collect_every_matching_index(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_collect_every_matching_index_last(const int32_t *values, uint32_t count, int32_t key);\nuint32_t algorithm_collect_every_matching_index_all(const int32_t *values, uint32_t count, int32_t key, uint32_t *indexes, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_collect_every_matching_index",
+      "algorithm_collect_every_matching_index_last",
+      "algorithm_collect_every_matching_index_all"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/collect-every-matching-index/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/collect-every-matching-index/implementation.s"
+  },
+  {
+    "slug": "lower-bound-insertion-position",
+    "title": "Lower bound insertion position",
+    "source_group": "PAT-ALG-BINARY-SEARCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_lower_bound_insertion_position",
+    "prototype": "uint32_t algorithm_lower_bound_insertion_position(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_lower_bound_insertion_position_exact(const int32_t *values, uint32_t count, int32_t key);",
+    "assembly_exports": [
+      "algorithm_lower_bound_insertion_position",
+      "algorithm_lower_bound_insertion_position_exact"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/lower-bound-insertion-position/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/lower-bound-insertion-position/implementation.s"
+  },
+  {
+    "slug": "exact-binary-search-from-lower-bound",
+    "title": "Exact binary search from lower bound",
+    "source_group": "PAT-ALG-BINARY-SEARCH-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_exact_binary_search_from_lower_bound_exact",
+    "prototype": "uint32_t algorithm_exact_binary_search_from_lower_bound(const int32_t *values, uint32_t count, int32_t key);\nint32_t algorithm_exact_binary_search_from_lower_bound_exact(const int32_t *values, uint32_t count, int32_t key);",
+    "assembly_exports": [
+      "algorithm_exact_binary_search_from_lower_bound",
+      "algorithm_exact_binary_search_from_lower_bound_exact"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/exact-binary-search-from-lower-bound/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/exact-binary-search-from-lower-bound/implementation.s"
+  },
+  {
+    "slug": "left-array-rotation-by-reversal",
+    "title": "Left array rotation by reversal",
+    "source_group": "PAT-ALG-ARRAY-ROTATION-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_left_array_rotation_by_reversal",
+    "prototype": "void algorithm_left_array_rotation_by_reversal(int32_t *values, uint32_t count, uint32_t positions);\nvoid algorithm_left_array_rotation_by_reversal_right(int32_t *values, uint32_t count, uint32_t positions);\nint algorithm_left_array_rotation_by_reversal_with_scratch(int32_t *values, uint32_t count, uint32_t positions, int32_t *scratch, uint32_t scratch_count);",
+    "assembly_exports": [
+      "algorithm_left_array_rotation_by_reversal",
+      "algorithm_left_array_rotation_by_reversal_right",
+      "algorithm_left_array_rotation_by_reversal_with_scratch"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-array-rotation-by-reversal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/left-array-rotation-by-reversal/implementation.s"
+  },
+  {
+    "slug": "right-array-rotation-with-normalized-distance",
+    "title": "Right array rotation with normalized distance",
+    "source_group": "PAT-ALG-ARRAY-ROTATION-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_right_array_rotation_with_normalized_distance_right",
+    "prototype": "void algorithm_right_array_rotation_with_normalized_distance(int32_t *values, uint32_t count, uint32_t positions);\nvoid algorithm_right_array_rotation_with_normalized_distance_right(int32_t *values, uint32_t count, uint32_t positions);\nint algorithm_right_array_rotation_with_normalized_distance_with_scratch(int32_t *values, uint32_t count, uint32_t positions, int32_t *scratch, uint32_t scratch_count);",
+    "assembly_exports": [
+      "algorithm_right_array_rotation_with_normalized_distance",
+      "algorithm_right_array_rotation_with_normalized_distance_right",
+      "algorithm_right_array_rotation_with_normalized_distance_with_scratch"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/right-array-rotation-with-normalized-distance/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/right-array-rotation-with-normalized-distance/implementation.s"
+  },
+  {
+    "slug": "overflow-aware-least-common-multiple",
+    "title": "Overflow-aware least common multiple",
+    "source_group": "PAT-ALG-GCD-LCM-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_overflow_aware_least_common_multiple_lcm",
+    "prototype": "uint32_t algorithm_overflow_aware_least_common_multiple(uint32_t first, uint32_t second);\nint algorithm_overflow_aware_least_common_multiple_lcm(uint32_t first, uint32_t second, uint32_t *result);",
+    "assembly_exports": [
+      "algorithm_overflow_aware_least_common_multiple",
+      "algorithm_overflow_aware_least_common_multiple_lcm"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overflow-aware-least-common-multiple/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overflow-aware-least-common-multiple/implementation.s"
+  },
+  {
+    "slug": "trial-prime-factorization",
+    "title": "Trial prime factorization",
+    "source_group": "PAT-ALG-PRIME-FACTORIZATION-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_trial_prime_factorization_factorize",
+    "prototype": "int algorithm_trial_prime_factorization(uint32_t value);\nuint32_t algorithm_trial_prime_factorization_factorize(uint32_t value, uint32_t *factors, uint32_t capacity);",
+    "assembly_exports": [
+      "algorithm_trial_prime_factorization",
+      "algorithm_trial_prime_factorization_factorize"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trial-prime-factorization/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trial-prime-factorization/implementation.s"
+  },
+  {
+    "slug": "decimal-extraction-and-reconstruction",
+    "title": "Decimal extraction and reconstruction",
+    "source_group": "PAT-ALG-DECIMAL-DIGITS-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_decimal_extraction_and_reconstruction_extract",
+    "prototype": "uint32_t algorithm_decimal_extraction_and_reconstruction(uint32_t value);\nuint32_t algorithm_decimal_extraction_and_reconstruction_extract(uint32_t value, uint8_t *digits, uint32_t capacity);\nuint32_t algorithm_decimal_extraction_and_reconstruction_reconstruct(const uint8_t *digits, uint32_t count);\nint algorithm_decimal_extraction_and_reconstruction_is_palindrome(uint32_t value);\nuint32_t algorithm_decimal_extraction_and_reconstruction_kaprekar_4(uint32_t value);",
+    "assembly_exports": [
+      "algorithm_decimal_extraction_and_reconstruction",
+      "algorithm_decimal_extraction_and_reconstruction_extract",
+      "algorithm_decimal_extraction_and_reconstruction_reconstruct",
+      "algorithm_decimal_extraction_and_reconstruction_is_palindrome",
+      "algorithm_decimal_extraction_and_reconstruction_kaprekar_4"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-extraction-and-reconstruction/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-extraction-and-reconstruction/implementation.s"
+  },
+  {
+    "slug": "kaprekar-digit-ordering-step",
+    "title": "Kaprekar digit ordering step",
+    "source_group": "PAT-ALG-DECIMAL-DIGITS-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_kaprekar_digit_ordering_step_kaprekar_4",
+    "prototype": "uint32_t algorithm_kaprekar_digit_ordering_step(uint32_t value);\nuint32_t algorithm_kaprekar_digit_ordering_step_extract(uint32_t value, uint8_t *digits, uint32_t capacity);\nuint32_t algorithm_kaprekar_digit_ordering_step_reconstruct(const uint8_t *digits, uint32_t count);\nint algorithm_kaprekar_digit_ordering_step_is_palindrome(uint32_t value);\nuint32_t algorithm_kaprekar_digit_ordering_step_kaprekar_4(uint32_t value);",
+    "assembly_exports": [
+      "algorithm_kaprekar_digit_ordering_step",
+      "algorithm_kaprekar_digit_ordering_step_extract",
+      "algorithm_kaprekar_digit_ordering_step_reconstruct",
+      "algorithm_kaprekar_digit_ordering_step_is_palindrome",
+      "algorithm_kaprekar_digit_ordering_step_kaprekar_4"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kaprekar-digit-ordering-step/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kaprekar-digit-ordering-step/implementation.s"
+  },
+  {
+    "slug": "parity-from-population-count",
+    "title": "Parity from population count",
+    "source_group": "PAT-ALG-POPCOUNT-PARITY-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_parity_from_population_count_parity",
+    "prototype": "uint32_t algorithm_parity_from_population_count(uint32_t value);\nuint32_t algorithm_parity_from_population_count_parity(uint32_t value);",
+    "assembly_exports": [
+      "algorithm_parity_from_population_count",
+      "algorithm_parity_from_population_count_parity"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parity-from-population-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parity-from-population-count/implementation.s"
+  },
+  {
+    "slug": "bitfield-extraction",
+    "title": "Bitfield extraction",
+    "source_group": "PAT-ALG-BITFIELD-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_bitfield_extraction_extract",
+    "prototype": "uint32_t algorithm_bitfield_extraction(uint32_t word, uint32_t value, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_extraction_extract(uint32_t word, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_extraction_pack_u16(uint16_t high, uint16_t low);",
+    "assembly_exports": [
+      "algorithm_bitfield_extraction",
+      "algorithm_bitfield_extraction_extract",
+      "algorithm_bitfield_extraction_pack_u16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-extraction/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-extraction/implementation.s"
+  },
+  {
+    "slug": "bitfield-insertion-without-neighbor-damage",
+    "title": "Bitfield insertion without neighbor damage",
+    "source_group": "PAT-ALG-BITFIELD-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_bitfield_insertion_without_neighbor_damage",
+    "prototype": "uint32_t algorithm_bitfield_insertion_without_neighbor_damage(uint32_t word, uint32_t value, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_insertion_without_neighbor_damage_extract(uint32_t word, uint32_t shift, uint32_t width);\nuint32_t algorithm_bitfield_insertion_without_neighbor_damage_pack_u16(uint16_t high, uint16_t low);",
+    "assembly_exports": [
+      "algorithm_bitfield_insertion_without_neighbor_damage",
+      "algorithm_bitfield_insertion_without_neighbor_damage_extract",
+      "algorithm_bitfield_insertion_without_neighbor_damage_pack_u16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-insertion-without-neighbor-damage/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bitfield-insertion-without-neighbor-damage/implementation.s"
+  },
+  {
+    "slug": "saturating-addition",
+    "title": "Saturating addition",
+    "source_group": "PAT-ALG-SATURATING-ARITHMETIC-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_saturating_addition_add_i32",
+    "prototype": "int32_t algorithm_saturating_addition(int64_t value, int32_t minimum, int32_t maximum);\nuint32_t algorithm_saturating_addition_abs_i32(int32_t value);\nint32_t algorithm_saturating_addition_add_i32(int32_t first, int32_t second);",
+    "assembly_exports": [
+      "algorithm_saturating_addition",
+      "algorithm_saturating_addition_abs_i32",
+      "algorithm_saturating_addition_add_i32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/saturating-addition/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/saturating-addition/implementation.s"
+  },
+  {
+    "slug": "constant-time-range-sums",
+    "title": "Constant-time range sums",
+    "source_group": "PAT-ALG-PREFIX-SUM-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_constant_time_range_sums_range",
+    "prototype": "int algorithm_constant_time_range_sums(const int32_t *values, uint32_t count, int64_t *prefix);\nint algorithm_constant_time_range_sums_range(const int64_t *prefix, uint32_t count, uint32_t begin, uint32_t end, int64_t *sum);",
+    "assembly_exports": [
+      "algorithm_constant_time_range_sums",
+      "algorithm_constant_time_range_sums_range"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/constant-time-range-sums/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/constant-time-range-sums/implementation.s"
+  },
+  {
+    "slug": "frequency-table-and-deterministic-mode",
+    "title": "Frequency table and deterministic mode",
+    "source_group": "PAT-ALG-HISTOGRAM-MODE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_frequency_table_and_deterministic_mode",
+    "prototype": "uint32_t algorithm_frequency_table_and_deterministic_mode(const uint8_t *a, uint32_t n, uint32_t range, uint32_t *freq);",
+    "assembly_exports": [
+      "algorithm_frequency_table_and_deterministic_mode"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/frequency-table-and-deterministic-mode/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/frequency-table-and-deterministic-mode/implementation.s"
+  },
+  {
+    "slug": "sliding-window-running-sum",
+    "title": "Sliding-window running sum",
+    "source_group": "PAT-ALG-MOVING-AVERAGE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_sliding_window_running_sum",
+    "prototype": "uint32_t algorithm_sliding_window_running_sum(const int32_t *a, uint32_t n, uint32_t w, int32_t *out);",
+    "assembly_exports": [
+      "algorithm_sliding_window_running_sum"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sliding-window-running-sum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sliding-window-running-sum/implementation.s"
+  },
+  {
+    "slug": "bounded-string-copy",
+    "title": "Bounded string copy",
+    "source_group": "PAT-ALG-STRING-PRIMITIVES-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_bounded_string_copy_copy",
+    "prototype": "uint32_t algorithm_bounded_string_copy_length(const char *text, uint32_t limit);\nint32_t algorithm_bounded_string_copy_compare(const char *first, const char *second, uint32_t limit);\nuint32_t algorithm_bounded_string_copy_copy(char *destination, uint32_t capacity, const char *source);\nint32_t algorithm_bounded_string_copy(const char *text, const char *needle, uint32_t limit);",
+    "assembly_exports": [
+      "algorithm_bounded_string_copy_length",
+      "algorithm_bounded_string_copy_compare",
+      "algorithm_bounded_string_copy_copy",
+      "algorithm_bounded_string_copy"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-string-copy/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-string-copy/implementation.s"
+  },
+  {
+    "slug": "lexicographic-byte-comparison",
+    "title": "Lexicographic byte comparison",
+    "source_group": "PAT-ALG-STRING-PRIMITIVES-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_lexicographic_byte_comparison_compare",
+    "prototype": "uint32_t algorithm_lexicographic_byte_comparison_length(const char *text, uint32_t limit);\nint32_t algorithm_lexicographic_byte_comparison_compare(const char *first, const char *second, uint32_t limit);\nuint32_t algorithm_lexicographic_byte_comparison_copy(char *destination, uint32_t capacity, const char *source);\nint32_t algorithm_lexicographic_byte_comparison(const char *text, const char *needle, uint32_t limit);",
+    "assembly_exports": [
+      "algorithm_lexicographic_byte_comparison_length",
+      "algorithm_lexicographic_byte_comparison_compare",
+      "algorithm_lexicographic_byte_comparison_copy",
+      "algorithm_lexicographic_byte_comparison"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/lexicographic-byte-comparison/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/lexicographic-byte-comparison/implementation.s"
+  },
+  {
+    "slug": "overlap-safe-backward-copy",
+    "title": "Overlap-safe backward copy",
+    "source_group": "PAT-ALG-MEMMOVE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_overlap_safe_backward_copy",
+    "prototype": "void *algorithm_overlap_safe_backward_copy(void *d, const void *s, uint32_t n);",
+    "assembly_exports": [
+      "algorithm_overlap_safe_backward_copy"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overlap-safe-backward-copy/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/overlap-safe-backward-copy/implementation.s"
+  },
+  {
+    "slug": "additive-versus-xor-checksum",
+    "title": "Additive versus XOR checksum",
+    "source_group": "PAT-ALG-CHECKSUM-CRC-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_additive_versus_xor_checksum",
+    "prototype": "uint32_t algorithm_additive_versus_xor_checksum(const uint8_t *bytes, uint32_t count);\nuint32_t algorithm_additive_versus_xor_checksum_crc32_table(const uint8_t *bytes, uint32_t count, const uint32_t table[256]);",
+    "assembly_exports": [
+      "algorithm_additive_versus_xor_checksum",
+      "algorithm_additive_versus_xor_checksum_crc32_table"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/additive-versus-xor-checksum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/additive-versus-xor-checksum/implementation.s"
+  },
+  {
+    "slug": "isr-to-main-ring-buffer",
+    "title": "ISR-to-main ring buffer",
+    "source_group": "PAT-DS-RING-BUFFER-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_isr_to_main_ring_buffer",
+    "prototype": "int algorithm_isr_to_main_ring_buffer(ring_t *q, int put, int32_t *value);",
+    "assembly_exports": [
+      "algorithm_isr_to_main_ring_buffer"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/isr-to-main-ring-buffer/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/isr-to-main-ring-buffer/implementation.s"
+  },
+  {
+    "slug": "queue-wraparound",
+    "title": "Queue wraparound",
+    "source_group": "PAT-DS-CIRCULAR-QUEUE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_queue_wraparound",
+    "prototype": "int algorithm_queue_wraparound(queue_t *q, int enqueue, int32_t *value);",
+    "assembly_exports": [
+      "algorithm_queue_wraparound"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/queue-wraparound/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/queue-wraparound/implementation.s"
+  },
+  {
+    "slug": "path-compression-and-union-by-rank",
+    "title": "Path compression and union by rank",
+    "source_group": "PAT-DS-UNION-FIND-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_path_compression_and_union_by_rank",
+    "prototype": "uint32_t find(uint32_t *p, uint32_t x);\nint algorithm_path_compression_and_union_by_rank(uint32_t *p, uint8_t *r, uint32_t n, uint32_t a, uint32_t b);",
+    "assembly_exports": [
+      "find",
+      "algorithm_path_compression_and_union_by_rank"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/path-compression-and-union-by-rank/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/path-compression-and-union-by-rank/implementation.s"
+  },
+  {
+    "slug": "one-row-zero-one-knapsack",
+    "title": "One-row zero-one knapsack",
+    "source_group": "PAT-ALG-KNAPSACK-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_one_row_zero_one_knapsack",
+    "prototype": "uint32_t algorithm_one_row_zero_one_knapsack(const uint16_t *wt, const uint16_t *val, uint32_t n, uint32_t cap, uint32_t *dp);",
+    "assembly_exports": [
+      "algorithm_one_row_zero_one_knapsack"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/one-row-zero-one-knapsack/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/one-row-zero-one-knapsack/implementation.s"
+  },
+  {
+    "slug": "minimum-coin-dynamic-programming",
+    "title": "Minimum-coin dynamic programming",
+    "source_group": "PAT-ALG-COIN-CHANGE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_minimum_coin_dynamic_programming",
+    "prototype": "uint32_t algorithm_minimum_coin_dynamic_programming(const uint16_t *coin, uint32_t n, uint32_t amount, uint32_t *dp);",
+    "assembly_exports": [
+      "algorithm_minimum_coin_dynamic_programming"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/minimum-coin-dynamic-programming/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/minimum-coin-dynamic-programming/implementation.s"
+  },
+  {
+    "slug": "two-row-edit-distance",
+    "title": "Two-row edit distance",
+    "source_group": "PAT-ALG-EDIT-DISTANCE-001",
+    "shared_source": true,
+    "history": "Possible variation",
+    "focus_entry": "algorithm_two_row_edit_distance",
+    "prototype": "uint32_t algorithm_two_row_edit_distance(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *previous, uint32_t *current);\nuint32_t algorithm_two_row_edit_distance_full(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *table, uint32_t table_elements);",
+    "assembly_exports": [
+      "algorithm_two_row_edit_distance",
+      "algorithm_two_row_edit_distance_full"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/two-row-edit-distance/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/two-row-edit-distance/implementation.s"
+  },
+  {
+    "slug": "insertion-sort",
+    "title": "Insertion sort",
+    "source_group": "insertion-sort",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void insertion_sort(int *a, size_t n)",
+    "assembly_exports": [
+      "insertion_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/insertion-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/insertion-sort/implementation.s"
+  },
+  {
+    "slug": "cocktail-sort",
+    "title": "Cocktail shaker sort",
+    "source_group": "cocktail-sort",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void cocktail_sort(int *a, size_t n)",
+    "assembly_exports": [
+      "cocktail_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/cocktail-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/cocktail-sort/implementation.s"
+  },
+  {
+    "slug": "shell-sort",
+    "title": "Shell sort",
+    "source_group": "shell-sort",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "void shell_sort(int *a, size_t n)",
+    "assembly_exports": [
+      "shell_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/shell-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/shell-sort/implementation.s"
+  },
+  {
+    "slug": "radix-sort",
+    "title": "LSD radix sort",
+    "source_group": "radix-sort",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int radix_sort_u32(uint32_t *a, size_t n, uint32_t *tmp)",
+    "assembly_exports": [
+      "radix_sort_u32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/radix-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/radix-sort/implementation.s"
+  },
+  {
+    "slug": "upper-bound-equal-range",
+    "title": "Upper bound and equal range",
+    "source_group": "upper-bound-equal-range",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "size_t upper_bound_i32(const int *a, size_t n, int key)",
+    "assembly_exports": [
+      "upper_bound_i32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/upper-bound-equal-range/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/upper-bound-equal-range/implementation.s"
+  },
+  {
+    "slug": "quickselect",
+    "title": "Quickselect",
+    "source_group": "quickselect",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int quickselect(int *a, size_t n, size_t k, int *out)",
+    "assembly_exports": [
+      "quickselect"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/quickselect/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/quickselect/implementation.s"
+  },
+  {
+    "slug": "rectangular-matrix-transpose",
+    "title": "Rectangular matrix transpose",
+    "source_group": "rectangular-matrix-transpose",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int matrix_transpose(const int *in, size_t rows, size_t cols, int *out)",
+    "assembly_exports": [
+      "matrix_transpose"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/rectangular-matrix-transpose/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/rectangular-matrix-transpose/implementation.s"
+  },
+  {
+    "slug": "topological-sort",
+    "title": "Topological sort",
+    "source_group": "topological-sort",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "size_t topological_sort(const uint8_t *a, size_t n, size_t *degree, size_t *queue, size_t *out)",
+    "assembly_exports": [
+      "topological_sort"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/topological-sort/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/topological-sort/implementation.s"
+  },
+  {
+    "slug": "bellman-ford",
+    "title": "Bellman-Ford shortest paths",
+    "source_group": "bellman-ford",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "typedef struct{size_t from,to;int weight;}Edge;\nint bellman_ford(const Edge *edges, size_t m, size_t n, size_t start, int *distance)",
+    "assembly_exports": [
+      "bellman_ford"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bellman-ford/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bellman-ford/implementation.s"
+  },
+  {
+    "slug": "floyd-warshall",
+    "title": "Floyd-Warshall all-pairs paths",
+    "source_group": "floyd-warshall",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int floyd_warshall(int *distance, size_t n, int infinity)",
+    "assembly_exports": [
+      "floyd_warshall"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/floyd-warshall/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/floyd-warshall/implementation.s"
+  },
+  {
+    "slug": "prim-mst",
+    "title": "Prim minimum spanning tree",
+    "source_group": "prim-mst",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "unsigned prim_mst(const unsigned *w, size_t n, size_t start, unsigned *best, unsigned char *used)",
+    "assembly_exports": [
+      "prim_mst"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prim-mst/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/prim-mst/implementation.s"
+  },
+  {
+    "slug": "kruskal-mst",
+    "title": "Kruskal minimum spanning tree",
+    "source_group": "kruskal-mst",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "typedef struct{size_t u,v;unsigned w;}MstEdge;\nunsigned kruskal_mst(const MstEdge *edges, size_t m, size_t n, size_t *parent)",
+    "assembly_exports": [
+      "kruskal_mst"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kruskal-mst/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kruskal-mst/implementation.s"
+  },
+  {
+    "slug": "bipartite-test",
+    "title": "Bipartite graph test",
+    "source_group": "bipartite-test",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int graph_is_bipartite(const uint8_t *a, size_t n, int8_t *color, size_t *queue)",
+    "assembly_exports": [
+      "graph_is_bipartite"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bipartite-test/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bipartite-test/implementation.s"
+  },
+  {
+    "slug": "directed-cycle-detection",
+    "title": "Directed cycle detection",
+    "source_group": "directed-cycle-detection",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int directed_cycle(const uint8_t *a, size_t n, uint8_t *state)",
+    "assembly_exports": [
+      "directed_cycle"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/directed-cycle-detection/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/directed-cycle-detection/implementation.s"
+  },
+  {
+    "slug": "a-star-grid",
+    "title": "A-star grid search",
+    "source_group": "a-star-grid",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int astar_grid(const unsigned char *wall, size_t rows, size_t cols, size_t start, size_t goal, unsigned *g, unsigned char *closed)",
+    "assembly_exports": [
+      "astar_grid"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/a-star-grid/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/a-star-grid/implementation.s"
+  },
+  {
+    "slug": "subset-sum",
+    "title": "Subset-sum dynamic programming",
+    "source_group": "subset-sum",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int subset_sum(const unsigned short *a, size_t n, size_t target, unsigned char *reachable)",
+    "assembly_exports": [
+      "subset_sum"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/subset-sum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/subset-sum/implementation.s"
+  },
+  {
+    "slug": "base-conversion",
+    "title": "Unsigned base conversion",
+    "source_group": "base-conversion",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "size_t u32_to_base(unsigned value, unsigned base, char *out, size_t cap)",
+    "assembly_exports": [
+      "u32_to_base"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/base-conversion/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/base-conversion/implementation.s"
+  },
+  {
+    "slug": "debounce-state-machine",
+    "title": "Debounce state machine",
+    "source_group": "debounce-state-machine",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "typedef struct{uint8_t stable,candidate;uint16_t ticks;}Debounce;\nint debounce_update(Debounce *s, uint8_t sample, uint16_t required, uint8_t *changed)",
+    "assembly_exports": [
+      "debounce_update"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/debounce-state-machine/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/debounce-state-machine/implementation.s"
+  },
+  {
+    "slug": "threshold-hysteresis",
+    "title": "Threshold hysteresis",
+    "source_group": "threshold-hysteresis",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int hysteresis_update(uint16_t sample, uint16_t low, uint16_t high, uint8_t *state)",
+    "assembly_exports": [
+      "hysteresis_update"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/threshold-hysteresis/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/threshold-hysteresis/implementation.s"
+  },
+  {
+    "slug": "factorial-iterative",
+    "title": "Iterative factorial",
+    "source_group": "factorial-iterative",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int factorial_iterative(uint32_t n, uint32_t *out)",
+    "assembly_exports": [
+      "factorial_iterative"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/factorial-iterative/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/factorial-iterative/implementation.s"
+  },
+  {
+    "slug": "factorial-recursive",
+    "title": "Recursive factorial",
+    "source_group": "factorial-recursive",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int factorial_recursive(uint32_t n, uint32_t *out)",
+    "assembly_exports": [
+      "factorial_recursive"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/factorial-recursive/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/factorial-recursive/implementation.s"
+  },
+  {
+    "slug": "fibonacci-number",
+    "title": "Nth Fibonacci number",
+    "source_group": "fibonacci-number",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int fibonacci_number(uint32_t n, uint32_t *out)",
+    "assembly_exports": [
+      "fibonacci_number"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/fibonacci-number/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/fibonacci-number/implementation.s"
+  },
+  {
+    "slug": "fibonacci-array",
+    "title": "Fibonacci array generation",
+    "source_group": "fibonacci-array",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int fibonacci_array(uint32_t *out, uint32_t count, uint32_t capacity)",
+    "assembly_exports": [
+      "fibonacci_array"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/fibonacci-array/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/fibonacci-array/implementation.s"
+  },
+  {
+    "slug": "tribonacci-array",
+    "title": "Tribonacci array generation",
+    "source_group": "tribonacci-array",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int tribonacci_array(uint32_t *out, uint32_t count, uint32_t capacity)",
+    "assembly_exports": [
+      "tribonacci_array"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/tribonacci-array/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/tribonacci-array/implementation.s"
+  },
+  {
+    "slug": "bounded-collatz",
+    "title": "Bounded Collatz sequence",
+    "source_group": "bounded-collatz",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t bounded_collatz(uint32_t seed, uint32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "bounded_collatz"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-collatz/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-collatz/implementation.s"
+  },
+  {
+    "slug": "decimal-digit-count",
+    "title": "Decimal digit count",
+    "source_group": "decimal-digit-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t decimal_digit_count(uint32_t n)",
+    "assembly_exports": [
+      "decimal_digit_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-count/implementation.s"
+  },
+  {
+    "slug": "decimal-digit-product",
+    "title": "Decimal digit product",
+    "source_group": "decimal-digit-product",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t decimal_digit_product(uint32_t n)",
+    "assembly_exports": [
+      "decimal_digit_product"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-product/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/decimal-digit-product/implementation.s"
+  },
+  {
+    "slug": "digital-root",
+    "title": "Repeated digit sum and digital root",
+    "source_group": "digital-root",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t digital_root(uint32_t n)",
+    "assembly_exports": [
+      "digital_root"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/digital-root/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/digital-root/implementation.s"
+  },
+  {
+    "slug": "checked-decimal-reversal",
+    "title": "Checked decimal reversal",
+    "source_group": "checked-decimal-reversal",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int reverse_decimal(uint32_t n, uint32_t *out)",
+    "assembly_exports": [
+      "reverse_decimal"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checked-decimal-reversal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checked-decimal-reversal/implementation.s"
+  },
+  {
+    "slug": "digit-sum-any-base",
+    "title": "Digit sum in a supplied base",
+    "source_group": "digit-sum-any-base",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int digit_sum_base(uint32_t n, uint32_t base, uint32_t *out)",
+    "assembly_exports": [
+      "digit_sum_base"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/digit-sum-any-base/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/digit-sum-any-base/implementation.s"
+  },
+  {
+    "slug": "armstrong-number",
+    "title": "Armstrong number test",
+    "source_group": "armstrong-number",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int armstrong_number(uint32_t n)",
+    "assembly_exports": [
+      "armstrong_number"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/armstrong-number/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/armstrong-number/implementation.s"
+  },
+  {
+    "slug": "divisor-sum",
+    "title": "Sum of positive divisors",
+    "source_group": "divisor-sum",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint64_t divisor_sum(uint32_t n)",
+    "assembly_exports": [
+      "divisor_sum"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/divisor-sum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/divisor-sum/implementation.s"
+  },
+  {
+    "slug": "perfect-number",
+    "title": "Perfect-number test",
+    "source_group": "perfect-number",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int perfect_number(uint32_t n)",
+    "assembly_exports": [
+      "perfect_number"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/perfect-number/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/perfect-number/implementation.s"
+  },
+  {
+    "slug": "divisor-count",
+    "title": "Number of positive divisors",
+    "source_group": "divisor-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t divisor_count(uint32_t n)",
+    "assembly_exports": [
+      "divisor_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/divisor-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/divisor-count/implementation.s"
+  },
+  {
+    "slug": "sieve-of-eratosthenes",
+    "title": "Sieve of Eratosthenes",
+    "source_group": "sieve-of-eratosthenes",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int prime_sieve(uint8_t *flags, uint32_t limit, uint32_t capacity)",
+    "assembly_exports": [
+      "prime_sieve"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sieve-of-eratosthenes/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sieve-of-eratosthenes/implementation.s"
+  },
+  {
+    "slug": "checked-binomial",
+    "title": "Bounded checked binomial coefficient",
+    "source_group": "checked-binomial",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int binomial_coefficient(uint32_t n, uint32_t k, uint32_t *out)",
+    "assembly_exports": [
+      "binomial_coefficient"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checked-binomial/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/checked-binomial/implementation.s"
+  },
+  {
+    "slug": "modular-exponentiation",
+    "title": "Bounded modular exponentiation",
+    "source_group": "modular-exponentiation",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int modular_power(uint32_t base, uint32_t exponent, uint32_t modulus, uint32_t *out)",
+    "assembly_exports": [
+      "modular_power"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/modular-exponentiation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/modular-exponentiation/implementation.s"
+  },
+  {
+    "slug": "word-hamming-distance",
+    "title": "Word Hamming distance",
+    "source_group": "word-hamming-distance",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t word_hamming(uint32_t a, uint32_t b)",
+    "assembly_exports": [
+      "word_hamming"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/word-hamming-distance/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/word-hamming-distance/implementation.s"
+  },
+  {
+    "slug": "reverse-32-bits",
+    "title": "Reverse all 32 bits",
+    "source_group": "reverse-32-bits",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t reverse_bits(uint32_t value)",
+    "assembly_exports": [
+      "reverse_bits"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/reverse-32-bits/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/reverse-32-bits/implementation.s"
+  },
+  {
+    "slug": "longest-one-bit-run",
+    "title": "Longest consecutive-one bit run",
+    "source_group": "longest-one-bit-run",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t longest_one_run(uint32_t value)",
+    "assembly_exports": [
+      "longest_one_run"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-one-bit-run/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-one-bit-run/implementation.s"
+  },
+  {
+    "slug": "trailing-zero-count",
+    "title": "Trailing zero count",
+    "source_group": "trailing-zero-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t trailing_zero_count(uint32_t value)",
+    "assembly_exports": [
+      "trailing_zero_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trailing-zero-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trailing-zero-count/implementation.s"
+  },
+  {
+    "slug": "leading-zero-count",
+    "title": "Leading zero count",
+    "source_group": "leading-zero-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t leading_zero_count(uint32_t value)",
+    "assembly_exports": [
+      "leading_zero_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/leading-zero-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/leading-zero-count/implementation.s"
+  },
+  {
+    "slug": "bit-width-palindrome",
+    "title": "Palindrome within a bit width",
+    "source_group": "bit-width-palindrome",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int bit_palindrome(uint32_t value, uint32_t width)",
+    "assembly_exports": [
+      "bit_palindrome"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bit-width-palindrome/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bit-width-palindrome/implementation.s"
+  },
+  {
+    "slug": "second-largest",
+    "title": "Second largest distinct value",
+    "source_group": "second-largest",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int second_largest(const int32_t *a, uint32_t n, int32_t *out)",
+    "assembly_exports": [
+      "second_largest"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/second-largest/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/second-largest/implementation.s"
+  },
+  {
+    "slug": "second-smallest",
+    "title": "Second smallest distinct value",
+    "source_group": "second-smallest",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int second_smallest(const int32_t *a, uint32_t n, int32_t *out)",
+    "assembly_exports": [
+      "second_smallest"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/second-smallest/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/second-smallest/implementation.s"
+  },
+  {
+    "slug": "extrema-indexes",
+    "title": "Minimum and maximum indexes",
+    "source_group": "extrema-indexes",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int extrema_indexes(const int32_t *a, uint32_t n, uint32_t *min_index, uint32_t *max_index)",
+    "assembly_exports": [
+      "extrema_indexes"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/extrema-indexes/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/extrema-indexes/implementation.s"
+  },
+  {
+    "slug": "count-above-threshold",
+    "title": "Count above a signed threshold",
+    "source_group": "count-above-threshold",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t count_above(const int32_t *a, uint32_t n, int32_t threshold)",
+    "assembly_exports": [
+      "count_above"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/count-above-threshold/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/count-above-threshold/implementation.s"
+  },
+  {
+    "slug": "stable-threshold-filter",
+    "title": "Stable threshold filtering",
+    "source_group": "stable-threshold-filter",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t threshold_filter(const int32_t *a, uint32_t n, int32_t threshold, int32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "threshold_filter"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/stable-threshold-filter/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/stable-threshold-filter/implementation.s"
+  },
+  {
+    "slug": "majority-element",
+    "title": "Majority element with verification",
+    "source_group": "majority-element",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int majority_element(const int32_t *a, uint32_t n, int32_t *out)",
+    "assembly_exports": [
+      "majority_element"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/majority-element/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/majority-element/implementation.s"
+  },
+  {
+    "slug": "unique-sorted",
+    "title": "Sorted duplicate removal",
+    "source_group": "unique-sorted",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t unique_sorted(int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "unique_sorted"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/unique-sorted/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/unique-sorted/implementation.s"
+  },
+  {
+    "slug": "unique-unsorted",
+    "title": "Unsorted duplicate removal",
+    "source_group": "unique-unsorted",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t unique_unsorted(int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "unique_unsorted"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/unique-unsorted/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/unique-unsorted/implementation.s"
+  },
+  {
+    "slug": "sorted-merge",
+    "title": "Merge two sorted arrays",
+    "source_group": "sorted-merge",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t sorted_merge(const int32_t *a, uint32_t n, const int32_t *b, uint32_t m, int32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "sorted_merge"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-merge/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-merge/implementation.s"
+  },
+  {
+    "slug": "sorted-intersection",
+    "title": "Distinct sorted intersection",
+    "source_group": "sorted-intersection",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t sorted_intersection(const int32_t *a, uint32_t n, const int32_t *b, uint32_t m, int32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "sorted_intersection"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-intersection/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-intersection/implementation.s"
+  },
+  {
+    "slug": "sorted-union",
+    "title": "Distinct sorted union",
+    "source_group": "sorted-union",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t sorted_union(const int32_t *a, uint32_t n, const int32_t *b, uint32_t m, int32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "sorted_union"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-union/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/sorted-union/implementation.s"
+  },
+  {
+    "slug": "longest-equal-run",
+    "title": "Longest equal-value contiguous run",
+    "source_group": "longest-equal-run",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t longest_equal_run(const int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "longest_equal_run"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-equal-run/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-equal-run/implementation.s"
+  },
+  {
+    "slug": "longest-increasing-run",
+    "title": "Longest strictly increasing contiguous run",
+    "source_group": "longest-increasing-run",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t longest_increasing_run(const int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "longest_increasing_run"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-increasing-run/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/longest-increasing-run/implementation.s"
+  },
+  {
+    "slug": "maximum-subarray-sum",
+    "title": "Maximum contiguous subarray sum",
+    "source_group": "maximum-subarray-sum",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int64_t maximum_subarray(const int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "maximum_subarray"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/maximum-subarray-sum/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/maximum-subarray-sum/implementation.s"
+  },
+  {
+    "slug": "first-interior-peak",
+    "title": "First strict interior peak",
+    "source_group": "first-interior-peak",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int32_t first_peak(const int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "first_peak"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/first-interior-peak/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/first-interior-peak/implementation.s"
+  },
+  {
+    "slug": "dot-i16",
+    "title": "Signed 16-bit dot product",
+    "source_group": "dot-i16",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int64_t dot_i16(const int16_t *a, const int16_t *b, uint32_t n)",
+    "assembly_exports": [
+      "dot_i16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/dot-i16/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/dot-i16/implementation.s"
+  },
+  {
+    "slug": "array-bit-differences",
+    "title": "Total bit differences between word arrays",
+    "source_group": "array-bit-differences",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint64_t array_bit_differences(const uint32_t *a, const uint32_t *b, uint32_t n)",
+    "assembly_exports": [
+      "array_bit_differences"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/array-bit-differences/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/array-bit-differences/implementation.s"
+  },
+  {
+    "slug": "squared-differences-i16",
+    "title": "Sum of squared signed 16-bit differences",
+    "source_group": "squared-differences-i16",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint64_t squared_differences_i16(const int16_t *a, const int16_t *b, uint32_t n)",
+    "assembly_exports": [
+      "squared_differences_i16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/squared-differences-i16/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/squared-differences-i16/implementation.s"
+  },
+  {
+    "slug": "byte-string-palindrome",
+    "title": "Byte-string palindrome",
+    "source_group": "byte-string-palindrome",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int bytes_palindrome(const uint8_t *text, uint32_t length)",
+    "assembly_exports": [
+      "bytes_palindrome"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-string-palindrome/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-string-palindrome/implementation.s"
+  },
+  {
+    "slug": "byte-string-reversal",
+    "title": "In-place byte-string reversal",
+    "source_group": "byte-string-reversal",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int bytes_reverse(uint8_t *text, uint32_t length)",
+    "assembly_exports": [
+      "bytes_reverse"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-string-reversal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-string-reversal/implementation.s"
+  },
+  {
+    "slug": "byte-character-count",
+    "title": "Character count in a byte span",
+    "source_group": "byte-character-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t byte_count(const uint8_t *text, uint32_t length, uint8_t key)",
+    "assembly_exports": [
+      "byte_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-character-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-character-count/implementation.s"
+  },
+  {
+    "slug": "substring-first",
+    "title": "First substring occurrence",
+    "source_group": "substring-first",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int32_t substring_first(const uint8_t *text, uint32_t length, const uint8_t *pattern, uint32_t pattern_length)",
+    "assembly_exports": [
+      "substring_first"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/substring-first/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/substring-first/implementation.s"
+  },
+  {
+    "slug": "substring-count",
+    "title": "Overlapping substring count",
+    "source_group": "substring-count",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t substring_count(const uint8_t *text, uint32_t length, const uint8_t *pattern, uint32_t pattern_length)",
+    "assembly_exports": [
+      "substring_count"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/substring-count/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/substring-count/implementation.s"
+  },
+  {
+    "slug": "byte-anagram-test",
+    "title": "Case-sensitive byte anagram test",
+    "source_group": "byte-anagram-test",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int byte_anagram(const uint8_t *a, uint32_t n, const uint8_t *b, uint32_t m)",
+    "assembly_exports": [
+      "byte_anagram"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-anagram-test/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/byte-anagram-test/implementation.s"
+  },
+  {
+    "slug": "parse-u32",
+    "title": "Checked unsigned decimal parsing",
+    "source_group": "parse-u32",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int parse_u32(const uint8_t *text, uint32_t length, uint32_t *out)",
+    "assembly_exports": [
+      "parse_u32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parse-u32/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parse-u32/implementation.s"
+  },
+  {
+    "slug": "parse-i32",
+    "title": "Checked signed decimal parsing",
+    "source_group": "parse-i32",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int parse_i32(const uint8_t *text, uint32_t length, int32_t *out)",
+    "assembly_exports": [
+      "parse_i32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parse-i32/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/parse-i32/implementation.s"
+  },
+  {
+    "slug": "format-signed-decimal",
+    "title": "Signed decimal formatting",
+    "source_group": "format-signed-decimal",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t format_i32(int32_t value, char *out, uint32_t capacity)",
+    "assembly_exports": [
+      "format_i32"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/format-signed-decimal/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/format-signed-decimal/implementation.s"
+  },
+  {
+    "slug": "trim-ascii-whitespace",
+    "title": "Trim leading and trailing ASCII whitespace",
+    "source_group": "trim-ascii-whitespace",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t trim_ascii(uint8_t *text, uint32_t length)",
+    "assembly_exports": [
+      "trim_ascii"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trim-ascii-whitespace/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/trim-ascii-whitespace/implementation.s"
+  },
+  {
+    "slug": "bounded-run-length-decoding",
+    "title": "Bounded run-length decoding",
+    "source_group": "bounded-run-length-decoding",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "uint32_t rle_decode(const uint8_t *pairs, uint32_t pair_count, uint8_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "rle_decode"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-run-length-decoding/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/bounded-run-length-decoding/implementation.s"
+  },
+  {
+    "slug": "eight-digit-packed-bcd",
+    "title": "Eight-digit packed BCD encoding",
+    "source_group": "eight-digit-packed-bcd",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int packed_bcd(uint32_t value, uint32_t *out)",
+    "assembly_exports": [
+      "packed_bcd"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/eight-digit-packed-bcd/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/eight-digit-packed-bcd/implementation.s"
+  },
+  {
+    "slug": "matrix-row-column-sums",
+    "title": "Matrix row and column sums",
+    "source_group": "matrix-row-column-sums",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int matrix_sums(const int16_t *a, uint32_t rows, uint32_t cols, int64_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "matrix_sums"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-row-column-sums/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-row-column-sums/implementation.s"
+  },
+  {
+    "slug": "matrix-diagonal-sums",
+    "title": "Main and secondary diagonal sums",
+    "source_group": "matrix-diagonal-sums",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int diagonal_sums(const int16_t *a, uint32_t n, int64_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "diagonal_sums"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-diagonal-sums/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-diagonal-sums/implementation.s"
+  },
+  {
+    "slug": "matrix-symmetry",
+    "title": "Square-matrix symmetry test",
+    "source_group": "matrix-symmetry",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int matrix_symmetric(const int32_t *a, uint32_t n)",
+    "assembly_exports": [
+      "matrix_symmetric"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-symmetry/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-symmetry/implementation.s"
+  },
+  {
+    "slug": "matrix-clockwise-rotation",
+    "title": "Clockwise square-matrix rotation",
+    "source_group": "matrix-clockwise-rotation",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int matrix_rotate_clockwise(const int32_t *a, uint32_t n, int32_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "matrix_rotate_clockwise"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-clockwise-rotation/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/matrix-clockwise-rotation/implementation.s"
+  },
+  {
+    "slug": "integer-matrix-multiplication",
+    "title": "Signed 16-bit integer matrix multiplication",
+    "source_group": "integer-matrix-multiplication",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int matrix_multiply_i16(const int16_t *a, const int16_t *b, uint32_t rows, uint32_t inner, uint32_t cols, int64_t *out, uint32_t capacity)",
+    "assembly_exports": [
+      "matrix_multiply_i16"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-matrix-multiplication/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-matrix-multiplication/implementation.s"
+  },
+  {
+    "slug": "recursive-binary-search",
+    "title": "Recursive binary search",
+    "source_group": "recursive-binary-search",
+    "shared_source": false,
+    "history": "Possible variation",
+    "focus_entry": "",
+    "prototype": "int32_t recursive_binary_search(const int32_t *a, uint32_t n, int32_t key)",
+    "assembly_exports": [
+      "recursive_binary_search"
+    ],
+    "reference": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/recursive-binary-search/reference.c",
+    "assembly": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/recursive-binary-search/implementation.s"
+  }
+]

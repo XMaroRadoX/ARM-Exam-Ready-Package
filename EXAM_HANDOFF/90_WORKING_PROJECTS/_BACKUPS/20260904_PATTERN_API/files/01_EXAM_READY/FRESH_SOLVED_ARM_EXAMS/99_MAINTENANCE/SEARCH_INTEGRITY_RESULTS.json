@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": 53537,
+  "records": 7603,
+  "sourceIdentities": 9380,
+  "inventoriedFiles": 2432,
+  "reviewedExams": 23,
+  "reviewedQuestions": 48,
+  "attachments": 61,
+  "unmappedExamSources": 55
+}

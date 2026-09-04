@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Extract/sum/reverse base-10 digits">
+  <title>Decimal digit algorithms · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Decimal digit algorithms</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Decimal digit algorithms</h1><p>Extract/sum/reverse base-10 digits</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Extract/sum/reverse base-10 digits.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Treating ASCII codes as numeric digits is wrong.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Choose digit order and retain leading zeros only if contract says so.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Use quotient=n/10,remainder=n-10*q
+2. process remainder
+3. repeat q
+4. handle zero explicitly</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>407 -&gt;digits7,0,4 -&gt;sum11.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Choose digit order and retain leading zeros only if contract says so.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Treating ASCII codes as numeric digits is wrong.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Choose digit order and retain leading zeros only if contract says so.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>0; powers10; trailing zeros; reversal overflow.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Treating ASCII codes as numeric digits is wrong. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">decimal digits assembly</a><a href="#variant-1">decimal digits c</a></nav><h3 id="variant-0">Baseline: decimal digits assembly</h3><p>pat-alg-decimal-digits-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, algorithm_algorithm_pat_alg_decimal_digits_001_assembly, algorithm_algorithm_pat_alg_decimal_digits_001_assembly_extract, algorithm_algorithm_pat_alg_decimal_digits_001_assembly_reconstruct, algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome, algorithm_algorithm_pat_alg_decimal_digits_001_assembly_kaprekar_4. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Decimal digit algorithms.
+ * Recognition cue: extract reconstruct sum palindrome Kaprekar digits.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_assembly(uint32_t value);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_assembly_extract(uint32_t value, uint8_t *digits,
+                                            uint32_t capacity);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_assembly_reconstruct(const uint8_t *digits,
+                                                uint32_t count);
+
+int algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(uint32_t value);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_assembly_kaprekar_4(uint32_t value);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_decimal_digits_001_assembly(123) == ((6u &lt;&lt; 16) | 321u);
+}
+static int pattern_edge_vectors(void) {
+  if (!algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(123321u) || !algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(4000000004u) || algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(UINT32_MAX)) return 0;
+  uint8_t d[10];
+  uint32_t n = algorithm_algorithm_pat_alg_decimal_digits_001_assembly_extract(1203, d, 10);
+  return n == 4 &amp;&amp; algorithm_algorithm_pat_alg_decimal_digits_001_assembly_reconstruct(d, n) == 1203 &amp;&amp;
+         algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(1221) &amp;&amp;
+         !algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome(123) &amp;&amp;
+         algorithm_algorithm_pat_alg_decimal_digits_001_assembly_kaprekar_4(3524) == 3087;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT algorithm_algorithm_pat_alg_decimal_digits_001_assembly
+        EXPORT algorithm_algorithm_pat_alg_decimal_digits_001_assembly_extract
+        EXPORT algorithm_algorithm_pat_alg_decimal_digits_001_assembly_reconstruct
+        EXPORT algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome
+        EXPORT algorithm_algorithm_pat_alg_decimal_digits_001_assembly_kaprekar_4
+        ALIGN 2
+algorithm_algorithm_pat_alg_decimal_digits_001_assembly
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        movw	r12, #52429
+        movs	r1, #0
+        movt	r12, #52428
+        mov.w	lr, #0
+        ALIGN 2
+_LBB0_1
+        umull	r2, r3, r0, r12
+        lsrs	r4, r3, #3
+        add.w	r3, r4, r4, lsl #2
+        sub.w	r3, r0, r3, lsl #1
+        add.w	r2, lr, lr, lsl #2
+        add	r1, r3
+        add.w	lr, r3, r2, lsl #1
+        cmp	r0, #9
+        mov	r0, r4
+        bhi	_LBB0_1
+        uxth.w	r0, lr
+        orr.w	r0, r0, r1, lsl #16
+        pop	{r4, r6, r7, pc}
+_Lfunc_end0
+        ALIGN 2
+algorithm_algorithm_pat_alg_decimal_digits_001_assembly_extract
+        push	{r4, r5, r7, lr}
+        add	r7, sp, #8
+        cmp	r1, #0
+        mov.w	lr, #0
+        it	ne
+        cmpne	r2, #0
+        bne	_LBB1_2
+_LBB1_1
+        mov	r0, lr
+        pop	{r4, r5, r7, pc}
+_LBB1_2
+        movw	r12, #52429
+        movs	r5, #0
+        movt	r12, #52428
+        ALIGN 2
+_LBB1_3
+        cmp	r2, r5
+        beq	_LBB1_5
+        umull	r3, r4, r0, r12
+        lsrs	r3, r4, #3
+        add.w	r4, r3, r3, lsl #2
+        sub.w	r4, r0, r4, lsl #1
+        add.w	lr, r5, #1
+        strb	r4, [r1, r5]
+        cmp	r0, #9
+        mov	r0, r3
+        mov	r5, lr
+        bhi	_LBB1_3
+        b	_LBB1_1
+_LBB1_5
+        movs	r0, #0
+        pop	{r4, r5, r7, pc}
+_Lfunc_end1
+        ALIGN 2
+algorithm_algorithm_pat_alg_decimal_digits_001_assembly_reconstruct
+        cmp	r0, #0
+        mov.w	r2, #0
+        it	ne
+        cmpne	r1, #0
+        bne	_LBB2_2
+        mov	r0, r2
+        bx	lr
+_LBB2_2
+        push	{r7, lr}
+        mov	r7, sp
+        subs	r1, #1
+        mov.w	r12, #0
+        movs	r2, #0
+        ALIGN 2
+_LBB2_3
+        add.w	lr, r2, r2, lsl #2
+        ldrb	r2, [r0, r1]
+        subs	r1, #1
+        adc	r3, r12, #0
+        cmp	r0, #0
+        add.w	r2, r2, lr, lsl #1
+        it	ne
+        cmpne	r3, #0
+        bne	_LBB2_3
+        pop.w	{r7, lr}
+        mov	r0, r2
+        bx	lr
+_Lfunc_end2
+        ALIGN 2
+algorithm_algorithm_pat_alg_decimal_digits_001_assembly_is_palindrome
+        push	{r4, r5, r7, lr}
+        add	r7, sp, #8
+        movw	r12, #52429
+        movs	r2, #0
+        movt	r12, #52428
+        mov.w	lr, #10
+        mov	r1, r0
+        movs	r3, #0
+        ALIGN 2
+_LBB3_1
+        umull	r4, r5, r1, r12
+        lsrs	r5, r5, #3
+        add.w	r3, r3, r3, lsl #2
+        add.w	r4, r5, r5, lsl #2
+        lsls	r3, r3, #1
+        sub.w	r4, r1, r4, lsl #1
+        umlal	r4, r3, r2, lr
+        cmp	r1, #9
+        mov	r1, r5
+        mov	r2, r4
+        bhi	_LBB3_1
+        eors	r0, r4
+        orrs	r0, r3
+        clz	r0, r0
+        lsrs	r0, r0, #5
+        pop	{r4, r5, r7, pc}
+_Lfunc_end3
+        ALIGN 2
+algorithm_algorithm_pat_alg_decimal_digits_001_assembly_kaprekar_4
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        sub	sp, #4
+        movw	r12, #52429
+        movs	r2, #0
+        movt	r12, #52428
+        mov	lr, sp
+        ALIGN 2
+_LBB4_1
+        umull	r1, r3, r0, r12
+        lsrs	r1, r3, #3
+        add.w	r3, r1, r1, lsl #2
+        sub.w	r0, r0, r3, lsl #1
+        strb.w	r0, [lr, r2]
+        adds	r2, #1
+        cmp	r2, #4
+        mov	r0, r1
+        bne	_LBB4_1
+        mov.w	r12, #0
+        b	_LBB4_4
+        ALIGN 2
+_LBB4_3
+        cmp.w	r12, #4
+        beq	_LBB4_7
+_LBB4_4
+        mov	r2, r12
+        cmp.w	r12, #2
+        add.w	r12, r12, #1
+        bhi	_LBB4_3
+        mov	r3, r12
+        ALIGN 2
+_LBB4_6
+        ldrb.w	r0, [lr, r3]
+        ldrb.w	r1, [lr, r2]
+        cmp	r0, r1
+        itt	lo
+        strblo.w	r0, [lr, r2]
+        strblo.w	r1, [lr, r3]
+        adds	r3, #1
+        cmp	r3, #4
+        bne	_LBB4_6
+        b	_LBB4_3
+_LBB4_7
+        mov.w	r12, #0
+        movs	r2, #3
+        mov.w	r3, #-1
+        movs	r4, #0
+        ALIGN 2
+_LBB4_8
+        add.w	r1, lr, r3
+        ldrb	r1, [r1, #1]
+        add.w	r0, r4, r4, lsl #2
+        add.w	r4, r1, r0, lsl #1
+        ldrb.w	r1, [lr, r2]
+        add.w	r0, r12, r12, lsl #2
+        subs	r2, #1
+        add.w	r12, r1, r0, lsl #1
+        adds	r0, r2, #1
+        add.w	r3, r3, #1
+        bne	_LBB4_8
+        sub.w	r0, r12, r4
+        add	sp, #4
+        pop	{r4, r6, r7, pc}
+_Lfunc_end4
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: decimal digits c</h3><p>pat-alg-decimal-digits-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Decimal digit algorithms.
+ * Recognition cue: extract reconstruct sum palindrome Kaprekar digits.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c(uint32_t value);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_extract(uint32_t value, uint8_t *digits,
+                                            uint32_t capacity);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_reconstruct(const uint8_t *digits,
+                                                uint32_t count);
+
+int algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(uint32_t value);
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_kaprekar_4(uint32_t value);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_decimal_digits_001_c(123) == ((6u &lt;&lt; 16) | 321u);
+}
+static int pattern_edge_vectors(void) {
+  if (!algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(123321u) || !algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(4000000004u) || algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(UINT32_MAX)) return 0;
+  uint8_t d[10];
+  uint32_t n = algorithm_algorithm_pat_alg_decimal_digits_001_c_extract(1203, d, 10);
+  return n == 4 &amp;&amp; algorithm_algorithm_pat_alg_decimal_digits_001_c_reconstruct(d, n) == 1203 &amp;&amp;
+         algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(1221) &amp;&amp;
+         !algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(123) &amp;&amp;
+         algorithm_algorithm_pat_alg_decimal_digits_001_c_kaprekar_4(3524) == 3087;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-decimal-digits-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Decimal digit algorithms.
+ * Recognition cue: extract reconstruct sum palindrome Kaprekar digits.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c(uint32_t value) {
+  uint32_t digit_sum = 0u;
+  uint32_t reversed = 0u;
+
+  do {
+    uint32_t digit = value % 10u;
+    digit_sum += digit;
+    reversed = reversed * 10u + digit;
+    value /= 10u;
+  } while (value != 0u);
+  return (digit_sum &lt;&lt; 16u) | (reversed &amp; UINT32_C(0xFFFF));
+}
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_extract(uint32_t value, uint8_t *digits,
+                                            uint32_t capacity) {
+  uint32_t count = 0u;
+
+  if ((digits == NULL) || (capacity == 0u)) {
+    return 0u;
+  }
+  do {
+    if (count &gt;= capacity) {
+      return 0u;
+    }
+    digits[count++] = (uint8_t)(value % 10u);
+    value /= 10u;
+  } while (value != 0u);
+  return count;
+}
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_reconstruct(const uint8_t *digits,
+                                                uint32_t count) {
+  uint32_t value = 0u;
+
+  while ((digits != NULL) &amp;&amp; (count != 0u)) {
+    --count;
+    value = value * 10u + digits[count];
+  }
+  return value;
+}
+
+int algorithm_algorithm_pat_alg_decimal_digits_001_c_is_palindrome(uint32_t value) {
+  uint32_t original=value;
+  uint64_t reversed=0;
+  do { reversed=reversed*10u+value%10u; value/=10u; } while(value);
+  return reversed==original;
+}
+
+uint32_t algorithm_algorithm_pat_alg_decimal_digits_001_c_kaprekar_4(uint32_t value) {
+  uint8_t digits[4];
+  uint32_t ascending;
+  uint32_t descending;
+  uint32_t outer;
+  uint32_t inner;
+
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    digits[outer] = (uint8_t)(value % 10u);
+    value /= 10u;
+  }
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    for (inner = outer + 1u; inner &lt; 4u; ++inner) {
+      if (digits[inner] &lt; digits[outer]) {
+        uint8_t temporary = digits[outer];
+        digits[outer] = digits[inner];
+        digits[inner] = temporary;
+      }
+    }
+  }
+  ascending = 0u;
+  descending = 0u;
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    ascending = ascending * 10u + digits[outer];
+    descending = descending * 10u + digits[3u - outer];
+  }
+  return descending - ascending;
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2023-02-24.html">E2023-02-24</a></li><li><a href="../exams/e2023-09-18.html">E2023-09-18</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

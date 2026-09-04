@@ -1,0 +1,18 @@
+; LPC1768 layout. Reset-time LCG bytes survive C runtime initialization.
+LR_IROM1 0x00000000 0x00080000 {
+  ER_IROM1 0x00000000 0x00080000 {
+    *.o (RESET, +First)
+    *(InRoot$$Sections)
+    .ANY (+RO)
+    .ANY (+XO)
+  }
+  RW_IRAM1 0x10000000 0x00007FF0 {
+    .ANY (+RW +ZI)
+  }
+  RW_RESET_TEST 0x10007FF0 UNINIT 0x00000010 {
+    .ANY (LCG_TEST_DATA)
+  }
+  RW_IRAM2 0x2007C000 0x00008000 {
+    .ANY (+RW +ZI)
+  }
+}

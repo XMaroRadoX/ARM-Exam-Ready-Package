@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable graphs and mazes method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Flood fill and maze propagation · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Flood fill and maze propagation</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Flood fill and maze propagation</h1><p>A reusable graphs and mazes method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Graphs and mazes</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Appeared in past exams</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Mark a connected region from a seed.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Diagonal movement must not appear unless allowed.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Choose connectivity4/8 and whether source grid is mutated.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Validate seed
+2. mark on enqueue
+3. inspect specified neighbors
+4. bound work storage</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>2x2 open grid with four-neighbor motion reaches4 cells.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Choose connectivity4/8 and whether source grid is mutated.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Diagonal movement must not appear unless allowed.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Choose connectivity4/8 and whether source grid is mutated.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>blocked seed; border; diagonal-only contact; full queue.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Diagonal movement must not appear unless allowed. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-FLOOD-FILL-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Flood fill and maze propagation.
+ * Recognition cue: fill connected grid cells.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t pat_alg_flood_fill_001(uint8_t *g, uint32_t rows, uint32_t cols,
+                                uint32_t start, uint8_t oldv, uint8_t newv,
+                                uint32_t *q) {
+  uint32_t h = 0, t = 0, c = 0;
+  if (!cols || rows &gt; UINT32_MAX / cols) return 0;
+  uint32_t n = rows * cols;
+  if (!g || !q || start &gt;= n || oldv == newv || g[start] != oldv)
+    return 0;
+  g[start] = newv;
+  q[t++] = start;
+  while (h &lt; t) {
+    uint32_t p = q[h++], r = p / cols, x = p % cols;
+    c++;
+    if (r &amp;&amp; g[p - cols] == oldv) {
+      g[p - cols] = newv;
+      q[t++] = p - cols;
+    }
+    if (r + 1 &lt; rows &amp;&amp; g[p + cols] == oldv) {
+      g[p + cols] = newv;
+      q[t++] = p + cols;
+    }
+    if (x &amp;&amp; g[p - 1] == oldv) {
+      g[p - 1] = newv;
+      q[t++] = p - 1;
+    }
+    if (x + 1 &lt; cols &amp;&amp; g[p + 1] == oldv) {
+      g[p + 1] = newv;
+      q[t++] = p + 1;
+    }
+  }
+  return c;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  uint8_t g[] = {1, 1, 0, 1};
+  uint32_t q[4];
+  return pat_alg_flood_fill_001(g, 2, 2, 0, 1, 2, q) == 3 &amp;&amp; g[3] == 2;
+}
+static int pattern_edge_vectors(void) {
+  uint8_t g[] = {1};
+  uint32_t q[1];
+  return pat_alg_flood_fill_001(g, 1, 1, 0, 1, 2, q) == 1 &amp;&amp; g[0] == 2 &amp;&amp;
+         pat_alg_flood_fill_001(g, 1, 1, 0, 2, 2, q) == 0 &amp;&amp;
+         pat_alg_flood_fill_001(NULL, 1, 1, 0, 1, 2, q) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-FLOOD-FILL-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT pat_alg_flood_fill_001
+        ALIGN 2
+pat_alg_flood_fill_001
+        cmp	r2, #0
+        itt	eq
+        moveq	r0, #0
+        bxeq	lr
+_LBB0_1
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        push.w	{r8, r9, r10}
+        mov	r12, r0
+        umull	r0, r6, r2, r1
+        cbz	r6, _LBB0_4
+        movs	r0, #0
+_LBB0_3
+        pop.w	{r8, r9, r10}
+        pop	{r4, r5, r6, r7, pc}
+_LBB0_4
+        ldrd	r8, lr, [r7, #8]
+        movs	r0, #0
+        cmp	r8, lr
+        beq	_LBB0_3
+        mul	r4, r2, r1
+        cmp	r4, r3
+        bls	_LBB0_3
+        cmp.w	r12, #0
+        beq	_LBB0_3
+        ldr.w	r9, [r7, #16]
+        cmp.w	r9, #0
+        beq	_LBB0_3
+        ldrb.w	r0, [r12, r3]
+        cmp	r0, r8
+        bne	_LBB0_19
+        mov.w	r10, #1
+        movs	r0, #0
+        strb.w	lr, [r12, r3]
+        str.w	r3, [r9]
+        b	_LBB0_11
+        ALIGN 2
+_LBB0_10
+        adds	r0, #1
+        cmp	r0, r10
+        bhs	_LBB0_3
+_LBB0_11
+        ldr.w	r6, [r9, r0, lsl #2]
+        cmp	r6, r2
+        blo	_LBB0_13
+        subs	r4, r6, r2
+        ldrb.w	r5, [r12, r4]
+        cmp	r5, r8
+        ittt	eq
+        strbeq.w	lr, [r12, r4]
+        streq.w	r4, [r9, r10, lsl #2]
+        addeq.w	r10, r10, #1
+_LBB0_13
+        udiv	r4, r6, r2
+        adds	r5, r4, #1
+        cmp	r5, r1
+        bhs	_LBB0_15
+        adds	r5, r6, r2
+        ldrb.w	r3, [r12, r5]
+        cmp	r3, r8
+        ittt	eq
+        strbeq.w	lr, [r12, r5]
+        streq.w	r5, [r9, r10, lsl #2]
+        addeq.w	r10, r10, #1
+_LBB0_15
+        mls	r4, r4, r2, r6
+        cbz	r4, _LBB0_17
+        subs	r5, r6, #1
+        ldrb.w	r3, [r12, r5]
+        cmp	r3, r8
+        ittt	eq
+        strbeq.w	lr, [r12, r5]
+        streq.w	r5, [r9, r10, lsl #2]
+        addeq.w	r10, r10, #1
+_LBB0_17
+        adds	r3, r4, #1
+        cmp	r3, r2
+        bhs	_LBB0_10
+        adds	r4, r6, #1
+        ldrb.w	r3, [r12, r4]
+        cmp	r3, r8
+        ittt	eq
+        strbeq.w	lr, [r12, r4]
+        streq.w	r4, [r9, r10, lsl #2]
+        addeq.w	r10, r10, #1
+        b	_LBB0_10
+_LBB0_19
+        movs	r0, #0
+        pop.w	{r8, r9, r10}
+        pop	{r4, r5, r6, r7, pc}
+_Lfunc_end0
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2024-02-12.html">E2024-02-12</a></li><li><a href="../exams/e2024-02-28.html">E2024-02-28</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

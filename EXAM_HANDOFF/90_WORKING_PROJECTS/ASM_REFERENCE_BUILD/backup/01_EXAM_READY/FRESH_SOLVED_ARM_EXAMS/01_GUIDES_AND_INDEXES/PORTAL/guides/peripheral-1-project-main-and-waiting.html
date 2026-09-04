@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Start from zero with the sole Official Combined project.">
+  <title>1. Project, main(), and waiting · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Guides" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Guides</a><span aria-hidden="true">/</span><span aria-current="page">1. Project, main(), and waiting</span></nav><header class="page-heading"><p class="eyebrow">Guides</p><h1>1. Project, main(), and waiting</h1><p>Start from zero with the sole Official Combined project.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-canonical-contract">Canonical contract</a></nav><div class="page-body"><section class="section-block"><div class="tag-list"></div><p>Start with <code>sample.uvprojx</code>. Put foreground code in <code>Source/sample.c</code> and assembly in <code>Source/ASM_funct.s</code>. Edit an existing IRQ source when the question needs that vector; never add a second definition of the same handler. When using a complete maintained solved answer, keep its handlers and static state together in <code>sample.c</code> and remove conflicting template handler definitions as described in <a href="../../USING_SOLVED_ANSWERS_WITH_OFFICIAL_TEMPLATE.md">the integration guide</a>.</p><details class="code-panel" open><summary>Show C code</summary><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+int main(void)
+{
+  exam_init();
+  /* Initialize only the peripherals named by the paper. */
+  for (;;) {
+    __WFI();
+  }
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div></details><p><code>exam_init()</code> prepares the core support and LEDs. It does not start every timer, RIT, SysTick, ADC conversion, button debounce, or joystick workflow.</p><p><a href="../../PERIPHERALS_CANONICAL.md">Read the complete peripheral guide</a></p></section><section class="section-block"><h2 id="section-canonical-contract">Canonical contract</h2><p><a href="../../../../02_STARTING_TEMPLATES/Official%20Combined%20Exam%20API/EXAM_API_QUICK_REFERENCE.md">Read the Official Combined Exam API quick reference</a> · <a href="../../../../02_STARTING_TEMPLATES/Official%20Combined%20Exam%20API/Source/exam_api/exam_api.h">Read exam_api.h</a></p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

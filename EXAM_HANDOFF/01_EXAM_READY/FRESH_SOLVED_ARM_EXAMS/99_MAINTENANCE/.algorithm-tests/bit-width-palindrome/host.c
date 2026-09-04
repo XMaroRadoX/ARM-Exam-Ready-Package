@@ -1,0 +1,103 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <limits.h>
+int bit_palindrome(uint32_t v,uint32_t w){if(w>32)return 0;uint32_t r=0,x=v;for(uint32_t i=0;i<w;i++){r=(r<<1)|(x&1);x>>=1;}uint32_t m=w==32?UINT32_MAX:w?((1u<<w)-1):0;return r==(v&m);}
+
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+
+#include <stddef.h>
+#include <limits.h>
+int bit_palindrome(uint32_t value, uint32_t width);
+int test_main(void) {
+{
+CHECK(bit_palindrome(0u,0)==1);
+CHECK(bit_palindrome(0u,1)==1);
+CHECK(bit_palindrome(0u,4)==1);
+CHECK(bit_palindrome(0u,8)==1);
+CHECK(bit_palindrome(0u,16)==1);
+CHECK(bit_palindrome(0u,31)==1);
+CHECK(bit_palindrome(0u,32)==1);
+CHECK(bit_palindrome(1u,0)==1);
+CHECK(bit_palindrome(1u,1)==1);
+CHECK(bit_palindrome(1u,4)==0);
+CHECK(bit_palindrome(1u,8)==0);
+CHECK(bit_palindrome(1u,16)==0);
+CHECK(bit_palindrome(1u,31)==0);
+CHECK(bit_palindrome(1u,32)==0);
+CHECK(bit_palindrome(2u,0)==1);
+CHECK(bit_palindrome(2u,1)==1);
+CHECK(bit_palindrome(2u,4)==0);
+CHECK(bit_palindrome(2u,8)==0);
+CHECK(bit_palindrome(2u,16)==0);
+CHECK(bit_palindrome(2u,31)==0);
+CHECK(bit_palindrome(2u,32)==0);
+CHECK(bit_palindrome(9u,0)==1);
+CHECK(bit_palindrome(9u,1)==1);
+CHECK(bit_palindrome(9u,4)==1);
+CHECK(bit_palindrome(9u,8)==0);
+CHECK(bit_palindrome(9u,16)==0);
+CHECK(bit_palindrome(9u,31)==0);
+CHECK(bit_palindrome(9u,32)==0);
+CHECK(bit_palindrome(10u,0)==1);
+CHECK(bit_palindrome(10u,1)==1);
+CHECK(bit_palindrome(10u,4)==0);
+CHECK(bit_palindrome(10u,8)==0);
+CHECK(bit_palindrome(10u,16)==0);
+CHECK(bit_palindrome(10u,31)==0);
+CHECK(bit_palindrome(10u,32)==0);
+CHECK(bit_palindrome(123321u,0)==1);
+CHECK(bit_palindrome(123321u,1)==1);
+CHECK(bit_palindrome(123321u,4)==1);
+CHECK(bit_palindrome(123321u,8)==0);
+CHECK(bit_palindrome(123321u,16)==0);
+CHECK(bit_palindrome(123321u,31)==0);
+CHECK(bit_palindrome(123321u,32)==0);
+CHECK(bit_palindrome(4000000004u,0)==1);
+CHECK(bit_palindrome(4000000004u,1)==1);
+CHECK(bit_palindrome(4000000004u,4)==0);
+CHECK(bit_palindrome(4000000004u,8)==0);
+CHECK(bit_palindrome(4000000004u,16)==0);
+CHECK(bit_palindrome(4000000004u,31)==0);
+CHECK(bit_palindrome(4000000004u,32)==0);
+CHECK(bit_palindrome(4294967295u,0)==1);
+CHECK(bit_palindrome(4294967295u,1)==1);
+CHECK(bit_palindrome(4294967295u,4)==1);
+CHECK(bit_palindrome(4294967295u,8)==1);
+CHECK(bit_palindrome(4294967295u,16)==1);
+CHECK(bit_palindrome(4294967295u,31)==1);
+CHECK(bit_palindrome(4294967295u,32)==1);
+CHECK(bit_palindrome(264951055u,0)==1);
+CHECK(bit_palindrome(264951055u,1)==1);
+CHECK(bit_palindrome(264951055u,4)==1);
+CHECK(bit_palindrome(264951055u,8)==0);
+CHECK(bit_palindrome(264951055u,16)==0);
+CHECK(bit_palindrome(264951055u,31)==0);
+CHECK(bit_palindrome(264951055u,32)==0);
+CHECK(bit_palindrome(3302568628u,0)==1);
+CHECK(bit_palindrome(3302568628u,1)==1);
+CHECK(bit_palindrome(3302568628u,4)==0);
+CHECK(bit_palindrome(3302568628u,8)==0);
+CHECK(bit_palindrome(3302568628u,16)==0);
+CHECK(bit_palindrome(3302568628u,31)==0);
+CHECK(bit_palindrome(3302568628u,32)==0);
+CHECK(bit_palindrome(1461547428u,0)==1);
+CHECK(bit_palindrome(1461547428u,1)==1);
+CHECK(bit_palindrome(1461547428u,4)==0);
+CHECK(bit_palindrome(1461547428u,8)==0);
+CHECK(bit_palindrome(1461547428u,16)==0);
+CHECK(bit_palindrome(1461547428u,31)==0);
+CHECK(bit_palindrome(1461547428u,32)==0);
+CHECK(bit_palindrome(4165108330u,0)==1);
+CHECK(bit_palindrome(4165108330u,1)==1);
+CHECK(bit_palindrome(4165108330u,4)==0);
+CHECK(bit_palindrome(4165108330u,8)==0);
+CHECK(bit_palindrome(4165108330u,16)==0);
+CHECK(bit_palindrome(4165108330u,31)==0);
+CHECK(bit_palindrome(4165108330u,32)==0);
+}
+
+CHECK(bit_palindrome(9,4));CHECK(!bit_palindrome(9,5));CHECK(bit_palindrome(123,0));CHECK(bit_palindrome(0x80000001u,32));CHECK(!bit_palindrome(1,33));
+return 0;
+}
+
+int main(void){return test_main();}

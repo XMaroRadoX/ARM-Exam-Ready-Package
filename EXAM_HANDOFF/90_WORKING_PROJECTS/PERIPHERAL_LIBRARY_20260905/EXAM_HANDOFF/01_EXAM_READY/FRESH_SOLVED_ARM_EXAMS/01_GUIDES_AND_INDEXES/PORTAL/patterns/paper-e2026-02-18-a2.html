@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.">
+  <title>2026-02-18 ARM2 Three Timers · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">2026-02-18 ARM2 Three Timers</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>2026-02-18 ARM2 Three Timers</h1><p>Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-observable-behavior">Problem and observable behavior</a><a href="#section-resource-and-interrupt-ownership">Resource and interrupt ownership</a><a href="#section-state-transitions-and-event-sequence">State transitions and event sequence</a><a href="#section-setup-values-and-timing">Setup values and timing</a><a href="#section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</a><a href="#section-verification">Verification</a><a href="#section-complete-replacement-files">Complete replacement files</a><a href="#section-related-references">Related references</a></nav><div class="page-body"><section class="section-block"><p class="eyebrow">Appeared in past exams</p><h2 id="section-problem-and-observable-behavior">Problem and observable behavior</h2><p>Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.</p><p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/paper-e2026-02-18-a2.zip">Download complete project ZIP</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/sample.uvprojx">Open complete Keil project</a></p><h2 id="section-resource-and-interrupt-ownership">Resource and interrupt ownership</h2><table><thead><tr><th>Resource</th><th>Role</th></tr></thead><tbody><tr><td>Timer</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>DAC</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr></tbody></table><ul><li>2026-02-18_ARM2-Q2: answer_timer0; answer_timer1; answer_timer2; Timer0=A 50ms, Timer1=B pitch, Timer2=C duration; same two threshold formulas</li></ul><h2 id="section-state-transitions-and-event-sequence">State transitions and event sequence</h2><p>Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.</p><h2 id="section-setup-values-and-timing">Setup values and timing</h2><p>same two threshold formulas</p><h2 id="section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</h2><p>Follow the exact input sequence and expected result in the linked original question and reviewed mapping.</p><p>Check initial state, press and release, simultaneous reset and action, held inputs, endpoints, restart, and delayed foreground processing. No physical-board result is claimed.</p><p><a href="../exams/2026-02-18-arm2-q2.html">2026-02-18_ARM2-Q2 — exact question and reviewed answer</a></p><p><a href="../../../../../02_ORIGINAL_MATERIALS/Exams/Exam%2018.02.2026/20260218_ARM_2.pdf">Original paper</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-02-18_ARM2_Three_Timers/EXAM_MAPPING.md">EXAM MAPPING</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-02-18_ARM2_Three_Timers/ADAPTATION_MAP.md">ADAPTATION MAP</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-02-18_ARM2_Three_Timers/REVISION_REVIEW.md">REVISION REVIEW</a></p><h2 id="section-verification">Verification</h2><p><a href="../../../99_MAINTENANCE/SCENARIO_VALIDATION.json">Behavioral and structural results</a> · <a href="../../../99_MAINTENANCE/SCENARIO_NATIVE_BUILDS.json">Native build results</a>. Reports identify tests actually run; simulation does not establish electrical or analog behavior.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-replacement-files">Complete replacement files</h2><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 18 February 2026, ARM2, questions 1 and 2. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+#define SEQUENCE_LENGTH 1000u
+#define SAMPLE_COUNT      45u
+
+extern uint32_t HofstadterConway(uint32_t *values, int dimension);
+
+static uint32_t sequence[SEQUENCE_LENGTH];
+static uint32_t sequence_maximum;
+static uint32_t sequence_index;
+static uint32_t sample_index = SAMPLE_COUNT - 1u;
+
+static const uint16_t SinTable[SAMPLE_COUNT] = {
+  410, 467, 523, 576, 627, 673, 714, 749, 778,
+  799, 813, 819, 817, 807, 789, 764, 732, 694,
+  650, 602, 550, 495, 438, 381, 324, 270, 217,
+  169, 125, 87, 55, 30, 12, 2, 0, 6, 20, 41,
+  70, 105, 146, 193, 243, 297, 353
+};
+
+/* Evaluate the paper&#x27;s formula in floating point, then cast the result. */
+static uint32_t note_threshold(uint32_t value,
+                               uint32_t maximum_period,
+                               uint32_t minimum_period,
+                               uint32_t k)
+{
+  float range_per_step;
+  float threshold;
+
+  range_per_step = (float)(maximum_period - minimum_period) /
+                   (float)sequence_maximum;
+  threshold = ((float)maximum_period - range_per_step * (float)value) /
+              (float)k;
+
+  if (threshold &lt; 1.0f) {
+    threshold = 1.0f;
+  }
+
+  return (uint32_t)threshold;
+}
+
+/* Timer A: choose and start the next note when B and C are both stopped. */
+void TIMER0_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+  uint32_t value;
+  uint32_t waveform_threshold;
+  uint32_t duration_threshold;
+
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  if (exam_timer_is_running(EXAM_TIMER1) ||
+      exam_timer_is_running(EXAM_TIMER2)) {
+    return;
+  }
+
+  value = sequence[sequence_index];
+  waveform_threshold = note_threshold(value, 5351u, 1062u, 1u);
+  duration_threshold = note_threshold(value, 40000000u, 625000u, 5u);
+
+  sequence_index++;
+  if (sequence_index == SEQUENCE_LENGTH) {
+    (void)exam_timer_stop(EXAM_TIMER0);
+  }
+
+  /* Timer B resets on every match and therefore remains periodic. */
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_config_ticks(EXAM_TIMER1, waveform_threshold,
+                                EXAM_TIMER_PERIODIC);
+
+  /* Timer C is a one-shot: interrupt, reset and stop at the match. */
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_timer_config_ticks(EXAM_TIMER2, duration_threshold,
+                                EXAM_TIMER_ONE_SHOT);
+
+  (void)exam_timer_start(EXAM_TIMER1);
+  (void)exam_timer_start(EXAM_TIMER2);
+}
+
+/* Timer B: send the next sinusoidal sample to the DAC. */
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  sample_index++;
+  if (sample_index == SAMPLE_COUNT) {
+    sample_index = 0u;
+  }
+
+  (void)exam_dac_write(SinTable[sample_index]);
+}
+
+/* Timer C: terminate the note by stopping Timer B. */
+void TIMER2_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER2);
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_dac_write(0);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_dac_init();
+  sequence_maximum = HofstadterConway(sequence, (int)SEQUENCE_LENGTH);
+  (void)exam_dac_write(0);
+
+  /* The Combined API derives 50 ms from Timer0&#x27;s actual peripheral clock. */
+  (void)exam_timer_config_ms(EXAM_TIMER0, 50u, EXAM_TIMER_PERIODIC);
+  (void)exam_timer_start(EXAM_TIMER0);
+
+  for (;;) {
+    /* This paper places the required work in the three timer handlers. */
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  HofstadterConway
+
+; uint32_t HofstadterConway(uint32_t *v, int dim)
+; R0 = v, R1 = dim, return maximum in R0.
+HofstadterConway PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+
+                CMP     R5, #0
+                BLE     hc_empty
+
+                MOVS    R7, #1
+                STR     R7, [R4]
+                CMP     R5, #1
+                BEQ     hc_done
+
+                STR     R7, [R4, #4]
+                MOVS    R6, #2
+
+hc_loop
+                CMP     R6, R5
+                BHS     hc_done
+
+                SUBS    R10, R6, #1
+                LDR     R8, [R4, R10, LSL #2]
+
+                SUBS    R10, R8, #1
+                LDR     R9, [R4, R10, LSL #2]
+
+                SUBS    R10, R6, R8
+                LDR     R10, [R4, R10, LSL #2]
+                ADDS    R10, R9, R10
+
+                STR     R10, [R4, R6, LSL #2]
+                CMP     R10, R7
+                BLS     hc_keep_maximum
+                MOV     R7, R10
+hc_keep_maximum
+                ADDS    R6, R6, #1
+                B       hc_loop
+
+hc_done
+                MOV     R0, R7
+                POP     {R4-R10, PC}
+
+hc_empty
+                MOVS    R0, #0
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2026-02-18-a2/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-references">Related references</h2><p><a href="../algorithms/index.html">Algorithms</a> · <a href="index.html">All peripheral combinations</a></p><a href="../api/exam-dac-init.html">exam_dac_init</a> <a href="../api/exam-dac-write.html">exam_dac_write</a> <a href="../api/exam-init.html">exam_init</a> <a href="../api/exam-timer-ack.html">exam_timer_ack</a> <a href="../api/exam-timer-config-ms.html">exam_timer_config_ms</a> <a href="../api/exam-timer-config-ticks.html">exam_timer_config_ticks</a> <a href="../api/exam-timer-is-running.html">exam_timer_is_running</a> <a href="../api/exam-timer-reset.html">exam_timer_reset</a> <a href="../api/exam-timer-start.html">exam_timer_start</a> <a href="../api/exam-timer-stop.html">exam_timer_stop</a> </section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

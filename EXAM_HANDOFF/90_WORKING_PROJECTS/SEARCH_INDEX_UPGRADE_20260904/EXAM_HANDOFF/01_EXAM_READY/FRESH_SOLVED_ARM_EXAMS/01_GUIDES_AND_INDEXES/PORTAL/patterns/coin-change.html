@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Coin change · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Coin change</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Coin change</h1><p>A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Loops and state</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Extra practice</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Count ways or minimize coins under a stated supply policy.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>These are distinct problems with different transitions.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Name combinations/permutations/minimum explicitly.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Choose objective and unlimited/bounded policy
+2. initialize base dp0
+3. select iteration order
+4. handle unreachable</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>coins1,2 amount3: combinations2; ordered sequences3.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Name combinations/permutations/minimum explicitly.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. These are distinct problems with different transitions.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Name combinations/permutations/minimum explicitly.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>min target0; unreachable; duplicate coins; count overflow.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>These are distinct problems with different transitions. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-COIN-CHANGE-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Coin change.
+ * Recognition cue: minimum coins or number of ways.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t pat_alg_coin_change_001(const uint16_t *coin, uint32_t n,
+                                 uint32_t amount, uint32_t *dp) {
+  uint32_t i, x;
+  if (!dp || (!coin &amp;&amp; n) || amount &gt;= UINT32_MAX / 4u) return UINT32_MAX;
+  for (x = 0; x &lt;= amount; x++)
+    dp[x] = 0xffffffffu;
+  dp[0] = 0;
+  for (x = 1; x &lt;= amount; x++)
+    for (i = 0; i &lt; n; i++)
+      if (coin[i] &lt;= x &amp;&amp; dp[x - coin[i]] != 0xffffffffu &amp;&amp;
+          dp[x - coin[i]] + 1 &lt; dp[x])
+        dp[x] = dp[x - coin[i]] + 1;
+  return dp[amount];
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  uint16_t c[] = {1, 3};
+  uint32_t d[5];
+  return pat_alg_coin_change_001(c, 2, 4, d) == 2;
+}
+static int pattern_edge_vectors(void) {
+  uint16_t c[] = {2};
+  uint32_t d[4];
+  return pat_alg_coin_change_001(c, 1, 0, d) == 0 &amp;&amp;
+         pat_alg_coin_change_001(c, 1, 3, d) == UINT32_MAX;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-COIN-CHANGE-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT pat_alg_coin_change_001
+        ALIGN 2
+pat_alg_coin_change_001
+        cmp	r3, #0
+        itt	eq
+        moveq.w	r0, #-1
+        bxeq	lr
+_LBB0_1
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        str	r11, [sp, #-4]!
+        clz	r5, r0
+        lsrs	r5, r5, #5
+        cmp	r1, #0
+        mov	r4, r1
+        it	ne
+        movne	r4, #1
+        tst	r5, r4
+        mov.w	r12, #-1
+        bne	_LBB0_15
+        movw	r5, #65534
+        movt	r5, #16383
+        cmp	r2, r5
+        bhi	_LBB0_15
+        add.w	r12, r2, #1
+        movs	r4, #0
+        mov.w	lr, #-1
+        ALIGN 2
+_LBB0_4
+        str.w	lr, [r3, r4, lsl #2]
+        adds	r4, #1
+        cmp	r12, r4
+        bne	_LBB0_4
+        movs	r5, #0
+        str	r5, [r3]
+        cbz	r2, _LBB0_14
+        mov.w	r12, #1
+        b	_LBB0_8
+        ALIGN 2
+_LBB0_7
+        cmp	r12, r2
+        add.w	r12, r12, #1
+        beq	_LBB0_14
+_LBB0_8
+        cmp	r1, #0
+        beq	_LBB0_7
+        mov	lr, r0
+        mov	r4, r1
+        b	_LBB0_11
+        ALIGN 2
+_LBB0_10
+        subs	r4, #1
+        beq	_LBB0_7
+_LBB0_11
+        ldrh	r5, [lr], #2
+        cmp	r12, r5
+        blo	_LBB0_10
+        sub.w	r5, r12, r5
+        ldr.w	r5, [r3, r5, lsl #2]
+        adds	r5, #1
+        bhs	_LBB0_10
+        ldr.w	r6, [r3, r12, lsl #2]
+        cmp	r5, r6
+        it	lo
+        strlo.w	r5, [r3, r12, lsl #2]
+        b	_LBB0_10
+_LBB0_14
+        ldr.w	r12, [r3, r2, lsl #2]
+_LBB0_15
+        ldr	r11, [sp], #4
+        pop.w	{r4, r5, r6, r7, lr}
+        mov	r0, r12
+        bx	lr
+_Lfunc_end0
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

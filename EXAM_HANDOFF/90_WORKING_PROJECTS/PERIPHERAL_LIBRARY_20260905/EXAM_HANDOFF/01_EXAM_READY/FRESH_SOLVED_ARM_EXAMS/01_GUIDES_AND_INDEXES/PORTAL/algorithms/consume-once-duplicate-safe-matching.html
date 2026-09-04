@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="At most 32 bytes per guess/secret. Return exact-position matches and write misplaced matches through cows. Consume duplicate occurrences once.">
+  <title>Consume-once duplicate-safe matching · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Consume-once duplicate-safe matching</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Consume-once duplicate-safe matching</h1><p>At most 32 bytes per guess/secret. Return exact-position matches and write misplaced matches through cows. Consume duplicate occurrences once.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(n^2) time, O(n) bounded used-marker space.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>At most 32 bytes per guess/secret. Return exact-position matches and write misplaced matches through cows. Consume duplicate occurrences once.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>uint32_t algorithm_consume_once_duplicate_safe_matching(const uint8_t *secret, const uint8_t *guess, uint32_t n, uint32_t *cows);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_consume_once_duplicate_safe_matching</code></td><td><code>const uint8_t *secret</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_consume_once_duplicate_safe_matching</code></td><td><code>const uint8_t *guess</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_consume_once_duplicate_safe_matching</code></td><td><code>uint32_t n</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_consume_once_duplicate_safe_matching</code></td><td><code>uint32_t *cows</code></td><td><code>R3</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Mark exact matches in two used arrays.</li><li>For each unused guess scan unused secrets.</li><li>Consume the first equal value.</li><li>Return bulls and cows.</li></ol><h3>Worked trace</h3><p>Secret [1,1], guess [1,2]: one bull, zero cows.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/consume-once-duplicate-safe-matching/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; uint32_t algorithm_consume_once_duplicate_safe_matching(const uint8_t *secret,
+;                                                const uint8_t *guess,
+;                                                uint32_t count,
+;                                                uint32_t *cows)
+; Returns bulls in R0 and stores cows. Leaf. 32-byte saved-register frame plus
+; two 32-byte used arrays, total 96 bytes; SP remains eight-byte aligned.
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  algorithm_consume_once_duplicate_safe_matching
+
+algorithm_consume_once_duplicate_safe_matching PROC
+                CMP     R0, #0
+                BEQ     match_invalid
+                CMP     R1, #0
+                BEQ     match_invalid
+                CMP     R3, #0
+                BEQ     match_invalid
+                CMP     R2, #32
+                BHI     match_invalid
+                PUSH    {R4-R11}
+                SUB     SP, SP, #64
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0          ; bulls
+                MOVS    R9, #0          ; cows
+                MOVS    R10, #0
+match_clear
+                CMP     R10, R6
+                BHS     match_exact_start
+                MOVS    R0, #0
+                STRB    R0, [SP, R10]
+                ADD     R1, SP, #32
+                STRB    R0, [R1, R10]
+                ADDS    R10, R10, #1
+                B       match_clear
+match_exact_start
+                MOVS    R10, #0
+match_exact
+                CMP     R10, R6
+                BHS     match_cows_start
+                LDRB    R0, [R4, R10]
+                LDRB    R1, [R5, R10]
+                CMP     R0, R1
+                BNE     match_exact_next
+                MOVS    R0, #1
+                STRB    R0, [SP, R10]
+                ADD     R1, SP, #32
+                STRB    R0, [R1, R10]
+                ADDS    R8, R8, #1
+match_exact_next
+                ADDS    R10, R10, #1
+                B       match_exact
+match_cows_start
+                MOVS    R10, #0
+match_guess
+                CMP     R10, R6
+                BHS     match_done
+                ADD     R0, SP, #32
+                LDRB    R1, [R0, R10]
+                CMP     R1, #0
+                BNE     match_next_guess
+                MOVS    R11, #0
+match_secret
+                CMP     R11, R6
+                BHS     match_next_guess
+                LDRB    R1, [SP, R11]
+                CMP     R1, #0
+                BNE     match_next_secret
+                LDRB    R1, [R5, R10]
+                LDRB    R2, [R4, R11]
+                CMP     R1, R2
+                BNE     match_next_secret
+                MOVS    R1, #1
+                STRB    R1, [SP, R11]
+                STRB    R1, [R0, R10]
+                ADDS    R9, R9, #1
+                B       match_next_guess
+match_next_secret
+                ADDS    R11, R11, #1
+                B       match_secret
+match_next_guess
+                ADDS    R10, R10, #1
+                B       match_guess
+match_done
+                STR     R9, [R7]
+                MOV     R0, R8
+                ADD     SP, SP, #64
+                POP     {R4-R11}
+                BX      LR
+match_invalid
+                CMP     R3, #0
+                IT      NE
+                MOVNE   R0, #0
+                IT      NE
+                STRNE   R0, [R3]
+                MOVS    R0, #0
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/consume-once-duplicate-safe-matching/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Consume-once duplicate-safe matching.
+ * Recognition cue: Bulls and Cows Mastermind duplicate-safe match.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t algorithm_consume_once_duplicate_safe_matching(const uint8_t *secret,
+                                                        const uint8_t *guess,
+                                                        uint32_t n, uint32_t *cows) {
+  uint8_t used_s[32] = {0}, used_g[32] = {0};
+  uint32_t i, j, b = 0, c = 0;
+  if (!secret || !guess || !cows || n &gt; 32)
+    return 0;
+  for (i = 0; i &lt; n; i++)
+    if (secret[i] == guess[i]) {
+      used_s[i] = used_g[i] = 1;
+      b++;
+    }
+  for (i = 0; i &lt; n; i++)
+    if (!used_g[i])
+      for (j = 0; j &lt; n; j++)
+        if (!used_s[j] &amp;&amp; guess[i] == secret[j]) {
+          used_g[i] = used_s[j] = 1;
+          c++;
+          break;
+        }
+  *cows = c;
+  return b;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/consume-once-duplicate-safe-matching/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Consume-once duplicate-safe matching.
+ * Recognition cue: Bulls and Cows Mastermind duplicate-safe match.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t algorithm_consume_once_duplicate_safe_matching(const uint8_t *secret,
+                                                        const uint8_t *guess,
+                                                        uint32_t n, uint32_t *cows);
+
+static int pattern_core_vector(void) {
+  uint8_t s[] = {1, 1, 2, 3}, g[] = {1, 2, 1, 4};
+  uint32_t c = 0;
+  return algorithm_consume_once_duplicate_safe_matching(s, g, 4, &amp;c) == 1 &amp;&amp; c == 2;
+}
+static int pattern_edge_vectors(void) {
+  uint8_t a[] = {1}, b[] = {2};
+  uint32_t c = 9;
+  return algorithm_consume_once_duplicate_safe_matching(a, b, 0, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_consume_once_duplicate_safe_matching(a, b, 1, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_consume_once_duplicate_safe_matching(a, b, 33, &amp;c) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div><section id="complete-project-method-frequency-count-comparison"><h2>Complete projects and worked method</h2><section class="section-block"><h2 id="method-frequency-count-comparison-section-how-to-recognize-it">How to recognize it</h2><p>Compare multiplicities where order does not matter.</p><h2 id="method-frequency-count-comparison-section-when-not-to-use-it">When not to use it</h2><p>Cannot replace positional matching when positions contribute separately.</p><h2 id="method-frequency-count-comparison-section-inputs-and-outputs">Inputs and outputs</h2><p>If computing bulls/cows, subtract positional matches from total multiplicity matches.</p><h2 id="method-frequency-count-comparison-section-solving-method">Solving method</h2><div class="code-frame" id="method-frequency-count-comparison-listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Zero bounded histograms
+2. validate each symbol
+3. count both inputs
+4. sum minimum counts</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="method-frequency-count-comparison-section-worked-trace">Worked trace</h2><p>[1,1,2] and [1,2,2]: min counts 1+1=2.</p><h2 id="method-frequency-count-comparison-section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. If computing bulls/cows, subtract positional matches from total multiplicity matches.</p><h2 id="method-frequency-count-comparison-section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Cannot replace positional matching when positions contribute separately.</p><h2 id="method-frequency-count-comparison-section-adaptation-checklist">Adaptation checklist</h2><p>If computing bulls/cows, subtract positional matches from total multiplicity matches.</p><h2 id="method-frequency-count-comparison-section-boundary-tests">Boundary tests</h2><p>all repeated; disjoint symbols; out-of-domain input.</p><h2 id="method-frequency-count-comparison-section-common-mistakes">Common mistakes</h2><p>Cannot replace positional matching when positions contribute separately. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="method-frequency-count-comparison-section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#method-frequency-count-comparison-variant-0">game bulls cows</a><a href="#method-frequency-count-comparison-variant-1">game mastermind</a></nav><h3 id="method-frequency-count-comparison-variant-0">Baseline: game bulls cows</h3><p>Bulls-and-Cows: DOWN, LEFT, RIGHT, UP edit digits0,1,2,3 respectively. SELECT submits, shows, and begins the next guess while retaining the secret; four correct digits finish the game.</p><p>First SELECT captures Timer1 seed; edit four digits; SELECT evaluates; next SELECT resets guess only. Follow display_guess and increment_digit for the exact mapping.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer1:MR0=UINT32_MAX,PR0,no match IRQ; seed on first SELECT</td></tr><tr><td>RIT:10ms input sampling; RIT_IRQHandler publishes edges; main owns rounds</td></tr></tbody></table><p>Entry: main. Relevant functions: clear_words, display_guess, capture_secret, begin_guess, increment_digit, evaluate_guess, RIT_IRQHandler, main, BullsAndCows. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+enum {
+  EXAM_EVENT_JOYSTICK = 1u &lt;&lt; 1
+};
+
+extern int BullsAndCows(int guess[4], int secret[4],
+                        int guessFrequency[4], int secretFrequency[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int guessFrequency[4];
+static int secretFrequency[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] &lt;&lt; 0) |
+                             ((uint32_t)guess[1] &lt;&lt; 2) |
+                             ((uint32_t)guess[2] &lt;&lt; 4) |
+                             ((uint32_t)guess[3] &lt;&lt; 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) {
+    secret[i] = (int)((timer_value &gt;&gt; (i * 4u)) &amp; 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) &amp; 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  result = BullsAndCows(guess, secret, guessFrequency, secretFrequency);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result &gt;&gt; 4) &amp; 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) &amp; EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges &amp; EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges &amp; EXAM_JOY_DOWN) != 0u) increment_digit(0u);
+    if ((edges &amp; EXAM_JOY_LEFT) != 0u) increment_digit(1u);
+    if ((edges &amp; EXAM_JOY_RIGHT) != 0u) increment_digit(2u);
+    if ((edges &amp; EXAM_JOY_UP) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  BullsAndCows
+
+; int BullsAndCows(int guess[4], int secret[4],
+;                  int guessFrequency[4], int secretFrequency[4]);
+; R0=guess, R1=secret, R2=guessFrequency, R3=secretFrequency.
+BullsAndCows    PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+bac_exact_loop  CMP     R10, #4
+                BHS     bac_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     bac_unmatched
+                ADDS    R8, R8, #1
+                B       bac_exact_next
+
+bac_unmatched   LDR     R2, [R6, R0, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R6, R0, LSL #2]
+                LDR     R2, [R7, R1, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R7, R1, LSL #2]
+
+bac_exact_next  ADDS    R10, R10, #1
+                B       bac_exact_loop
+
+bac_exact_done  MOVS    R10, #0
+bac_cow_loop    CMP     R10, #4
+                BHS     bac_return
+                LDR     R0, [R6, R10, LSL #2]
+                LDR     R1, [R7, R10, LSL #2]
+                CMP     R0, R1
+                BLS     bac_use_min
+                MOV     R0, R1
+bac_use_min     ADDS    R9, R9, R0
+                ADDS    R10, R10, #1
+                B       bac_cow_loop
+
+bac_return      MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="method-frequency-count-comparison-variant-1">Variant: game mastermind</h3><p>Mastermind mapping and persistent game state.</p><p>UP, RIGHT, DOWN, LEFT edit digits0,1,2,3 respectively. First SELECT captures the secret; later SELECT submits. After a losing result, SELECT clears the guess while retaining the secret.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer1:MR0=UINT32_MAX,PR0,no match IRQ; seed on first SELECT</td></tr><tr><td>RIT:10ms input sampling; RIT_IRQHandler publishes edges; main owns rounds</td></tr></tbody></table><p>Entry: main. Relevant functions: clear_words, display_guess, capture_secret, begin_guess, increment_digit, evaluate_guess, RIT_IRQHandler, main, Mastermind. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+enum {
+  EXAM_EVENT_JOYSTICK = 1u &lt;&lt; 1
+};
+
+extern int Mastermind(int guess[4], int secret[4],
+                      int usedGuess[4], int usedSecret[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int usedGuess[4];
+static int usedSecret[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] &lt;&lt; 0) |
+                             ((uint32_t)guess[1] &lt;&lt; 2) |
+                             ((uint32_t)guess[2] &lt;&lt; 4) |
+                             ((uint32_t)guess[3] &lt;&lt; 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) {
+    secret[i] = (int)((timer_value &gt;&gt; (i * 4u)) &amp; 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) &amp; 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  result = Mastermind(guess, secret, usedGuess, usedSecret);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result &gt;&gt; 4) &amp; 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) &amp; EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges &amp; EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges &amp; EXAM_JOY_UP) != 0u) increment_digit(0u);
+    if ((edges &amp; EXAM_JOY_RIGHT) != 0u) increment_digit(1u);
+    if ((edges &amp; EXAM_JOY_DOWN) != 0u) increment_digit(2u);
+    if ((edges &amp; EXAM_JOY_LEFT) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Mastermind
+
+; int Mastermind(int guess[4], int secret[4],
+;                int usedGuess[4], int usedSecret[4]);
+; R0=guess, R1=secret, R2=usedGuess, R3=usedSecret.
+Mastermind      PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+mm_exact_loop   CMP     R10, #4
+                BHS     mm_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     mm_exact_next
+                ADDS    R8, R8, #1
+                MOVS    R2, #1
+                STR     R2, [R6, R10, LSL #2]
+                STR     R2, [R7, R10, LSL #2]
+mm_exact_next   ADDS    R10, R10, #1
+                B       mm_exact_loop
+
+mm_exact_done   MOVS    R10, #0
+mm_outer_loop   CMP     R10, #4
+                BHS     mm_return
+                LDR     R0, [R6, R10, LSL #2]
+                CMP     R0, #0
+                BNE     mm_outer_next
+                LDR     R2, [R4, R10, LSL #2]
+                MOVS    R11, #0
+
+mm_inner_loop   CMP     R11, #4
+                BHS     mm_outer_next
+                LDR     R0, [R7, R11, LSL #2]
+                CMP     R0, #0
+                BNE     mm_inner_next
+                LDR     R1, [R5, R11, LSL #2]
+                CMP     R2, R1
+                BNE     mm_inner_next
+                ADDS    R9, R9, #1
+                MOVS    R0, #1
+                STR     R0, [R6, R10, LSL #2]
+                STR     R0, [R7, R11, LSL #2]
+                B       mm_outer_next
+
+mm_inner_next   ADDS    R11, R11, #1
+                B       mm_inner_loop
+mm_outer_next   ADDS    R10, R10, #1
+                B       mm_outer_loop
+
+mm_return       MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-frequency-count-comparison-listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="method-frequency-count-comparison-section-timer-call-effects">Timer call effects</h2><table><thead><tr><th>Call</th><th>Counter</th><th>Configuration and interrupts</th></tr></thead><tbody><tr><td>General timer config_ticks/ms/hz</td><td>TC=PC=0; PR=0; stopped</td><td>Owns MR0, preserves MR1..3 and capture/output setup; clears IR and NVIC pending. Interrupt modes enable NVIC and assign priority equal to timer number.</td></tr><tr><td>General timer start</td><td>Count from current TC/PC</td><td>Retains configuration and pending flags; does not reset.</td></tr><tr><td>General timer stop</td><td>Pause TC/PC</td><td>Retains configuration and pending flags; does not disable NVIC.</td></tr><tr><td>General timer reset</td><td>TC=PC=0; stopped</td><td>Retains configuration; does not acknowledge IR or disable NVIC.</td></tr><tr><td>General timer ack</td><td>No counter change</td><td>Read IR once, clear those hardware flags, return saved bits 0..5. Does not explicitly clear NVIC pending.</td></tr><tr><td>RIT config</td><td>Counter=0; stopped</td><td>Select core clock, clear mask and hardware/controller pending, enable interrupt.</td></tr><tr><td>RIT reset</td><td>Counter=0; retains running state</td><td>Does not acknowledge the interrupt or change the interval.</td></tr><tr><td>SysTick config</td><td>Clear current count; starts immediately</td><td>Set reload and enable core-clock counting and its interrupt.</td></tr></tbody></table></section><section class="section-block"><h2 id="method-frequency-count-comparison-section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2026-06-25-b1.html">E2026-06-25-B1</a></li><li><a href="../exams/e2026-06-25-b2.html">E2026-06-25-B2</a></li></ul></section></section><section id="complete-project-method-consume-once-duplicate-safe-matching"><h2>Complete projects and worked method</h2><section class="section-block"><h2 id="method-consume-once-duplicate-safe-matching-section-how-to-recognize-it">How to recognize it</h2><p>Each item may match at most once.</p><h2 id="method-consume-once-duplicate-safe-matching-section-when-not-to-use-it">When not to use it</h2><p>Counting every equal pair overcounts duplicates.</p><h2 id="method-consume-once-duplicate-safe-matching-section-inputs-and-outputs">Inputs and outputs</h2><p>Preserve separate used flags or equivalent multiplicity limits.</p><h2 id="method-consume-once-duplicate-safe-matching-section-solving-method">Solving method</h2><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Mark exact/consumed items
+2. search only unused candidates
+3. consume once
+4. count</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="method-consume-once-duplicate-safe-matching-section-worked-trace">Worked trace</h2><p>[1,1] versus[1,2] permits one match, not two.</p><h2 id="method-consume-once-duplicate-safe-matching-section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Preserve separate used flags or equivalent multiplicity limits.</p><h2 id="method-consume-once-duplicate-safe-matching-section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Counting every equal pair overcounts duplicates.</p><h2 id="method-consume-once-duplicate-safe-matching-section-adaptation-checklist">Adaptation checklist</h2><p>Preserve separate used flags or equivalent multiplicity limits.</p><h2 id="method-consume-once-duplicate-safe-matching-section-boundary-tests">Boundary tests</h2><p>all duplicates; exact plus misplaced; exhausted candidates.</p><h2 id="method-consume-once-duplicate-safe-matching-section-common-mistakes">Common mistakes</h2><p>Counting every equal pair overcounts duplicates. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="method-consume-once-duplicate-safe-matching-section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#method-consume-once-duplicate-safe-matching-variant-0">consume once match assembly</a><a href="#method-consume-once-duplicate-safe-matching-variant-1">consume once match c</a></nav><h3 id="method-consume-once-duplicate-safe-matching-variant-0">Baseline: consume once match assembly</h3><p>pat-alg-consume-once-match-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, algorithm_algorithm_pat_alg_consume_once_match_001_assembly. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Consume-once duplicate-safe matching.
+ * Recognition cue: Bulls and Cows Mastermind duplicate-safe match.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t algorithm_algorithm_pat_alg_consume_once_match_001_assembly(const uint8_t *secret,
+                                        const uint8_t *guess, uint32_t n,
+                                        uint32_t *cows);
+
+
+
+static int pattern_core_vector(void) {
+  uint8_t s[] = {1, 1, 2, 3}, g[] = {1, 2, 1, 4};
+  uint32_t c = 0;
+  return algorithm_algorithm_pat_alg_consume_once_match_001_assembly(s, g, 4, &amp;c) == 1 &amp;&amp; c == 2;
+}
+static int pattern_edge_vectors(void) {
+  uint8_t a[] = {1}, b[] = {2};
+  uint32_t c = 9;
+  return algorithm_algorithm_pat_alg_consume_once_match_001_assembly(a, b, 0, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_algorithm_pat_alg_consume_once_match_001_assembly(a, b, 1, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_algorithm_pat_alg_consume_once_match_001_assembly(a, b, 33, &amp;c) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; uint32_t algorithm_algorithm_pat_alg_consume_once_match_001_assembly(const uint8_t *secret,
+;                                                const uint8_t *guess,
+;                                                uint32_t count,
+;                                                uint32_t *cows)
+; Returns bulls in R0 and stores cows. Leaf. 32-byte saved-register frame plus
+; two 32-byte used arrays, total 96 bytes; SP remains eight-byte aligned.
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  algorithm_algorithm_pat_alg_consume_once_match_001_assembly
+
+algorithm_algorithm_pat_alg_consume_once_match_001_assembly PROC
+                CMP     R0, #0
+                BEQ     match_invalid
+                CMP     R1, #0
+                BEQ     match_invalid
+                CMP     R3, #0
+                BEQ     match_invalid
+                CMP     R2, #32
+                BHI     match_invalid
+                PUSH    {R4-R11}
+                SUB     SP, SP, #64
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0          ; bulls
+                MOVS    R9, #0          ; cows
+                MOVS    R10, #0
+match_clear
+                CMP     R10, R6
+                BHS     match_exact_start
+                MOVS    R0, #0
+                STRB    R0, [SP, R10]
+                ADD     R1, SP, #32
+                STRB    R0, [R1, R10]
+                ADDS    R10, R10, #1
+                B       match_clear
+match_exact_start
+                MOVS    R10, #0
+match_exact
+                CMP     R10, R6
+                BHS     match_cows_start
+                LDRB    R0, [R4, R10]
+                LDRB    R1, [R5, R10]
+                CMP     R0, R1
+                BNE     match_exact_next
+                MOVS    R0, #1
+                STRB    R0, [SP, R10]
+                ADD     R1, SP, #32
+                STRB    R0, [R1, R10]
+                ADDS    R8, R8, #1
+match_exact_next
+                ADDS    R10, R10, #1
+                B       match_exact
+match_cows_start
+                MOVS    R10, #0
+match_guess
+                CMP     R10, R6
+                BHS     match_done
+                ADD     R0, SP, #32
+                LDRB    R1, [R0, R10]
+                CMP     R1, #0
+                BNE     match_next_guess
+                MOVS    R11, #0
+match_secret
+                CMP     R11, R6
+                BHS     match_next_guess
+                LDRB    R1, [SP, R11]
+                CMP     R1, #0
+                BNE     match_next_secret
+                LDRB    R1, [R5, R10]
+                LDRB    R2, [R4, R11]
+                CMP     R1, R2
+                BNE     match_next_secret
+                MOVS    R1, #1
+                STRB    R1, [SP, R11]
+                STRB    R1, [R0, R10]
+                ADDS    R9, R9, #1
+                B       match_next_guess
+match_next_secret
+                ADDS    R11, R11, #1
+                B       match_secret
+match_next_guess
+                ADDS    R10, R10, #1
+                B       match_guess
+match_done
+                STR     R9, [R7]
+                MOV     R0, R8
+                ADD     SP, SP, #64
+                POP     {R4-R11}
+                BX      LR
+match_invalid
+                CMP     R3, #0
+                IT      NE
+                MOVNE   R0, #0
+                IT      NE
+                STRNE   R0, [R3]
+                MOVS    R0, #0
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="method-consume-once-duplicate-safe-matching-variant-1">Variant: consume once match c</h3><p>pat-alg-consume-once-match-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Consume-once duplicate-safe matching.
+ * Recognition cue: Bulls and Cows Mastermind duplicate-safe match.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t algorithm_algorithm_pat_alg_consume_once_match_001_c(const uint8_t *secret,
+                                        const uint8_t *guess, uint32_t n,
+                                        uint32_t *cows);
+
+
+
+static int pattern_core_vector(void) {
+  uint8_t s[] = {1, 1, 2, 3}, g[] = {1, 2, 1, 4};
+  uint32_t c = 0;
+  return algorithm_algorithm_pat_alg_consume_once_match_001_c(s, g, 4, &amp;c) == 1 &amp;&amp; c == 2;
+}
+static int pattern_edge_vectors(void) {
+  uint8_t a[] = {1}, b[] = {2};
+  uint32_t c = 9;
+  return algorithm_algorithm_pat_alg_consume_once_match_001_c(a, b, 0, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_algorithm_pat_alg_consume_once_match_001_c(a, b, 1, &amp;c) == 0 &amp;&amp; c == 0 &amp;&amp;
+         algorithm_algorithm_pat_alg_consume_once_match_001_c(a, b, 33, &amp;c) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-consume-once-match-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="method-consume-once-duplicate-safe-matching-listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Consume-once duplicate-safe matching.
+ * Recognition cue: Bulls and Cows Mastermind duplicate-safe match.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint32_t algorithm_algorithm_pat_alg_consume_once_match_001_c(const uint8_t *secret,
+                                        const uint8_t *guess, uint32_t n,
+                                        uint32_t *cows) {
+  uint8_t used_s[32] = {0}, used_g[32] = {0};
+  uint32_t i, j, b = 0, c = 0;
+  if (!secret || !guess || !cows || n &gt; 32)
+    return 0;
+  for (i = 0; i &lt; n; i++)
+    if (secret[i] == guess[i]) {
+      used_s[i] = used_g[i] = 1;
+      b++;
+    }
+  for (i = 0; i &lt; n; i++)
+    if (!used_g[i])
+      for (j = 0; j &lt; n; j++)
+        if (!used_s[j] &amp;&amp; guess[i] == secret[j]) {
+          used_g[i] = used_s[j] = 1;
+          c++;
+          break;
+        }
+  *cows = c;
+  return b;
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="method-consume-once-duplicate-safe-matching-section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2026-06-25-b1.html">E2026-06-25-B1</a></li><li><a href="../exams/e2026-06-25-b2.html">E2026-06-25-B2</a></li></ul></section></section></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

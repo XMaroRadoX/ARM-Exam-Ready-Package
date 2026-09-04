@@ -1,0 +1,59 @@
+#include <limits.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+/*
+ * Exam-study reference: Heap construction and heap sort.
+ * Recognition cue: build max heap then extract.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+void down(int32_t *a, uint32_t n, uint32_t i) {
+  for (;;) {
+    if (!a || i >= n || i >= n / 2u)
+      return;
+    if (!a || i >= n || i >= n / 2u)
+      return;
+    uint32_t m = i, l = 2 * i + 1, r = l + 1;
+    if (l < n && a[l] > a[m])
+      m = l;
+    if (r < n && a[r] > a[m])
+      m = r;
+    if (m == i)
+      return;
+    {
+      int32_t t = a[i];
+      a[i] = a[m];
+      a[m] = t;
+    }
+    i = m;
+  }
+}
+void algorithm_heap_construction_and_heap_sort(int32_t *a, uint32_t n) {
+  uint32_t i;
+  if (!a)
+    return;
+  if (!a)
+    return;
+  for (i = n / 2; i > 0; i--)
+    down(a, n, i - 1);
+  for (i = n; i > 1; i--) {
+    int32_t t = a[0];
+    a[0] = a[i - 1];
+    a[i - 1] = t;
+    down(a, i - 1, 0);
+  }
+}

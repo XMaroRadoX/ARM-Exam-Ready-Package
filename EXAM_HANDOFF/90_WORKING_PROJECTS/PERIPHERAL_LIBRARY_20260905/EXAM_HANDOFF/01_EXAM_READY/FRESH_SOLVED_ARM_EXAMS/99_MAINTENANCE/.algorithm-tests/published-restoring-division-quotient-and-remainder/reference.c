@@ -1,0 +1,55 @@
+#include <limits.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+/*
+ * Exam-study reference: Signed 64-by-32 restoring division.
+ * Recognition cue: divide signed 64-bit dividend by signed 32-bit divisor.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+int64_t algorithm_restoring_division_quotient_and_remainder(int64_t dividend,
+                                                            int32_t divisor,
+                                                            int32_t *remainder) {
+  uint64_t q = 0, r = 0, u;
+  uint32_t d;
+  int negq, negr;
+  int i;
+  if (!divisor) {
+    if (remainder)
+      *remainder = 0;
+    return 0;
+  }
+  negq = ((dividend < 0) ^ (divisor < 0));
+  negr = (dividend < 0);
+  u = (dividend < 0) ? (uint64_t)(-(dividend + 1)) + 1u : (uint64_t)dividend;
+  d = (divisor < 0) ? (uint32_t)(-(int64_t)divisor) : (uint32_t)divisor;
+  for (i = 63; i >= 0; i--) {
+    r = (r << 1) | ((u >> (uint32_t)i) & 1u);
+    if (r >= d) {
+      r -= d;
+      q |= UINT64_C(1) << (uint32_t)i;
+    }
+  }
+  if (remainder) {
+    *remainder = negr ? -(int32_t)r : (int32_t)r;
+  }
+  if (q == (UINT64_C(1) << 63))
+    return INT64_MIN;
+  if (q == (UINT64_C(1) << 63))
+    return INT64_MIN;
+  return negq ? -(int64_t)q : (int64_t)q;
+}

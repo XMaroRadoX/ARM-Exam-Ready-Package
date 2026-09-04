@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Stable unsigned sort using four byte passes. a and tmp each hold n words and must not overlap; exact alias is rejected. Empty input succeeds. Uses 256 word counters on the stack.">
+  <title>LSD radix sort · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">LSD radix sort</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>LSD radix sort</h1><p>Stable unsigned sort using four byte passes. a and tmp each hold n words and must not overlap; exact alias is rejected. Empty input succeeds. Uses 256 word counters on the stack.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Sorting</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(4n + 4x256) time and O(n + 256) space.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Stable unsigned sort using four byte passes. a and tmp each hold n words and must not overlap; exact alias is rejected. Empty input succeeds. Uses 256 word counters on the stack.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int radix_sort_u32(uint32_t *a, size_t n, uint32_t *tmp)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>radix_sort_u32</code></td><td><code>uint32_t *a</code></td><td><code>R0</code></td></tr><tr><td><code>radix_sort_u32</code></td><td><code>size_t n</code></td><td><code>R1</code></td></tr><tr><td><code>radix_sort_u32</code></td><td><code>uint32_t *tmp</code></td><td><code>R2</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Count byte frequencies.</li><li>Turn counts into starting offsets.</li><li>Scatter stably into scratch and copy back, for shifts 0,8,16,24.</li></ol><h3>Worked trace</h3><p>[256,1,0xFFFFFFFF,0] -&gt; [0,1,256,0xFFFFFFFF].</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/radix-sort/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; LSD radix sort
+; int radix_sort_u32(uint32_t *a, size_t n, uint32_t *tmp)
+; Stable unsigned sort using four byte passes. a and tmp each hold n words and must not overlap; exact alias is rejected. Empty input succeeds. Uses 256 word counters on the stack.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT radix_sort_u32
+radix_sort_u32
+        cmp r1,#0
+        beq rx_yes
+        cmp r0,#0
+        beq rx_bad
+        cmp r2,#0
+        beq rx_bad
+        cmp r0,r2
+        beq rx_bad
+        push {r4-r11,lr}
+        sub sp,sp,#4
+        sub sp,sp,#1024
+        mov r4,r0
+        mov r5,r1
+        mov r6,r2
+        movs r7,#0
+rx_pass
+        movs r8,#0
+        movs r9,#0
+rx_clear
+        str r9,[sp,r8]
+        adds r8,#4
+        cmp r8,#1024
+        blo rx_clear
+        movs r8,#0
+rx_count
+        cmp r8,r5
+        bhs rx_prefix_start
+        ldr r10,[r4,r8,lsl #2]
+        lsr r9,r10,r7
+        and r9,r9,#255
+        lsl r9,r9,#2
+        ldr r11,[sp,r9]
+        adds r11,#1
+        str r11,[sp,r9]
+        adds r8,#1
+        b rx_count
+rx_prefix_start
+        movs r8,#0
+        movs r10,#0
+rx_prefix
+        ldr r9,[sp,r8]
+        str r10,[sp,r8]
+        add r10,r9
+        adds r8,#4
+        cmp r8,#1024
+        blo rx_prefix
+        movs r8,#0
+rx_scatter
+        cmp r8,r5
+        bhs rx_copy_start
+        ldr r10,[r4,r8,lsl #2]
+        lsr r9,r10,r7
+        and r9,r9,#255
+        lsl r9,r9,#2
+        ldr r11,[sp,r9]
+        str r10,[r6,r11,lsl #2]
+        adds r11,#1
+        str r11,[sp,r9]
+        adds r8,#1
+        b rx_scatter
+rx_copy_start
+        movs r8,#0
+rx_copy
+        cmp r8,r5
+        bhs rx_next
+        ldr r9,[r6,r8,lsl #2]
+        str r9,[r4,r8,lsl #2]
+        adds r8,#1
+        b rx_copy
+rx_next
+        adds r7,#8
+        cmp r7,#32
+        blo rx_pass
+        add sp,sp,#1024
+        add sp,sp,#4
+        pop {r4-r11,lr}
+rx_yes
+        movs r0,#1
+        bx lr
+rx_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/radix-sort/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int radix_sort_u32(uint32_t *a, size_t n, uint32_t *tmp) {
+  if (!n)
+    return 1;
+  if (!a || !tmp || a == tmp)
+    return 0;
+  size_t count[256];
+  for (unsigned shift = 0; shift &lt; 32; shift += 8) {
+    for (size_t b = 0; b &lt; 256; b++)
+      count[b] = 0;
+    for (size_t i = 0; i &lt; n; i++)
+      count[(a[i] &gt;&gt; shift) &amp; 255]++;
+    size_t sum = 0;
+    for (size_t b = 0; b &lt; 256; b++) {
+      size_t c = count[b];
+      count[b] = sum;
+      sum += c;
+    }
+    for (size_t i = 0; i &lt; n; i++) {
+      unsigned b = (a[i] &gt;&gt; shift) &amp; 255;
+      tmp[count[b]++] = a[i];
+    }
+    for (size_t i = 0; i &lt; n; i++)
+      a[i] = tmp[i];
+  }
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/radix-sort/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int radix_sort_u32(uint32_t *a, size_t n, uint32_t *tmp);
+int test_main(void) {
+  uint32_t a[] = {256, 1, UINT32_MAX, 0, 1}, t[5];
+  CHECK(radix_sort_u32(a, 5, t) &amp;&amp; a[0] == 0 &amp;&amp; a[1] == 1 &amp;&amp; a[2] == 1 &amp;&amp; a[3] == 256 &amp;&amp;
+        a[4] == UINT32_MAX);
+  CHECK(radix_sort_u32(0, 0, 0));
+  CHECK(!radix_sort_u32(a, 5, a));
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

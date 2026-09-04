@@ -1,0 +1,829 @@
+[
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230207 arm.pdf",
+    "sha256": "77929b413afda671274838630078b32bbebe1e643e1102a00412a7209879ce26",
+    "examId": "E2023-02-07",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": " \nInitialize timer 1 to count from 0 to 0xFF. When the timer counter reaches 0xFF, it is reset and it \nstarts counting again; no interrupt is generated. \n \n \nWhen button INT0 is pressed, you have to: \n- Read the value of the timer counter of timer 1 \n- Assign the value to the first available element (i.e., not yet initialized) of the array of char. \nAt the first pressure of the button, the value of the timer counter will be saved at position 0 \nof the array; at the second pressure it will be saved at position 1, etc. If all elements of the \narray have already been initialized, the value of the timer counter is not used. \n- Alternatively switch on led 6 and led 7 to signal the correct read of the timer counter. At the \nfirst pressure of the button, led 6 is switched on and led 7 is switched off. At the second \npressure, led 6 it switched off and led 7 is switched on. At the third pressure of the button, \nled 6 is switched on and led 7 is switched off, etc. \n \nWhen button KEY1 is pressed, you have to: \n- Switch off led 6 and 7 \n- Call the insertionSort subroutine, passing the address of the array of char and the \nnumber of initialized elements. The subroutine will sort the elements of the array, \nconsidering them as signed byte values. \n- When the subroutine ends, switch on led 11. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230207 with MIPS solutions.pdf",
+    "sha256": "afe23cf0c8c2dcadc63b125ed027563e6d5bdddf5d223ba7135ee91b43f81c7d",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230224 arm.pdf",
+    "sha256": "ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4",
+    "examId": "E2023-02-24",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230224 with MIPS solutions.pdf",
+    "sha256": "bf2771265124e8eadbfe98127c0e9b12472ef5d61dc9dbf1ba79275eb1f6cf0d",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230517 arm.pdf",
+    "sha256": "94a30856a4f9a56bb908dbab2def2de9fee9973a4471ac5111399a992509bbab",
+    "examId": "E2023-05-17",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230517 with MIPS solutions.pdf",
+    "sha256": "c095e08c91743c9d16a0cb31bdc3d2f139342090aaeee4b90581add9b565ad7b",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230704 arm.pdf",
+    "sha256": "00b04fb9ee48348d35f760dc4be463f251c7e107e6fece712f732e2ce8e0a82c",
+    "examId": "E2023-07-04",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": " \nInitialize timer 1 to raise an interrupt every 2 seconds. In the interrupt handler, each time, a new value \nof the array is read (i.e., the first time the value 8128 is read; then 5564 and so on. After 7 interrupt \ncalls, the 8th value is 8128 again). Then, the isSociable subroutine is called passing the current \nvalue of the array. The output of the subroutine is used to switch on the corresponding led (all other \nleds are switched off):value 1 -> led4; value 2 -> led 5; value 3 -> led6; \u2026 ; value 8 -> led 11. \nIf the subroutine returns 0, all leds are switched off. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230704 with MIPS solution.pdf",
+    "sha256": "0a32c900a517047ccfedc0f8fab87718e2a085e65ae6c6a0870fdc1488d037c6",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230918 arm.pdf",
+    "sha256": "2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b",
+    "examId": "E2023-09-18",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Add the following functionalities to the project created in the previous exercise: \n1) The user can specify a binary value K through buttons Key1 and Key2. Key1 inserts a new \ndigit equal to 0, while key2  inserts a new digit equal to 1. For example, if the user presses \nKey2, Key1, Key1, Key2, Key2, Key1, the final value is 100110 \nby the digitSum subroutine plus the last element of the series minus the first element, \nthen switch on led 4 and switch off led 5. If it is different, switch on led 5 and switch off \nled 4. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/22-23/20230918 with MIPS solutions.pdf",
+    "sha256": "dfbf76a0539c684d4ceaa36b6e3a59951e345129dc4be4f23c755235dbac7c8d",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240212 arm.pdf",
+    "sha256": "857211aa08989b7cd8e4630443c80fe33a4ad8e94d34a17636626deac8230ede",
+    "examId": "E2024-02-12",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": "Add the following functionalities to the project created in the previous exercise: \n1) In the main function, start timer 0, without generating interrupts and stopping the timer. \n2) When the user presses the button Key2, we read the current value of timer 0. This is a truly \nrandom number and we use it as a seed to compute the first pseudo-random number. Then, \neach subsequent pseudo-random number is obtained using the previous pseudo-random \nnumber. \nExample: if timer 0 is 300 and NUM_COLUMNS = 8, then 6 pseudo-random numbers are \nneeded for generating the first row of the matrix (because the corners are fixed). The \nsequence of pseudo-random numbers is: \n3) Finally, call the mazeSolver subroutine. \nSteps 2 and 3 have to be implemented inside the handler of button Key2. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240212 with MIPS solutions.pdf",
+    "sha256": "f1a502c4397f15bcd3281b42ec6ed921c86f7c9bd9560856ecc8fd70acc61ecd",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240228 arm.pdf",
+    "sha256": "772f6c10718ce63a360fd71027fbfce97bacac7b86829e48cf4bd3763d966783",
+    "examId": "E2024-02-28",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Pass this matrix to the shortestPath subroutine to find the shortest path in the maze. \nThen, show the sequence of movements to arrive to the exit using the leds. In details, you start from \nthe entrance (represented with \u2018e\u2019) and look for the cell x containing the value k returned by the \nshortestPath subroutine: \n- if x is at the right of the entrance, switch on led 4 \n- if x is at the bottom of the entrance, switch on led 5 \n- if x is at the left of the entrance, switch on led 6 \n- if x is at the top of the entrance, switch on led 7 \nThen, you look for the cell containing the value k \u2013 1 and switch on the corresponding led. The loop \ncontinues as long as k >= 0. \nIn the example, the sequence of leds are: led 6, led 6, led 7, led 7, led 6, led 6, led 6, led 7, led 7. \nEach led remains lit for 0.5 s. Then, you have to wait 0.5 s before switching on the next led. \n(Suggestion: you need a timer generate interrupts every 0.5 s.) \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240228 with MIPS solutions.pdf",
+    "sha256": "99008f1a8ca4a8f7c92fdf4c14c4ad38b0f218f229e5fa8e666188f8212a1aff",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240709 arm.pdf",
+    "sha256": "072489aedf62543620d5bb60295fb085204bae358d5316fb342c1150475a9a98",
+    "examId": "E2024-07-09",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": "subroutine is deterministic. We want to write a chooseRandomNeighbor subroutine that \nchooses a random neighbor exploiting the systick timer. First, in the Reset_Handler, set the Reload \nValue Register of the systick timer to 0xFFFFF and configure the systick timer in order not to \ngenerate an interrupt when the timer counter reaches 0. Then, start the timer. \n \nThe chooseRandomNeighbor subroutine receives the same parameters as chooseNeighbor \nIf no values are pushed, the subroutine immediately returns 0. Otherwise, it counts how many \nregisters, among the input parameters, are 0. Then, it computes the module between the systick \ntimer counter and the number of registers equal to 0. For example, if r0 = 0, r1 = 0, r2 = 0, r3 = 1, it \ncomputes the module with 3. The module indicates the index of the element of the stack to retrieve, \nwhich is the return value. It is important to pop all elements from the stack before concluding the "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240709 board extension.pdf",
+    "sha256": "b34e1a656f3847bfb2d7eb2babf96a9b4b694a8d76af83b3701a8afde0c12462",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "Additional board question mapped",
+    "scenario": "paper-lcd-maze",
+    "question": "Q5",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "Then, draw a white square to represent the initial position inside the maze. \nBy using the joystick, change the current position inside the maze (if the movement is legal). For \nexample, if you move the joystick to the right and there is not a wall towards the cell at the right, \nyou have to move the square to the right to represent the movement. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240709 with MIPS solutions.pdf",
+    "sha256": "f50e4a2c2180bf0461e0889ddb955f96431166dab143cb2995fff7dc7cddb5e4",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240916 arm.pdf",
+    "sha256": "bbadd5254928052d8fdf6f824af902ed80a57c58adbb8028e7ec666d2935e3c1",
+    "examId": "E2024-09-16",
+    "pages": 4,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 4,
+        "excerpt": "Question 2 \nAdd C code that after the pressure of two buttons calls the kruskal subroutine written in the \nprevious exercise. In details, you have to define the matrix maze and the arrays in C. Then, after \nthe user presses the first button, the program initializes the variable increment as follows: \n- If the user pressed button INT0, then increment = 2 \n- If the user pressed button Key1, then increment = 3 \n- If the user pressed button Key2, then increment = 4 \nThen, after the user presses the second button, the program initializes the variable offset as \nfollows: \n- If the user pressed button INT0, then offset = 2 \n- If the user pressed button Key1, then offset = 3 \n- If the user pressed button Key2, then offset = 4 \nAfter the pressure of the second button, the program calls the kruskal subroutine passing the \nparameters in the right order. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/23-24/20240916 with MIPS solutions.pdf",
+    "sha256": "38454bac64e2f514643a5c20cb4da1125b3031a2563f896897f8584f1e6935e0",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129 with MIPS solutions.pdf",
+    "sha256": "0e68105b33b205befb6567e34340af19f1eefa929f89542761f3c022768061e8",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM1.pdf",
+    "sha256": "81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575",
+    "examId": "E2025-01-29-A1",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": " \nInitialize TIMER1 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no \ninterrupt is generated. \n \nWhen INT0 is pressed: \n1. Read the value of the timer counter of TIMER1. \n2. Perform the XOR of the most and least significant byte of the value. \nRemember that the timer counter is 32 bits long: you have to take into account only on the \nleast significant 16 bits! If the value you read from the timer counter is 0x000042AA, the \nmost significant byte is 0x42 and the least significant is 0xAA. \n3. Show the value you obtained on the LEDs. \n \nWhen KEY1 is pressed: \na. The constant array [0x8F, 0xC7, 0xE3, 0xF1, 0xF8, 0x7C, 0x3E, 0x1F] as matrix A \nb. the value that is being showed on the LEDs as B \nc. the value 0x63 as C \n2. Show the transformed value on the LEDs, using TIMER0 to blink the LEDs with a period of \n0.5 seconds (meaning that they have to stay on for 0.25 seconds and off for 0.25 seconds) \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM2.pdf",
+    "sha256": "af077d82dca1acfbbac322ee1774a4d6c4ec796d42721c073e0b0fc20543e50b",
+    "examId": "E2025-01-29-A2",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": "1. Define three empty vectors of 8 unsigned chars where to store A, B, and C. \n2. Initialize TIMER1 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset \nand no interrupt is generated. \n3. When INT0 is pressed: \na. Read the value of the timer counter of TIMER1. \nb. If INT0 has been pressed less than 8 times, store the most significant byte of the \nvalue you just read into A and the least significant byte into B. The first time store \nthem in the first row, the second time in the second row and so on. \n  Remember that the timer counter is 32 bits long: you must take into account \nonly on the least significant 16 bits! If the value you read from the counter is \n0x000042AA, the most significant byte is 0x42 and the least significant is 0xAA. \nbitMatrixMultiplication. \nc. Configure TIMER0 to show each row of C on the LEDs for 0.5 seconds each. \nd. Turn off the LEDs \n \nThe prototype of the function in C language is: "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM3.pdf",
+    "sha256": "761ce33d98721985812e9dac30fedd846893bfc2ccbc7b16513615d24cde2a6e",
+    "examId": "E2025-01-29-A3",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Declare two uninitialized arrays of 8 bytes A and B. \nInitialize TIMER2 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no \ninterrupt is generated. \n \nWhen KEY1 is pressed the first time, set the first element of the array A equal to the value of \nTIMER2. When KEY1 is pressed the second time, set the second element of the array A equal to the \nvalue of TIMER2, and so on until KEY1 is pressed eight times. Subsequent pressures of KEY1 are \nignored. \n \nWhen KEY2 is pressed the first time, set the first element of the array B equal to the value of \nTIMER2. When KEY2 is pressed the second time, set the second element of the array B equal to the \nvalue of TIMER2, and so on until KEY2 is pressed eight times. Subsequent pressures of KEY2 are \nignored. \n \nIn detail, you need to call the transposition routine three times (after defining new \nuninitialized arrays to hold the results). If the equivalence is confirmed, switch on led 4. Otherwise, \nswitch on led 5. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212 with MIPS solutions.pdf",
+    "sha256": "c8aeb24205c0ee02e4b04948626dad4bf470795bf5acbf2714c88e66739834ce",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_A1.pdf",
+    "sha256": "d7890e7ea6358a50f9fb01de4681ab80bf4d357c6766341dc281acd3a6e2f62d",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM1.pdf",
+    "sha256": "04bdc71658fd0d480ff738ea259fb791ea48991a1e45b2f4d8ec082de65a597f",
+    "examId": "E2025-02-12-A1",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": "Question 2 (8 points) \nExtend the previous exercise to play the A note when the user presses the button INT0. \nIn details: \n- add proper initializations in main() \n- in the handler of INT0, start timer 0 in order to generate an interrupt every k = 1263 clock \ncycles \n- in IRQ_timer.c, define the global variable int sineValues[45]; \n- in the handler of timer 0, implement the following pseudocode: \n \nstatic int repeat = 0; \nYou do not need to handle consecutive presses of INT0: pressing it a second time has no effect. \nTherefore, button debouncing is not required for this project. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM2.pdf",
+    "sha256": "6260e7e253a7ddd3c5e186b84f08ef3366e0f4d062501001dadd1abb872a8b10",
+    "examId": "E2025-02-12-A2",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": "Question 2 (8 points) \nExtend the previous exercise to play the F note when the user presses the button KEY1. \nIn details: \n- add proper initializations in main() \n- in the handler of KEY1, start timer 1 in order to generate an interrupt every k = 1592 clock \ncycles \n- in IRQ_timer.c, define the global variable int cosineValues[45]; \n- in the handler of timer 1, implement the following pseudocode: \n \nstatic int repeat = 0; \nYou do not need to handle consecutive presses of KEY1: pressing it a second time has no effect. \nTherefore, button debouncing is not required for this project. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_B1.pdf",
+    "sha256": "fef7d568d98da91782e179209a503e4f25a84e053b5271839fa40c2f88223713",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/20250701 with MIPS solutions.pdf",
+    "sha256": "344e88d8cdc808f2d94c4c3f14db62de7608f6846b2e26ba923988af1b8815ad",
+    "examId": null,
+    "pages": 11,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM1.pdf",
+    "sha256": "62e6a6f5101df35128b299c565c82f3338a8474dfb83b30e87efb2916a401843",
+    "examId": "E2025-07-01-A1",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "Question 2 (6 points) \nExtend the project to control leds 8-11 based on the values generated by the LCG. \nFirst, start timer 0 in order to generate an interrupt every 3 seconds. \nThen, in the handler of timer 0, call the nextElementLCG subroutine to obtain the n-th element \nof the sequence. Since the value ranges in [0, 254], compute the modulo 4 of such value: \n- if value mod 4 == 0, switch on led 11 \n- if value mod 4 == 1, switch on led 10 \n- if value mod 4 == 2, switch on led 9 \n- if value mod 4 == 3, switch on led 8 \nUse the same parameters as in the example: seed 1, a = 131, c = 7, n = index of the loop, m = 255. \nThe nextElementLCG subroutine is called only 10 times (i.e., during the first 10 interrupts of \ntimer 0). The leds are switched on in the following order: \n  "
+      },
+      {
+        "page": 2,
+        "excerpt": "A2 \niteration n Xn Xn mod 4 Led on \n0 138 2 9 \n1 234 2 9 \n \nImportant: Ensure that only one led is on at any given time. Before switching on a new led, turn off \nthe previously lit led (from the previous timer interrupt). \n \n \nQuestion 3 (6 points) \nExtend the project to implement a rhythm game using the joystick on the board. The game will \ninvolve moving the joystick in response to the leds being switched on. \nWhen a led lights up, the player must move the joystick accordingly: \n- led 11: move the joystick up \n- led 10: move the joystick left \n- led 9: move the joystick right \n- led 8: move the joystick down \nOnly the first movement of the joystick has to be considered (further movements within the 3-\nsecond interval are ignored). If the movement corresponds to the correct direction for the lit led, \nincrement the variable num_correct, otherwise increment num_wrong. Regardless of the \ncorrectness, after the joystick movement the led is immediately switched off. \nThe game continues for 10 sequence elements. After 10 elements, the game ends and the player's \nscore is evaluated. If num_correct > num_wrong, the player wins: turn on led 4 to indicate \nvictory. Otherwise, the player looses: turn on led 5 to indicate defeat. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM2.pdf",
+    "sha256": "61b5bc6866d95a1ce17fd0356cb661d342641945037f71924afc4050cfba1e81",
+    "examId": "E2025-07-01-A2",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "Question 2 (6 points) \nExtend the project to control leds 4-7 based on the values generated by the LCG. \nFirst, start timer 1 in order to generate an interrupt every 2.5 seconds. \nThen, in the handler of timer 1, call the LCGsequence subroutine to obtain the n-th element of the \nsequence. Since the value ranges in [0, 255], compute the modulo 4 of such value: \n- if value mod 4 == 0, switch on led 4 \n- if value mod 4 == 1, switch on led 5 \n- if value mod 4 == 2, switch on led 6 \n- if value mod 4 == 3, switch on led 7 "
+      },
+      {
+        "page": 2,
+        "excerpt": "Use the same parameters as in the example: seed 6, a = 157, c = 3, s = 3, m = 256. The \nLCGsequence subroutine is called only 10 times (i.e., during the first 10 interrupts of timer 1). \nThe leds are switched on in the following order: \n  \niteration n Xn Xn mod 4 Led on \n0 177 1 5 \n1 134 2 6 \n \nImportant: Ensure that only one led is on at any given time. Before switching on a new led, turn off \nthe previously lit led (from the previous timer interrupt). \n \n \nQuestion 3 (6 points) \nExtend the project to implement a rhythm game using the joystick on the board. The game will \ninvolve moving the joystick in response to the leds being switched on. \nWhen a led lights up, the player must move the joystick accordingly: \n- led 4: move the joystick up \n- led 5: move the joystick left \n- led 6: move the joystick right \n- led 7: move the joystick down \nOnly the first movement of the joystick has to be considered (further movements within the 2.5-\nsecond interval are ignored). If the movement corresponds to the correct direction for the lit led, \nincrement the variable hit, otherwise increment miss. Regardless of the correctness, after the \njoystick movement the led is immediately switched off. \nThe game continues for 10 sequence elements. After 10 elements, the game ends and the player's \nscore is evaluated. If hit > miss, the player wins: turn on led 10 to indicate victory. Otherwise, \nthe player looses: turn on led 11 to indicate defeat. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_09_15/2025-09-15 with MIPS solutions.pdf",
+    "sha256": "b8a9bcd5e4fed007125d84b003a30c59770603f7539a2a0051bfacd5ac298f01",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/admissions_final_projects.pdf",
+    "sha256": "b1bad22f26bce21a09967edc55e10610ba4c0d9e30a92731bc67f8690773d4d8",
+    "examId": null,
+    "pages": 6,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20230207.pdf",
+    "sha256": "77929b413afda671274838630078b32bbebe1e643e1102a00412a7209879ce26",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": " \nInitialize timer 1 to count from 0 to 0xFF. When the timer counter reaches 0xFF, it is reset and it \nstarts counting again; no interrupt is generated. \n \n \nWhen button INT0 is pressed, you have to: \n- Read the value of the timer counter of timer 1 \n- Assign the value to the first available element (i.e., not yet initialized) of the array of char. \nAt the first pressure of the button, the value of the timer counter will be saved at position 0 \nof the array; at the second pressure it will be saved at position 1, etc. If all elements of the \narray have already been initialized, the value of the timer counter is not used. \n- Alternatively switch on led 6 and led 7 to signal the correct read of the timer counter. At the \nfirst pressure of the button, led 6 is switched on and led 7 is switched off. At the second \npressure, led 6 it switched off and led 7 is switched on. At the third pressure of the button, \nled 6 is switched on and led 7 is switched off, etc. \n \nWhen button KEY1 is pressed, you have to: \n- Switch off led 6 and 7 \n- Call the insertionSort subroutine, passing the address of the array of char and the \nnumber of initialized elements. The subroutine will sort the elements of the array, \nconsidering them as signed byte values. \n- When the subroutine ends, switch on led 11. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20230224.pdf",
+    "sha256": "ebd2df9c75ec7e24bd6f76515a3b06cdfcec78b7e5aea7d33d977761fa0dc0a4",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20230704.pdf",
+    "sha256": "00b04fb9ee48348d35f760dc4be463f251c7e107e6fece712f732e2ce8e0a82c",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": " \nInitialize timer 1 to raise an interrupt every 2 seconds. In the interrupt handler, each time, a new value \nof the array is read (i.e., the first time the value 8128 is read; then 5564 and so on. After 7 interrupt \ncalls, the 8th value is 8128 again). Then, the isSociable subroutine is called passing the current \nvalue of the array. The output of the subroutine is used to switch on the corresponding led (all other \nleds are switched off):value 1 -> led4; value 2 -> led 5; value 3 -> led6; \u2026 ; value 8 -> led 11. \nIf the subroutine returns 0, all leds are switched off. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20230918.pdf",
+    "sha256": "2e6568d814b67ff734004e311accb982e610ba7544cdb5f1f91b324981b7846b",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Add the following functionalities to the project created in the previous exercise: \n1) The user can specify a binary value K through buttons Key1 and Key2. Key1 inserts a new \ndigit equal to 0, while key2  inserts a new digit equal to 1. For example, if the user presses \nKey2, Key1, Key1, Key2, Key2, Key1, the final value is 100110 \nby the digitSum subroutine plus the last element of the series minus the first element, \nthen switch on led 4 and switch off led 5. If it is different, switch on led 5 and switch off \nled 4. \n \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250129_A.pdf",
+    "sha256": "81b1160be1d5b7aa4520486427166188d838607a3f22089c7b04734b3dad4575",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 3,
+        "excerpt": " \nInitialize TIMER1 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no \ninterrupt is generated. \n \nWhen INT0 is pressed: \n1. Read the value of the timer counter of TIMER1. \n2. Perform the XOR of the most and least significant byte of the value. \nRemember that the timer counter is 32 bits long: you have to take into account only on the \nleast significant 16 bits! If the value you read from the timer counter is 0x000042AA, the \nmost significant byte is 0x42 and the least significant is 0xAA. \n3. Show the value you obtained on the LEDs. \n \nWhen KEY1 is pressed: \na. The constant array [0x8F, 0xC7, 0xE3, 0xF1, 0xF8, 0x7C, 0x3E, 0x1F] as matrix A \nb. the value that is being showed on the LEDs as B \nc. the value 0x63 as C \n2. Show the transformed value on the LEDs, using TIMER0 to blink the LEDs with a period of \n0.5 seconds (meaning that they have to stay on for 0.25 seconds and off for 0.25 seconds) \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250129_B.pdf",
+    "sha256": "761ce33d98721985812e9dac30fedd846893bfc2ccbc7b16513615d24cde2a6e",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Declare two uninitialized arrays of 8 bytes A and B. \nInitialize TIMER2 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no \ninterrupt is generated. \n \nWhen KEY1 is pressed the first time, set the first element of the array A equal to the value of \nTIMER2. When KEY1 is pressed the second time, set the second element of the array A equal to the \nvalue of TIMER2, and so on until KEY1 is pressed eight times. Subsequent pressures of KEY1 are \nignored. \n \nWhen KEY2 is pressed the first time, set the first element of the array B equal to the value of \nTIMER2. When KEY2 is pressed the second time, set the second element of the array B equal to the \nvalue of TIMER2, and so on until KEY2 is pressed eight times. Subsequent pressures of KEY2 are \nignored. \n \nIn detail, you need to call the transposition routine three times (after defining new \nuninitialized arrays to hold the results). If the equivalence is confirmed, switch on led 4. Otherwise, \nswitch on led 5. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250212.pdf",
+    "sha256": "d1d646dca859948732f2840a3f5cb10d0e30824d120c7e7c4de4b83b2c05f4a8",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": [
+      {
+        "page": 2,
+        "excerpt": "Question 2 (8 points) \nExtend the previous exercise to play the A note when the user presses the button INT0. \nIn details: \n- add proper initializations in main() \n- in the handler of INT0, start timer 0 in order to generate an interrupt every k = 1263 clock \ncycles \n- in IRQ_timer.c, define the global variable int sineValues[45]; \n- in the handler of timer 0, implement the following pseudocode: \n \nstatic int repeat = 0; \nYou do not need to handle consecutive presses of INT0: pressing it a second time has no effect. \nTherefore, button debouncing is not required for this project. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250701.pdf",
+    "sha256": "345d9d9eb2c6979f20052ba66f0d7daab8613e486ce02f6f546737c9249b1252",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Equivalent reviewed hardware exercise",
+    "scenario": "paper-e2025-07-01-a1",
+    "evidence": "nextElementLCG, seed 1, multiplier 131, increment 7, XOR iteration, modulus 255, Timer0 3 seconds, first joystick movement, 10 rounds. File labels differ; the behavior maps explicitly.",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "Question 2 (6 points) \nExtend the project to control leds 8-11 based on the values generated by the LCG. \nFirst, start timer 0 in order to generate an interrupt every 3 seconds. \nThen, in the handler of timer 0, call the nextElementLCG subroutine to obtain the n-th element \nof the sequence. Since the value ranges in [0, 254], compute the modulo 4 of such value: \n- if value mod 4 == 0, switch on led 11 \n- if value mod 4 == 1, switch on led 10 \n- if value mod 4 == 2, switch on led 9 \n- if value mod 4 == 3, switch on led 8 \nUse the same parameters as in the example: seed 1, a = 131, c = 7, n = index of the loop, m = 255. \nThe nextElementLCG subroutine is called only 10 times (i.e., during the first 10 interrupts of \ntimer 0). The leds are switched on in the following order: \n  "
+      },
+      {
+        "page": 2,
+        "excerpt": "A2 \niteration n Xn Xn mod 4 Led on \n0 138 2 9 \n1 234 2 9 \n \nImportant: Ensure that only one led is on at any given time. Before switching on a new led, turn off \nthe previously lit led (from the previous timer interrupt). \n \n \nQuestion 3 (6 points) \nExtend the project to implement a rhythm game using the joystick on the board. The game will \ninvolve moving the joystick in response to the leds being switched on. \nWhen a led lights up, the player must move the joystick accordingly: \n- led 11: move the joystick up \n- led 10: move the joystick left \n- led 9: move the joystick right \n- led 8: move the joystick down \nOnly the first movement of the joystick has to be considered (further movements within the 3-\nsecond interval are ignored). If the movement corresponds to the correct direction for the lit led, \nincrement the variable num_correct, otherwise increment num_wrong. Regardless of the \ncorrectness, after the joystick movement the led is immediately switched off. \nThe game continues for 10 sequence elements. After 10 elements, the game ends and the player's \nscore is evaluated. If num_correct > num_wrong, the player wins: turn on led 4 to indicate \nvictory. Otherwise, the player looses: turn on led 5 to indicate defeat. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_1.pdf",
+    "sha256": "4d1f2a9349357a96f0785b83bf347553e73bcd551ccac6d4086dbe5a545488f4",
+    "examId": "E2026-02-03-A1",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 3,
+        "excerpt": "A/D converter produces a 12-bit digital output. Display the 8 most significant bits of this result \nusing the LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to the least \nsignificant bit (of the displayed 8-bit value). \n \n2) When the user presses the Int0 button, take the last 8 most significant bits produced in the last \nA/D conversion (i.e., the 8-bit value displayed on the LEDs) and pass this value to the \nLook_and_say subroutine. Then, display the 8 least significant bits of the result on the LEDs. \nLED 4 corresponds to the most significant bit, and LED 11 corresponds to the least significant bit \nof the displayed result. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_2.pdf",
+    "sha256": "ecc909cda345d5f4bbd6c6978f0417a8921c5647290b8feaadba497438a44829",
+    "examId": "E2026-02-03-A2",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 3,
+        "excerpt": "A/D converter produces a 12-bit digital output. Display the 8 most significant bits of this result \nusing the LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to the least \nsignificant bit (of the displayed 8-bit value). \n \n2) When the user presses the Key1 button, take the last 8 most significant bits produced in the last \nA/D conversion (i.e., the 8-bit value displayed on the LEDs) and pass this value to the \nrun_length_encoding subroutine. Then, display the 8 least significant bits of the result on the \nLEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to the least \nsignificant bit of the displayed result. \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_3.pdf",
+    "sha256": "3b7d7638803bf8e8c0329eca34265667b4df7ad4c19a500b45b0e1566074d46b",
+    "examId": "E2026-02-03-A3",
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 2,
+        "excerpt": "1) Convert the analog value of the potentiometer to a digital value using the Analog-to-Digital \nConverter (ADC). The ADC produces a 12-bit digital output. Display the 8 most significant bits of \nthis result on the LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to \nthe least significant bit (of the displayed 8-bit value). \n \n2) When the user presses the Key2 button, call the Recaman subroutine passing: \n- an uninitialized array of integers \n- the 8 most significant bits produced by the last ADC conversion (i.e., the 8-bit value \ncurrently displayed on the LEDs) \n \nThe Recaman subroutine fills the array with the elements of the Recam\u00e1n sequence. Immediately \ndisplay the 8 least significant bits of the first element of the array on the LEDs (that is, since the \nfirst element is zero, all LEDs must be turned off). Then, display the 8 least significant bits of each \nsubsequent element at 2-second intervals. \n \nNote: the array may be defined statically, since its maximum number of elements is 255 \n(corresponding to the case in which the 8 most significant bits of the last ADC conversion are equal \nto 0xFF). \n "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_theory1.pdf",
+    "sha256": "c8ccc119aa4a5d1b866e02c56e8fa72f6b2dd0a6e7eb7ff7f1451b36bee07e70",
+    "examId": null,
+    "pages": 4,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_theory2.pdf",
+    "sha256": "03e8a102f56ab68fc99c48953f2aacbdb66e3a734d2db0d86039467b478d3d76",
+    "examId": null,
+    "pages": 4,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_theory3.pdf",
+    "sha256": "c718fbc9cbf160bbc72f2c58a7dbbe8ea516a4e05d8acdeda0400da86318eb4d",
+    "examId": null,
+    "pages": 5,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_1.pdf",
+    "sha256": "0ef4f9295c4d1d486e29a037ebdd0f159208e131d2fa26ce3723b223b0887fa2",
+    "examId": "E2026-02-18-A1",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 2,
+        "excerpt": "Question 2 (10 points) \nIn this part, you need 3 timers, referred to in the text as timer A, timer B, and timer C. You are free \nto choose which timer to use as timer A. For timer B and C, it is suggested to use two standard \nCapture/Compare timers. \nSome actions depend on whether a timer is running. You can use a flag or check the appropriate \ntimer register to determine whether a timer is active. \nAdd the following functionalities to your project. The goal of this exercise is to generate a musical \nrepresentation of the Hofstadter Q sequence by mapping its values to sound frequency and duration. \nP0.26). \nFinally, start timer A with a period of 50 ms. \n \n2) When timer A generates an interrupt, check whether timer B and timer C are running. If either of \nthem is running, the interrupt handler of timer A must terminate immediately. \nOtherwise increment an index i. This index is used to access the i-th element of the Hofstadter Q \nsequence. For example, at the first interrupt, you access the value Q(1), since timer B and timer C "
+      },
+      {
+        "page": 3,
+        "excerpt": "are initially stopped. Note that Q(1) is stored in v[0], Q(2) in v[1], and in general Q(n) is stored in \nv[n\u22121]. When i reaches 1000, you access the value Q(1000) and then stop the timer A. \n \nEach time you increment the index i, compute two thresholds according to the following formula: \ncompute ((Pmax - Pmin) / Qmax) \u2219 Q(i). \nThen, start timer B with the first threshold, so that when its timer counter reaches the threshold, an \ninterrupt is generated and the timer counter is reset. \nStart timer C with the second threshold, so that when its timer counter reaches the threshold, an \ninterrupt is generated and the timer counter is stopped and reset. \n \n3) Define the following array, which contains samples of a sinusoidal waveform: \n \nWhen timer B generates an interrupt, increment an index j. This index is used to access the j-th \nelement of SinTable. Use that element to feed the DAC. \nIf the index j reaches 45, you must reset it (without stopping the timer B). \n \n4) When timer C generates an interrupt, stop timer B. In other words, timer C determines the \nduration of the note played by timer B. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_2.pdf",
+    "sha256": "4dfecf2ee5556c9aa2b55184743e35fad063e50c0960233a80f5404312d458ea",
+    "examId": "E2026-02-18-A2",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 2,
+        "excerpt": "Question 2 (10 points) \nIn this part, you need 3 timers, referred to in the text as timer A, timer B, and timer C. You are free \nto choose which timer to use as timer A. For timer B and C, it is suggested to use two standard \nCapture/Compare timers. \nSome actions depend on whether a timer is running. You can use a flag or check the appropriate \ntimer register to determine whether a timer is active. \nAdd the following functionalities to your project. The goal of this exercise is to generate a musical \nrepresentation of the Hofstadter\u2013Conway $10,000 sequence by mapping its values to sound \nP0.26). \nFinally, start timer A with a period of 50 ms. \n \n2) When timer A generates an interrupt, check whether timer B and timer C are running. If either of \nthem is running, the interrupt handler of timer A must terminate immediately. \nOtherwise increment an index i. This index is used to access the i-th element of the Hofstadter\u2013\nConway $10,000 sequence. For example, at the first interrupt, you access the value a(1), since timer "
+      },
+      {
+        "page": 3,
+        "excerpt": "B2 \nB and timer C are initially stopped. Note that a(1) is stored in v[0], a(2) in v[1], and in general a(n) \nis stored in v[n\u22121]. When i reaches 1000, you access the value a(1000) and then stop the timer A. \n \nEach time you increment the index i, compute two thresholds according to the following formula: \ncompute ((Pmax - Pmin) / amax) \u2219 a(i). \nThen, start timer B with the first threshold, so that when its timer counter reaches the threshold, an \ninterrupt is generated and the timer counter is reset. \nStart timer C with the second threshold, so that when its timer counter reaches the threshold, an \ninterrupt is generated and the timer counter is stopped and reset. \n \n3) Define the following array, which contains samples of a sinusoidal waveform: \n \nWhen timer B generates an interrupt, increment an index j. This index is used to access the j-th \nelement of SinTable. Use that element to feed the DAC. \nIf the index j reaches 45, you must reset it (without stopping the timer B). \n \n4) When timer C generates an interrupt, stop timer B. In other words, timer C determines the \nduration of the note played by timer B. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_theory_1.pdf",
+    "sha256": "0c47defb844e3b063a2c92dcbf547708b094628c771a8513701f620270dcbdf7",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_theory_2.pdf",
+    "sha256": "07640b182f82ba59ca3bbddc5d62654fbdf353e3418f976000f60ae33f9ab4f0",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260225_theory_1.pdf",
+    "sha256": "4a3a01662862719aed954f7ebd0383002088495c4a43a5bf60a9c6a6067d69df",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260225_theory_2.pdf",
+    "sha256": "a89b53affd1e7ef387a201883f55ce5367497a2ac88bb362d142c1f35a9287bc",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_1.pdf",
+    "sha256": "a3f7eaca07f96a281382237948255abc1fadcfd2a3502d2e4d604921128fa2a8",
+    "examId": "E2026-06-25-B1",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 3,
+        "excerpt": "In this part, you implement a game of bulls and cows with the LPC1768 board. \nIn the main function, start a timer of your choice. \n \nThe player presses the joystick (i.e., select function) to start the game. In this first moment: \n- all LEDs are turned off \n- the player\u2019s guess is initialized to 0000 \n- the timer counter is used to generate the secret code. \nIn detail, the secret code is generated from the four least significant hexadecimal digits of the timer \ncounter. Each hexadecimal digit is masked with 0x3 in order to obtain a value in the range [0-3]. \nExample: timerCounter = 0x00121AB6 \n \nThe player moves the joystick to choose the four digits of their guess: \n- when the joystick moves down, the first digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[0] is displayed on LEDs \n10 and 11. For example, if guess[0] = 2, then LED 10 is turned on and LED 11 is turned off. \n- when the joystick moves left, the second digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[1] is displayed on LEDs \n8 and 9. \n- when the joystick moves right, the third digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[2] is displayed on LEDs \n6 and 7. \n- when the joystick moves up, the fourth digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[3] is displayed on LEDs \n4 and 5. \n \nWhen the player is satisfied with their guess, they press the joystick. The BullsAndCows \nsubroutine is then called passing guess, secret and two arrays initialized to zero. The value returned \nby the subroutine is shown on the LEDs, assuming LED4 represents the most significant digit and \nLED 11 the least significant one. \n \nThe player can press the joystick again to compose another guess. At this moment: \n- all LEDs are turned off \n- the player\u2019s guess is initialized to 0000 \nNote that the secret code must not be changed. \n \nThen, the game continues alternating between joystick movements to set the guess and subroutine \ncalls to compute the number of bulls and cows. The game ends when the number of bulls is 4, i.e., \nLEDs 4-7 are turned on and LEDs 8-11 are turned off. No specific action is required when the game \nends. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_2.pdf",
+    "sha256": "b643106147d4a20efe44ea7d6d39f1ec8dfc44d76d1625114779893efacb7124",
+    "examId": "E2026-06-25-B2",
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Reviewed question mapping",
+    "hardwareEvidence": [
+      {
+        "page": 1,
+        "excerpt": "each. \n5) The final project must run on the actual board (e.g., button debouncing is required). \n \n "
+      },
+      {
+        "page": 3,
+        "excerpt": "In this part, you implement a game of Mastermind with the LPC1768 board. \nIn the main function, start a timer of your choice. \n \nThe player presses the joystick (i.e., select function) to start the game. In this first moment: \n- all LEDs are turned off \n- the player\u2019s guess is initialized to 0000 \n- the timer counter is used to generate the secret code. \nIn detail, the secret code is generated from the four least significant hexadecimal digits of the timer \ncounter. Each hexadecimal digit is masked with 0x3 in order to obtain a value in the range [0-3]. \nExample: timerCounter = 0x00121AB6 \n \nThe player moves the joystick to choose the four digits of their guess: \n- when the joystick moves up, the first digit of the guess is incremented. If the value becomes \n4, then it is reset to 0. The binary representation of guess[0] is displayed on LEDs 10 and 11. \nFor example, if guess[0] = 2, then LED 10 is turned on and LED 11 is turned off. \n- when the joystick moves right, the second digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[1] is displayed on LEDs \n8 and 9. \n- when the joystick moves down, the third digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[2] is displayed on LEDs \n6 and 7. \n- when the joystick moves left, the fourth digit of the guess is incremented. If the value \nbecomes 4, then it is reset to 0. The binary representation of guess[3] is displayed on LEDs \n4 and 5. \n \nWhen the player is satisfied with their guess, they press the joystick. The Mastermind subroutine \nis then called passing guess, secret and two arrays initialized to zero. The value returned by the \nsubroutine is shown on the LEDs, assuming LED4 represents the most significant digit and LED 11 \nthe least significant one. \n \nThe player can press the joystick again to compose another guess. At this moment: \n- all LEDs are turned off \n- the player\u2019s guess is initialized to 0000 \nNote that the secret code must not be changed. \n \nThen, the game continues alternating between joystick movements to set the guess and subroutine \ncalls to compute the number of exact and partial matches. The game ends when the number of exact \nmatches is 4, i.e., LEDs 4-7 are turned on and LEDs 8-11 are turned off. No specific action is \nrequired when the game ends. "
+      }
+    ]
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_theory_solution_exe2.pdf",
+    "sha256": "67b6202ea11e8bf4808a3e0f74d8544030df276474b9588f769a68260cbfc639",
+    "examId": null,
+    "pages": 7,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam rules v3.pdf",
+    "sha256": "cfb6935cdf76e6357260e6dc666ff0b393580db3f4b59059644b06cd11376f50",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "Administrative material",
+    "evidence": "Exam rules or grading sheet, not an additional programming question."
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Exam rules.pdf",
+    "sha256": "748d5594dbe2dbf1c0733d77925143b7c1db4d2ae26c4c02d29d4376801c05c5",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "Administrative material",
+    "evidence": "Exam rules or grading sheet, not an additional programming question."
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/exam_report_guidelines.pdf",
+    "sha256": "dd849ceef13333dcd49078a6ce3fca1e1c008fe92355033978064ac9e36c07eb",
+    "examId": null,
+    "pages": 1,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/extrapoint_v2.pdf",
+    "sha256": "d26d0563a39432d1431d409add97b8b17c300c85787edfa8a288be1a972a3532",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "Administrative material",
+    "evidence": "Exam rules or grading sheet, not an additional programming question."
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20200128A1.pdf",
+    "sha256": "f4e57cb88521792622ee962c316a6a9561ea3d7c90e72c1e2b50f1e6eabd328b",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20200128A2.pdf",
+    "sha256": "35fec67f2f677a661c2f035a95777b1cec3d383b6ced9ed26021cf4821af14b2",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20200128B1.pdf",
+    "sha256": "a5b2d244d6d62a553431f3db00aecf8584b8cdb53a59a5847957f9b04d15d69e",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20200128B2.pdf",
+    "sha256": "531f90599f298162177b016fd6f8f972b25c4f3368c397025098bc7458fdc547",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20210203.pdf",
+    "sha256": "efa9563a88a5f75ff9ba317ca6aac40cdbbb39f13e0c309fb73b24a733ea51aa",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20210623.pdf",
+    "sha256": "d7d3203820c6258ab7b1705918cf51356b66db15b99bcc6dbbb6f2af8fddd069",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20210831.pdf",
+    "sha256": "9301d9efc693a0296bce0b51f91e58677ba4ec8c4ed881354a6fe230ac7bf7be",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20220512.pdf",
+    "sha256": "eb1e96dcf9f795b70a9e555c30418947b9677197fc604c2c4f72e068759f743b",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20220622.pdf",
+    "sha256": "0b9714cb117dee0488553971a5009a5a7e662f8b0afb0d43fa7cba7657dfefe1",
+    "examId": null,
+    "pages": 3,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  },
+  {
+    "path": "02_ORIGINAL_MATERIALS/Exams/Theory questions - with solutions/20250915.pdf",
+    "sha256": "35c1c423c90b3080bb314d179a2de4ec9f489d21bc51fe410478bcea6a1a77e3",
+    "examId": null,
+    "pages": 2,
+    "emptyPages": [],
+    "status": "No board-programming exercise identified; standalone algorithms, theory or administrative material",
+    "hardwareEvidence": []
+  }
+]

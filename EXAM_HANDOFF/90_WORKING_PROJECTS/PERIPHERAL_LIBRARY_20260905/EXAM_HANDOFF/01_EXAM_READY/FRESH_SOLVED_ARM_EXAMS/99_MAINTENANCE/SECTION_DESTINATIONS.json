@@ -1,0 +1,699 @@
+{
+  "Signed and unsigned array sorting": {
+    "section": "Algorithms",
+    "route": "algorithms/selection-sort.html",
+    "projects": [
+      "algorithm-pat-alg-selection-sort-001-assembly",
+      "algorithm-pat-alg-selection-sort-001-c",
+      "algorithm-selection-sort-unsigned-assembly",
+      "algorithm-selection-sort-unsigned-c",
+      "algorithm-foundation-byte-sort-assembly",
+      "algorithm-foundation-byte-sort-c",
+      "algorithm-foundation-byte-sort-unsigned-assembly",
+      "algorithm-foundation-byte-sort-unsigned-c"
+    ]
+  },
+  "Bounded recurrence into an array": {
+    "section": "Algorithms",
+    "route": "algorithms/indirect-index-recurrence.html",
+    "projects": [
+      "algorithm-pat-alg-indirect-recurrence-001-assembly",
+      "algorithm-pat-alg-indirect-recurrence-001-c"
+    ]
+  },
+  "Matrix and graph traversal": {
+    "section": "Algorithms",
+    "route": "algorithms/breadth-first-search.html",
+    "projects": [
+      "algorithm-pat-alg-bfs-001-assembly",
+      "algorithm-pat-alg-bfs-001-c"
+    ]
+  },
+  "Frequency-count comparison": {
+    "section": "Algorithms",
+    "route": "algorithms/consume-once-duplicate-safe-matching.html",
+    "projects": [
+      "game-bulls-cows",
+      "game-mastermind"
+    ]
+  },
+  "Fixed-point multiply and recurrence": {
+    "section": "Algorithms",
+    "route": "algorithms/fixed-point-multiply-and-recurrence.html",
+    "projects": [
+      "algorithm-foundation-q15-assembly",
+      "algorithm-foundation-q15-c"
+    ]
+  },
+  "Nested loops with preserved outer state": {
+    "section": "ASM Reference",
+    "route": "asm/technique-nested-loops-with-preserved-outer-state.html",
+    "projects": [
+      "algorithm-foundation-pair-assembly",
+      "algorithm-foundation-pair-c"
+    ]
+  },
+  "Balanced early exit from inner search": {
+    "section": "ASM Reference",
+    "route": "asm/technique-balanced-early-exit-from-inner-search.html",
+    "projects": [
+      "algorithm-foundation-pair-assembly",
+      "algorithm-foundation-pair-c"
+    ]
+  },
+  "Signed and unsigned byte arrays": {
+    "section": "ASM Reference",
+    "route": "asm/technique-signed-and-unsigned-byte-arrays.html",
+    "projects": [
+      "algorithm-foundation-matrix-byte-assembly",
+      "algorithm-foundation-matrix-byte-c",
+      "algorithm-foundation-matrix-signed-byte-assembly",
+      "algorithm-foundation-matrix-signed-byte-c"
+    ]
+  },
+  "Word-array traversal": {
+    "section": "ASM Reference",
+    "route": "asm/technique-word-array-traversal.html",
+    "projects": [
+      "algorithm-foundation-word-max-assembly",
+      "algorithm-foundation-word-max-c"
+    ]
+  },
+  "Row-major matrix addressing": {
+    "section": "ASM Reference",
+    "route": "asm/technique-row-major-matrix-addressing.html",
+    "projects": [
+      "algorithm-foundation-matrix-byte-assembly",
+      "algorithm-foundation-matrix-byte-c"
+    ]
+  },
+  "Four-register argument contract": {
+    "section": "ASM Reference",
+    "route": "asm/technique-four-register-argument-contract.html",
+    "projects": [
+      "algorithm-foundation-pair-assembly",
+      "algorithm-foundation-pair-c"
+    ]
+  },
+  "Fifth and later arguments": {
+    "section": "ASM Reference",
+    "route": "asm/technique-fifth-and-later-arguments.html",
+    "projects": [
+      "algorithm-foundation-sum7-assembly",
+      "algorithm-foundation-sum7-c"
+    ]
+  },
+  "Non-leaf prologue and epilogue": {
+    "section": "ASM Reference",
+    "route": "asm/technique-non-leaf-prologue-and-epilogue.html",
+    "projects": [
+      "algorithm-foundation-nonleaf-assembly",
+      "algorithm-foundation-nonleaf-c"
+    ]
+  },
+  "APSR flag contract": {
+    "section": "ASM Reference",
+    "route": "asm/technique-apsr-flag-contract.html",
+    "projects": [
+      "algorithm-foundation-flags-assembly",
+      "algorithm-foundation-flags-c"
+    ]
+  },
+  "SVC immediate decoding": {
+    "section": "Solution Patterns",
+    "route": "patterns/svc-immediate-decoding.html",
+    "projects": [
+      "svc-frame"
+    ]
+  },
+  "MSP/PSP exception-frame selection": {
+    "section": "Solution Patterns",
+    "route": "patterns/msp-psp-exception-frame-selection.html",
+    "projects": [
+      "svc-frame"
+    ]
+  },
+  "Timer setup and ownership": {
+    "section": "Solution Patterns",
+    "route": "patterns/timer-setup-and-ownership.html",
+    "projects": [
+      "timer-periodic",
+      "timer-one-shot",
+      "timer-pause-resume",
+      "timer-exact-ticks",
+      "timer-multiple-matches",
+      "timer-capture-pin"
+    ]
+  },
+  "GPIO event capture": {
+    "section": "Solution Patterns",
+    "route": "patterns/gpio-event-capture.html",
+    "projects": [
+      "buttons-rit-timer",
+      "buttons-systick-timer",
+      "raw-capture-ff",
+      "ordered-binary",
+      "ordered-parameters"
+    ]
+  },
+  "Joystick event state machine": {
+    "section": "Solution Patterns",
+    "route": "patterns/joystick-event-state-machine.html",
+    "projects": [
+      "game-bulls-cows",
+      "game-mastermind",
+      "joystick-release",
+      "rhythm-first-movement"
+    ]
+  },
+  "ADC sample conversion": {
+    "section": "Solution Patterns",
+    "route": "patterns/adc-sample-conversion.html",
+    "projects": [
+      "adc-button-sequence",
+      "adc-percentage"
+    ]
+  },
+  "DAC table streaming": {
+    "section": "Solution Patterns",
+    "route": "patterns/dac-table-streaming.html",
+    "projects": [
+      "dac-stream",
+      "dac-button-once",
+      "dac-duration",
+      "dac-three-timer-notes"
+    ]
+  },
+  "ISR-to-foreground event loop": {
+    "section": "Solution Patterns",
+    "route": "patterns/isr-to-foreground-event-loop.html",
+    "projects": [
+      "event-handoff",
+      "buttons-rit-timer"
+    ]
+  },
+  "Deterministic debounce": {
+    "section": "Solution Patterns",
+    "route": "patterns/deterministic-debounce.html",
+    "projects": [
+      "buttons-rit-timer",
+      "buttons-systick-timer"
+    ]
+  },
+  "Periodic match scheduling": {
+    "section": "Solution Patterns",
+    "route": "patterns/periodic-match-scheduling.html",
+    "projects": [
+      "timer-periodic",
+      "timer-multiple-matches",
+      "dac-duration"
+    ]
+  },
+  "Free-running timer seed": {
+    "section": "Solution Patterns",
+    "route": "patterns/free-running-timer-seed.html",
+    "projects": [
+      "raw-capture-ff",
+      "raw-capture-ffff"
+    ]
+  },
+  "Register preservation and stack safety": {
+    "section": "ASM Reference",
+    "route": "asm/technique-register-preservation-and-stack-safety.html",
+    "projects": [
+      "algorithm-foundation-sum7-assembly",
+      "algorithm-foundation-sum7-c"
+    ]
+  },
+  "Atomic ISR event handoff": {
+    "section": "Solution Patterns",
+    "route": "patterns/atomic-isr-event-handoff.html",
+    "projects": [
+      "event-handoff",
+      "ordered-binary"
+    ]
+  },
+  "Exclusive interrupt-vector ownership": {
+    "section": "Solution Patterns",
+    "route": "patterns/exclusive-interrupt-vector-ownership.html",
+    "projects": [
+      "buttons-rit-timer",
+      "dac-duration",
+      "svc-frame"
+    ]
+  },
+  "Assembly objects and exported symbols": {
+    "section": "ASM Reference",
+    "route": "asm/technique-assembly-objects-and-exported-symbols.html",
+    "projects": [
+      "algorithm-pat-data-asm-objects-001-assembly",
+      "algorithm-pat-data-asm-objects-001-c"
+    ]
+  },
+  "Signed 64-by-32 restoring division": {
+    "section": "Algorithms",
+    "route": "algorithms/signed-64-by-32-restoring-division.html",
+    "projects": [
+      "algorithm-pat-alg-wide-division-001-assembly",
+      "algorithm-pat-alg-wide-division-001-c"
+    ]
+  },
+  "Packed 8x8 bit-matrix transpose": {
+    "section": "Algorithms",
+    "route": "algorithms/packed-8x8-bit-matrix-transpose.html",
+    "projects": [
+      "algorithm-pat-mem-packed-transpose-001-assembly",
+      "algorithm-pat-mem-packed-transpose-001-c"
+    ]
+  },
+  "Packed binary matrix multiplication": {
+    "section": "Algorithms",
+    "route": "algorithms/packed-binary-matrix-multiplication.html",
+    "projects": [
+      "algorithm-pat-alg-packed-matmul-001-assembly",
+      "algorithm-pat-alg-packed-matmul-001-c"
+    ]
+  },
+  "Bounded DFS with an explicit stack": {
+    "section": "Algorithms",
+    "route": "algorithms/bounded-dfs-with-an-explicit-stack.html",
+    "projects": [
+      "algorithm-pat-alg-dfs-stack-001-assembly",
+      "algorithm-pat-alg-dfs-stack-001-c"
+    ]
+  },
+  "Component-label merge": {
+    "section": "Algorithms",
+    "route": "algorithms/component-label-merge.html",
+    "projects": [
+      "algorithm-pat-alg-component-merge-001-assembly",
+      "algorithm-pat-alg-component-merge-001-c"
+    ]
+  },
+  "Five-argument linear congruential generator": {
+    "section": "Algorithms",
+    "route": "algorithms/five-argument-linear-congruential-generator.html",
+    "projects": [
+      "algorithm-pat-alg-lcg-001-assembly",
+      "algorithm-pat-alg-lcg-001-c"
+    ]
+  },
+  "Run-length encoding": {
+    "section": "Algorithms",
+    "route": "algorithms/run-length-encoding.html",
+    "projects": [
+      "algorithm-pat-alg-run-length-001-assembly",
+      "algorithm-pat-alg-run-length-001-c"
+    ]
+  },
+  "Bounded look-and-say generation": {
+    "section": "Algorithms",
+    "route": "algorithms/bounded-look-and-say-generation.html",
+    "projects": [
+      "algorithm-pat-alg-look-and-say-001-assembly",
+      "algorithm-pat-alg-look-and-say-001-c"
+    ]
+  },
+  "Indirect-index recurrence": {
+    "section": "Algorithms",
+    "route": "algorithms/indirect-index-recurrence.html",
+    "projects": [
+      "algorithm-pat-alg-indirect-recurrence-001-assembly",
+      "algorithm-pat-alg-indirect-recurrence-001-c"
+    ]
+  },
+  "Signed min max and sum reduction": {
+    "section": "Algorithms",
+    "route": "algorithms/signed-min-max-and-sum-reduction.html",
+    "projects": [
+      "algorithm-pat-alg-reduction-001-assembly",
+      "algorithm-pat-alg-reduction-001-c"
+    ]
+  },
+  "Consume-once duplicate-safe matching": {
+    "section": "Algorithms",
+    "route": "algorithms/consume-once-duplicate-safe-matching.html",
+    "projects": [
+      "algorithm-pat-alg-consume-once-match-001-assembly",
+      "algorithm-pat-alg-consume-once-match-001-c"
+    ]
+  },
+  "Linear search variants": {
+    "section": "Algorithms",
+    "route": "algorithms/linear-search-variants.html",
+    "projects": [
+      "algorithm-pat-alg-linear-search-001-assembly",
+      "algorithm-pat-alg-linear-search-001-c"
+    ]
+  },
+  "Binary search and lower bound": {
+    "section": "Algorithms",
+    "route": "algorithms/binary-search-and-lower-bound.html",
+    "projects": [
+      "algorithm-pat-alg-binary-search-001-assembly",
+      "algorithm-pat-alg-binary-search-001-c"
+    ]
+  },
+  "In-place array reversal": {
+    "section": "Algorithms",
+    "route": "algorithms/in-place-array-reversal.html",
+    "projects": [
+      "algorithm-pat-alg-array-reversal-001-assembly",
+      "algorithm-pat-alg-array-reversal-001-c"
+    ]
+  },
+  "Left and right array rotation": {
+    "section": "Algorithms",
+    "route": "algorithms/left-and-right-array-rotation.html",
+    "projects": [
+      "algorithm-pat-alg-array-rotation-001-assembly",
+      "algorithm-pat-alg-array-rotation-001-c"
+    ]
+  },
+  "Selection sort": {
+    "section": "Algorithms",
+    "route": "algorithms/selection-sort.html",
+    "projects": [
+      "algorithm-pat-alg-selection-sort-001-assembly",
+      "algorithm-pat-alg-selection-sort-001-c"
+    ]
+  },
+  "Bubble sort with early termination": {
+    "section": "Algorithms",
+    "route": "algorithms/bubble-sort-with-early-termination.html",
+    "projects": [
+      "algorithm-pat-alg-bubble-sort-001-assembly",
+      "algorithm-pat-alg-bubble-sort-001-c"
+    ]
+  },
+  "Stable merge sort": {
+    "section": "Algorithms",
+    "route": "algorithms/stable-merge-sort.html",
+    "projects": [
+      "algorithm-pat-alg-merge-sort-001-assembly",
+      "algorithm-pat-alg-merge-sort-001-c"
+    ]
+  },
+  "Partition-based quicksort": {
+    "section": "Algorithms",
+    "route": "algorithms/partition-based-quicksort.html",
+    "projects": [
+      "algorithm-pat-alg-quicksort-001-assembly",
+      "algorithm-pat-alg-quicksort-001-c"
+    ]
+  },
+  "Heap construction and heap sort": {
+    "section": "Algorithms",
+    "route": "algorithms/heap-construction-and-heap-sort.html",
+    "projects": [
+      "algorithm-pat-alg-heap-sort-001-assembly",
+      "algorithm-pat-alg-heap-sort-001-c"
+    ]
+  },
+  "Bounded counting sort": {
+    "section": "Algorithms",
+    "route": "algorithms/bounded-counting-sort.html",
+    "projects": [
+      "algorithm-pat-alg-counting-sort-001-assembly",
+      "algorithm-pat-alg-counting-sort-001-c"
+    ]
+  },
+  "Euclidean GCD and overflow-aware LCM": {
+    "section": "Algorithms",
+    "route": "algorithms/euclidean-gcd-and-overflow-aware-lcm.html",
+    "projects": [
+      "algorithm-pat-alg-gcd-lcm-001-assembly",
+      "algorithm-pat-alg-gcd-lcm-001-c"
+    ]
+  },
+  "Prime testing and trial factorization": {
+    "section": "Algorithms",
+    "route": "algorithms/prime-testing-and-trial-factorization.html",
+    "projects": [
+      "algorithm-pat-alg-prime-factorization-001-assembly",
+      "algorithm-pat-alg-prime-factorization-001-c"
+    ]
+  },
+  "Integer square root": {
+    "section": "Algorithms",
+    "route": "algorithms/integer-square-root.html",
+    "projects": [
+      "algorithm-pat-alg-integer-sqrt-001-assembly",
+      "algorithm-pat-alg-integer-sqrt-001-c"
+    ]
+  },
+  "Exponentiation by squaring": {
+    "section": "Algorithms",
+    "route": "algorithms/exponentiation-by-squaring.html",
+    "projects": [
+      "algorithm-pat-alg-fast-power-001-assembly",
+      "algorithm-pat-alg-fast-power-001-c"
+    ]
+  },
+  "Decimal digit algorithms": {
+    "section": "Algorithms",
+    "route": "algorithms/decimal-digit-algorithms.html",
+    "projects": [
+      "algorithm-pat-alg-decimal-digits-001-assembly",
+      "algorithm-pat-alg-decimal-digits-001-c"
+    ]
+  },
+  "Population count and parity": {
+    "section": "Algorithms",
+    "route": "algorithms/population-count-and-parity.html",
+    "projects": [
+      "algorithm-pat-alg-popcount-parity-001-assembly",
+      "algorithm-pat-alg-popcount-parity-001-c"
+    ]
+  },
+  "Bitfield extraction insertion and packing": {
+    "section": "Algorithms",
+    "route": "algorithms/bitfield-extraction-insertion-and-packing.html",
+    "projects": [
+      "algorithm-pat-alg-bitfield-001-assembly",
+      "algorithm-pat-alg-bitfield-001-c"
+    ]
+  },
+  "Clamp absolute saturation and overflow": {
+    "section": "Algorithms",
+    "route": "algorithms/clamp-absolute-saturation-and-overflow.html",
+    "projects": [
+      "algorithm-pat-alg-saturating-arithmetic-001-assembly",
+      "algorithm-pat-alg-saturating-arithmetic-001-c"
+    ]
+  },
+  "Prefix sums and range sums": {
+    "section": "Algorithms",
+    "route": "algorithms/prefix-sums-and-range-sums.html",
+    "projects": [
+      "algorithm-pat-alg-prefix-sum-001-assembly",
+      "algorithm-pat-alg-prefix-sum-001-c"
+    ]
+  },
+  "Histogram frequency and mode": {
+    "section": "Algorithms",
+    "route": "algorithms/histogram-frequency-and-mode.html",
+    "projects": [
+      "algorithm-pat-alg-histogram-mode-001-assembly",
+      "algorithm-pat-alg-histogram-mode-001-c"
+    ]
+  },
+  "Horner polynomial evaluation": {
+    "section": "Algorithms",
+    "route": "algorithms/horner-polynomial-evaluation.html",
+    "projects": [
+      "algorithm-pat-alg-horner-001-assembly",
+      "algorithm-pat-alg-horner-001-c"
+    ]
+  },
+  "Moving average and sliding window": {
+    "section": "Algorithms",
+    "route": "algorithms/moving-average-and-sliding-window.html",
+    "projects": [
+      "algorithm-pat-alg-moving-average-001-assembly",
+      "algorithm-pat-alg-moving-average-001-c"
+    ]
+  },
+  "Bounded string primitives": {
+    "section": "Algorithms",
+    "route": "algorithms/bounded-string-primitives.html",
+    "projects": [
+      "algorithm-pat-alg-string-primitives-001-assembly",
+      "algorithm-pat-alg-string-primitives-001-c"
+    ]
+  },
+  "Overlap-safe memory movement": {
+    "section": "Algorithms",
+    "route": "algorithms/overlap-safe-memory-movement.html",
+    "projects": [
+      "algorithm-pat-alg-memmove-001-assembly",
+      "algorithm-pat-alg-memmove-001-c"
+    ]
+  },
+  "Checksums and CRC table structure": {
+    "section": "Algorithms",
+    "route": "algorithms/checksums-and-crc-table-structure.html",
+    "projects": [
+      "algorithm-pat-alg-checksum-crc-001-assembly",
+      "algorithm-pat-alg-checksum-crc-001-c"
+    ]
+  },
+  "Circular ring buffer": {
+    "section": "Algorithms",
+    "route": "algorithms/circular-ring-buffer.html",
+    "projects": [
+      "algorithm-pat-ds-ring-buffer-001-assembly",
+      "algorithm-pat-ds-ring-buffer-001-c"
+    ]
+  },
+  "Array-backed stack": {
+    "section": "Algorithms",
+    "route": "algorithms/array-backed-stack.html",
+    "projects": [
+      "algorithm-pat-ds-stack-001-assembly",
+      "algorithm-pat-ds-stack-001-c"
+    ]
+  },
+  "Circular queue": {
+    "section": "Algorithms",
+    "route": "algorithms/circular-queue.html",
+    "projects": [
+      "algorithm-pat-ds-circular-queue-001-assembly",
+      "algorithm-pat-ds-circular-queue-001-c"
+    ]
+  },
+  "Singly linked-list operations": {
+    "section": "Algorithms",
+    "route": "algorithms/singly-linked-list-operations.html",
+    "projects": [
+      "algorithm-pat-ds-linked-list-001-assembly",
+      "algorithm-pat-ds-linked-list-001-c"
+    ]
+  },
+  "Breadth-first search": {
+    "section": "Algorithms",
+    "route": "algorithms/breadth-first-search.html",
+    "projects": [
+      "algorithm-pat-alg-bfs-001-assembly",
+      "algorithm-pat-alg-bfs-001-c"
+    ]
+  },
+  "Recursive DFS with depth contract": {
+    "section": "Algorithms",
+    "route": "algorithms/recursive-dfs-with-depth-contract.html",
+    "projects": [
+      "algorithm-pat-alg-recursive-dfs-001-assembly",
+      "algorithm-pat-alg-recursive-dfs-001-c"
+    ]
+  },
+  "Flood fill and maze propagation": {
+    "section": "Algorithms",
+    "route": "algorithms/flood-fill-and-maze-propagation.html",
+    "projects": [
+      "algorithm-pat-alg-flood-fill-001-assembly",
+      "algorithm-pat-alg-flood-fill-001-c"
+    ]
+  },
+  "Dijkstra shortest path": {
+    "section": "Algorithms",
+    "route": "algorithms/dijkstra-shortest-path.html",
+    "projects": [
+      "algorithm-pat-alg-dijkstra-001-assembly",
+      "algorithm-pat-alg-dijkstra-001-c"
+    ]
+  },
+  "Union-find with compression and rank": {
+    "section": "Algorithms",
+    "route": "algorithms/union-find-with-compression-and-rank.html",
+    "projects": [
+      "algorithm-pat-ds-union-find-001-assembly",
+      "algorithm-pat-ds-union-find-001-c"
+    ]
+  },
+  "Bounded zero-one knapsack": {
+    "section": "Algorithms",
+    "route": "algorithms/bounded-zero-one-knapsack.html",
+    "projects": [
+      "algorithm-pat-alg-knapsack-001-assembly",
+      "algorithm-pat-alg-knapsack-001-c"
+    ]
+  },
+  "Coin change": {
+    "section": "Algorithms",
+    "route": "algorithms/coin-change.html",
+    "projects": [
+      "algorithm-pat-alg-coin-change-001-assembly",
+      "algorithm-pat-alg-coin-change-001-c"
+    ]
+  },
+  "Longest increasing subsequence": {
+    "section": "Algorithms",
+    "route": "algorithms/longest-increasing-subsequence.html",
+    "projects": [
+      "algorithm-pat-alg-lis-001-assembly",
+      "algorithm-pat-alg-lis-001-c"
+    ]
+  },
+  "Edit distance": {
+    "section": "Algorithms",
+    "route": "algorithms/edit-distance.html",
+    "projects": [
+      "algorithm-pat-alg-edit-distance-001-assembly",
+      "algorithm-pat-alg-edit-distance-001-c"
+    ]
+  },
+  "Question prose to a contract": {
+    "section": "Guides",
+    "route": "guides/technique-question-prose-to-a-contract.html",
+    "projects": [
+      "ordered-binary"
+    ]
+  },
+  "Assembly stub to real integration": {
+    "section": "Guides",
+    "route": "guides/technique-assembly-stub-to-real-integration.html",
+    "projects": [
+      "algorithm-foundation-word-max-assembly"
+    ]
+  },
+  "Multi-peripheral ownership plan": {
+    "section": "Solution Patterns",
+    "route": "patterns/multi-peripheral-ownership-plan.html",
+    "projects": [
+      "buttons-rit-timer",
+      "dac-duration"
+    ]
+  },
+  "Event flags counters and queues": {
+    "section": "Solution Patterns",
+    "route": "patterns/event-flags-counters-and-queues.html",
+    "projects": [
+      "event-handoff",
+      "timer-periodic",
+      "ordered-binary",
+      "algorithm-pat-ds-ring-buffer-001-c"
+    ]
+  },
+  "Restart and persistent state": {
+    "section": "Solution Patterns",
+    "route": "patterns/restart-and-persistent-state.html",
+    "projects": [
+      "game-bulls-cows"
+    ]
+  },
+  "Adapt a partial pattern match": {
+    "section": "Guides",
+    "route": "guides/technique-adapt-a-partial-pattern-match.html",
+    "projects": [
+      "algorithm-foundation-matrix-byte-assembly",
+      "algorithm-foundation-matrix-signed-byte-assembly"
+    ]
+  },
+  "Build recovery and submission": {
+    "section": "Guides",
+    "route": "guides/technique-build-recovery-and-submission.html",
+    "projects": [
+      "buttons-rit-timer"
+    ]
+  }
+}

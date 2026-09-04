@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Compute exact and partial Mastermind matches with used-position arrays and pack the score.; Implement the full joystick Mastermind game with the paper-specific direction mapping.">
+  <title>2026-06-25 ARM 2 Mastermind · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2026-06-25 ARM 2 Mastermind</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2026-06-25 ARM 2 Mastermind</h1><p>Compute exact and partial Mastermind matches with used-position arrays and pack the score.; Implement the full joystick Mastermind game with the paper-specific direction mapping.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section data-exam-search-metadata class="section-block"><h2 id="exam-topics">Exam topics</h2><p>Whole paper · 2026-06-25 · ARM 2 Mastermind</p><p><strong>Algorithms:</strong> <a href="../search.html?q=Arrays&amp;kind=Past+Exams">Arrays</a> · <a href="../search.html?q=Games&amp;kind=Past+Exams">Games</a> · <a href="../search.html?q=Decimal&amp;kind=Past+Exams">Decimal</a></p><p><strong>Hardware:</strong> <a href="../search.html?q=LED&amp;kind=Past+Exams">LED</a> · <a href="../search.html?q=Timer0&amp;kind=Past+Exams">Timer0</a> · <a href="../search.html?q=RIT&amp;kind=Past+Exams">RIT</a> · <a href="../search.html?q=Joystick&amp;kind=Past+Exams">Joystick</a></p></section><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2026-06-25</dd></div><div class="fact"><dt>Variant</dt><dd>ARM 2 Mastermind</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Timer0, RIT, Joystick</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/Exam%2025.06.2206/20260625_ARM_2.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Compute exact and partial Mastermind matches with used-position arrays and pack the score.</p><div class="tag-list"><span class="tag">Arrays</span><span class="tag">Games</span></div><p><a href="2026-06-25-arm2-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/sorted-merge.html">Study Arrays</a></p></article><article class="question"><h3>Q2</h3><p>Implement the full joystick Mastermind game with the paper-specific direction mapping.</p><div class="tag-list"><span class="tag">Decimal</span><span class="tag">Games</span><span class="tag">LED</span><span class="tag">Timer0</span><span class="tag">RIT</span><span class="tag">Joystick</span></div><p><a href="2026-06-25-arm2-q2.html">Read complete solution for Q2</a></p><p><a href="../algorithms/decimal-digit-algorithms.html">Study Decimal</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Timer0, RIT, Joystick.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Arrays, Games, Decimal. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-06-25_ARM2_Mastermind/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+enum {
+  EXAM_EVENT_JOYSTICK = 1u &lt;&lt; 1
+};
+
+extern int Mastermind(int guess[4], int secret[4],
+                      int usedGuess[4], int usedSecret[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int usedGuess[4];
+static int usedSecret[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] &lt;&lt; 0) |
+                             ((uint32_t)guess[1] &lt;&lt; 2) |
+                             ((uint32_t)guess[2] &lt;&lt; 4) |
+                             ((uint32_t)guess[3] &lt;&lt; 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) {
+    secret[i] = (int)((timer_value &gt;&gt; (i * 4u)) &amp; 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) &amp; 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  result = Mastermind(guess, secret, usedGuess, usedSecret);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result &gt;&gt; 4) &amp; 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) &amp; EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges &amp; EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges &amp; EXAM_JOY_UP) != 0u) increment_digit(0u);
+    if ((edges &amp; EXAM_JOY_RIGHT) != 0u) increment_digit(1u);
+    if ((edges &amp; EXAM_JOY_DOWN) != 0u) increment_digit(2u);
+    if ((edges &amp; EXAM_JOY_LEFT) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-06-25_ARM2_Mastermind/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Mastermind
+
+; int Mastermind(int guess[4], int secret[4],
+;                int usedGuess[4], int usedSecret[4]);
+; R0=guess, R1=secret, R2=usedGuess, R3=usedSecret.
+Mastermind      PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+mm_exact_loop   CMP     R10, #4
+                BHS     mm_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     mm_exact_next
+                ADDS    R8, R8, #1
+                MOVS    R2, #1
+                STR     R2, [R6, R10, LSL #2]
+                STR     R2, [R7, R10, LSL #2]
+mm_exact_next   ADDS    R10, R10, #1
+                B       mm_exact_loop
+
+mm_exact_done   MOVS    R10, #0
+mm_outer_loop   CMP     R10, #4
+                BHS     mm_return
+                LDR     R0, [R6, R10, LSL #2]
+                CMP     R0, #0
+                BNE     mm_outer_next
+                LDR     R2, [R4, R10, LSL #2]
+                MOVS    R11, #0
+
+mm_inner_loop   CMP     R11, #4
+                BHS     mm_outer_next
+                LDR     R0, [R7, R11, LSL #2]
+                CMP     R0, #0
+                BNE     mm_inner_next
+                LDR     R1, [R5, R11, LSL #2]
+                CMP     R2, R1
+                BNE     mm_inner_next
+                ADDS    R9, R9, #1
+                MOVS    R0, #1
+                STR     R0, [R6, R10, LSL #2]
+                STR     R0, [R7, R11, LSL #2]
+                B       mm_outer_next
+
+mm_inner_next   ADDS    R11, R11, #1
+                B       mm_inner_loop
+mm_outer_next   ADDS    R10, R10, #1
+                B       mm_outer_loop
+
+mm_return       MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/signed-and-unsigned-byte-arrays.html">Signed and unsigned byte arrays</a></li><li><a href="../patterns/joystick-event-state-machine.html">Joystick event state machine</a></li><li><a href="../patterns/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../patterns/population-count-and-parity.html">Population count and parity</a></li><li><a href="../algorithms/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../algorithms/decimal-extraction-and-reconstruction.html">Decimal extraction and reconstruction</a></li><li><a href="../algorithms/decimal-digit-count.html">Decimal digit count</a></li><li><a href="../algorithms/decimal-digit-product.html">Decimal digit product</a></li><li><a href="../algorithms/checked-decimal-reversal.html">Checked decimal reversal</a></li><li><a href="../algorithms/sorted-merge.html">Merge two sorted arrays</a></li><li><a href="../algorithms/array-bit-differences.html">Total bit differences between word arrays</a></li><li><a href="../algorithms/parse-u32.html">Checked unsigned decimal parsing</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "checks": 24,
+  "errors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "api-desktop.png",
+    "exams-desktop.png",
+    "global-desktop.png",
+    "narrow-api-index.html.png",
+    "narrow-exams-index.html.png",
+    "narrow-search.html.png",
+    "question-topics-desktop.png"
+  ]
+}

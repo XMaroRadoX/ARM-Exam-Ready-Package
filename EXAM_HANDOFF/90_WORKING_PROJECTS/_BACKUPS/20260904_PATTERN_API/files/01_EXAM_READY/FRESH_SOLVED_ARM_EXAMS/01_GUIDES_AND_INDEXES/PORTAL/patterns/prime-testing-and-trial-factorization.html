@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Prime testing and trial factorization · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Prime testing and trial factorization</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Prime testing and trial factorization</h1><p>A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Loops and state</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Appeared in past exams</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Test/divide small positive integers.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Do not test divisor squared in a type that may overflow.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Bound factor output capacity and choose trial step policy.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Handle n&lt;2
+2. try divisors while d&lt;=n/d
+3. divide factors repeatedly
+4. emit residual</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>12 -&gt; factor2 twice -&gt;3 -&gt; factors2,2,3.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Bound factor output capacity and choose trial step policy.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Do not test divisor squared in a type that may overflow.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Bound factor output capacity and choose trial step policy.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>0,1,2; perfect square; prime; repeated factors.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Do not test divisor squared in a type that may overflow. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-PRIME-FACTORIZATION-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Prime testing and trial factorization.
+ * Recognition cue: test prime using divisors through square root.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+int pat_alg_prime_factorization_001(uint32_t value) {
+  uint32_t divisor;
+
+  if (value &lt; 2u) {
+    return 0;
+  }
+  if ((value &amp; 1u) == 0u) {
+    return value == 2u;
+  }
+  for (divisor = 3u; divisor &lt;= value / divisor; divisor += 2u) {
+    if ((value % divisor) == 0u) {
+      return 0;
+    }
+  }
+  return 1;
+}
+
+uint32_t pat_alg_prime_factorization_001_factorize(uint32_t value,
+                                                   uint32_t *factors,
+                                                   uint32_t capacity) {
+  uint32_t divisor = 2u;
+  uint32_t count = 0u;
+
+  if ((factors == NULL) &amp;&amp; (capacity != 0u)) {
+    return 0u;
+  }
+  while ((value &gt; 1u) &amp;&amp; (divisor &lt;= value / divisor)) {
+    while ((value % divisor) == 0u) {
+      if (count &lt; capacity) {
+        factors[count] = divisor;
+      }
+      ++count;
+      value /= divisor;
+    }
+    divisor = (divisor == 2u) ? 3u : divisor + 2u;
+  }
+  if (value &gt; 1u) {
+    if (count &lt; capacity) {
+      factors[count] = value;
+    }
+    ++count;
+  }
+  return count;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  return pat_alg_prime_factorization_001(29) &amp;&amp;
+         !pat_alg_prime_factorization_001(21) &amp;&amp;
+         !pat_alg_prime_factorization_001(1);
+}
+static int pattern_edge_vectors(void) {
+  uint32_t f[4] = {0};
+  return pat_alg_prime_factorization_001(2) &amp;&amp;
+         !pat_alg_prime_factorization_001(0) &amp;&amp;
+         pat_alg_prime_factorization_001_factorize(12, f, 4) == 3 &amp;&amp;
+         f[0] == 2 &amp;&amp; f[1] == 2 &amp;&amp; f[2] == 3 &amp;&amp;
+         pat_alg_prime_factorization_001_factorize(1, f, 4) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-PRIME-FACTORIZATION-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from reference.c.
+; Verification status: COMPILE_ONLY until executed in a simulator/board.
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  pat_alg_prime_factorization_001
+                EXPORT  pat_alg_prime_factorization_001_factorize
+
+                ALIGN   2
+pat_alg_prime_factorization_001
+; %bb.0:
+	cmp	r0, #2
+	bhs	LBB0_2
+LBB0_1
+	movs	r0, #0
+	bx	lr
+LBB0_2
+	lsls	r1, r0, #31
+	bne	LBB0_4
+; %bb.3:
+	subs	r0, #2
+	clz	r0, r0
+	lsrs	r0, r0, #5
+	bx	lr
+LBB0_4
+	cmp	r0, #9
+	itt	lo
+	movlo	r0, #1
+	bxlo	lr
+LBB0_5
+	movs	r1, #3
+                ALIGN   2
+LBB0_6                                ; =&gt;This Inner Loop Header: Depth=1
+	udiv	r2, r0, r1
+	mls	r2, r2, r1, r0
+	cmp	r2, #0
+	beq	LBB0_1
+; %bb.7:                                ;   in Loop: Header=BB0_6 Depth=1
+	adds	r1, #2
+	udiv	r2, r0, r1
+	cmp	r1, r2
+	itt	hi
+	movhi	r0, #1
+	bxhi	lr
+	b	LBB0_6
+Lfunc_end0
+                                        ; -- End function
+                ALIGN   2
+pat_alg_prime_factorization_001_factorize
+; %bb.0:
+	push	{r4, r6, r7, lr}
+	add	r7, sp, #8
+	clz	r3, r1
+	lsr.w	r12, r3, #5
+	cmp	r2, #0
+	mov	r3, r2
+	it	ne
+	movne	r3, #1
+	tst.w	r12, r3
+	mov.w	r4, #0
+	bne	LBB1_8
+; %bb.1:
+	cmp	r0, #2
+	blo	LBB1_8
+; %bb.2:
+	mov.w	r12, #2
+	b	LBB1_4
+                ALIGN   2
+LBB1_3                                ;   in Loop: Header=BB1_4 Depth=1
+	cmp.w	r12, #2
+	add.w	r12, r12, #2
+	it	eq
+	moveq.w	r12, #3
+	cmp	r0, #1
+	bls	LBB1_8
+LBB1_4                                ; =&gt;This Loop Header: Depth=1
+                                        ;     Child Loop BB1_6 Depth 2
+	udiv	lr, r0, r12
+	cmp	r12, lr
+	bhi	LBB1_7
+; %bb.5:                                ;   in Loop: Header=BB1_4 Depth=1
+	mls	r3, lr, r12, r0
+	cmp	r3, #0
+	bne	LBB1_3
+                ALIGN   2
+LBB1_6                                ;   Parent Loop BB1_4 Depth=1
+                                        ; =&gt;  This Inner Loop Header: Depth=2
+	udiv	r0, r0, r12
+	cmp	r4, r2
+	udiv	r3, r0, r12
+	it	lo
+	strlo.w	r12, [r1, r4, lsl #2]
+	mls	r3, r3, r12, r0
+	adds	r4, #1
+	cmp	r3, #0
+	beq	LBB1_6
+	b	LBB1_3
+LBB1_7
+	cmp	r4, r2
+	it	lo
+	strlo.w	r0, [r1, r4, lsl #2]
+	adds	r4, #1
+LBB1_8
+	mov	r0, r4
+	pop	{r4, r6, r7, pc}
+Lfunc_end1
+                                        ; -- End function
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2023-07-04.html">E2023-07-04</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

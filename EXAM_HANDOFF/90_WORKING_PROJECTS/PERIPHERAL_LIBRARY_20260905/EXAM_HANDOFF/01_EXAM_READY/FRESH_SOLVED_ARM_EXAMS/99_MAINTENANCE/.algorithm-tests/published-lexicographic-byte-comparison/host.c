@@ -1,0 +1,153 @@
+#include <limits.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+
+/*
+ * Exam-study reference: Bounded string primitives.
+ * Recognition cue: length comparison search bounded copy.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_lexicographic_byte_comparison_length(const char *text,
+                                                        uint32_t limit) {
+  uint32_t length = 0u;
+  if (text == NULL) {
+    return 0u;
+  }
+  while ((length < limit) && (text[length] != '\0')) {
+    ++length;
+  }
+  return length;
+}
+
+int32_t algorithm_lexicographic_byte_comparison_compare(const char *first,
+                                                        const char *second,
+                                                        uint32_t limit) {
+  uint32_t index;
+  if ((first == NULL) || (second == NULL)) {
+    return 0;
+  }
+  for (index = 0u; index < limit; ++index) {
+    uint8_t a = (uint8_t)first[index];
+    uint8_t b = (uint8_t)second[index];
+    if ((a != b) || (a == 0u)) {
+      return (int32_t)a - (int32_t)b;
+    }
+  }
+  return 0;
+}
+
+uint32_t algorithm_lexicographic_byte_comparison_copy(char *destination,
+                                                      uint32_t capacity,
+                                                      const char *source) {
+  uint32_t index = 0u;
+  if ((destination == NULL) || (source == NULL) || (capacity == 0u)) {
+    return 0u;
+  }
+  while ((index + 1u < capacity) && (source[index] != '\0')) {
+    destination[index] = source[index];
+    ++index;
+  }
+  destination[index] = '\0';
+  return index;
+}
+
+int32_t algorithm_lexicographic_byte_comparison(const char *text, const char *needle,
+                                                uint32_t limit) {
+  uint32_t index;
+  uint32_t matched;
+
+  if ((text == NULL) || (needle == NULL)) {
+    return -1;
+  }
+  if (needle[0] == '\0') {
+    return 0;
+  }
+  for (index = 0u; (index < limit) && (text[index] != '\0'); ++index) {
+    for (matched = 0u; (needle[matched] != '\0') && (matched < limit - index) &&
+                       (text[index + matched] == needle[matched]);
+         ++matched) {
+    }
+    if (needle[matched] == '\0') {
+      return (int32_t)index;
+    }
+  }
+  return -1;
+}
+
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include <limits.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+
+/*
+ * Exam-study reference: Bounded string primitives.
+ * Recognition cue: length comparison search bounded copy.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_lexicographic_byte_comparison_length(const char *text,
+                                                        uint32_t limit);
+
+int32_t algorithm_lexicographic_byte_comparison_compare(const char *first,
+                                                        const char *second,
+                                                        uint32_t limit);
+
+uint32_t algorithm_lexicographic_byte_comparison_copy(char *destination,
+                                                      uint32_t capacity,
+                                                      const char *source);
+
+int32_t algorithm_lexicographic_byte_comparison(const char *text, const char *needle,
+                                                uint32_t limit);
+
+static int pattern_core_vector(void) {
+  return algorithm_lexicographic_byte_comparison("abcabc", "cab", 6) == 2 &&
+         algorithm_lexicographic_byte_comparison("abc", "z", 3) == -1;
+}
+static int pattern_edge_vectors(void) {
+  char out[4];
+  return algorithm_lexicographic_byte_comparison_length("abc", 2) == 2 &&
+         algorithm_lexicographic_byte_comparison_compare("a", "b", 2) < 0 &&
+         algorithm_lexicographic_byte_comparison_copy(out, 4, "abcd") == 3 &&
+         out[3] == '\0' && algorithm_lexicographic_byte_comparison("", "", 1) == 0 &&
+         algorithm_lexicographic_byte_comparison(NULL, "a", 1) == -1;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+int main(void){return test_main();}

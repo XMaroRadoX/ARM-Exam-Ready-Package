@@ -1,0 +1,21 @@
+{
+  "cortexM3CObjects": "PASS",
+  "compiledCFiles": [
+    "project-buttons/Source/sample.c",
+    "project-buttons/Source/button_EXINT/IRQ_button.c",
+    "project-buttons/Source/RIT/IRQ_RIT.c",
+    "project-timed/Source/sample.c",
+    "project-timed/Source/timer/IRQ_timer.c",
+    "project-analog/Source/sample.c",
+    "project-analog/Source/timer/IRQ_timer.c"
+  ],
+  "thumbExecution": "PASS",
+  "assertions": 7,
+  "executedExports": [
+    "sum_words"
+  ],
+  "ABI": "SP and R4-R11 preservation checked at every public invocation",
+  "assemblyConversion": "Only ARMASM directive spelling converted for LLVM; delivered instructions unchanged",
+  "nativeKeilBuild": "Not run; compiler/device-pack environment not available",
+  "physicalBoard": "Not tested"
+}

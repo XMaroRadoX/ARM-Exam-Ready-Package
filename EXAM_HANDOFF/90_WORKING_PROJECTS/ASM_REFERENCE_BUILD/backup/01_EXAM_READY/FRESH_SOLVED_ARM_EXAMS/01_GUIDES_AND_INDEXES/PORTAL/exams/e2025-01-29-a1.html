@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.; Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.">
+  <title>2025-01-29 ARM 1 Affine Two Timers · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2025-01-29 ARM 1 Affine Two Timers</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-01-29 ARM 1 Affine Two Timers</h1><p>Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.; Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2025-01-29</dd></div><div class="fact"><dt>Variant</dt><dd>ARM 1 Affine Two Timers</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Buttons, Debounce, Timer0, Timer1, EINT, Timer IRQ, Acknowledgement, Event Flags, Capture, Delays, Multi-timer</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM1.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.</p><div class="tag-list"><span class="tag">Bits</span><span class="tag">Matrix</span></div><p><a href="2025-01-29-arm1-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/reverse-32-bits.html">Study Bits</a> · <a href="../algorithms/packed-binary-matrix-multiplication.html">Study Matrix</a></p></article><article class="question"><h3>Q2</h3><p>Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.</p><div class="tag-list"><span class="tag">Bits</span><span class="tag">LED</span><span class="tag">Buttons</span><span class="tag">Debounce</span><span class="tag">Timer0</span><span class="tag">Timer1</span><span class="tag">Capture</span><span class="tag">Delays</span><span class="tag">Multi-timer</span></div><p><a href="2025-01-29-arm1-q2.html">Read complete solution for Q2</a></p><p><a href="../algorithms/reverse-32-bits.html">Study Bits</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Buttons, Debounce, Timer0, Timer1, EINT, Timer IRQ, Acknowledgement, Event Flags, Capture, Delays, Multi-timer.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Bits, Matrix. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 29 January 2025, ARM1, questions 1 and 2. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+extern uint32_t bitwiseAffineTransformation(const uint8_t *matrix,
+                                             uint32_t b,
+                                             uint32_t c);
+
+static const uint8_t transformation_matrix[8] = {
+  0xF8u, 0x7Cu, 0x3Eu, 0x1Fu, 0x8Fu, 0xC7u, 0xE3u, 0xF1u
+};
+
+static uint8_t displayed_value;
+static uint8_t blink_is_on;
+
+void EINT0_IRQHandler(void)
+{
+  uint32_t timer_value;
+  uint32_t high_byte;
+  uint32_t low_byte;
+
+  exam_button_ack(EXAM_BUTTON_INT0);
+  timer_value = exam_timer_read(EXAM_TIMER1) &amp; 0xFFFFu;
+  high_byte = (timer_value &gt;&gt; 8) &amp; 0xFFu;
+  low_byte = timer_value &amp; 0xFFu;
+  displayed_value = (uint8_t)(high_byte ^ low_byte);
+  (void)exam_led_write(displayed_value);
+}
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+
+  displayed_value = (uint8_t)bitwiseAffineTransformation(
+      transformation_matrix, displayed_value, 0x63u);
+
+  blink_is_on = 1u;
+  (void)exam_led_write(displayed_value);
+
+  /* Toggle every 0.25 s, producing a complete 0.5 s blink period. */
+  exam_timer_stop(EXAM_TIMER0);
+  exam_timer_reset(EXAM_TIMER0);
+  if (exam_timer_config_ms(EXAM_TIMER0,250u,EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER0);
+}
+
+void TIMER0_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  blink_is_on ^= 1u;
+  if (blink_is_on) {
+    (void)exam_led_write(displayed_value);
+  } else {
+    exam_led_clear();
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Timer1 counts from 0 to 0xFFFF and resets without an interrupt. */
+  if (exam_timer_config_ticks(EXAM_TIMER1,0xFFFFu,
+                              EXAM_TIMER_MODULO_NO_IRQ)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  bitwiseAffineTransformation
+
+; uint32_t bitwiseAffineTransformation(const uint8_t *A, uint32_t b,
+;                                       uint32_t c)
+bitwiseAffineTransformation PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0          ; Matrix address.
+                UXTB    R5, R1          ; Eight-bit vector b.
+                UXTB    R6, R2          ; Result starts with vector c.
+                MOVS    R7, #0          ; Matrix row.
+
+affine_row
+                CMP     R7, #8
+                BHS     affine_done
+
+                LDRB    R8, [R4, R7]
+                ANDS    R8, R8, R5
+                MOVS    R9, #0          ; Parity.
+                MOVS    R10, #8
+
+affine_parity
+                AND     R12, R8, #1
+                EORS    R9, R9, R12
+                LSRS    R8, R8, #1
+                SUBS    R10, R10, #1
+                BNE     affine_parity
+
+                CMP     R9, #0
+                BEQ     affine_next_row
+                MOVS    R8, #1
+                MOVS    R10, #7
+                SUBS    R10, R10, R7
+                LSL     R8, R8, R10
+                EORS    R6, R6, R8
+
+affine_next_row
+                ADDS    R7, R7, #1
+                B       affine_row
+
+affine_done
+                UXTB    R0, R6
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/matrix-and-graph-traversal.html">Matrix and graph traversal</a></li><li><a href="../patterns/row-major-matrix-addressing.html">Row-major matrix addressing</a></li><li><a href="../patterns/gpio-event-capture.html">GPIO event capture</a></li><li><a href="../patterns/deterministic-debounce.html">Deterministic debounce</a></li><li><a href="../patterns/packed-8x8-bit-matrix-transpose.html">Packed 8x8 bit-matrix transpose</a></li><li><a href="../patterns/packed-binary-matrix-multiplication.html">Packed binary matrix multiplication</a></li><li><a href="../patterns/event-flags-counters-and-queues.html">Event flags counters and queues</a></li><li><a href="../algorithms/packed-binary-matrix-multiplication.html">Packed binary matrix multiplication</a></li><li><a href="../algorithms/packed-8x8-bit-matrix-transpose.html">Packed 8x8 bit-matrix transpose</a></li><li><a href="../algorithms/packed-matrix-row-and-column-addressing.html">Packed matrix row and column addressing</a></li><li><a href="../algorithms/rectangular-matrix-transpose.html">Rectangular matrix transpose</a></li><li><a href="../algorithms/reverse-32-bits.html">Reverse all 32 bits</a></li><li><a href="../algorithms/matrix-row-column-sums.html">Matrix row and column sums</a></li><li><a href="../algorithms/matrix-symmetry.html">Square-matrix symmetry test</a></li><li><a href="../algorithms/matrix-clockwise-rotation.html">Clockwise square-matrix rotation</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

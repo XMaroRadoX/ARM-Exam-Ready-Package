@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.">
+  <title>2025-07-01 ARM2 LCG Rhythm · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">2025-07-01 ARM2 LCG Rhythm</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>2025-07-01 ARM2 LCG Rhythm</h1><p>Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-observable-behavior">Problem and observable behavior</a><a href="#section-resource-and-interrupt-ownership">Resource and interrupt ownership</a><a href="#section-state-transitions-and-event-sequence">State transitions and event sequence</a><a href="#section-setup-values-and-timing">Setup values and timing</a><a href="#section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</a><a href="#section-verification">Verification</a><a href="#section-complete-replacement-files">Complete replacement files</a><a href="#section-related-references">Related references</a></nav><div class="page-body"><section class="section-block"><p class="eyebrow">Appeared in past exams</p><h2 id="section-problem-and-observable-behavior">Problem and observable behavior</h2><p>Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.</p><p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/paper-e2025-07-01-a2.zip">Download complete project ZIP</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/sample.uvprojx">Open complete Keil project</a></p><h2 id="section-resource-and-interrupt-ownership">Resource and interrupt ownership</h2><table><thead><tr><th>Resource</th><th>Role</th></tr></thead><tbody><tr><td>LED</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>Joystick</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>Timer</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>RIT</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr></tbody></table><ul><li>2025-07-01_ARM2-Q3: main; answer_joystick_sample; answer_timer1; RIT detects first edge; Timer1 advances rounds; 2500 ms</li></ul><h2 id="section-state-transitions-and-event-sequence">State transitions and event sequence</h2><p>Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.</p><h2 id="section-setup-values-and-timing">Setup values and timing</h2><p>2500 ms</p><h2 id="section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</h2><p>Follow the exact input sequence and expected result in the linked original question and reviewed mapping.</p><p>Check initial state, press and release, simultaneous reset and action, held inputs, endpoints, restart, and delayed foreground processing. No physical-board result is claimed.</p><p><a href="../exams/2025-07-01-arm2-q3.html">2025-07-01_ARM2-Q3 — exact question and reviewed answer</a></p><p><a href="../../../../../02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM2.pdf">Original paper</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM2_LCG_Rhythm/EXAM_MAPPING.md">EXAM MAPPING</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM2_LCG_Rhythm/ADAPTATION_MAP.md">ADAPTATION MAP</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM2_LCG_Rhythm/REVISION_REVIEW.md">REVISION REVIEW</a></p><h2 id="section-verification">Verification</h2><p><a href="../../../99_MAINTENANCE/SCENARIO_VALIDATION.json">Behavioral and structural results</a> · <a href="../../../99_MAINTENANCE/SCENARIO_NATIVE_BUILDS.json">Native build results</a>. Reports identify tests actually run; simulation does not establish electrical or analog behavior.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-replacement-files">Complete replacement files</h2><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 1 July 2025, ARM2, questions 1 to 3. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+
+extern uint32_t LCGsequence(uint32_t previous,
+                            uint32_t multiplier,
+                            uint32_t increment,
+                            uint32_t shift,
+                            uint32_t modulus);
+
+static uint32_t previous_value = 6u;
+static uint32_t iteration;
+static uint32_t expected_direction;
+static uint32_t movement_seen;
+static uint32_t num_correct;
+static uint32_t num_wrong;
+static uint32_t previous_joystick;
+
+void TIMER1_IRQHandler(void)
+{
+  uint32_t remainder;
+
+  if ((exam_timer_ack(EXAM_TIMER1) &amp; 1u) == 0u) {
+    return;
+  }
+
+  exam_led_clear();
+  if (iteration &gt;= 10u) {
+    exam_timer_stop(EXAM_TIMER1);
+    if (num_correct &gt; num_wrong) {
+      (void)exam_led_on(10u);
+    } else {
+      (void)exam_led_on(11u);
+    }
+    return;
+  }
+
+  previous_value = LCGsequence(previous_value, 157u, 3u, 3u, 256u);
+  remainder = previous_value &amp; 3u;
+
+  movement_seen = 0u;
+  if (remainder == 0u) {
+    (void)exam_led_on(4u);
+    expected_direction = EXAM_JOY_UP;
+  } else if (remainder == 1u) {
+    (void)exam_led_on(5u);
+    expected_direction = EXAM_JOY_LEFT;
+  } else if (remainder == 2u) {
+    (void)exam_led_on(6u);
+    expected_direction = EXAM_JOY_RIGHT;
+  } else {
+    (void)exam_led_on(7u);
+    expected_direction = EXAM_JOY_DOWN;
+  }
+
+  iteration++;
+}
+
+static void joystick_event(uint32_t pressed)
+{
+  if (movement_seen || (pressed == 0u) || (iteration == 0u)) {
+    return;
+  }
+
+  movement_seen = 1u;
+  if (pressed &amp; expected_direction) {
+    num_correct++;
+  } else {
+    num_wrong++;
+  }
+  exam_led_clear();
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  joystick_event(pressed);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  if(exam_rit_config_ms(10u)==EXAM_OK)exam_rit_start();
+  if(exam_timer_config_ms(EXAM_TIMER1,2500u,EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  LCGsequence
+
+DIM             EQU     10
+
+                AREA    LCG_TEST_DATA, DATA, READWRITE, NOINIT
+; The template scatter file places this area in an UNINIT region.
+lcg_test_values SPACE   DIM
+
+                AREA    |.text|, CODE, READONLY
+
+                EXPORT  Reset_Handler
+                IMPORT  __main
+Reset_Handler   PROC
+                SUB     SP, SP, #8
+                MOV     R4, #256
+                STR     R4, [SP]
+                LDR     R4, =lcg_test_values
+                MOVS    R0, #6          ; Seed.
+                MOVS    R5, #0
+
+lcg_reset_loop
+                MOVS    R1, #157
+                MOVS    R2, #3
+                MOVS    R3, #3
+                BL      LCGsequence
+                STRB    R0, [R4, R5]
+                ADDS    R5, R5, #1
+                CMP     R5, #DIM
+                BLO     lcg_reset_loop
+
+                ADD     SP, SP, #8
+                LDR     R0, =__main
+                BX      R0
+                ENDP
+
+; uint32_t LCGsequence(previous, a, c, shift, modulus)
+LCGsequence     PROC
+                LDR     R12, [SP]       ; Fifth argument: modulus.
+                LSR     R3, R0, R3      ; previous &gt;&gt; shift.
+                MUL     R0, R0, R1
+                ADDS    R0, R0, R2
+                EORS    R0, R0, R3
+                UDIV    R1, R0, R12
+                MLS     R0, R1, R12, R0
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a2/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-references">Related references</h2><p><a href="../algorithms/index.html">Algorithms</a> · <a href="index.html">All peripheral combinations</a></p><a href="../api/exam-init.html">exam_init</a> <a href="../api/exam-joystick-init.html">exam_joystick_init</a> <a href="../api/exam-joystick-pressed-edges.html">exam_joystick_pressed_edges</a> <a href="../api/exam-joystick-read.html">exam_joystick_read</a> <a href="../api/exam-led-clear.html">exam_led_clear</a> <a href="../api/exam-led-on.html">exam_led_on</a> <a href="../api/exam-rit-ack.html">exam_rit_ack</a> <a href="../api/exam-rit-config-ms.html">exam_rit_config_ms</a> <a href="../api/exam-rit-start.html">exam_rit_start</a> <a href="../api/exam-timer-ack.html">exam_timer_ack</a> <a href="../api/exam-timer-config-ms.html">exam_timer_config_ms</a> <a href="../api/exam-timer-start.html">exam_timer_start</a> <a href="../api/exam-timer-stop.html">exam_timer_stop</a> </section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

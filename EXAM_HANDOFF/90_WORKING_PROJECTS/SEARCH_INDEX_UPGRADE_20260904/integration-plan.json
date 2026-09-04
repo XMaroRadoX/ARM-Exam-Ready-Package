@@ -1,0 +1,760 @@
+{
+  "status": "PREFLIGHT_PASS",
+  "files": [
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/algorithms/index.html",
+      "before": "1f136a936432fc6331605234216ed6a8aad4f107a426694fb98b8b3f3fc13de7",
+      "after": "2359077b4dd34d23a0b44da26a0c57eb1443ceef0484d90294a21865229d4120"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-adc-init.html",
+      "before": "0b8fbe5f2d1f0ddfd791dc2d3491af7620cffd4b7de7935d4d330b0d3cd6d7c0",
+      "after": "6ab38a18abf18a908023dc65f79eb4ee730774b11f233c1459cbd5e83699b864"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-adc-irq-capture.html",
+      "before": "0c11b00d080679515d07fbcd469b53238e3af8a68baa6a2e89b6435f00dfade5",
+      "after": "731b835528fff65a46250afd7c3fc769acb75b21605db828fe5c58f914a6d3e2"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-adc-show-high8.html",
+      "before": "b914ea02a0d81b64fbeb8c7ad62f42afff6e201df119ad8b487d3a930b95c7e3",
+      "after": "e6d671e33b0dcd530cb8d424f64224f4b912f7dc0d6edac2b163290d97000ad4"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-adc-start.html",
+      "before": "ac2043e89ffd11edeb7eddecbaf34b545602e4b89fcf1ee640622181516b92ef",
+      "after": "63df787ced5cd07b7d81ac2bba3f0b2a6bf41b69e9d8b9cc85a1942c277dd2da"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-adc-take.html",
+      "before": "e1aca848eed63d20ce1ff4d5d67c1475b6d0ab2be57b16c8eccae39e66b2ce80",
+      "after": "a2b528b456a76d1e48fa26347b6e2a13ca86edd771abddfdc1e0b43dca41d072"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-button-ack.html",
+      "before": "27a5f04d5c33dde262e04fd30f896741c91dd44f54d4dba2c1d6c8c04aa8e87d",
+      "after": "a6b28777b54e9ae8e8f7b501a982972734f71d5bbca80846ad88b7fc870a63bc"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-button-events-take.html",
+      "before": "c4d69267c0481ffac3b99bdf2f8d48c423dd5c4d50c674b4563b634b2d85c75b",
+      "after": "a1137440a6f982a642c624672461760e81a0227d631da2cdc7568025de8b1547"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-button-is-pressed.html",
+      "before": "f5dc045c2c9f5eeb93412db6abb86f50c369188cfb590e7d2810131a8bed32e0",
+      "after": "75db9647830eda4084ff8d24f831aff06ab1f4a70ecff6546d021f174a85a69c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-buttons-init.html",
+      "before": "a43c10f49b81d63de41dd0c3600bdccc78d6a71d3512b59b375081c1a9fba92b",
+      "after": "905f62213f616b9bc860495fb8415df365fa90c3b932593e092555e2a8ada6a1"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-critical-enter.html",
+      "before": "17de8c339f48df64817dd3aee679c8851bcaaed69ea42591bfa27d9c5dec3129",
+      "after": "51fd00848a1c530f9e23ad38816f1b3e77e9a21b70e4dd5045ca13caa74c3735"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-critical-exit.html",
+      "before": "bda9c704fe3df532059fb5505755f5af1b6a0974ffe5e18ff18d1c9f7ba63b13",
+      "after": "434aca479c44552c159e9fb5f91e8613c87cc5bf0a64c2298fba5cad5c23da2c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-dac-init.html",
+      "before": "eb9d2762b6a76f3f40a8a4daa35ae9e529617b0a97c2f937ea7ef7b7c691ee94",
+      "after": "99f93d64e562c2497d673e5e38b104c91757505b86f3c691ca7d0facd9c9b198"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-dac-write.html",
+      "before": "06947e52463bb9680220c95b1e25155661dac4f1c72b731599f71164b8963d61",
+      "after": "1db29921702ee5560f9706869f4ef8395e0cbf4cad412e5cf801b67ac0ec675d"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-debounce-begin.html",
+      "before": "4742d6e0225666eb09c2d53ba067ebf424d1977f581b94861478401b53f533b1",
+      "after": "d8069f85e7c5035f40b48cd6be6a5a5fabe6d6314f57483814fb38ae029dd2fb"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-debounce-config.html",
+      "before": "3b22e6b45c1ffc3d7e59b3e7f1fe1a75fbf166e127c4946f1be3942acfcc1a13",
+      "after": "dc1f49f6d146c1a7523e6cb44d5950bd64cb90a8c949a559a5002b5a45edefbd"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-debounce-tick.html",
+      "before": "5cfe860faee4d7a63da83185b21d97f1ccb6a3702ec9380c8dc2b71b874fcde0",
+      "after": "0bb8acd04f6ec6d7c9b0a90831348bfce96f5b0a5c5e849a5d0081b3863c5546"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-events-set.html",
+      "before": "49809befc8ccb0420ef82e1f780271aa99d8750940932da4b663355ef0e2cd48",
+      "after": "a7e5838f5762945b4d1216bfaf701eb05f85b75f80f33bba3a4da92cd56d134f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-events-take.html",
+      "before": "3fa806df1ced6c4dfb33152c154f31bb0a1ebcf037f9c0e3f1d7bd983d9c3868",
+      "after": "2a68dde45be1da839403207e1ecd9e44ae1038095859d1d72f9f8f1278806aea"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-fault-capture-from-exception.html",
+      "before": "f8d281259369f0dac38f4a965259eae57c2a5ab5a9c69eb139268053193152af",
+      "after": "bf5af14233ed0aae57da7f55007c008820b8864824544b99c4b4cb3ffe8e0294"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-fault-snapshot-clear.html",
+      "before": "88c88309c005e7fb2aa4189badf62dabb0bba45606cae480dc5ce1619f331e53",
+      "after": "190c934673a112a7746caff6e40fb522f3f617a070f05ee905f5989ee88e53d5"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-faults-configure.html",
+      "before": "c4003a3bd9835d0ab6e5acfa170768037643f2d855cbba4040a15480014de6f3",
+      "after": "d2b2b15929cd718a75c92c8cc66e02e11d891467be4541cacfc6872f0c0479a1"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-init.html",
+      "before": "e62bcb3b397c988511eedc626478fc442c25671fe2d2365bd8dd627daf69f6f2",
+      "after": "81262df1d1af1b265564bf9737ab08634a959a89dabd446e4b0e438572a98e06"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-joystick-init.html",
+      "before": "160a101f51e6c2b1ee9fce651623c78cb80ead00af150a03ee2cabae7708ab68",
+      "after": "040b268cd292595ef48638a2c9abebee95d5ad3cc2ff4be17b558ab357f74516"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-joystick-pressed-edges.html",
+      "before": "24b5118f133a7178f03d7a105280dad3bbb07ccfa43f0c8d15aaf6f585359b8c",
+      "after": "7eaf5fbaaa33d05ca684331a0a0ce384c307e9c648ce16069dc4c145f21c7e05"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-joystick-read.html",
+      "before": "7e3e8909ae131a3a57e2883c04595c101a5e1d00beafdc92d437d0069e82f610",
+      "after": "2544f6c54965cdf52e7f8de678edcd0a9198e2ecba389f61e58a0c5ad9fea81c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-clear.html",
+      "before": "0da8ebc26dd273921af8485e16d03b6a4f05c4be6fe0f58c8e7b1df99f9b05ac",
+      "after": "10c10a47e2b6076cebd1e18e17907b33a62639deffa3e3a953fc7cf7e443465d"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-off.html",
+      "before": "d8a1e79c90253aad402218e197e5684b447562b6629fc96ea71d6cabfbd99390",
+      "after": "11eecd67fd0e0945e42709ba3b937282a847e66a9e395c5f32781ebfd4dc9e09"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-on.html",
+      "before": "190a95249460037f27533197c990b1cec7c896011a96c3495dddc8aaebaf7936",
+      "after": "56b9d0ff2d3cb25c8e75f07b6f7136d2d18301d240824520b84c6943a673122e"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-one-hot.html",
+      "before": "169e59933dc0d021d1fb45d5236a212ed0baa29822d5c869754c4ed6663e7a0d",
+      "after": "a8a5b43de6aac571ceb270f7bb7bb7caa94ac4bb705a308aca45962c1e718544"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-read.html",
+      "before": "17fd9421a326ec6da3f5e3dc3624e5d0186e0a11d7ee82ad3a75449889b861ab",
+      "after": "3ffb4f664a7b9f932949d01b10fa36f5063c971d628adff2ed196433a1afc7dc"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-toggle.html",
+      "before": "fa9c9ecb8f3e28b42a22c0d51c9046c7ada610819464d68e600c9f9e0965b511",
+      "after": "2422449ad3d17fd9e55201f5e5b0e70592ee86919dc7baa7780a75db19b835a8"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-led-write.html",
+      "before": "334d998491868a876efedc87cbd5fd1f00fb3dbb805cad7ef16e342c8cd30c1d",
+      "after": "86a3e3a5cc2f878bfde72ebbd1ea44044eea5fada75a01f708db5a81e9655fe7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-ack.html",
+      "before": "9d2a676f4d1edf9e9852f0ef04f28e5d21c3718fe9ec5f1b881dff03afb104bd",
+      "after": "a171b71746e0e6b1ca548204fa135ad97c2f9f431358f61f3f2263e76c61168e"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-config-ms.html",
+      "before": "8638a24e478b1a6d26c92af394428016d832b90cc86279e23d39371a7d28c4b6",
+      "after": "af00cd67dbaff6f85be3a23a65b32414cc0a0a33f732d0bcc66c02e02a59ed0c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-config-ticks.html",
+      "before": "53573806c67fae15b22a2841fd0954bb75a2098ee77a21bc994a31065be93eb8",
+      "after": "1c33171cab40ba40107715bd9d2b3148fc18a88986f39119b0b6f5267dbeee31"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-reset.html",
+      "before": "2abca605d3109533d037e9616c9aad0c1ab622294ec7de02cdc33ed9a55dae00",
+      "after": "a1d1d66c3b95873ab8790d9ceb7dd403e8f257b6f080bab83b0a799335b9f4a3"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-start.html",
+      "before": "ff7cc70e0e8c9bbbfbdcf03916d7d98eff8839610513d37ce2dbd78144c2d801",
+      "after": "9997a4c6718b40aee5f673780b90d355b1689bc5bddcfe28eef6296060b35a9c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-rit-stop.html",
+      "before": "2f463b5f943e72913075499280f82824e47752b99d6e4cc4e7265c4f2885d6f8",
+      "after": "59f6cbf41c707a7ba68a89ab4d57d14e84bd49497ee308e6b04c6fa398bfc986"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-svc-capture-from-exception.html",
+      "before": "fc02a15559b81ca99e82e19252f59c06455c3cb351896c87eb067bf434cedffa",
+      "after": "b22eff308d82a49fe61d01e1fd45778728974f92262c45b9a65dd8c5cd348d99"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-svc-dispatch.html",
+      "before": "bda7b2835b1a797fc4b4afbfa64aeadaf4c88c868407d6f5fd02ca273d8b4d62",
+      "after": "3fb4cf12ed8f3a09b737d5cb33cdf77b162fdbd1b4739c492fd349f286b24102"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-systick-config-ms.html",
+      "before": "91dc0494dbbf8f47156bca7ebac2e1fd3977108f406c3d530220577107c362da",
+      "after": "ffb18ec2a6888a0bc23c412bfc101f2dae838a3df28cb635c01882853525112c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-systick-config-ticks.html",
+      "before": "5a85d059e24a700b389a0520e5623f621344ee41512408703b3df24715137ea7",
+      "after": "a2cfd76e465a71f44a94a3053890adc0e9b4624a3f23c5757fd645b5d4806b47"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-systick-stop.html",
+      "before": "1ca21ae634d4c96a0d537a2342a74c93991731d6957479b5307981853d1c1922",
+      "after": "3bff1acde502849fb4c5170dbd2c40e7710dae5ac3769c574a378957106850d9"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-ack.html",
+      "before": "60c5446c67380faa6b1569e20c02897ee546d2b646a5b5efc62c45d73a10c739",
+      "after": "85bc4c124d54d927fc7d44ca8d9e7b3c217a49496fec5a9839c6c441e2ef6342"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-config-hz.html",
+      "before": "f7da059800df8a153d10b1be6deb8b7db32c3c4e3a96f24de41ce4b3d49c115b",
+      "after": "3a0c0e6b15b632fabc4ff26d4185ab89029cfb8e56f60b08698a05ac1cacf6e7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-config-ms.html",
+      "before": "9f7a7bd069f184877b10ba41ad312707a4250f876b98050c1cdfb47ae1afec48",
+      "after": "ab7aab3f7d885fe427531099c046d5f19ce8d7a478eff0cdec2119d9112e1e10"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-config-ticks.html",
+      "before": "5e0e585c361508c1d18d10b5f94fd07242e3271e3b914f34d4d83ffbd60c7b94",
+      "after": "7c11c05493f84349c56c9718a45cde0492990ab53d62e9c0e1e9da477b1cb8d9"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-is-running.html",
+      "before": "cc4196954adff57655f9b8bd03b803a61925904d1a06bdf9dab728626a017e76",
+      "after": "33be02655c7db3895963da5b36fce0a25e24e202121cd56952dd635f4e18f13b"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-read.html",
+      "before": "f8d46ba18ec17eff8be9db886daf0936f8d90a7719de25ed694b2b95744d184a",
+      "after": "b12334a180236ae0f532dccd56b97218951c14fe010d19d03477ef5bccd8002f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-reset.html",
+      "before": "56421631b2a0c79d6fe16d398b3a75aa9d22f2739e2ec6a83ffc370883b8aa7a",
+      "after": "838d8add21dabdd54ce1fef114c1d671f984d1206f70e378c570bd973ede18e2"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-start.html",
+      "before": "a0f0aca1af63d2d8bd7ff3f46c1e236994899c9d3ac06412d650d6b16072a832",
+      "after": "2dff9e54d12bf6a5c0f6264a92c041e3efb8b3b936488abb4c2134bcdee88e12"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/exam-timer-stop.html",
+      "before": "91508bbfd47f75adacbab332ed34f16fee84e307b4daf9e58976fc503ac4c12f",
+      "after": "1e50add0f4331c2e1ce7322eb302e0d1ed32d67674c55860a6c5748cb83112d2"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/index.html",
+      "before": "a80a3ff9c6817fb357e214fc1d488064ce03fb28976a243813d425167053834c",
+      "after": "ed84f4161adfeaadc4c0f7b4903f2d4ef70b8d06f1488076d3052dab6b620ea4"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/index.html",
+      "before": "f7cbcbe9b53fe6bf6dcd76a86a1674cec60cc1d87a68052d3e140f452d189989",
+      "after": "4dcf77a24c181303fb9ee082dc4dfb16d92ee34cc8d0c47ee00e011219dd3285"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/assets/asm_reference.js",
+      "before": "bf1872f7f3bc839086e2f57826f98ea76ce89ce3cdbe0c80ccd4b18b57ed066e",
+      "after": "587da9723a96028ed2154c05135f693975816feffa120d9a616addb1075c37ea"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/assets/portal-data.js",
+      "before": "c8ee6d2d0cb2041c78586346241b8d65afc8ff90c933fd879b67802942a58551",
+      "after": "290a891d537d2ca6422a64d5d07a9c1c07d3833b2bf408f508b353e50d19323f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/assets/portal.js",
+      "before": "0be6266f71b46859e1bf2e07645dcc1eb47147da64d0d1ae51f61ae8b256492b",
+      "after": "f2cb33b62f2c39e40e70bb3775e8fccccd327d8d72bc6fcb6c576790f85e149b"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/assets/portal_logic.js",
+      "before": "6bda91dcba484f7bfcb082e04851c22e91d2e2c00c9c16f5170744feb3dca281",
+      "after": "8be6c09a3a13d9536fa021cf45861119006fff6d33945c5714334e7235759cfa"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-07-q1.html",
+      "before": "1caf6d717d7e1d91b59816d8ed6ca802e0ef4a440442117ea25a47e6a0febd5e",
+      "after": "581feab4fbab72ab2538571c7d1784b75f37a3ca1b4506db3e353624ab5c0240"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-07-q2.html",
+      "before": "8a64e92773df169eede36a1bdc30a8a4fdcb7a1bda4e6b2487d4c11c1219dcbd",
+      "after": "1f57f00649ba716fd279d52d5d70399c905df975113bed8a0f71672a6c312115"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-24-q1.html",
+      "before": "5190eb1185cc03cac7c1241f991f3582a02c752532893fc8350ff0e1ee75d934",
+      "after": "684a2342581f6e9a4610a34ef14ad2be4637b7a4cc909b44c2f9333bd500782f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-24-q2.html",
+      "before": "a7ca09dfd769a188823152ba3751db7a83bbe844d09b4754ed08185f37557e23",
+      "after": "c54dfad5c38613e3e197cdf9ae7cbcffb4e8f4caf05408d184414b12b4a36c5f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-05-17-q1.html",
+      "before": "0c23d5b59e27f8118250ff9066490ac546200b6220f157db484d4f51f8a49348",
+      "after": "2ceffd777db3b85d65671be0e1c5f9c92547add6ae605483f39210cc48f0b11e"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-05-17-q2.html",
+      "before": "14d02e109df25a22f426fd02788b973910c049143c9993167209f6d9a148456b",
+      "after": "d103d267b741d0c268dc19f6863b67d43cff68aa0572923a45657d8de9b40c64"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-07-04-q1.html",
+      "before": "89910a518f8e492a8e70aa15a5d5765a74adf549aff9e9d2122e9f419de92ee7",
+      "after": "b35a05590a8813acdfc1f2219d716e93a1fac55e4bb01f2db97ecc017708dbff"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-07-04-q2.html",
+      "before": "e2f6b8e1a44ed5fa66da4296e1c12050c4351c72d47a78666b019e3480643ace",
+      "after": "57de49ccf1fc0cd565c4d2285d71d20b511e9741a73209c383449bbbe6bfb47f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-09-18-q1.html",
+      "before": "067e2bf20d53856aa0d4558751919fd26dffec16b27a55a8db562287886c8633",
+      "after": "153a721d3787d07acb946113a8c663265b5904c777a6e985fb939666f88f59b8"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-09-18-q2.html",
+      "before": "7dd9b938baa898a1a05d4c6fb890b0a9dc93cc04d6e5f371931069dc2afa208f",
+      "after": "7848c3bd44000d4f58ea816a5968638edbab3b4b9d5c38cc08c10b4d45b2087a"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-12-q1.html",
+      "before": "dca1f15d6656cb52d89d5e5affd4e16d5171b72ab6e49ae7f98ff20942bb7732",
+      "after": "7d946fa1776e1dad31cacf903ae844364a5937a38bcfb40bbed057dc8c457ac6"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-12-q2.html",
+      "before": "16836114c75009e04fa278a81c3b4fea12bbfe705247ae2604054910d1184530",
+      "after": "e94a78f8dfa0e806c64749fe332a2cca35869fbd632c346e80c16023b1ccd461"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-28-q1.html",
+      "before": "96b19b0677919d3e7a820ca05a12bee2717d8c994ad4dee3b66549a3b93cc1b6",
+      "after": "08ea365d0fdce52887926ea40d7ae64c9bb676da72d9e4012b535127593bcbc2"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-28-q2.html",
+      "before": "9cf030f3253f9752761efcb2931b355c9d6f5a5aade45d9e90839c164a3d616d",
+      "after": "b6301a29d7aeac4bbf8626ae4b6d777cfdabafdf3c97c61414fede3a56b59f95"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-07-09-q1.html",
+      "before": "5698d890b7df05ad1a5e629df82e5cafe59eba1b5b5ca12cf53690bd7abf7a2d",
+      "after": "78d36cbfbd7ffdfe42b1bde77290d1ba337bdc9192ef263e4d3e361ad0b7df4d"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-07-09-q2.html",
+      "before": "42391d8818481930edccaf1c640e3921386b57e3e5ec1a710f040c0b810feba3",
+      "after": "a78b3448e954d08f49655217456a78a9831f9f182a28bf04334bff5ff014aaa6"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-09-16-q1.html",
+      "before": "b1fe71842c7284a78e807433da7d1fa2fd093bb823dd34dd787310e4e287a37a",
+      "after": "e5786388100943db0895bf306f9f7d035848e2d4bcdbd60504cf97383e9efb69"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-09-16-q2.html",
+      "before": "655687d181938c9d66bc6d1fc28b56284e17afe7893b59f5be4aa10f9ef3c39a",
+      "after": "d9a016c03656b187af9dca92481394c2e8630fd8604ee21db5888da9e1168496"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm1-q1.html",
+      "before": "78764b5713546449ad1dac6d0d2c72d09733a8128b5ac0f3734cfa09d0f18836",
+      "after": "025f9c32f6ac7ad3e2858ed719b976773944bd4d7cb9a623a4f950dc5aa0e8f9"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm1-q2.html",
+      "before": "556a29bef051ffc6349d69c73c09f314e2d817f521e60dd9151ce576d1798f9e",
+      "after": "e642159f40963160cd5ef57465382cc964437db76de8946153b576e2a4019715"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm2-q1.html",
+      "before": "c201537f2ee49f18a62b72a21346a39496f24ed8ce9c6b6aa4d23bb088e34146",
+      "after": "957dba0402545d0c10772d5870351c4aed224492939d8fbf2bfaf43e44cc8402"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm2-q2.html",
+      "before": "3abcb5d35c68fde9668af9154c0f0bdfa6e9f08cf231b2e9a2815016e1320935",
+      "after": "db2a60c76afff9bbd2b614e2e65c1ad7b88359d3275a789fcb5471fbad1929e1"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm3-q1.html",
+      "before": "13878941620d3714aa91e804afe28292d201c39cb15b9ac9ee0a59701e4174c2",
+      "after": "af8cfd1686b4450174f36666f75274dfef2bb1b12e73583189251d81058a1966"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm3-q2.html",
+      "before": "a42ac0d0fe402e77fa1deac3ce46c1bbd43d62c4b3810067547564755521dc1c",
+      "after": "d4d5ddb5edf183d4e3f9b509f7ee7124056f58b8dc4227de2db0e34509808a32"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm1-q1.html",
+      "before": "cc07061b5f2d60030769f238f09becee38020852fab7982d87870f5645135a56",
+      "after": "b72bba988e1fcd4d5ed8a1572b54dea0e948dc1980b91219d8cf5bfdd52dafcc"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm1-q2.html",
+      "before": "3429f11631c5c1dfd41a081dc61e0f1dede5960c16be0d952daeb53b2d6198f2",
+      "after": "718b26b2e62f3899d9da9c1066617edf78b4745abddffb174d8c06eedd06732c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm2-q1.html",
+      "before": "1919d110f3462b7968cbe160f4a15527ebc07853fe72fafb6449cd803d74c452",
+      "after": "75f22690c11fea41ed71558ded9bfd85f36c29a7ef7a964db5009ac5d6a4db71"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm2-q2.html",
+      "before": "6d5b8220df5d673951c78d1cfbbddf3064c577b33787f3f5345d126f8d062031",
+      "after": "0850ead798ed5713bdc49183d7e6f38b4180b451a6cdd88cce56d20d36f533fe"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q1.html",
+      "before": "b0551553b2ecde336cff3aa81d895ca60f2ca0188aa1e1e2744059f78f3dbe35",
+      "after": "baa9e51a5bf9b440ab0e5164375dac3ec56a2b2914da3737496ac1c7b41f178b"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q2.html",
+      "before": "4305235644b016a5a0487142fac7a7f857c09960bc9d142612587ec32e546351",
+      "after": "5cbffd4998159c74a0c4bfba8fee450bb22d6c467f1f1679b6408d5d1760fe22"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q3.html",
+      "before": "30391407770720c331e6dca24830f81054d8d0837ff53fd120c19d75352345c0",
+      "after": "5e247ed5606b687a1b125c93e51166fb140267dce7e2f4ced2b5291bda2879d3"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q1.html",
+      "before": "a9a950c92910f43415ec694022851955a91e66bb0d725128e8ce2136901f8463",
+      "after": "4211cadf00babbe5e59408ee9bcf373e6317e1306e62d2b615c28f220e0bacbf"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q2.html",
+      "before": "d1f0fecadcddb1acdc3d01ea83a744edf21c12e0c0c6ca905628afb54fcabfe7",
+      "after": "3cbb45484ad5b64a377253fb6ac269e3227c3df31f451d8dd6121c61b3d8a2ad"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q3.html",
+      "before": "22e759060aa9f74674b7d9b10ff59536694ed049d0eaeba0151074c949c65a75",
+      "after": "a4773bb4ba310066a34b56cbaae51d0e316a99a17010b653cb337781edd3b634"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm1-q1.html",
+      "before": "7112e40fc55722fc1f9dbbfa4d6afe59cd4afaafcfb92dab691f47e0b2fbdb74",
+      "after": "a478646fa22fba638d534e4557bd9f5f459fda8f404cfcbc0333f0942bc1b8be"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm1-q2.html",
+      "before": "433d2ad8e2d532ea6d198f3c6ac343c1300606e479c844f875ecd63ca3bffda7",
+      "after": "880f35e8f5613667d0a14edbc702e273f3323a4687ba2d3948d2e122e8ee24ae"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm2-q1.html",
+      "before": "b0fcdf34e766412effee16c435d823f058dd2959ff0c87f840cda8c3aa2d246f",
+      "after": "9b1cd326a4793d1cb36aca23b7402a1081c3545c3d0527cac20a77d349d5e4c8"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm2-q2.html",
+      "before": "3b29ef0d7b035e9b78ca6d1b7e751bbeee7da56389caf0771d4e037ad9fd166b",
+      "after": "afdcab76f55eb8c29cdd11481ca0c06bb8e6ba79774b566f8c461e8af020ec85"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm3-q1.html",
+      "before": "843e59139fff413c2b5f1dd927c6ca2a5ac797d10bfb3f6db3a070afd19580b6",
+      "after": "c37d2855d150309d5ef051cf9d1d7e6c79c778664ae6340999a5fa40b9c854e7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm3-q2.html",
+      "before": "4e6011b8ecaf0b44fc855597847f80aabe6ebf616153a83950d09c5f9ac5cf19",
+      "after": "5537bccb2201dcb847f9addf08b2ad549ca15bad3c8ba44746199abf759b20b2"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm1-q1.html",
+      "before": "bda6685ebe8be1ffea26f8de6fe76848214b0665699a5ab660ec5b95bf2c238f",
+      "after": "c2bfdd9b13b1552bc814bba32460e736d7e5063efbe0d59d837b7adf6b7dd100"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm1-q2.html",
+      "before": "17964593a967d9f1598e79fd19632d3ef77de33c4b806b84e26c8382c21c1b8b",
+      "after": "93324ca9d406e19fbb90935b84052dca5986775ec14a2a078e6f98edad6b72e8"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm2-q1.html",
+      "before": "0b4c79703e79339449dc050d400eaf17e684531ca7d512cc12c96c3e893f0f79",
+      "after": "0bd39c4e92e0e9fd10cd8af88b569078c95de32249f8cc8928269cb4e87e337d"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm2-q2.html",
+      "before": "ee65dc2619985e3d0853efc5c443d015e3a086ab1908c86ceedab5a631e91e55",
+      "after": "13a7bae9c2ec1811f60c48bf6f2ac0fdcece560a87827303bbee7241bc996497"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm1-q1.html",
+      "before": "b19f227c491798fde76655a679ec6923e704e6d352b2aa53f2b8df0cf6f8f03e",
+      "after": "e4801264024877a01f8b6c2d4efd4463e67240493aa53d24501a01841cbd65ff"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm1-q2.html",
+      "before": "0017b2638ca641a145e34e6470411430c3dae0a95ac443fe0604f801e318a962",
+      "after": "afe72ef84e4ac7a0fe1b63ec21750269aafc4a28fb00c52ee4f94ffa278f1ed6"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm2-q1.html",
+      "before": "04eb56918e82c6681d5ebddbd840d46a94cf213c42662d0adb85e7b26f16e07c",
+      "after": "7fa2570243703140756684eb6ce887537a42df79ebd6747a5c345f88eb6cab46"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm2-q2.html",
+      "before": "7c6da76c907b20cfacea063494dc641dd8bd71c543d52eafc835ade772f006f5",
+      "after": "930fc987ed327e0e787365af35eccefd937d1aa40374c8f093056d4dd9f7bb5a"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-02-07.html",
+      "before": "2cc55af09e6d361782fea6b78ef5711a7afc843ebde7916c27af297510f1a555",
+      "after": "ff69798c7fa85a250df85b71f04c414d40e13d139788b636138c7b9e8a9ea3bb"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-02-24.html",
+      "before": "01454ad20f2b117f1c0ed9d8171d1189ff8dacfbb1bb8cb2af59cd64b7c8c05a",
+      "after": "90c57e4b09b73ee7a4433367cd42402ff8424b5ee0c502e671a5d525d4e144d7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-05-17.html",
+      "before": "847b50aa6590d7b6c4228e81ca7e2aaea8b853af4aae6560001efc14d80c9533",
+      "after": "7c6954f9c6ee140308ce732fcb523dbe575bf4d8730b7ca4feee8771c640a855"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-07-04.html",
+      "before": "8ee0d1ffb76e22ea16e958cc8ad98a6e0e82375f713360edd0060c710504eaf4",
+      "after": "c0769a3793fbea92b574e25804e28838b5abe73fb96178358235d0846e72defc"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-09-18.html",
+      "before": "11ee3c068370ef59075252adeaee055f6e3e5e27e6a3c610dd2e0735cd38dd3a",
+      "after": "5632db8e40d48af7a4559e32f74150c6be1871b70244e498a76636064fe7865a"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-02-12.html",
+      "before": "eb5e749b2a3b2492327eb043bc7e649a074f2945733c36615af97c83fe26ce4a",
+      "after": "df545813ad24de8448a52bef1b28b45a9feca8d1117e16b48da382ec71840a81"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-02-28.html",
+      "before": "e821b6325db5664bc36fe4adfdb2fa5f9fe77dbebab36fefa914ee1ec7649377",
+      "after": "42cec0c732e2d8250f8a73110b7a2d59c6d3a6d1e12da9ea42014c4bfa0b14b3"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-07-09.html",
+      "before": "63634a28fbf5dc956fad55758c16340bd8376582865892ae2a99cd12b64704e8",
+      "after": "4dd065d64a0eeef7f5fe84f7559712fed09d30d7f3d27d27556fc2f3de39fe40"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-09-16.html",
+      "before": "a72983a72cf20d37a054496e8befb49d133078d8aab6dc7d2fed1f3ca2573a4a",
+      "after": "64db9bcb15d9c4f03b54272fa2982516d80f86475fb4aac501eace6e74b0c439"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a1.html",
+      "before": "3ca12ef843b92b6e03034a0496fb6f55eae0d925ae1b8fc8a2c477899a489b92",
+      "after": "975b0714a700cc4bfa0675718360cd00df254251645d9fd3b141014fb8c03c8f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a2.html",
+      "before": "241e4063e11d1d0f9c0bf00074699aea438bcf19622304554ddd8bb11d933c7f",
+      "after": "c2734b2018ff2584f6b33280897a364ad4df095f40245c131a5083ac66dae3d0"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a3.html",
+      "before": "446c17bc83e13925ac504602681e70824aab17fd0f1cd421a730136d36ea95f6",
+      "after": "c995dcabed6e7d0033c2aa92bb19ff4ae06a85e56f120104afa05e117d1e1bdd"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-02-12-a1.html",
+      "before": "8a163b525b0c2433f23dbc309736d42b2146205d6f2ebdc49540e6ad9f954953",
+      "after": "2b83d787e60b818f8de9bd5bf2990f450f6118dfdcc0e2fd5bfd134fb6231e35"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-02-12-a2.html",
+      "before": "0e262097d7b03639aa5998c0a845534a495feab64b1ca92eafa178855b59c964",
+      "after": "8b099dd1887a2dc73a6c1fdc9dab283e726396dcce9d0452c5d16cf717ed1af1"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-07-01-a1.html",
+      "before": "e41a45ed27b470523f029882c3c969984de51556e3274f0638c5fb1293898492",
+      "after": "b9e3948c805ab190c84113c8fd15dc525b9233064002c2aa1a247fde10076a21"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-07-01-a2.html",
+      "before": "58fcf4bfd565001899f99fc941afa370749833652cf5ac2c903a1ab3627ff033",
+      "after": "38e23c9e58d1b7463548bb1e97a13feca6eb1522a661b5389cdffc8649b58819"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a1.html",
+      "before": "69027b02c35037c8da2322f22a27e3159825d7243f4d5bbfd6aa22bdefcc5465",
+      "after": "f8c61e73b7992c2580244ed8a9bd35e53c28c6b434d4981812fa5e43fc1efdd0"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a2.html",
+      "before": "bb661766debf1d36902c9bf214ce447afbe61a7ef7ac1848c23ef50e5ff68c55",
+      "after": "60cbad36754b6823bece8785780b1652470be327f87a2790ea3e0b9a1052f033"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a3.html",
+      "before": "653664245ab71e89eb9f5afb1dfcc57aa2014b58cd27d76421dcd4c2bc5e3176",
+      "after": "7e6b32ce9e41cebbe0d85410d3c17893334bcded1bb9661a8093a3996a9c7b1c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-18-a1.html",
+      "before": "0d0c5f9bbcd27c535213d2c63ce495f12dd85c28716df1362126da0338e131dd",
+      "after": "6e211094a37a766244f80f3ff657b4bab15e3a9863350254c75a821cab4382e0"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-18-a2.html",
+      "before": "c76b8092bb62a8510572f99510e6aa7a4585e4c1713dcfdb8fe8cb686bac7db7",
+      "after": "6b70c765182f6516f8072bde32d5c6e15d75c5f770a33183d803494985e275d4"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-06-25-b1.html",
+      "before": "0c9b7d8fe2b9537771308df2756a5b3fa164d05be228a6d8b0dc61d6af577f79",
+      "after": "f09e90a8d4579ca98f1491ed65a77227838da0dd9d2604ef934e09d2342a0ce7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-06-25-b2.html",
+      "before": "ab4d71cbecb741774c3acb578d2c9ec11221284d85f9acc9195aa6528c7dcb53",
+      "after": "dcd3ff095fcc05a91d9c60d08c0244caf38600b2ce174dda16c7987338f0ecd7"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/index.html",
+      "before": "371d62cecce4713ce93198f3dc89bd91cd82c38f91c34376bf39239562198420",
+      "after": "9ee61f63e7aef76e3b68f1acf22004971541d40dc27c5b6df3cb041525d5cdb1"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/patterns/index.html",
+      "before": "38e29d210e935ae04da267c6afea8b4caa6f45f2189a630f6f6d36d3f29d3a53",
+      "after": "e62363796a2e06916426c6c62b85b0daa7c6e3682dec165b9ed6c6705467dd73"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/search-coverage.html",
+      "before": "bf0ba2199d5cf46f759f51edd1123aa2993f74ca44c247bbcfa15928ceb065f9",
+      "after": "fd6dd968a4463365def902bae927e91f58c35776a60e9486f966a0d74b06393f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/search.html",
+      "before": "855968c0849ddab3bbe8c6b0d4bd1e3cbd7a2691d37608ca93978a8bec60f868",
+      "after": "95a792493b6ff929a59826526b8a9f3d74749775ac32238ad1818aa74c1b7c81"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/BROWSER_SEARCH_QA.cjs",
+      "before": null,
+      "after": "78986d513d09439c51777e481c87b3e68101e3c1b7c116005d01bb4867a3b0ee"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/PORTAL_MAINTENANCE.md",
+      "before": "de580b90d8744acb2840fa4c1fb846b39490d49cd0e14e3b06f86a1551055e79",
+      "after": "f7a21516c441fac45a7ab2acecdd800dcb4493da62eb2901a6c2070e345ba052"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/REFRESH_SEARCH.py",
+      "before": null,
+      "after": "7a8672e00771ba33f97a699d067c5626fe0efc897b18faafab1636a075440493"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_BROWSER_RESULTS.json",
+      "before": null,
+      "after": "3c56437092a3dbd8e6334d158bdfed7cf6e34199ba69934384aa3a80cbd1c81a"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_COVERAGE.json",
+      "before": "0f6971636ca511a7d7a7b8b30272b5bf0d1c4e0ed71704f4eb491fbdfbe70d82",
+      "after": "a8b618f26ca9158846332db2804b2738c78393626f6605de8a0ef11ccd1c5044"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_INTEGRITY_RESULTS.json",
+      "before": null,
+      "after": "30b2b6eae3e68ae21e3b105bdce587a482527df6c81192f5ac7061daae1774be"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_REGRESSION_RESULTS.json",
+      "before": null,
+      "after": "befdeec2ba7d32f034beadd1adfb28bf69f7947966b905fc72b567e9977bf9ae"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_SEARCH.cjs",
+      "before": null,
+      "after": "ef0ef2d3fae54e84944d51db455293a7d812d8ad4c02c40fc1ff557acb02c088"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_SEARCH_COVERAGE.py",
+      "before": null,
+      "after": "50f259b4900bbce7ba5a32fce2c23e5bdf1e5d81a84862b40135e92c11273314"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/WORKSTATION_CONTROLS_RESULTS.json",
+      "before": "65e208a1a936e9d6f86ecebeb36be06018fa49d896543f39e18c1d51be79fcd7",
+      "after": "d1d33d5a939a5b09c6fd5c6a60ccdfe9116a0df9f24a74f144d344322a1b820f"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/WORKSTATION_VALIDATION.json",
+      "before": "8ecceebf0fbad194c72b96355cba13b08dfe1b4c619434ee277bfbd17b6aa374",
+      "after": "90a66185aeab3681ab2cfd4164b25cf9d0cbd235d860809c3398feeacdb48f2d"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/portal_ui/asm_reference.js",
+      "before": "bf1872f7f3bc839086e2f57826f98ea76ce89ce3cdbe0c80ccd4b18b57ed066e",
+      "after": "a06e356dea65bb65ad4ee14acf873d30287b5c3f52be53534f3c42c7c484d490"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/portal_ui/portal.js",
+      "before": "0be6266f71b46859e1bf2e07645dcc1eb47147da64d0d1ae51f61ae8b256492b",
+      "after": "c9fa66597cd009bf4ce02497c4a2769b076c8c30a33a12c25765bf42a0757de9"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/portal_ui/portal_logic.js",
+      "before": "6bda91dcba484f7bfcb082e04851c22e91d2e2c00c9c16f5170744feb3dca281",
+      "after": "6756014b712487609a7dbc0c8f3178e3823d207bb9cca6e790a259138a45b75c"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/search_corpus.py",
+      "before": "a2bf483c34ed57153c114fb41e98dac46878ca6a97a194a59f55f9604bcc36d2",
+      "after": "ed66d7b9ca836ad867cccb9ec1d22a53659536949646426c7999eaf6d7461d51"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/search_metadata.py",
+      "before": null,
+      "after": "cc08ec7484fa200130992acf2a021d601aa8c13e8b95031cd311490f19111817"
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/workstation_extensions.py",
+      "before": "d56fffc69f14b04ea91a311136af8589b4dfd825ba48375030b91634c18ffc62",
+      "after": "f626eca240143dfd621612668e7fdcee0184f9e55d232d994420141eb6ead7c4"
+    }
+  ]
+}

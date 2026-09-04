@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="In-place sorting via a priority tree in an array">
+  <title>Heap construction and heap sort · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Heap construction and heap sort</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Heap construction and heap sort</h1><p>In-place sorting via a priority tree in an array</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>In-place sorting via a priority tree in an array.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Heap order is not globally sorted order.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>For zero-based heap children are2*i+1 and2*i+2.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Build max-heap bottom-up
+2. swap root with end
+3. shrink heap
+4. sift root down</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>heap[3,1,2] -&gt; move3 toend -&gt; heap[2,1] -&gt;[1,2,3].</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. For zero-based heap children are2*i+1 and2*i+2.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Heap order is not globally sorted order.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>For zero-based heap children are2*i+1 and2*i+2.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>n0,n1; only left child; duplicates.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Heap order is not globally sorted order. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">heap sort assembly</a><a href="#variant-1">heap sort c</a></nav><h3 id="variant-0">Baseline: heap sort assembly</h3><p>pat-alg-heap-sort-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, down, algorithm_algorithm_pat_alg_heap_sort_001_assembly. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Heap construction and heap sort.
+ * Recognition cue: build max heap then extract.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+void down(int32_t *a, uint32_t n, uint32_t i);
+void algorithm_algorithm_pat_alg_heap_sort_001_assembly(int32_t *a, uint32_t n);
+
+
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {3, -1, 2};
+  algorithm_algorithm_pat_alg_heap_sort_001_assembly(a, 3);
+  return a[0] == -1 &amp;&amp; a[1] == 2 &amp;&amp; a[2] == 3;
+}
+static int pattern_edge_vectors(void) {
+  int32_t heap[] = {1, 5, 3, 4, 2, 987654};
+  down(heap, 5, 0);
+  if (heap[0]!=5 || heap[1]!=4 || heap[2]!=3 || heap[3]!=1 || heap[4]!=2 || heap[5]!=987654) return 0;
+  int32_t a[] = {2, 2, 1};
+  algorithm_algorithm_pat_alg_heap_sort_001_assembly(a, 0);
+  algorithm_algorithm_pat_alg_heap_sort_001_assembly(a, 3);
+  return a[0] == 1 &amp;&amp; a[1] == 2 &amp;&amp; a[2] == 2;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT down
+        EXPORT algorithm_algorithm_pat_alg_heap_sort_001_assembly
+        ALIGN 2
+down
+        cmp	r0, #0
+        it	eq
+        bxeq	lr
+_LBB0_1
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        str	r11, [sp, #-4]!
+        lsr.w	lr, r1, #1
+        mov.w	r12, #2
+        b	_LBB0_3
+        ALIGN 2
+_LBB0_2
+        cmp	r3, r2
+        mov	r2, r4
+        beq	_LBB0_10
+_LBB0_3
+        cmp	r2, lr
+        bhs	_LBB0_10
+        lsls	r3, r2, #1
+        adds	r4, r3, #1
+        cmp	r4, r1
+        mov	r3, r2
+        bhs	_LBB0_6
+        ldr.w	r3, [r0, r4, lsl #2]
+        ldr.w	r5, [r0, r2, lsl #2]
+        cmp	r3, r5
+        it	le
+        movle	r4, r2
+        mov	r3, r4
+_LBB0_6
+        add.w	r4, r12, r2, lsl #1
+        cmp	r4, r1
+        bhs	_LBB0_8
+        ldr.w	r5, [r0, r4, lsl #2]
+        ldr.w	r6, [r0, r3, lsl #2]
+        cmp	r5, r6
+        it	gt
+        movgt	r3, r4
+_LBB0_8
+        cmp	r3, r2
+        mov	r4, r2
+        beq	_LBB0_2
+        ldr.w	r4, [r0, r3, lsl #2]
+        ldr.w	r5, [r0, r2, lsl #2]
+        str.w	r4, [r0, r2, lsl #2]
+        mov	r4, r3
+        str.w	r5, [r0, r3, lsl #2]
+        b	_LBB0_2
+_LBB0_10
+        ldr	r11, [sp], #4
+        pop.w	{r4, r5, r6, r7, lr}
+        bx	lr
+_Lfunc_end0
+        ALIGN 2
+algorithm_algorithm_pat_alg_heap_sort_001_assembly
+        cmp	r0, #0
+        it	eq
+        bxeq	lr
+_LBB1_1
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        str	r8, [sp, #-4]!
+        lsrs.w	r8, r1, #1
+        beq	_LBB1_13
+        mov.w	lr, #2
+        mov	r12, r8
+        b	_LBB1_4
+        ALIGN 2
+_LBB1_3
+        cmp.w	r12, #0
+        beq	_LBB1_13
+_LBB1_4
+        sub.w	r12, r12, #1
+        mov	r3, r12
+        b	_LBB1_6
+        ALIGN 2
+_LBB1_5
+        cmp	r4, r3
+        mov	r3, r5
+        beq	_LBB1_3
+_LBB1_6
+        cmp	r3, r8
+        bhs	_LBB1_3
+        lsls	r4, r3, #1
+        adds	r5, r4, #1
+        cmp	r5, r1
+        mov	r4, r3
+        bhs	_LBB1_9
+        ldr.w	r4, [r0, r5, lsl #2]
+        ldr.w	r6, [r0, r3, lsl #2]
+        cmp	r4, r6
+        it	le
+        movle	r5, r3
+        mov	r4, r5
+_LBB1_9
+        add.w	r5, lr, r3, lsl #1
+        cmp	r5, r1
+        bhs	_LBB1_11
+        ldr.w	r6, [r0, r5, lsl #2]
+        ldr.w	r2, [r0, r4, lsl #2]
+        cmp	r6, r2
+        it	gt
+        movgt	r4, r5
+_LBB1_11
+        cmp	r4, r3
+        mov	r5, r3
+        beq	_LBB1_5
+        ldr.w	r2, [r0, r4, lsl #2]
+        ldr.w	r5, [r0, r3, lsl #2]
+        str.w	r2, [r0, r3, lsl #2]
+        str.w	r5, [r0, r4, lsl #2]
+        mov	r5, r4
+        b	_LBB1_5
+_LBB1_13
+        cmp	r1, #2
+        blo	_LBB1_25
+        mov.w	r12, #2
+        b	_LBB1_16
+        ALIGN 2
+_LBB1_15
+        cmp	r1, #1
+        bls	_LBB1_25
+_LBB1_16
+        subs	r1, #1
+        ldr.w	r2, [r0, r1, lsl #2]
+        ldr	r3, [r0]
+        str	r2, [r0]
+        lsr.w	lr, r1, #1
+        movs	r2, #0
+        str.w	r3, [r0, r1, lsl #2]
+        b	_LBB1_18
+        ALIGN 2
+_LBB1_17
+        cmp	r4, r2
+        mov	r2, r5
+        beq	_LBB1_15
+_LBB1_18
+        cmp	r2, lr
+        bhs	_LBB1_15
+        lsls	r6, r2, #1
+        adds	r5, r6, #1
+        cmp	r5, r1
+        mov	r4, r2
+        bhs	_LBB1_21
+        ldr.w	r6, [r0, r5, lsl #2]
+        ldr.w	r4, [r0, r2, lsl #2]
+        cmp	r6, r4
+        it	le
+        movle	r5, r2
+        mov	r4, r5
+_LBB1_21
+        add.w	r5, r12, r2, lsl #1
+        cmp	r5, r1
+        bhs	_LBB1_23
+        ldr.w	r6, [r0, r5, lsl #2]
+        ldr.w	r3, [r0, r4, lsl #2]
+        cmp	r6, r3
+        it	gt
+        movgt	r4, r5
+_LBB1_23
+        cmp	r4, r2
+        mov	r5, r2
+        beq	_LBB1_17
+        ldr.w	r3, [r0, r4, lsl #2]
+        ldr.w	r5, [r0, r2, lsl #2]
+        str.w	r3, [r0, r2, lsl #2]
+        str.w	r5, [r0, r4, lsl #2]
+        mov	r5, r4
+        b	_LBB1_17
+_LBB1_25
+        ldr	r8, [sp], #4
+        pop.w	{r4, r5, r6, r7, lr}
+        bx	lr
+_Lfunc_end1
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: heap sort c</h3><p>pat-alg-heap-sort-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Heap construction and heap sort.
+ * Recognition cue: build max heap then extract.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+void down(int32_t *a, uint32_t n, uint32_t i);
+void algorithm_algorithm_pat_alg_heap_sort_001_c(int32_t *a, uint32_t n);
+
+
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {3, -1, 2};
+  algorithm_algorithm_pat_alg_heap_sort_001_c(a, 3);
+  return a[0] == -1 &amp;&amp; a[1] == 2 &amp;&amp; a[2] == 3;
+}
+static int pattern_edge_vectors(void) {
+  int32_t heap[] = {1, 5, 3, 4, 2, 987654};
+  down(heap, 5, 0);
+  if (heap[0]!=5 || heap[1]!=4 || heap[2]!=3 || heap[3]!=1 || heap[4]!=2 || heap[5]!=987654) return 0;
+  int32_t a[] = {2, 2, 1};
+  algorithm_algorithm_pat_alg_heap_sort_001_c(a, 0);
+  algorithm_algorithm_pat_alg_heap_sort_001_c(a, 3);
+  return a[0] == 1 &amp;&amp; a[1] == 2 &amp;&amp; a[2] == 2;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-heap-sort-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Heap construction and heap sort.
+ * Recognition cue: build max heap then extract.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+void down(int32_t *a, uint32_t n, uint32_t i) {
+  for (;;) {
+    if (!a || i &gt;= n || i &gt;= n/2u) return;
+    if (!a || i &gt;= n || i &gt;= n/2u) return;
+    uint32_t m = i, l = 2 * i + 1, r = l + 1;
+    if (l &lt; n &amp;&amp; a[l] &gt; a[m])
+      m = l;
+    if (r &lt; n &amp;&amp; a[r] &gt; a[m])
+      m = r;
+    if (m == i)
+      return;
+    {
+      int32_t t = a[i];
+      a[i] = a[m];
+      a[m] = t;
+    }
+    i = m;
+  }
+}
+void algorithm_algorithm_pat_alg_heap_sort_001_c(int32_t *a, uint32_t n) {
+  uint32_t i;
+  if (!a) return;
+  if (!a) return;
+  for (i = n / 2; i &gt; 0; i--)
+    down(a, n, i - 1);
+  for (i = n; i &gt; 1; i--) {
+    int32_t t = a[0];
+    a[0] = a[i - 1];
+    a[i - 1] = t;
+    down(a, i - 1, 0);
+  }
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Run-length encode decimal digit runs as digit followed by count.; Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.">
+  <title>2026-02-03 ARM 2 RLE ADC · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2026-02-03 ARM 2 RLE ADC</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2026-02-03 ARM 2 RLE ADC</h1><p>Run-length encode decimal digit runs as digit followed by count.; Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2026-02-03</dd></div><div class="fact"><dt>Variant</dt><dd>ARM 2 RLE ADC</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Buttons, Debounce, ADC, EINT, ADC IRQ, Acknowledgement</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/Exam%2003.02.2026/20260203_ARM_2.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Run-length encode decimal digit runs as digit followed by count.</p><div class="tag-list"><span class="tag">Decimal</span></div><p><a href="2026-02-03-arm2-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/decimal-digit-algorithms.html">Study Decimal</a></p></article><article class="question"><h3>Q2</h3><p>Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.</p><div class="tag-list"><span class="tag">LED</span><span class="tag">Buttons</span><span class="tag">Debounce</span><span class="tag">ADC</span><span class="tag">C-to-assembly</span></div><p><a href="2026-02-03-arm2-q2.html">Read complete solution for Q2</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Buttons, Debounce, ADC, EINT, ADC IRQ, Acknowledgement.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Decimal. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-02-03_ARM2_RLE_ADC/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 3 February 2026: debounced button and stable result display. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+extern uint32_t run_length_encoding(uint32_t digits);
+
+/* Foreground-owned state: IRQs only capture input or publish events. */
+static uint8_t latest_value;
+static uint8_t have_sample;
+
+void EINT1_IRQHandler(void)
+{
+  (void)exam_debounce_begin(EXAM_BUTTON_KEY1);
+}
+
+void RIT_IRQHandler(void)
+{
+  exam_rit_ack();
+  exam_debounce_tick();
+}
+
+void ADC_IRQHandler(void) { exam_adc_irq_capture(); }
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Package debounce recommendation; the paper does not prescribe 10/50 ms. */
+  if (exam_debounce_config(10u, 50u) != EXAM_OK ||
+      exam_rit_config_ms(10u) != EXAM_OK) {
+    exam_led_write(0xFFu);
+    for (;;) { __WFI(); }
+  }
+  exam_rit_start();
+  exam_adc_init();
+  exam_adc_start();
+
+  for (;;) {
+    uint16_t sample;
+    if (exam_adc_take(&amp;sample)) {
+      uint8_t value = (uint8_t)(sample &gt;&gt; 4);
+      /* Hold a computed result until the potentiometer high8 value changes.
+         The paper specifies no fixed result-hold duration. */
+      if (!have_sample || value != latest_value) exam_led_write(value);
+      latest_value = value;
+      have_sample = 1u;
+      exam_adc_start();
+    }
+    if ((exam_button_events_take() &amp; EXAM_BUTTON_EVENT_KEY1) != 0u &amp;&amp; have_sample) {
+      exam_led_write((uint8_t)run_length_encoding(latest_value));
+    }
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2026-02-03_ARM2_RLE_ADC/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  run_length_encoding
+
+; uint32_t run_length_encoding(uint32_t digits)
+run_length_encoding PROC
+                PUSH    {R4-R10, LR}
+                SUB     SP, SP, #16     ; Reversed decimal digits.
+                MOV     R4, SP
+                MOV     R5, R0
+                MOVS    R6, #0          ; Number of digits.
+                MOVS    R10, #10
+
+extract_digits
+                UDIV    R7, R5, R10
+                MLS     R8, R7, R10, R5
+                STRB    R8, [R4, R6]
+                ADDS    R6, R6, #1
+                MOV     R5, R7
+                CMP     R5, #0
+                BNE     extract_digits
+
+                SUBS    R6, R6, #1
+                LDRB    R7, [R4, R6]    ; Current digit.
+                MOVS    R8, #1          ; Run length.
+                MOVS    R9, #0          ; Result.
+
+look_loop
+                CMP     R6, #0
+                BEQ     append_look_run
+                SUBS    R6, R6, #1
+                LDRB    R5, [R4, R6]
+                CMP     R5, R7
+                BNE     append_then_continue
+                ADDS    R8, R8, #1
+                B       look_loop
+
+append_then_continue
+                MUL     R9, R9, R10
+                ADD     R9, R9, R7
+                MUL     R9, R9, R10
+                ADD     R9, R9, R8
+                MOV     R7, R5
+                MOVS    R8, #1
+                B       look_loop
+
+append_look_run
+                MUL     R9, R9, R10
+                ADD     R9, R9, R7
+                MUL     R9, R9, R10
+                ADD     R9, R9, R8
+                MOV     R0, R9
+                ADD     SP, SP, #16
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/adc-sample-conversion.html">ADC sample conversion</a></li><li><a href="../patterns/deterministic-debounce.html">Deterministic debounce</a></li><li><a href="../patterns/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../algorithms/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../algorithms/decimal-extraction-and-reconstruction.html">Decimal extraction and reconstruction</a></li><li><a href="../algorithms/decimal-digit-count.html">Decimal digit count</a></li><li><a href="../algorithms/decimal-digit-product.html">Decimal digit product</a></li><li><a href="../algorithms/checked-decimal-reversal.html">Checked decimal reversal</a></li><li><a href="../algorithms/parse-u32.html">Checked unsigned decimal parsing</a></li><li><a href="../algorithms/parse-i32.html">Checked signed decimal parsing</a></li><li><a href="../algorithms/format-signed-decimal.html">Signed decimal formatting</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Flat rectangular rows with known column count">
+  <title>Row-major matrix addressing · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Row-major matrix addressing</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Row-major matrix addressing</h1><p>Flat rectangular rows with known column count</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Flat rectangular rows with known column count.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Not equivalent to pointer-to-pointer or column-major storage.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Change cols/width; preserve a single scaling step.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Caller supplies valid row and column
+2. calculate row*columns+column
+3. read one byte</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>2x3 bytes at row1,column2 -&gt; index5 -&gt; byte offset5.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Change cols/width; preserve a single scaling step.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Not equivalent to pointer-to-pointer or column-major storage.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Change cols/width; preserve a single scaling step.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>non-square; first/last valid coordinates; high-bit byte; invalid coordinates are outside this low-level accessor&#x27;s contract.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Not equivalent to pointer-to-pointer or column-major storage. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">matrix byte assembly</a><a href="#variant-1">matrix byte c</a></nav><h3 id="variant-0">Baseline: matrix byte assembly</h3><p>foundation-matrix-byte: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: test_main, main, matrix_get_u8. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;stdint.h&gt;
+uint8_t matrix_get_u8(const uint8_t*,uint32_t,uint32_t,uint32_t);
+int test_main(void){uint8_t a[]={0,1,2,128,254,255};CHECK(matrix_get_u8(a,1,3,0)==128);CHECK(matrix_get_u8(a,1,3,2)==255);CHECK(matrix_get_u8(a,0,3,1)==1);return 0;}
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Recommended exam template: read matrix[row][column] from a byte matrix.
+; C prototype: uint8_t matrix_get_u8(const uint8_t *base,
+;                                   uint32_t row, uint32_t columns,
+;                                   uint32_t column);
+; Offset = row * columns + column. No bounds check in this low-level pattern.
+
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  matrix_get_u8
+
+matrix_get_u8   PROC
+                MUL     R1, R1, R2
+                ADDS    R1, R1, R3
+                LDRB    R0, [R0, R1]
+                BX      LR
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: matrix byte c</h3><p>foundation-matrix-byte: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;stdint.h&gt;
+uint8_t matrix_get_u8(const uint8_t*,uint32_t,uint32_t,uint32_t);
+int test_main(void){uint8_t a[]={0,1,2,128,254,255};CHECK(matrix_get_u8(a,1,3,0)==128);CHECK(matrix_get_u8(a,1,3,2)==255);CHECK(matrix_get_u8(a,0,3,1)==1);return 0;}
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-foundation-matrix-byte-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+uint8_t matrix_get_u8(const uint8_t*a,uint32_t row,uint32_t columns,uint32_t col){return a[row*columns+col];}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2024-02-12.html">E2024-02-12</a></li><li><a href="../exams/e2024-02-28.html">E2024-02-28</a></li><li><a href="../exams/e2024-07-09.html">E2024-07-09</a></li><li><a href="../exams/e2024-09-16.html">E2024-09-16</a></li><li><a href="../exams/e2025-01-29-a1.html">E2025-01-29-A1</a></li><li><a href="../exams/e2025-01-29-a2.html">E2025-01-29-A2</a></li><li><a href="../exams/e2025-01-29-a3.html">E2025-01-29-A3</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

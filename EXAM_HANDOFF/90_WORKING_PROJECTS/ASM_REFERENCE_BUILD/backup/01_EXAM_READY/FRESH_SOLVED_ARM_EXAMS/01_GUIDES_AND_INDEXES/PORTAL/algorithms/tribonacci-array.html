@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Seeds 0,0,1; accept count&lt;=32, capacity&gt;=count. Return 1 on success; invalid input returns 0 before writes. Empty output is valid.">
+  <title>Tribonacci array generation · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Tribonacci array generation</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Tribonacci array generation</h1><p>Seeds 0,0,1; accept count&lt;=32, capacity&gt;=count. Return 1 on success; invalid input returns 0 before writes. Empty output is valid.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Recursion and dynamic programming</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(n) time; O(1) auxiliary storage</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Seeds 0,0,1; accept count&lt;=32, capacity&gt;=count. Return 1 on success; invalid input returns 0 before writes. Empty output is valid.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int tribonacci_array(uint32_t *out, uint32_t count, uint32_t capacity)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>tribonacci_array</code></td><td><code>uint32_t *out</code></td><td><code>R0</code></td></tr><tr><td><code>tribonacci_array</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>tribonacci_array</code></td><td><code>uint32_t capacity</code></td><td><code>R2</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Validate count and capacity.</li><li>Store requested seed terms.</li><li>Sum preceding terms for every later index.</li></ol><h3>Worked trace</h3><p>count=7: 0,0,1,1,2,4,7.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/tribonacci-array/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Tribonacci array generation
+; int tribonacci_array(uint32_t *out, uint32_t count, uint32_t capacity)
+; Seeds 0,0,1; accept count&lt;=32, capacity&gt;=count. Return 1 on success; invalid input returns 0 before writes. Empty output is valid.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT tribonacci_array
+tribonacci_array
+        cmp r1,#32
+        bhi seq_bad
+        cmp r1,r2
+        bhi seq_bad
+        cmp r1,#0
+        beq seq_ok
+        cmp r0,#0
+        beq seq_bad
+        push {r4,r5}
+        movs r2,#0
+seq_loop
+        movs r3,#0
+        cmp r2,#2
+        blo seq_write
+        mov r3,#1
+        beq seq_write
+        sub r3,r2,#1
+        ldr r4,[r0,r3,lsl #2]
+        subs r3,#1
+        ldr r5,[r0,r3,lsl #2]
+        add r4,r5
+        subs r3,#1
+        ldr r5,[r0,r3,lsl #2]
+        add r3,r4,r5
+seq_write
+        str r3,[r0,r2,lsl #2]
+        adds r2,#1
+        cmp r2,r1
+        blo seq_loop
+        pop {r4,r5}
+seq_ok
+        movs r0,#1
+        bx lr
+seq_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/tribonacci-array/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int tribonacci_array(uint32_t *out, uint32_t n, uint32_t cap) {
+  if (n &gt; 32 || n &gt; cap || (!out &amp;&amp; n))
+    return 0;
+  for (uint32_t i = 0; i &lt; n; i++)
+    out[i] = i &lt; 2 ? 0 : i == 2 ? 1 : out[i - 1] + out[i - 2] + out[i - 3];
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/tribonacci-array/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int tribonacci_array(uint32_t *out, uint32_t count, uint32_t capacity);
+int test_main(void) {
+  uint32_t a[49] = {0};
+  a[48] = 77;
+  CHECK(tribonacci_array(a, 7, 7) &amp;&amp; a[6] == 7);
+  CHECK(!tribonacci_array(a, 8, 7));
+  CHECK(tribonacci_array(0, 0, 0));
+  CHECK(tribonacci_array(a, 32, 32) &amp;&amp; a[48] == 77);
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

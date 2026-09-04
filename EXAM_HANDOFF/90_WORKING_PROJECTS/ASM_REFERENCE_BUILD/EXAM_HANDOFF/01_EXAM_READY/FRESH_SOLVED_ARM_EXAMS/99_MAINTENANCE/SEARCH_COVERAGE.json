@@ -1,0 +1,25 @@
+{
+  "indexedFiles": 1351,
+  "pdfPages": 2547,
+  "duplicates": 1896,
+  "unindexed": [
+    {
+      "path": "02_ORIGINAL_MATERIALS/ARM/18_Joystick.pdf",
+      "page": 16,
+      "reason": "No extractable text; original page remains available"
+    },
+    {
+      "path": "02_ORIGINAL_MATERIALS/ARM/20_LCD_and_Touch_Panel.pdf",
+      "page": 29,
+      "reason": "No extractable text; original page remains available"
+    }
+  ],
+  "excludedRoots": [
+    "90_WORKING_PROJECTS",
+    "build artifacts",
+    "caches",
+    "binary files"
+  ],
+  "sectionRecords": 6458,
+  "catalogRecords": 532
+}

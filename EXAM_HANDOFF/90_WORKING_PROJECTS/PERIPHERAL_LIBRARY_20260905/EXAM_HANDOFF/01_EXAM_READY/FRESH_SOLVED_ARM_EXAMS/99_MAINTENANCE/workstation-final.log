@@ -1,0 +1,12 @@
+{
+  "structuralChecks": 47606,
+  "errors": [],
+  "hostSyntaxWithActualHeaders": [],
+  "unchangedNativeProjectsVerifiedBySourceHash": [
+    "project-buttons",
+    "project-timed",
+    "project-analog"
+  ],
+  "nativeKeilBuild": "See PATTERN_NATIVE_BUILDS.json for native target results. This report covers the structural and host syntax checks only.",
+  "physicalBoard": "Not performed; board required for input/timing/output claims."
+}

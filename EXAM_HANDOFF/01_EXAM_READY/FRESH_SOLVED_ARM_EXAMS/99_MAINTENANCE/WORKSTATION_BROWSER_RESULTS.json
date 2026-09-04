@@ -1,0 +1,40 @@
+{
+  "checks": 46,
+  "errors": [],
+  "externalRequests": [],
+  "searchTimings": [
+    {
+      "query": "exam_timer_config_ms",
+      "renderMs": 51.2
+    },
+    {
+      "query": "short-circuit",
+      "renderMs": 36.5
+    },
+    {
+      "query": "interrupt handler",
+      "renderMs": 41.8
+    },
+    {
+      "query": "Timer0 ADC",
+      "renderMs": 64.6
+    },
+    {
+      "query": "LDRSB",
+      "renderMs": 13.3
+    }
+  ],
+  "screenshots": [
+    "courses-c-pointers.html.png",
+    "courses-index.html.png",
+    "home-desktop.png",
+    "in-exam-index.html.png",
+    "in-exam-step-two.png",
+    "narrow-courses-c-pointers.html.png",
+    "narrow-courses-index.html.png",
+    "narrow-in-exam-index.html.png",
+    "narrow-search.html.png",
+    "patterns-fifth-and-later-arguments.html.png",
+    "search-desktop.png"
+  ]
+}

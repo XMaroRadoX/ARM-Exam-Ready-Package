@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.">
+  <title>Signed 64-by-32 restoring division · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Signed 64-by-32 restoring division</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Signed 64-by-32 restoring division</h1><p>A reusable loops and state method: recognize the shape, map inputs and outputs, then implement it safely.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-actual-c-code">Actual C code</a><a href="#section-actual-assembly-code">Actual assembly code</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Problem family</dt><dd>Loops and state</dd></div><div class="fact"><dt>Language</dt><dd>Assembly</dd></div><div class="fact"><dt>Exam history</dt><dd>Appeared in past exams</dd></div></dl></section><section class="section-block lesson-content"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Exact wide signed quotient with limited primitives.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Do not use a 32-bit divide that discards high dividend bits.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Keep sign, quotient width, and remainder definition explicit.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Validate divisor
+2. divide magnitudes bitwise with bounded loop
+3. restore sign
+4. check quotient range/remainder contract</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>-9/2 -&gt; quotient-4,remainder-1 under truncation toward zero.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Keep sign, quotient width, and remainder definition explicit.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Do not use a 32-bit divide that discards high dividend bits.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Keep sign, quotient width, and remainder definition explicit.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>zero divisor; negative operands; minimum magnitude; overflow.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Do not use a 32-bit divide that discards high dividend bits. Use the trace above to locate the first differing step.</p><h2 id="section-actual-c-code">Actual C code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>C source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-WIDE-DIVISION-001/c/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed 64-by-32 restoring division.
+ * Recognition cue: divide signed 64-bit dividend by signed 32-bit divisor.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+int64_t pat_alg_wide_division_001(int64_t dividend, int32_t divisor,
+                                  int32_t *remainder) {
+  uint64_t q = 0, r = 0, u;
+  uint32_t d;
+  int negq, negr;
+  int i;
+  if (!divisor) {
+    if (remainder)
+      *remainder = 0;
+    return 0;
+  }
+  negq = ((dividend &lt; 0) ^ (divisor &lt; 0));
+  negr = (dividend &lt; 0);
+  u = (dividend &lt; 0) ? (uint64_t)(-(dividend + 1)) + 1u : (uint64_t)dividend;
+  d = (divisor &lt; 0) ? (uint32_t)(-(int64_t)divisor) : (uint32_t)divisor;
+  for (i = 63; i &gt;= 0; i--) {
+    r = (r &lt;&lt; 1) | ((u &gt;&gt; (uint32_t)i) &amp; 1u);
+    if (r &gt;= d) {
+      r -= d;
+      q |= UINT64_C(1) &lt;&lt; (uint32_t)i;
+    }
+  }
+  if (remainder) {
+    *remainder = negr ? -(int32_t)r : (int32_t)r;
+  }
+  if (q == (UINT64_C(1) &lt;&lt; 63)) return INT64_MIN;
+  if (q == (UINT64_C(1) &lt;&lt; 63)) return INT64_MIN;
+  return negq ? -(int64_t)q : (int64_t)q;
+}
+
+#ifdef PATTERN_HOST_TEST
+static int pattern_core_vector(void) {
+  int32_t r = 0;
+  return pat_alg_wide_division_001(-15, 2, &amp;r) == -7 &amp;&amp; r == -1;
+}
+static int pattern_edge_vectors(void) {
+  int32_t rem_limit=99;if(pat_alg_wide_division_001(INT64_MIN,1,&amp;rem_limit)!=INT64_MIN||rem_limit!=0||pat_alg_wide_division_001(INT64_MIN,-1,&amp;rem_limit)!=INT64_MIN)return 0;
+  int32_t r = 7;
+  return pat_alg_wide_division_001(0, 5, &amp;r) == 0 &amp;&amp; r == 0 &amp;&amp;
+         pat_alg_wide_division_001(15, -2, &amp;r) == -7 &amp;&amp; r == 1 &amp;&amp;
+         pat_alg_wide_division_001(9, 0, &amp;r) == 0 &amp;&amp; r == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int main(void) { return pattern_test_suite(); }
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-actual-assembly-code">Actual assembly code</h2><p>Reusable source listing. Check its signature, preconditions, and dependencies before inserting it into the current project.</p><details class="code-panel" open><summary>assembly source</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/02%20-%20Code%20Recipes/11%20-%20Maximum%20Algorithm%20Reference/PAT-ALG-WIDE-DIVISION-001/arm/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; int64_t pat_alg_wide_division_001(int64_t dividend, int32_t divisor,
+;                                          int32_t *remainder)
+; R0:R1=dividend low:high, R2=divisor, R3=remainder pointer.
+; R0:R1=quotient low:high. Leaf. Saves R4-R11 (32-byte aligned frame).
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  pat_alg_wide_division_001
+
+pat_alg_wide_division_001 PROC
+                CMP     R2, #0
+                BNE     wide_div_start
+                CMP     R3, #0
+                IT      NE
+                MOVNE   R12, #0
+                IT      NE
+                STRNE   R12, [R3]
+                MOVS    R0, #0
+                MOVS    R1, #0
+                BX      LR
+
+wide_div_start
+                PUSH    {R4-R11}
+                MOV     R4, R0          ; absolute dividend low
+                MOV     R5, R1          ; absolute dividend high
+                MOV     R6, R2          ; absolute divisor
+                MOVS    R7, #0          ; restoring remainder
+                MOVS    R8, #0          ; quotient low
+                MOVS    R9, #0          ; quotient high
+                MOVS    R10, #64        ; fixed loop count
+                MOVS    R11, #0         ; bit0=negative quotient, bit1=negative remainder
+                SUB     SP, SP, #8
+                STR     R3, [SP]
+
+                CMP     R5, #0
+                BPL     wide_div_dividend_positive
+                ORR     R11, R11, #3
+                MVN     R4, R4
+                MVN     R5, R5
+                ADDS    R4, R4, #1
+                MOVS    R3, #0
+                ADC     R5, R5, R3
+wide_div_dividend_positive
+                CMP     R6, #0
+                BPL     wide_div_divisor_positive
+                EOR     R11, R11, #1
+                RSB     R6, R6, #0
+wide_div_divisor_positive
+
+wide_div_loop
+                LSLS    R4, R4, #1      ; shift dividend, next input bit exits R5
+                ADCS    R5, R5, R5
+                ADCS    R7, R7, R7      ; remainder = remainder*2 + next bit
+                LSLS    R8, R8, #1
+                ADC     R9, R9, R9      ; shift 64-bit quotient
+                CMP     R7, R6
+                BLO     wide_div_no_subtract
+                SUB     R7, R7, R6
+                ORR     R8, R8, #1
+wide_div_no_subtract
+                SUBS    R10, R10, #1
+                BNE     wide_div_loop
+
+                TST     R11, #1
+                BEQ     wide_div_quotient_ready
+                MVN     R8, R8
+                MVN     R9, R9
+                ADDS    R8, R8, #1
+                MOVS    R3, #0
+                ADC     R9, R9, R3
+wide_div_quotient_ready
+                TST     R11, #2
+                IT      NE
+                RSBNE   R7, R7, #0
+                LDR     R3, [SP]
+                CMP     R3, #0
+                IT      NE
+                STRNE   R7, [R3]
+                MOV     R0, R8
+                MOV     R1, R9
+                ADD     SP, SP, #8
+                POP     {R4-R11}
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2023-05-17.html">E2023-05-17</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

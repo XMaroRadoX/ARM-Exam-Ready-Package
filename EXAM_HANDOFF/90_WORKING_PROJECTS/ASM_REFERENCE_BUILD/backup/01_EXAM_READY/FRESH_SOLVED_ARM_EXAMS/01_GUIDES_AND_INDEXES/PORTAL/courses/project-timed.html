@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Read, trace, attempt, check, then progress.">
+  <title>2. Guided project: timer calls a real ARM computation · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Courses" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Courses</a><span aria-hidden="true">/</span><span aria-current="page">2. Guided project: timer calls a real ARM computation</span></nav><header class="page-heading"><p class="eyebrow">Courses</p><h1>2. Guided project: timer calls a real ARM computation</h1><p>Read, trace, attempt, check, then progress.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-before-this-lesson">Before this lesson</a><a href="#section-understand-the-idea">Understand the idea</a><a href="#section-worked-example">Worked example</a><a href="#section-execution-trace">Execution trace</a><a href="#section-try-it-before-the-answer">Try it before the answer</a><a href="#section-common-mistakes-and-symptoms">Common mistakes and symptoms</a><a href="#section-checkpoint">Checkpoint</a><a href="#section-complete-project-solution">Complete project solution</a><a href="#section-connect-this-skill-to-the-exam">Connect this skill to the exam</a></nav><div class="page-body"><section class="section-block" data-course-lesson="project-timed"><p class="eyebrow">Guided projects and exam practice · Exam core</p><h2 id="section-before-this-lesson">Before this lesson</h2><p><a href="project-buttons.html">1. Guided project: debounced button and LED counter</a> — finish its checkpoint first.</p><h2 id="section-understand-the-idea">Understand the idea</h2><p>Every 500 ms, request a foreground sum of four unsigned words and display the result. The contract returns the sum modulo 2^32 and does not modify input. This small fixed workload treats timer events as a pending request; it does not promise to count every timer tick under arbitrary foreground delay.</p><p>Milestone 1: write the C prototype and a temporary stub returning 10. Milestone 2: verify that the real Timer0 handler publishes an event and main displays that value. Milestone 3: replace the stub with the bounded ARM word scan. Milestone 4: inspect R0, input memory, SP, and callee-saved registers.</p><p>Change the input vector to distinguish a real computation from a surviving stub. A repeated displayed 10 for every input is evidence to investigate, not success.</p><h2 id="section-worked-example">Worked example</h2><p class="notice">Illustrative fragment unless explicitly marked as a complete project below. Read the contract and required placement before copying.</p><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Known cases: [] -&gt;0; [7] -&gt;7; [1,2,3,4] -&gt;10 */</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-execution-trace">Execution trace</h2><p>Timer0 match → one event bit → main calls sum_words → R0=10 → LED mask0x0A.</p><h2 id="section-try-it-before-the-answer">Try it before the answer</h2><p>Implement sum_words and test [2,4,6] before opening the full source. Why would a queue be needed in a different timing contract?</p><details class="lesson-reveal"><summary>Hint 1</summary><p>A leaf scan can use only caller-clobbered registers.</p></details><details class="lesson-reveal"><summary>Hint 2</summary><p>A bit can coalesce multiple delayed ticks.</p></details><details class="lesson-reveal"><summary>Reveal the worked answer</summary><p>The complete project contains a real loop, not the temporary stub. [2,4,6] returns12. If each tick has a distinct payload or must be counted, replace the notification design with bounded counter/queue semantics rather than assuming event flags count.</p></details><h2 id="section-common-mistakes-and-symptoms">Common mistakes and symptoms</h2><p>Link success with a stub proves only connectivity. Wrong stride and unbalanced registers can survive a simple result test.</p><h2 id="section-checkpoint">Checkpoint</h2><p>Pass independent ARM cases, then integration, with no temporary stub remaining.</p><label class="completion-control js-only"><input type="checkbox" data-lesson-complete="project-timed"> I can explain and demonstrate this checkpoint</label><h2 id="section-complete-project-solution">Complete project solution</h2><p>Compare after your attempt. Copy this whole project into your working area before editing. The other driver/startup files remain the supplied template.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-timed/sample.uvprojx">Open the complete teaching project</a><h3>Source/sample.c</h3><p>Complete replacement file in this teaching project. <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-timed/Source/sample.c">Read this source file</a></p><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+static void stop_on_error(void) { exam_led_write(0xFFu); for (;;) {} }
+
+extern uint32_t sum_words(const uint32_t *values,uint32_t count);
+static const uint32_t values[4]={1u,2u,3u,4u};
+int main(void)
+{
+    exam_init();
+    if (exam_timer_config_ms(EXAM_TIMER0,500u,EXAM_TIMER_PERIODIC)!=EXAM_OK)
+        stop_on_error();
+    exam_timer_start(EXAM_TIMER0);
+    for (;;) {
+        if (exam_events_take(1u) &amp; 1u) {
+            uint32_t result=sum_words(values,4u);
+            exam_led_write((uint8_t)result);
+        }
+    }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Source/timer/IRQ_timer.c</h3><p>Complete replacement file in this teaching project. <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-timed/Source/timer/IRQ_timer.c">Read this source file</a></p><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+
+void TIMER0_IRQHandler(void) {
+    uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+    if (flags &amp; 1u) exam_events_set(1u);
+}
+void TIMER1_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER1); }
+void TIMER2_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER2); }
+void TIMER3_IRQHandler(void) { (void)exam_timer_ack(EXAM_TIMER3); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Source/ASM_funct.s</h3><p>Complete replacement file in this teaching project. <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/course-projects/project-timed/Source/ASM_funct.s">Read this source file</a></p><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 4">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        AREA |.text.course_sum|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT sum_words
+sum_words PROC
+        MOV R2, #0
+        MOV R3, #0
+next    CMP R2, R1
+        BHS done
+        LDR R12, [R0, R2, LSL #2]
+        ADD R3, R3, R12
+        ADD R2, R2, #1
+        B next
+done    MOV R0, R3
+        BX LR
+        ENDP
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-connect-this-skill-to-the-exam">Connect this skill to the exam</h2><ul><li>Pattern: <a href="../patterns/assembly-stub-to-real-integration.html">Assembly stub to real integration</a></li><li>Pattern: <a href="../patterns/word-array-traversal.html">Word-array traversal</a></li><li><a href="../exams/2023-02-07-q1.html">2023-02-07-Q1: Copy signed bytes into byte storage, then sort ascending with insertion sort.</a></li><li><a href="../exams/2023-02-07-q2.html">2023-02-07-Q2: Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.</a></li><li><a href="../search.html">Search related patterns, implementations, and API calls</a></li><li><a href="coverage.html">See all lecture and question mappings</a></li></ul><nav class="lesson-navigation" aria-label="Lesson navigation"><a href="project-buttons.html">← 1. Guided project: debounced button and LED counter</a><a href="project-analog.html">3. Guided project: timed ADC to DAC workflow →</a></nav></section><div class="progress-tools js-only"><button type="button" data-progress-export>Export progress</button><label>Import progress<input type="file" data-progress-import accept="application/json,.json"></label></div><p data-storage-status role="status"></p></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.syntax unified
+.cpu cortex-m3
+.thumb
+.text
+.global algorithm_bounded_look_and_say_generation
+algorithm_bounded_look_and_say_generation:
+                CMP     R0, #0
+                BEQ     look_invalid
+                CMP     R2, #0
+                BEQ     look_invalid
+                PUSH    {R4-R7}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R0, #0
+                MOVS    R1, #0
+look_outer:
+                CMP     R1, R5
+                BHS     look_done
+                LDRB    R2, [R4, R1]
+                MOVS    R3, #1
+                ADDS    R1, R1, #1
+look_count:
+                CMP     R1, R5
+                BHS     look_emit
+                CMP     R3, #255
+                BHI     look_fail
+                LDRB    R12, [R4, R1]
+                CMP     R12, R2
+                BNE     look_emit
+                ADDS    R3, R3, #1
+                ADDS    R1, R1, #1
+                B       look_count
+look_emit:
+                SUB     R12, R7, R0
+                CMP     R12, #2
+                BLO     look_fail
+                ADD     R12, R6, R0
+                STRB    R3, [R12]
+                STRB    R2, [R12, #1]
+                ADDS    R0, R0, #2
+                B       look_outer
+look_done:
+                POP     {R4-R7}
+                BX      LR
+look_fail:
+                POP     {R4-R7}
+look_invalid:
+                MOVS    R0, #0
+                BX      LR
+.ltorg
+.balign 4

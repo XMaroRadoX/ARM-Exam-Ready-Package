@@ -1,0 +1,30 @@
+# Controlled tag dictionary
+
+- `abi:four-register-args` - R0-R3 are all consumed by arguments
+- `abi:nonleaf` - Function calls another function and must preserve LR
+- `abi:stacked-args` - Arguments continue on the caller stack
+- `alg:fixed-point` - Scaled-integer arithmetic
+- `alg:frequency-count` - Counts values before comparing multisets
+- `alg:graph-search` - Graph, maze, reachability, or spanning-tree logic
+- `alg:recurrence` - Sequence generated from earlier terms
+- `alg:sorting` - Ordering or insertion/swap logic
+- `board:adc` - Analogue-to-digital conversion
+- `board:dac` - Digital-to-analogue output
+- `board:gpio` - LED, key, button, or INT0 GPIO
+- `board:joystick` - Joystick input
+- `board:timer` - LPC1768 timer or SysTick
+- `cpu:exception-frame` - Hardware exception stack frame
+- `cpu:flags` - N/Z/C/V are observed or produced
+- `cpu:svc` - Supervisor call decoding
+- `flow:early-break` - Controlled exit from an inner search
+- `flow:nested-loop` - Loop nested inside another loop
+- `mem:byte-array` - Byte elements and byte loads/stores
+- `mem:matrix-row-major` - row * columns + column addressing
+- `mem:word-array` - 32-bit elements and scaled addressing
+- `risk:irq-shared-state` - State shared with an interrupt
+- `risk:stack-alignment` - AAPCS preservation/alignment hazard
+- `risk:vector-ownership` - One unambiguous owner per interrupt vector
+- `state:debounce` - Confirmed press/release filtering
+- `state:event-loop` - ISR-to-foreground event state
+- `timing:free-running` - Counter runs continuously
+- `timing:periodic` - Repeated timed event

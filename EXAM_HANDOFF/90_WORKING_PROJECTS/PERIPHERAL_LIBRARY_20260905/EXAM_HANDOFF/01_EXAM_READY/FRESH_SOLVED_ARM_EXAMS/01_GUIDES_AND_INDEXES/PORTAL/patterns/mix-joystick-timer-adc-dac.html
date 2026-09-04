@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Compose a board monitor using Joystick, Timer, ADC, DAC. Joystick RIGHT/LEFT adjust the value and SELECT changes mode. ADC sets the value and analog amplitude. Timer1 streams an eight-sample waveform at 8 kHz. Inspect app, output_ticks and supervisor_ticks in the debugger for components without a visible output.">
+  <title>Joystick + Timer + ADC + DAC monitor · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Joystick + Timer + ADC + DAC monitor</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Joystick + Timer + ADC + DAC monitor</h1><p>Compose a board monitor using Joystick, Timer, ADC, DAC. Joystick RIGHT/LEFT adjust the value and SELECT changes mode. ADC sets the value and analog amplitude. Timer1 streams an eight-sample waveform at 8 kHz. Inspect app, output_ticks and supervisor_ticks in the debugger for components without a visible output.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-observable-behavior">Problem and observable behavior</a><a href="#section-resource-and-interrupt-ownership">Resource and interrupt ownership</a><a href="#section-state-transitions-and-event-sequence">State transitions and event sequence</a><a href="#section-setup-values-and-timing">Setup values and timing</a><a href="#section-why-the-code-is-arranged-this-way">Why the code is arranged this way</a><a href="#section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</a><a href="#section-verification">Verification</a><a href="#section-complete-replacement-files">Complete replacement files</a><a href="#section-related-references">Related references</a></nav><div class="page-body"><section class="section-block"><p class="eyebrow">Additional practice</p><h2 id="section-problem-and-observable-behavior">Problem and observable behavior</h2><p>Compose a board monitor using Joystick, Timer, ADC, DAC. Joystick RIGHT/LEFT adjust the value and SELECT changes mode. ADC sets the value and analog amplitude. Timer1 streams an eight-sample waveform at 8 kHz. Inspect app, output_ticks and supervisor_ticks in the debugger for components without a visible output.</p><p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/mix-joystick-timer-adc-dac.zip">Download complete project ZIP</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/sample.uvprojx">Open complete Keil project</a></p><h2 id="section-resource-and-interrupt-ownership">Resource and interrupt ownership</h2><table><thead><tr><th>Resource</th><th>Role</th></tr></thead><tbody><tr><td>Joystick</td><td>P1.25 SELECT, P1.26 DOWN, P1.27 LEFT, P1.28 RIGHT, P1.29 UP; active low</td></tr><tr><td>Timer</td><td>Timer0: 10 ms status/control; Timer1: 8 kHz DAC samples when DAC is selected; no capture pins</td></tr><tr><td>ADC</td><td>P1.31 / AD0.5 potentiometer; 0–4095; one conversion at a time</td></tr><tr><td>DAC</td><td>P0.26 / AOUT speaker; 0–1023; timed waveform with Timer1, static voltage otherwise</td></tr></tbody></table><ul><li>P1.25 SELECT, P1.26 DOWN, P1.27 LEFT, P1.28 RIGHT, P1.29 UP; active low</li><li>Timer0: 10 ms status/control; Timer1: 8 kHz DAC samples when DAC is selected; no capture pins</li><li>P1.31 / AD0.5 potentiometer; 0–4095; one conversion at a time</li><li>P0.26 / AOUT speaker; 0–1023; timed waveform with Timer1, static voltage otherwise</li><li>Foreground: sole controller state owner; bounded FIFO of 31 usable snapshots; loss counter on overflow</li></ul><h2 id="section-state-transitions-and-event-sequence">State transitions and event sequence</h2><p>Reset initializes running state, empty measurements, and zero display. Each confirmed input snapshot advances the described controller. KEY2 reset wins over simultaneous commands.</p><h2 id="section-setup-values-and-timing">Setup values and timing</h2><p>10 ms control clock; five consecutive changed samples confirm a transition (50 ms recipe).</p><p>Illustrative practice values, not paper constants. Timer0 uses 10 ms. Timer1 uses 8000 samples/second: eight samples give a 1000 Hz base tone. RIT uses 10 ms. SysTick uses 10 ms alone or 100 ms as a separate supervisor. API configuration derives thresholds from the actual configured clock. SysTick must fit its 24-bit reload.</p><p>The foreground owns app. The primary sampling interrupt is RIT, otherwise SysTick, otherwise Timer0; without those, polling has no time guarantee. ADC priority is 2; audio Timer1 priority is 1; input edge IRQ priority is 3. Unused clocks are not initialized. A 31-entry FIFO preserves sampled command order; overflow drops the newest snapshot and increments lost_inputs. ADC processing is latest-completed-sample acquisition, not a lossless high-rate recorder.</p><h2 id="section-why-the-code-is-arranged-this-way">Why the code is arranged this way</h2><ul><li>stable_mask requires five consistent samples and produces one change per hold.</li><li>controller_step owns the state transitions; capture_inputs owns physical input reads.</li><li>The ADC interrupt stores completion; only the sampling path consumes it and requests the next conversion.</li><li>The main loop restores the saved interrupt mask after queue and audio-state updates.</li><li>stream_sample keeps output in 0–1023 and writes zero when paused.</li></ul><h2 id="section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</h2><p>Reset: running=1, value=0. For available inputs: INT0 pauses; KEY2 resets; RIGHT increments; ADC 4095 sets value=255 and amplitude=1023. Release inputs between commands.</p><p>Check initial state, press and release, simultaneous reset and action, held inputs, endpoints, restart, and delayed foreground processing. No physical-board result is claimed.</p><h2 id="section-verification">Verification</h2><p><a href="../../../99_MAINTENANCE/SCENARIO_VALIDATION.json">Behavioral and structural results</a> · <a href="../../../99_MAINTENANCE/SCENARIO_NATIVE_BUILDS.json">Native build results</a>. Reports identify tests actually run; simulation does not establish electrical or analog behavior.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-replacement-files">Complete replacement files</h2><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#define MODE 0
+#define CONTROL_CLOCK 1
+#define DEBOUNCE_STEPS 5
+#define POLL_BUTTONS 0
+#define HAS_LED 0
+#define HAS_BUTTONS 0
+#define HAS_JOYSTICK 1
+#define HAS_TIMER 1
+#define HAS_RIT 0
+#define HAS_SYSTICK 0
+#define HAS_ADC 1
+#define HAS_DAC 1
+/* Expanded into each complete project by scenario_library.py.
+ * One foreground owner changes application state. All times below are 10 ms
+ * control steps, except polling-only combinations, which have no time claim.
+ */
+#include &lt;stdint.h&gt;
+#include &lt;string.h&gt;
+typedef struct {
+  uint32_t ticks, elapsed, value, samples, sum, minimum, maximum;
+  uint32_t mean, alarm, running, phase, digit_count, entered, result;
+  uint32_t previous_buttons, previous_joy, held, repeat, deadline;
+  uint32_t history[8], cursor, filled, output, amplitude, period;
+} controller_t;
+controller_t app;
+void controller_reset(void) {
+  memset(&amp;app,0,sizeof(app));
+  app.running=MODE==14?0u:1u; app.minimum=4095u; app.amplitude=1023u;
+  app.period=50u; app.deadline=300u;
+}
+/* Inputs are stable active-high masks. A simultaneous reset wins over all
+ * other commands. Other simultaneous commands execute INT0, KEY1, then joy.
+ * Bounded arithmetic is intentional: display is 8 bits, ADC is 12 bits.
+ */
+void controller_step(uint32_t buttons,uint32_t joy,uint32_t valid,uint32_t adc) {
+  uint32_t press=buttons &amp; ~app.previous_buttons;
+  uint32_t edges=joy &amp; ~app.previous_joy;
+  uint32_t released=app.previous_buttons &amp; ~buttons;
+  app.previous_buttons=buttons; app.previous_joy=joy;
+  ++app.ticks;
+  if (press &amp; 4u) {
+    controller_reset(); app.previous_buttons=buttons; app.previous_joy=joy;
+    return;
+  }
+  if (adc&gt;4095u) adc=4095u;
+  if (valid) {
+    ++app.samples;
+    if (adc&lt;app.minimum) app.minimum=adc;
+    if (adc&gt;app.maximum) app.maximum=adc;
+    app.sum-=app.history[app.cursor]; app.history[app.cursor]=adc; app.sum+=adc;
+    app.cursor=(app.cursor+1u)&amp;7u;
+    if (app.filled&lt;8u) ++app.filled;
+    app.mean=app.sum/app.filled;
+    app.amplitude=adc&gt;&gt;2;
+  }
+#if MODE == 1 /* press counter */
+  if (press&amp;1u) app.value=(app.value+1u)&amp;255u;
+  if (press&amp;2u) app.value=(app.value-1u)&amp;255u;
+#elif MODE == 2 /* ordered binary input */
+  if (app.digit_count&lt;32u &amp;&amp; (press&amp;2u)) { app.entered&lt;&lt;=1; ++app.digit_count; }
+  if (app.digit_count&lt;32u &amp;&amp; (edges&amp;16u)) { app.entered=(app.entered&lt;&lt;1)|1u; ++app.digit_count; }
+  if (press&amp;1u) { app.result=app.entered; app.value=app.result; }
+#elif MODE == 3 /* toggle, release, and one long-press action */
+  if (press&amp;1u) app.value^=1u;
+  if (released&amp;1u) app.value^=2u;
+  if (buttons&amp;1u) { if (app.held&lt;100u) ++app.held; if(app.held==100u) {app.value^=4u; ++app.held;} }
+  else app.held=0u;
+#elif MODE == 4 /* stopwatch with pause */
+  if (press&amp;1u) app.running^=1u;
+  if (app.running) ++app.elapsed;
+  app.value=app.elapsed/100u;
+#elif MODE == 5 /* countdown */
+  if (press&amp;1u) app.running^=1u;
+  if (app.running &amp;&amp; app.deadline) --app.deadline;
+  app.alarm=(app.deadline==0u); app.value=(app.deadline+99u)/100u;
+#elif MODE == 6 /* reaction: arm, wait, react */
+  if (press&amp;1u) {app.phase=1u;app.elapsed=0u;app.result=0u;}
+  if (app.phase==1u) { if (press&amp;2u) {app.phase=4u;app.result=0xFFu;} else if (++app.elapsed&gt;=100u) {app.phase=2u;app.elapsed=0u;} }
+  else if(app.phase==2u) { if(press&amp;2u) {app.result=app.elapsed;app.phase=3u;} else ++app.elapsed; }
+  app.value=(app.phase==2u)?0xFFu:app.result;
+#elif MODE == 7 /* bounded movement with hold repeat */
+  if (joy) ++app.repeat; else app.repeat=0u;
+  if ((edges&amp;8u) || ((joy&amp;8u)&amp;&amp;app.repeat&gt;=50u&amp;&amp;app.repeat%10u==0u)) {if(app.value&lt;7u)++app.value;}
+  if ((edges&amp;4u) || ((joy&amp;4u)&amp;&amp;app.repeat&gt;=50u&amp;&amp;app.repeat%10u==0u)) {if(app.value) --app.value;}
+#elif MODE == 8 /* four-command code entry */
+  if(edges&amp;8u) {app.entered=((app.entered&lt;&lt;2)|1u)&amp;255u; if(app.digit_count&lt;4u)++app.digit_count;}
+  if(edges&amp;4u) {app.entered=((app.entered&lt;&lt;2)|2u)&amp;255u; if(app.digit_count&lt;4u)++app.digit_count;}
+  if(edges&amp;1u) {app.result=(app.digit_count==4u&amp;&amp;app.entered==0x66u);app.value=app.result?0xFFu:0u;app.digit_count=0u;app.entered=0u;}
+#elif MODE == 9 /* ADC scaling */
+  if(valid) app.value=(adc*100u+2047u)/4095u;
+#elif MODE == 10 /* ADC hysteresis */
+  if(valid) {if(adc&gt;=3000u) app.alarm=1u;else if(adc&lt;=2000u) app.alarm=0u;}
+  app.value=app.alarm?255u:0u;
+#elif MODE == 11 /* moving mean */
+  if(valid) app.value=app.mean&gt;&gt;4;
+#elif MODE == 12 /* captured sample */
+  if((press&amp;1u) &amp;&amp; app.filled) {app.result=app.history[(app.cursor+7u)&amp;7u];app.value=app.result&gt;&gt;4;}
+#elif MODE == 13 /* potentiometer sets bounded interval */
+  if(valid) app.period=5u+(adc*95u)/4095u;
+  if(++app.elapsed&gt;=app.period) {app.elapsed=0u;app.value^=255u;}
+#elif MODE == 14 /* finite waveform burst, busy trigger ignored */
+  if((press&amp;1u) &amp;&amp; !app.phase) {app.phase=1u;app.elapsed=0u;}
+  if(app.phase &amp;&amp; ++app.elapsed&gt;=20u) {app.phase=0u;app.elapsed=0u;}
+  app.running=app.phase;app.value=app.phase?255u:0u;
+#elif MODE == 15 /* waveform pause and restart */
+  if(press&amp;1u) app.running^=1u;
+  if(edges&amp;8u) {app.phase=(app.phase+1u)%3u;}
+  app.value=app.phase;
+#elif MODE == 16 /* note sequencer: note, gap, next note */
+  if(++app.elapsed==20u) app.running=0u;
+  if(app.elapsed&gt;=30u) {app.elapsed=0u;app.running=1u;app.phase=(app.phase+1u)%3u;}
+  app.period=1u+app.phase; app.value=app.phase;
+#elif MODE == 17 /* min/max selection */
+  if(press&amp;1u) app.phase^=1u;
+  if(app.samples) app.value=(app.phase?app.maximum:app.minimum)&gt;&gt;4;
+#else /* composed monitor: every selected input has an independent role */
+  if(press&amp;1u) app.running^=1u;
+  if(press&amp;2u) app.phase=(app.phase+1u)%3u;
+  if(edges&amp;8u) app.value=(app.value+1u)&amp;255u;
+  if(edges&amp;4u) app.value=(app.value-1u)&amp;255u;
+  if(edges&amp;1u) app.phase=(app.phase+1u)%3u;
+  if(valid &amp;&amp; app.running) app.value=adc&gt;&gt;4;
+  /* Even the small combinations have an observable job: button-only inputs
+   * select three display levels, clocked monitors advance while running, and
+   * a joystick controls a static DAC level when no sample timer is selected. */
+  if(!HAS_ADC &amp;&amp; !HAS_JOYSTICK &amp;&amp; (press&amp;2u)) app.value=app.phase*85u;
+  if(!HAS_ADC &amp;&amp; !HAS_JOYSTICK &amp;&amp; CONTROL_CLOCK &amp;&amp; app.running &amp;&amp; app.ticks%50u==0u) app.value=(app.value+1u)&amp;255u;
+  if(HAS_DAC &amp;&amp; !HAS_ADC) {
+    if(HAS_JOYSTICK || !HAS_TIMER) app.amplitude=app.value*1023u/255u;
+    else if(HAS_BUTTONS) app.amplitude=(3u-app.phase)*341u;
+  }
+#endif
+  app.output=app.value&amp;255u;
+}
+
+#ifndef SCENARIO_TEST
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+/* Interrupts publish immutable snapshots. The foreground consumer owns app.
+ * The bounded queue drops NEW input when full and reports the loss. It never
+ * overwrites an older command or pretends event bits preserve multiplicity.
+ */
+typedef struct {uint32_t buttons,joy,valid,adc;} input_t;
+static volatile input_t queue[32];
+static volatile uint32_t head,tail;
+volatile uint32_t lost_inputs,raw_edges,supervisor_ticks,output_ticks;
+static uint32_t stable_buttons,stable_joy;
+static uint8_t button_count[3],joy_count[5];
+static volatile uint32_t audio_amplitude=1023u,audio_enabled=1u,audio_shape,audio_divider=1u;
+static uint32_t audio_index,audio_delay;
+static void require(exam_status_t status) {if(status!=EXAM_OK) {for(;;){}}}
+static uint32_t stable_mask(uint32_t raw,uint32_t previous,uint8_t *count,uint32_t width) {
+  uint32_t i;
+  for(i=0u;i&lt;width;++i) {
+    uint32_t bit=1u&lt;&lt;i;
+    if((raw&amp;bit)==(previous&amp;bit)) count[i]=0u;
+    else if(++count[i]&gt;=DEBOUNCE_STEPS) {previous^=bit;count[i]=0u;}
+  }
+  return previous;
+}
+static void capture_inputs(void) {
+  uint32_t b=0u,j=0u,next,valid=0u;uint16_t sample=0u;
+#if HAS_BUTTONS
+  b=(uint32_t)exam_button_is_pressed(EXAM_BUTTON_INT0) |
+    ((uint32_t)exam_button_is_pressed(EXAM_BUTTON_KEY1)&lt;&lt;1) |
+    ((uint32_t)exam_button_is_pressed(EXAM_BUTTON_KEY2)&lt;&lt;2);
+  stable_buttons=stable_mask(b,stable_buttons,button_count,3u); b=stable_buttons;
+#endif
+#if HAS_JOYSTICK
+  j=exam_joystick_read();stable_joy=stable_mask(j,stable_joy,joy_count,5u);j=stable_joy;
+#endif
+#if HAS_ADC
+  valid=exam_adc_take(&amp;sample);
+  if(valid) exam_adc_start();
+#endif
+  next=(head+1u)&amp;31u;
+  if(next==tail) {++lost_inputs;return;}
+  queue[head].buttons=b;queue[head].joy=j;queue[head].valid=valid;queue[head].adc=sample;
+  __DMB(); head=next;
+}
+#if HAS_BUTTONS
+void EINT0_IRQHandler(void) {exam_button_ack(EXAM_BUTTON_INT0);++raw_edges;}
+void EINT1_IRQHandler(void) {exam_button_ack(EXAM_BUTTON_KEY1);++raw_edges;}
+void EINT2_IRQHandler(void) {exam_button_ack(EXAM_BUTTON_KEY2);++raw_edges;}
+#endif
+#if HAS_ADC
+void ADC_IRQHandler(void) {exam_adc_irq_capture();}
+#endif
+static void stream_sample(void) {
+#if HAS_DAC
+  static const uint16_t sine[8]={512u,874u,1023u,874u,512u,150u,0u,150u};
+  uint32_t sample;
+  if(!audio_enabled) {audio_index=0u;audio_delay=0u;(void)exam_dac_write(0);return;}
+  if(++audio_delay&lt;audio_divider)return;
+  audio_delay=0u;
+  sample=audio_shape==1u?(audio_index&lt;4u?1023u:0u):audio_shape==2u?audio_index*146u:sine[audio_index];
+  (void)exam_dac_write((int32_t)(sample*audio_amplitude/1023u));
+  audio_index=(audio_index+1u)&amp;7u;
+#endif
+}
+#if HAS_TIMER
+void TIMER0_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+  if(exam_timer_match_happened(flags,0u)) {
+    ++output_ticks;
+#if CONTROL_CLOCK == 1
+    capture_inputs();
+#endif
+  }
+}
+#if HAS_DAC
+void TIMER1_IRQHandler(void) {uint32_t f=exam_timer_ack(EXAM_TIMER1);if(exam_timer_match_happened(f,0u))stream_sample();}
+#endif
+#endif
+#if HAS_RIT
+void RIT_IRQHandler(void) {exam_rit_ack();
+#if CONTROL_CLOCK == 2
+  capture_inputs();
+#else
+  ++output_ticks;
+#endif
+}
+#endif
+#if HAS_SYSTICK
+void SysTick_Handler(void) {
+#if CONTROL_CLOCK == 3
+  capture_inputs();
+#else
+  ++supervisor_ticks;
+#endif
+}
+#endif
+int main(void) {
+  exam_init();controller_reset();audio_enabled=app.running;
+#if HAS_BUTTONS
+  exam_buttons_init();
+  NVIC_SetPriority(EINT0_IRQn,3u);NVIC_SetPriority(EINT1_IRQn,3u);NVIC_SetPriority(EINT2_IRQn,3u);
+#if POLL_BUTTONS
+  NVIC_DisableIRQ(EINT0_IRQn);NVIC_DisableIRQ(EINT1_IRQn);NVIC_DisableIRQ(EINT2_IRQn);
+#endif
+#endif
+#if HAS_JOYSTICK
+  exam_joystick_init();
+#endif
+#if HAS_ADC
+  exam_adc_init();NVIC_SetPriority(ADC_IRQn,2u);exam_adc_start();
+#endif
+#if HAS_DAC
+  exam_dac_init();(void)exam_dac_write(0);
+#endif
+#if HAS_TIMER
+  require(exam_timer_config_ms(EXAM_TIMER0,10u,EXAM_TIMER_PERIODIC));
+  NVIC_SetPriority(TIMER0_IRQn,2u);exam_timer_start(EXAM_TIMER0);
+#if HAS_DAC
+  require(exam_timer_config_hz(EXAM_TIMER1,8000u,EXAM_TIMER_PERIODIC));
+  NVIC_SetPriority(TIMER1_IRQn,1u);exam_timer_start(EXAM_TIMER1);
+#endif
+#endif
+#if HAS_RIT
+  require(exam_rit_config_ms(10u));NVIC_SetPriority(RIT_IRQn,2u);exam_rit_start();
+#endif
+#if HAS_SYSTICK
+  require(exam_systick_config_ms(CONTROL_CLOCK==3?10u:100u));NVIC_SetPriority(SysTick_IRQn,2u);
+#endif
+  for(;;) {
+    input_t input;uint32_t saved;
+#if CONTROL_CLOCK == 0
+    capture_inputs();
+#endif
+    saved=exam_critical_enter();
+    if(tail==head) {exam_critical_exit(saved);continue;}
+    input.buttons=queue[tail].buttons;input.joy=queue[tail].joy;input.valid=queue[tail].valid;input.adc=queue[tail].adc;
+    tail=(tail+1u)&amp;31u;exam_critical_exit(saved);
+    controller_step(input.buttons,input.joy,input.valid,input.adc);
+    saved=exam_critical_enter();
+    audio_amplitude=app.amplitude;audio_enabled=app.running;audio_shape=app.phase%3u;
+    audio_divider=MODE==16?app.period:1u;
+    exam_critical_exit(saved);
+#if HAS_LED
+    exam_led_write((uint8_t)app.output);
+#endif
+#if HAS_DAC &amp;&amp; !HAS_TIMER
+    /* No sample-clock timer: this is a static control voltage, not audio. */
+    (void)exam_dac_write(app.running?(int32_t)app.amplitude:0);
+#endif
+  }
+}
+#endif
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/mix-joystick-timer-adc-dac/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-references">Related references</h2><p><a href="../algorithms/index.html">Algorithms</a> · <a href="index.html">All peripheral combinations</a></p><a href="../api/exam-adc-init.html">exam_adc_init</a> <a href="../api/exam-adc-irq-capture.html">exam_adc_irq_capture</a> <a href="../api/exam-adc-start.html">exam_adc_start</a> <a href="../api/exam-adc-take.html">exam_adc_take</a> <a href="../api/exam-button-ack.html">exam_button_ack</a> <a href="../api/exam-button-is-pressed.html">exam_button_is_pressed</a> <a href="../api/exam-buttons-init.html">exam_buttons_init</a> <a href="../api/exam-critical-enter.html">exam_critical_enter</a> <a href="../api/exam-critical-exit.html">exam_critical_exit</a> <a href="../api/exam-dac-init.html">exam_dac_init</a> <a href="../api/exam-dac-write.html">exam_dac_write</a> <a href="../api/exam-init.html">exam_init</a> <a href="../api/exam-joystick-init.html">exam_joystick_init</a> <a href="../api/exam-joystick-read.html">exam_joystick_read</a> <a href="../api/exam-led-write.html">exam_led_write</a> <a href="../api/exam-rit-ack.html">exam_rit_ack</a> <a href="../api/exam-rit-config-ms.html">exam_rit_config_ms</a> <a href="../api/exam-rit-start.html">exam_rit_start</a> <a href="../api/exam-systick-config-ms.html">exam_systick_config_ms</a> <a href="../api/exam-timer-ack.html">exam_timer_ack</a> <a href="../api/exam-timer-config-hz.html">exam_timer_config_hz</a> <a href="../api/exam-timer-config-ms.html">exam_timer_config_ms</a> <a href="../api/exam-timer-match-happened.html">exam_timer_match_happened</a> <a href="../api/exam-timer-start.html">exam_timer_start</a> </section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

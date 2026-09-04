@@ -1,0 +1,70 @@
+--- PAGE 1 ---
+Computer Architectures 
+Exam of 18.09.2023 - part II 
+ 
+Question 1 
+ 
+Given any positive integer a, the operation of digitaddition generates a new positive integer b > a 
+by adding to a the sum of the digits of a. For example, if a = 47, the sum of the digits of a is 4 + 7 = 
+11, and then b = a + 11 = 58. 
+The process can be repeated endlessly, forming a digitaddition series: 47, 58, 71, 79, 95, .... 
+ 
+Define an area of memory that will store the digitaddition series. Each element of the series is a 
+word, and the area of memory must be large enough to store 50 elements. 
+ 
+Then, in the Reset_Handler, assign a value of your choice to the first element of the series. 
+ 
+You are requested to write two subroutines in ARM assembly language: 
+ 
+1) The digitSum subroutine receives in input a positive integer a and returns the value c, 
+corresponding to the sum of the digits of a. 
+Important: a can have any number of digits (the upper limit is due to its representation as 
+word). 
+Hint: You can obtain the digits of a number a (from the least significant to the most 
+significant) by repeatedly dividing a by 10 and taking the remainder. 
+2) The digitaddition subroutine receives in input: 
+- the address of an area of memory (where only the first value is initialized) 
+- the number N of elements of the digitaddition series to be computed (including the 
+first one) 
+The subroutine reads the first value saved in the area of memory. Then, it computes (and 
+writes in that area of memory) all the subsequent elements of the digitaddition series. In the 
+computation of each element, it calls the digitSum subroutine. 
+The digitaddition subroutine returns the sum of all the digits in the digitaddition 
+series. 
+For example, it the initial element stored in the area of memory is 47 and N = 5, the 
+subroutine stores in memory the next elements 58, 71, 79, 95. Finally, it returns 4 + 7 + 5 + 
+8 + 7 + 1 + 7 + 9 + 9 + 5 = 62. 
+If there is an overflow in the computation of an element, the subroutine immediately ends 
+and returns 0. 
+ 
+ 
+  
+
+--- PAGE 2 ---
+Computer Architectures 
+Exam of 18.09.2023 - part II 
+ 
+Question 2 
+ 
+The sum of all the digits in a digitaddition series can be computed with a simple formula: you have 
+to subtract the first number of the series from the last one and add the sum of the digits of the last 
+number. For example, considering the series 47, 58, 71, 79, 95, the sum of all its digits is 95 – 47 + 
+9 + 5 = 62. We want to check this formula in our program. 
+Add the following functionalities to the project created in the previous exercise: 
+1) The user can specify a binary value K through buttons Key1 and Key2. Key1 inserts a new 
+digit equal to 0, while key2  inserts a new digit equal to 1. For example, if the user presses 
+Key2, Key1, Key1, Key2, Key2, Key1, the final value is 100110 
+2) Declare an uninitialized array of int, with size 10. 
+3) When the user presses INT0: 
+- set the first element of the array to K 
+- call the digitaddition subroutine passing the address of the array and 10 (as the  
+length of the series). The subroutine writes the other elements of the array and returns 
+the sum of all the digits. 
+- call the digitSum subroutine passing the last element of the array in order to obtain 
+the sum of its digits. 
+- If the value returned by the digitaddition subroutine is equal to the value returned 
+by the digitSum subroutine plus the last element of the series minus the first element, 
+then switch on led 4 and switch off led 5. If it is different, switch on led 5 and switch off 
+led 4. 
+ 
+ 

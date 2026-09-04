@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Count four decimal digits, rebuild descending and ascending values, then subtract.">
+  <title>Kaprekar digit ordering step · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Kaprekar digit ordering step</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Kaprekar digit ordering step</h1><p>Count four decimal digits, rebuild descending and ascending values, then subtract.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arithmetic and number theory</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(number of digits), except fixed four-digit Kaprekar sorting.</dd></div></dl><p><strong>Routine for this variation:</strong> <code>algorithm_kaprekar_digit_ordering_step_kaprekar_4</code>. The downloadable file also includes its related helpers and variants.</p><p>This page shares its source implementation with related variants; it is not an additional independent implementation.</p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Primary packs digit sum and the low 16 bits of decimal reversal; it is not a full reversal API. The palindrome variant compares a full widened reversal. Extraction writes least-significant digits first and may leave a prefix on insufficient capacity. Legacy reconstruction wraps modulo 2^32; digits must be 0..9. Kaprekar operates on the low four decimal digits.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>uint32_t algorithm_kaprekar_digit_ordering_step(uint32_t value);
+uint32_t algorithm_kaprekar_digit_ordering_step_extract(uint32_t value, uint8_t *digits, uint32_t capacity);
+uint32_t algorithm_kaprekar_digit_ordering_step_reconstruct(const uint8_t *digits, uint32_t count);
+int algorithm_kaprekar_digit_ordering_step_is_palindrome(uint32_t value);
+uint32_t algorithm_kaprekar_digit_ordering_step_kaprekar_4(uint32_t value);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_kaprekar_digit_ordering_step</code></td><td><code>uint32_t value</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_extract</code></td><td><code>uint32_t value</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_extract</code></td><td><code>uint8_t *digits</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_extract</code></td><td><code>uint32_t capacity</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_reconstruct</code></td><td><code>const uint8_t *digits</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_reconstruct</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_is_palindrome</code></td><td><code>uint32_t value</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_kaprekar_digit_ordering_step_kaprekar_4</code></td><td><code>uint32_t value</code></td><td><code>R0</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Extract base-10 digits with remainder/division.</li><li>Reconstruct in reverse order.</li><li>Compare for palindrome.</li><li>Sort four digits for Kaprekar step.</li></ol><h3>Worked trace</h3><p>123321 reverses to 123321, so palindrome=true; it must not be compared with only 57785.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kaprekar-digit-ordering-step/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT algorithm_kaprekar_digit_ordering_step
+        EXPORT algorithm_kaprekar_digit_ordering_step_extract
+        EXPORT algorithm_kaprekar_digit_ordering_step_reconstruct
+        EXPORT algorithm_kaprekar_digit_ordering_step_is_palindrome
+        EXPORT algorithm_kaprekar_digit_ordering_step_kaprekar_4
+        ALIGN 2
+algorithm_kaprekar_digit_ordering_step
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        movw	r12, #52429
+        movs	r1, #0
+        movt	r12, #52428
+        mov.w	lr, #0
+        ALIGN 2
+_LBB0_1
+        umull	r2, r3, r0, r12
+        lsrs	r4, r3, #3
+        add.w	r3, r4, r4, lsl #2
+        sub.w	r3, r0, r3, lsl #1
+        add.w	r2, lr, lr, lsl #2
+        add	r1, r3
+        add.w	lr, r3, r2, lsl #1
+        cmp	r0, #9
+        mov	r0, r4
+        bhi	_LBB0_1
+        uxth.w	r0, lr
+        orr.w	r0, r0, r1, lsl #16
+        pop	{r4, r6, r7, pc}
+_Lfunc_end0
+        ALIGN 2
+algorithm_kaprekar_digit_ordering_step_extract
+        push	{r4, r5, r7, lr}
+        add	r7, sp, #8
+        cmp	r1, #0
+        mov.w	lr, #0
+        it	ne
+        cmpne	r2, #0
+        bne	_LBB1_2
+_LBB1_1
+        mov	r0, lr
+        pop	{r4, r5, r7, pc}
+_LBB1_2
+        movw	r12, #52429
+        movs	r5, #0
+        movt	r12, #52428
+        ALIGN 2
+_LBB1_3
+        cmp	r2, r5
+        beq	_LBB1_5
+        umull	r3, r4, r0, r12
+        lsrs	r3, r4, #3
+        add.w	r4, r3, r3, lsl #2
+        sub.w	r4, r0, r4, lsl #1
+        add.w	lr, r5, #1
+        strb	r4, [r1, r5]
+        cmp	r0, #9
+        mov	r0, r3
+        mov	r5, lr
+        bhi	_LBB1_3
+        b	_LBB1_1
+_LBB1_5
+        movs	r0, #0
+        pop	{r4, r5, r7, pc}
+_Lfunc_end1
+        ALIGN 2
+algorithm_kaprekar_digit_ordering_step_reconstruct
+        cmp	r0, #0
+        mov.w	r2, #0
+        it	ne
+        cmpne	r1, #0
+        bne	_LBB2_2
+        mov	r0, r2
+        bx	lr
+_LBB2_2
+        push	{r7, lr}
+        mov	r7, sp
+        subs	r1, #1
+        mov.w	r12, #0
+        movs	r2, #0
+        ALIGN 2
+_LBB2_3
+        add.w	lr, r2, r2, lsl #2
+        ldrb	r2, [r0, r1]
+        subs	r1, #1
+        adc	r3, r12, #0
+        cmp	r0, #0
+        add.w	r2, r2, lr, lsl #1
+        it	ne
+        cmpne	r3, #0
+        bne	_LBB2_3
+        pop.w	{r7, lr}
+        mov	r0, r2
+        bx	lr
+_Lfunc_end2
+        ALIGN 2
+algorithm_kaprekar_digit_ordering_step_is_palindrome
+        push	{r4, r5, r7, lr}
+        add	r7, sp, #8
+        movw	r12, #52429
+        movs	r2, #0
+        movt	r12, #52428
+        mov.w	lr, #10
+        mov	r1, r0
+        movs	r3, #0
+        ALIGN 2
+_LBB3_1
+        umull	r4, r5, r1, r12
+        lsrs	r5, r5, #3
+        add.w	r3, r3, r3, lsl #2
+        add.w	r4, r5, r5, lsl #2
+        lsls	r3, r3, #1
+        sub.w	r4, r1, r4, lsl #1
+        umlal	r4, r3, r2, lr
+        cmp	r1, #9
+        mov	r1, r5
+        mov	r2, r4
+        bhi	_LBB3_1
+        eors	r0, r4
+        orrs	r0, r3
+        clz	r0, r0
+        lsrs	r0, r0, #5
+        pop	{r4, r5, r7, pc}
+_Lfunc_end3
+        ALIGN 2
+algorithm_kaprekar_digit_ordering_step_kaprekar_4
+        push	{r4, r6, r7, lr}
+        add	r7, sp, #8
+        sub	sp, #4
+        movw	r12, #52429
+        movs	r2, #0
+        movt	r12, #52428
+        mov	lr, sp
+        ALIGN 2
+_LBB4_1
+        umull	r1, r3, r0, r12
+        lsrs	r1, r3, #3
+        add.w	r3, r1, r1, lsl #2
+        sub.w	r0, r0, r3, lsl #1
+        strb.w	r0, [lr, r2]
+        adds	r2, #1
+        cmp	r2, #4
+        mov	r0, r1
+        bne	_LBB4_1
+        mov.w	r12, #0
+        b	_LBB4_4
+        ALIGN 2
+_LBB4_3
+        cmp.w	r12, #4
+        beq	_LBB4_7
+_LBB4_4
+        mov	r2, r12
+        cmp.w	r12, #2
+        add.w	r12, r12, #1
+        bhi	_LBB4_3
+        mov	r3, r12
+        ALIGN 2
+_LBB4_6
+        ldrb.w	r0, [lr, r3]
+        ldrb.w	r1, [lr, r2]
+        cmp	r0, r1
+        itt	lo
+        strblo.w	r0, [lr, r2]
+        strblo.w	r1, [lr, r3]
+        adds	r3, #1
+        cmp	r3, #4
+        bne	_LBB4_6
+        b	_LBB4_3
+_LBB4_7
+        mov.w	r12, #0
+        movs	r2, #3
+        mov.w	r3, #-1
+        movs	r4, #0
+        ALIGN 2
+_LBB4_8
+        add.w	r1, lr, r3
+        ldrb	r1, [r1, #1]
+        add.w	r0, r4, r4, lsl #2
+        add.w	r4, r1, r0, lsl #1
+        ldrb.w	r1, [lr, r2]
+        add.w	r0, r12, r12, lsl #2
+        subs	r2, #1
+        add.w	r12, r1, r0, lsl #1
+        adds	r0, r2, #1
+        add.w	r3, r3, #1
+        bne	_LBB4_8
+        sub.w	r0, r12, r4
+        add	sp, #4
+        pop	{r4, r6, r7, pc}
+_Lfunc_end4
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kaprekar-digit-ordering-step/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Decimal digit algorithms.
+ * Recognition cue: extract reconstruct sum palindrome Kaprekar digits.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_kaprekar_digit_ordering_step(uint32_t value) {
+  uint32_t digit_sum = 0u;
+  uint32_t reversed = 0u;
+
+  do {
+    uint32_t digit = value % 10u;
+    digit_sum += digit;
+    reversed = reversed * 10u + digit;
+    value /= 10u;
+  } while (value != 0u);
+  return (digit_sum &lt;&lt; 16u) | (reversed &amp; UINT32_C(0xFFFF));
+}
+
+uint32_t algorithm_kaprekar_digit_ordering_step_extract(uint32_t value, uint8_t *digits,
+                                                        uint32_t capacity) {
+  uint32_t count = 0u;
+
+  if ((digits == NULL) || (capacity == 0u)) {
+    return 0u;
+  }
+  do {
+    if (count &gt;= capacity) {
+      return 0u;
+    }
+    digits[count++] = (uint8_t)(value % 10u);
+    value /= 10u;
+  } while (value != 0u);
+  return count;
+}
+
+uint32_t algorithm_kaprekar_digit_ordering_step_reconstruct(const uint8_t *digits,
+                                                            uint32_t count) {
+  uint32_t value = 0u;
+
+  while ((digits != NULL) &amp;&amp; (count != 0u)) {
+    --count;
+    value = value * 10u + digits[count];
+  }
+  return value;
+}
+
+int algorithm_kaprekar_digit_ordering_step_is_palindrome(uint32_t value) {
+  uint32_t original = value;
+  uint64_t reversed = 0;
+  do {
+    reversed = reversed * 10u + value % 10u;
+    value /= 10u;
+  } while (value);
+  return reversed == original;
+}
+
+uint32_t algorithm_kaprekar_digit_ordering_step_kaprekar_4(uint32_t value) {
+  uint8_t digits[4];
+  uint32_t ascending;
+  uint32_t descending;
+  uint32_t outer;
+  uint32_t inner;
+
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    digits[outer] = (uint8_t)(value % 10u);
+    value /= 10u;
+  }
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    for (inner = outer + 1u; inner &lt; 4u; ++inner) {
+      if (digits[inner] &lt; digits[outer]) {
+        uint8_t temporary = digits[outer];
+        digits[outer] = digits[inner];
+        digits[inner] = temporary;
+      }
+    }
+  }
+  ascending = 0u;
+  descending = 0u;
+  for (outer = 0u; outer &lt; 4u; ++outer) {
+    ascending = ascending * 10u + digits[outer];
+    descending = descending * 10u + digits[3u - outer];
+  }
+  return descending - ascending;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/kaprekar-digit-ordering-step/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Decimal digit algorithms.
+ * Recognition cue: extract reconstruct sum palindrome Kaprekar digits.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_kaprekar_digit_ordering_step(uint32_t value);
+
+uint32_t algorithm_kaprekar_digit_ordering_step_extract(uint32_t value, uint8_t *digits,
+                                                        uint32_t capacity);
+
+uint32_t algorithm_kaprekar_digit_ordering_step_reconstruct(const uint8_t *digits,
+                                                            uint32_t count);
+
+int algorithm_kaprekar_digit_ordering_step_is_palindrome(uint32_t value);
+
+uint32_t algorithm_kaprekar_digit_ordering_step_kaprekar_4(uint32_t value);
+
+static int pattern_core_vector(void) {
+  return algorithm_kaprekar_digit_ordering_step(123) == ((6u &lt;&lt; 16) | 321u);
+}
+static int pattern_edge_vectors(void) {
+  if (!algorithm_kaprekar_digit_ordering_step_is_palindrome(123321u) ||
+      !algorithm_kaprekar_digit_ordering_step_is_palindrome(4000000004u) ||
+      algorithm_kaprekar_digit_ordering_step_is_palindrome(UINT32_MAX))
+    return 0;
+  uint8_t d[10];
+  uint32_t n = algorithm_kaprekar_digit_ordering_step_extract(1203, d, 10);
+  return n == 4 &amp;&amp; algorithm_kaprekar_digit_ordering_step_reconstruct(d, n) == 1203 &amp;&amp;
+         algorithm_kaprekar_digit_ordering_step_is_palindrome(1221) &amp;&amp;
+         !algorithm_kaprekar_digit_ordering_step_is_palindrome(123) &amp;&amp;
+         algorithm_kaprekar_digit_ordering_step_kaprekar_4(3524) == 3087;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

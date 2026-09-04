@@ -1,0 +1,60 @@
+{
+  "pages": 799,
+  "links": 47657,
+  "inline_listings": 4958,
+  "copy_controls": 5204,
+  "page_bytes": {
+    "median": 18012,
+    "maximum": 1385391
+  },
+  "asset_bytes": {
+    "asm_reference.css": 2611,
+    "asm_reference.js": 3273,
+    "portal-data.js": 61202937,
+    "portal.css": 21696,
+    "portal.js": 18442,
+    "portal_logic.js": 8552,
+    "scenarios.js": 1827,
+    "theme.js": 374,
+    "workstation.css": 3069,
+    "workstation.js": 7576,
+    "workstation_state.js": 2462
+  },
+  "theme_text_contrast": {
+    "light:ink/paper": 14.61,
+    "light:muted/paper": 6.15,
+    "light:muted/wash": 5.68,
+    "light:accent/paper": 7.68,
+    "light:accent/accent-soft": 6.38,
+    "light:code-ink/code": 13.99,
+    "light:warning-ink/warning": 7.92,
+    "dark:ink/paper": 12.82,
+    "dark:muted/paper": 7.72,
+    "dark:muted/wash": 8.63,
+    "dark:accent/paper": 9.44,
+    "dark:accent/accent-soft": 6.96,
+    "dark:code-ink/code": 15.9,
+    "dark:warning-ink/warning": 9.82
+  },
+  "source_notice_pages": [
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/api/index.html"
+  ],
+  "issues": [
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/algorithms/fixed-point-multiply-and-recurrence.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-apsr-flag-contract.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-assembly-objects-and-exported-symbols.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-balanced-early-exit-from-inner-search.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-fifth-and-later-arguments.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-four-register-argument-contract.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-nested-loops-with-preserved-outer-state.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-non-leaf-prologue-and-epilogue.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-register-preservation-and-stack-safety.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-row-major-matrix-addressing.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-signed-and-unsigned-byte-arrays.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-word-array-traversal.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-adapt-a-partial-pattern-match.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-assembly-stub-to-real-integration.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-build-recovery-and-submission.html: not every listing has a copy control",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-question-prose-to-a-contract.html: not every listing has a copy control"
+  ]
+}

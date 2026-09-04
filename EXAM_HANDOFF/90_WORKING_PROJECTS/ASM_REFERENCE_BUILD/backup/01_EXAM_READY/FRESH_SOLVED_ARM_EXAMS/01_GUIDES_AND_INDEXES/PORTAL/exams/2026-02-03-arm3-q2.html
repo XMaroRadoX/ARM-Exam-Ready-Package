@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.">
+  <title>2026-02-03 ARM 3 Recaman ADC Timer — Q2 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2026-02-03-a3.html">2026-02-03 ARM 3 Recaman ADC Timer</a><span aria-hidden="true">/</span><span aria-current="page">Q2</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2026-02-03 ARM 3 Recaman ADC Timer — Q2</h1><p>Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-complete-c-answer">Complete C answer</a><a href="#section-why-the-important-lines-are-there">Why the important lines are there</a><a href="#section-complexity-and-memory">Complexity and memory</a><a href="#section-common-wrong-answers">Common wrong answers</a><a href="#section-source-status">Source status</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.</dd></div><div class="fact"><dt>Required answer</dt><dd>C</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>main; answer_timer0</dd></div><div class="fact"><dt>Architecture</dt><dd>C ADC + timer IRQ</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/Exam%2003.02.2026/20260203_ARM_3.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>ADC supplies length; KEY2 builds; Timer0 displays</p><p><strong>Constants:</strong> 2000 ms; 255 words</p><p><strong>Components:</strong> Recurrence, LED, Buttons, Debounce, Timer0, ADC, Periodic, Delays</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><h2 id="section-complete-c-answer">Complete C answer</h2><details class="code-panel" open><summary>Show complete C solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q2/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 3 February 2026: debounced KEY2 and two-second playback. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+#define EVENT_SEQUENCE_STEP (1u &lt;&lt; 0)
+extern void Recaman(uint32_t *area, uint8_t length);
+
+/* All sequence/display state belongs to the foreground. */
+static uint32_t sequence[255];
+static uint8_t latest_value;
+static uint8_t have_sample;
+static uint8_t sequence_length;
+static uint8_t sequence_active;
+static uint32_t display_index;
+
+void EINT2_IRQHandler(void)
+{
+  (void)exam_debounce_begin(EXAM_BUTTON_KEY2);
+}
+
+void RIT_IRQHandler(void)
+{
+  exam_rit_ack();
+  exam_debounce_tick();
+}
+
+void ADC_IRQHandler(void) { exam_adc_irq_capture(); }
+
+void TIMER0_IRQHandler(void)
+{
+  if ((exam_timer_ack(EXAM_TIMER0) &amp; 1u) != 0u)
+    exam_events_set(EVENT_SEQUENCE_STEP);
+}
+
+static void begin_sequence(void)
+{
+  exam_timer_stop(EXAM_TIMER0);
+  exam_timer_reset(EXAM_TIMER0);
+  (void)exam_events_take(EVENT_SEQUENCE_STEP);
+  sequence_active = 0u;
+  sequence_length = latest_value;
+  display_index = 0u;
+  if (sequence_length == 0u) {
+    exam_led_clear();
+    return;
+  }
+  Recaman(sequence, sequence_length);
+  exam_led_write((uint8_t)sequence[0]);
+  display_index = 1u;
+  if (sequence_length &gt; 1u &amp;&amp;
+      exam_timer_config_ms(EXAM_TIMER0, 2000u, EXAM_TIMER_PERIODIC) == EXAM_OK) {
+    sequence_active = 1u;
+    exam_timer_start(EXAM_TIMER0);
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Package debounce recommendation; the paper does not prescribe 10/50 ms. */
+  if (exam_debounce_config(10u, 50u) != EXAM_OK ||
+      exam_rit_config_ms(10u) != EXAM_OK) {
+    exam_led_write(0xFFu);
+    for (;;) { __WFI(); }
+  }
+  exam_rit_start();
+  exam_adc_init();
+  exam_adc_start();
+
+  for (;;) {
+    uint16_t sample;
+    if (exam_adc_take(&amp;sample)) {
+      uint8_t value = (uint8_t)(sample &gt;&gt; 4);
+      /* Playback owns the display. After it ends, hold its last value
+         until a subsequent potentiometer high8 change restores preview. */
+      if (!sequence_active &amp;&amp; (!have_sample || value != latest_value))
+        exam_led_write(value);
+      latest_value = value;
+      have_sample = 1u;
+      exam_adc_start();
+    }
+    if ((exam_button_events_take() &amp; EXAM_BUTTON_EVENT_KEY2) != 0u &amp;&amp; have_sample)
+      begin_sequence();
+    if ((exam_events_take(EVENT_SEQUENCE_STEP) &amp; EVENT_SEQUENCE_STEP) != 0u &amp;&amp;
+        sequence_active) {
+      exam_led_write((uint8_t)sequence[display_index++]);
+      if (display_index &gt;= sequence_length) {
+        sequence_active = 0u;
+        exam_timer_stop(EXAM_TIMER0);
+        exam_timer_reset(EXAM_TIMER0);
+      }
+    }
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-why-the-important-lines-are-there">Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2 id="section-complexity-and-memory">Complexity and memory</h2><p>The algorithm tags are Recurrence. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2 id="section-common-wrong-answers">Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2 id="section-source-status">Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><ul><li><a href="../algorithms/indirect-index-recurrence.html">Study Indirect-index recurrence</a></li><li><a href="../algorithms/indirect-index-recurrence-safety.html">Study Indirect-index recurrence safety</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

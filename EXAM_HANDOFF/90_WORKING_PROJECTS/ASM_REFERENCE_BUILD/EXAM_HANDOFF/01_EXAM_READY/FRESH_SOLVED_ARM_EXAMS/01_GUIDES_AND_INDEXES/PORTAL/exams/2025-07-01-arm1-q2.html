@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Strong Reset_Handler generates the requested LCG sequence before entering C.">
+  <title>2025-07-01 ARM 1 LCG Rhythm — Q2 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2025-07-01-a1.html">2025-07-01 ARM 1 LCG Rhythm</a><span aria-hidden="true">/</span><span aria-current="page">Q2</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-07-01 ARM 1 LCG Rhythm — Q2</h1><p>Strong Reset_Handler generates the requested LCG sequence before entering C.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-complete-arm-assembly-answer">Complete ARM assembly answer</a><a href="#section-why-the-important-lines-are-there">Why the important lines are there</a><a href="#section-complexity-and-memory">Complexity and memory</a><a href="#section-common-wrong-answers">Common wrong answers</a><a href="#section-source-status">Source status</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Strong Reset_Handler generates the requested LCG sequence before entering C.</dd></div><div class="fact"><dt>Required answer</dt><dd>Assembly</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>Reset_Handler</dd></div><div class="fact"><dt>Architecture</dt><dd>startup assembly</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM1.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>initializes sequence storage and calls __main</p><p><strong>Constants:</strong> 256 elements</p><p><strong>Components:</strong> Recurrence, Reset, Assembly-to-C</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><h2 id="section-complete-arm-assembly-answer">Complete ARM assembly answer</h2><details class="code-panel" open><summary>Show complete assembly solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 1">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  nextElementLCG
+
+DIM             EQU     10
+
+                AREA    LCG_TEST_DATA, DATA, READWRITE, NOINIT
+; The template scatter file places this area in an UNINIT region.
+lcg_test_values SPACE   DIM
+
+                AREA    |.text|, CODE, READONLY
+
+; Reset starts at the hardware vector, fills the test array required by
+; question 1, then hands control to the C runtime and main program.
+                EXPORT  Reset_Handler
+                IMPORT  __main
+Reset_Handler   PROC
+                SUB     SP, SP, #8      ; Keep SP aligned; argument 5 at [SP].
+                MOVS    R4, #255
+                STR     R4, [SP]
+                LDR     R4, =lcg_test_values
+                MOVS    R0, #1          ; Seed.
+                MOVS    R5, #0          ; Index n.
+
+lcg_reset_loop
+                MOVS    R1, #131
+                MOVS    R2, #7
+                MOV     R3, R5
+                BL      nextElementLCG
+                STRB    R0, [R4, R5]
+                ADDS    R5, R5, #1
+                CMP     R5, #DIM
+                BLO     lcg_reset_loop
+
+                ADD     SP, SP, #8
+                LDR     R0, =__main
+                BX      R0
+                ENDP
+
+; uint32_t nextElementLCG(previous, a, c, index, modulus)
+nextElementLCG  PROC
+                LDR     R12, [SP]       ; Fifth argument: modulus.
+                MUL     R0, R0, R1
+                ADDS    R0, R0, R2
+                EORS    R0, R0, R3
+                UDIV    R1, R0, R12
+                MLS     R0, R1, R12, R0
+                BX      LR
+                ENDP
+
+                ALIGN   4
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-why-the-important-lines-are-there">Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2 id="section-complexity-and-memory">Complexity and memory</h2><p>The algorithm tags are Recurrence. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2 id="section-common-wrong-answers">Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2 id="section-source-status">Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><ul><li><a href="../algorithms/indirect-index-recurrence.html">Study Indirect-index recurrence</a></li><li><a href="../algorithms/indirect-index-recurrence-safety.html">Study Indirect-index recurrence safety</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

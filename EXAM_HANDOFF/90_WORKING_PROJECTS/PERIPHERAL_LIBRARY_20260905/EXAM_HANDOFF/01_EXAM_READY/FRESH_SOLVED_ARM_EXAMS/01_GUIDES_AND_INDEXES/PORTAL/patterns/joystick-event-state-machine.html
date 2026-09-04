@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Different actions apply in edit/display states">
+  <title>Joystick event state machine · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Joystick event state machine</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Joystick event state machine</h1><p>Different actions apply in edit/display states</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-timer-call-effects">Timer call effects</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Different actions apply in edit/display states.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>A held level must not automatically become many presses.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Separate edge detection, debounce, and optional key repeat.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Sample levels
+2. derive stable edges
+3. process state-specific action
+4. update previous sample</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>0,left,left,0,left -&gt; two left events.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Separate edge detection, debounce, and optional key repeat.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. A held level must not automatically become many presses.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Separate edge detection, debounce, and optional key repeat.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>hold; release; simultaneous directions; restart.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>A held level must not automatically become many presses. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">game bulls cows</a><a href="#variant-1">game mastermind</a><a href="#variant-2">joystick release</a><a href="#variant-3">rhythm first movement</a></nav><h3 id="variant-0">Baseline: game bulls cows</h3><p>Bulls-and-Cows: DOWN, LEFT, RIGHT, UP edit digits0,1,2,3 respectively. SELECT submits, shows, and begins the next guess while retaining the secret; four correct digits finish the game.</p><p>First SELECT captures Timer1 seed; edit four digits; SELECT evaluates; next SELECT resets guess only. Follow display_guess and increment_digit for the exact mapping.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer1:MR0=UINT32_MAX,PR0,no match IRQ; seed on first SELECT</td></tr><tr><td>RIT:10ms input sampling; RIT_IRQHandler publishes edges; main owns rounds</td></tr></tbody></table><p>Entry: main. Relevant functions: clear_words, display_guess, capture_secret, begin_guess, increment_digit, evaluate_guess, RIT_IRQHandler, main, BullsAndCows. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+enum {
+  EXAM_EVENT_JOYSTICK = 1u &lt;&lt; 1
+};
+
+extern int BullsAndCows(int guess[4], int secret[4],
+                        int guessFrequency[4], int secretFrequency[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int guessFrequency[4];
+static int secretFrequency[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] &lt;&lt; 0) |
+                             ((uint32_t)guess[1] &lt;&lt; 2) |
+                             ((uint32_t)guess[2] &lt;&lt; 4) |
+                             ((uint32_t)guess[3] &lt;&lt; 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) {
+    secret[i] = (int)((timer_value &gt;&gt; (i * 4u)) &amp; 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) &amp; 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  result = BullsAndCows(guess, secret, guessFrequency, secretFrequency);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result &gt;&gt; 4) &amp; 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) &amp; EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges &amp; EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges &amp; EXAM_JOY_DOWN) != 0u) increment_digit(0u);
+    if ((edges &amp; EXAM_JOY_LEFT) != 0u) increment_digit(1u);
+    if ((edges &amp; EXAM_JOY_RIGHT) != 0u) increment_digit(2u);
+    if ((edges &amp; EXAM_JOY_UP) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  BullsAndCows
+
+; int BullsAndCows(int guess[4], int secret[4],
+;                  int guessFrequency[4], int secretFrequency[4]);
+; R0=guess, R1=secret, R2=guessFrequency, R3=secretFrequency.
+BullsAndCows    PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+bac_exact_loop  CMP     R10, #4
+                BHS     bac_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     bac_unmatched
+                ADDS    R8, R8, #1
+                B       bac_exact_next
+
+bac_unmatched   LDR     R2, [R6, R0, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R6, R0, LSL #2]
+                LDR     R2, [R7, R1, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R7, R1, LSL #2]
+
+bac_exact_next  ADDS    R10, R10, #1
+                B       bac_exact_loop
+
+bac_exact_done  MOVS    R10, #0
+bac_cow_loop    CMP     R10, #4
+                BHS     bac_return
+                LDR     R0, [R6, R10, LSL #2]
+                LDR     R1, [R7, R10, LSL #2]
+                CMP     R0, R1
+                BLS     bac_use_min
+                MOV     R0, R1
+bac_use_min     ADDS    R9, R9, R0
+                ADDS    R10, R10, #1
+                B       bac_cow_loop
+
+bac_return      MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-bulls-cows/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: game mastermind</h3><p>Mastermind mapping and persistent game state.</p><p>UP, RIGHT, DOWN, LEFT edit digits0,1,2,3 respectively. First SELECT captures the secret; later SELECT submits. After a losing result, SELECT clears the guess while retaining the secret.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer1:MR0=UINT32_MAX,PR0,no match IRQ; seed on first SELECT</td></tr><tr><td>RIT:10ms input sampling; RIT_IRQHandler publishes edges; main owns rounds</td></tr></tbody></table><p>Entry: main. Relevant functions: clear_words, display_guess, capture_secret, begin_guess, increment_digit, evaluate_guess, RIT_IRQHandler, main, Mastermind. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+enum {
+  EXAM_EVENT_JOYSTICK = 1u &lt;&lt; 1
+};
+
+extern int Mastermind(int guess[4], int secret[4],
+                      int usedGuess[4], int usedSecret[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int usedGuess[4];
+static int usedSecret[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] &lt;&lt; 0) |
+                             ((uint32_t)guess[1] &lt;&lt; 2) |
+                             ((uint32_t)guess[2] &lt;&lt; 4) |
+                             ((uint32_t)guess[3] &lt;&lt; 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i &lt; 4u; ++i) {
+    secret[i] = (int)((timer_value &gt;&gt; (i * 4u)) &amp; 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) &amp; 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  result = Mastermind(guess, secret, usedGuess, usedSecret);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result &gt;&gt; 4) &amp; 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(usedGuess);
+  clear_words(usedSecret);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) &amp; EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges &amp; EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges &amp; EXAM_JOY_UP) != 0u) increment_digit(0u);
+    if ((edges &amp; EXAM_JOY_RIGHT) != 0u) increment_digit(1u);
+    if ((edges &amp; EXAM_JOY_DOWN) != 0u) increment_digit(2u);
+    if ((edges &amp; EXAM_JOY_LEFT) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Mastermind
+
+; int Mastermind(int guess[4], int secret[4],
+;                int usedGuess[4], int usedSecret[4]);
+; R0=guess, R1=secret, R2=usedGuess, R3=usedSecret.
+Mastermind      PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+mm_exact_loop   CMP     R10, #4
+                BHS     mm_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     mm_exact_next
+                ADDS    R8, R8, #1
+                MOVS    R2, #1
+                STR     R2, [R6, R10, LSL #2]
+                STR     R2, [R7, R10, LSL #2]
+mm_exact_next   ADDS    R10, R10, #1
+                B       mm_exact_loop
+
+mm_exact_done   MOVS    R10, #0
+mm_outer_loop   CMP     R10, #4
+                BHS     mm_return
+                LDR     R0, [R6, R10, LSL #2]
+                CMP     R0, #0
+                BNE     mm_outer_next
+                LDR     R2, [R4, R10, LSL #2]
+                MOVS    R11, #0
+
+mm_inner_loop   CMP     R11, #4
+                BHS     mm_outer_next
+                LDR     R0, [R7, R11, LSL #2]
+                CMP     R0, #0
+                BNE     mm_inner_next
+                LDR     R1, [R5, R11, LSL #2]
+                CMP     R2, R1
+                BNE     mm_inner_next
+                ADDS    R9, R9, #1
+                MOVS    R0, #1
+                STR     R0, [R6, R10, LSL #2]
+                STR     R0, [R7, R11, LSL #2]
+                B       mm_outer_next
+
+mm_inner_next   ADDS    R11, R11, #1
+                B       mm_inner_loop
+mm_outer_next   ADDS    R10, R10, #1
+                B       mm_outer_loop
+
+mm_return       MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/game-mastermind/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-2">Variant: joystick release</h3><p>Raw press, hold and release masks with periodic sampling.</p><p>Start with SELECT released; press lights LD11; hold leaves it on; release clears it. High bits never appear.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>RIT:10ms; RIT_IRQHandler owns joystick previous/current state</td></tr></tbody></table><p>Entry: main. Relevant functions: require, RIT_IRQHandler, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+volatile uint32_t held, pressed, released;
+static uint32_t previous;
+void RIT_IRQHandler(void) {
+  uint32_t current;
+  exam_rit_ack();current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous,current);
+  released=exam_joystick_released_edges(previous,current);
+  held=current;previous=current;
+  if (pressed &amp; EXAM_JOY_SELECT) exam_led_write(1u);
+  if (released &amp; EXAM_JOY_SELECT) exam_led_clear();
+}
+int main(void) {
+  exam_init();exam_joystick_init();previous=exam_joystick_read();
+  require(exam_rit_config_ms(10u));exam_rit_start();
+  for (;;) {}
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-17"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 17">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-18"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 18">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-19"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 19">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-20"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 20">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-21"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 21">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/joystick-release/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-22"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 22">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-3">Variant: rhythm first movement</h3><p>First movement per interval; later movements deliberately ignored.</p><p>Keep the source timer threshold and IRQ algorithm call. The first movement consumes the active interval; do not replay ignored movements.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0:3000ms; TIMER0_IRQHandler calls nextElementLCG and opens one movement window</td></tr><tr><td>RIT:10ms; RIT_IRQHandler handles first movement immediately</td></tr></tbody></table><p>Entry: main. Relevant functions: TIMER0_IRQHandler, joystick_event, RIT_IRQHandler, main, nextElementLCG, Reset_Handler. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-23"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 23">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 1 July 2025, ARM1, questions 1 to 3. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+
+extern uint32_t nextElementLCG(uint32_t previous,
+                               uint32_t multiplier,
+                               uint32_t increment,
+                               uint32_t index,
+                               uint32_t modulus);
+
+static uint32_t previous_value = 1u;
+static uint32_t iteration;
+static uint32_t expected_direction;
+static uint32_t movement_seen;
+static uint32_t num_correct;
+static uint32_t num_wrong;
+static uint32_t previous_joystick;
+
+void TIMER0_IRQHandler(void)
+{
+  uint32_t remainder;
+
+  if ((exam_timer_ack(EXAM_TIMER0) &amp; 1u) == 0u) {
+    return;
+  }
+
+  exam_led_clear();
+  if (iteration &gt;= 10u) {
+    exam_timer_stop(EXAM_TIMER0);
+    if (num_correct &gt; num_wrong) {
+      (void)exam_led_on(4u);
+    } else {
+      (void)exam_led_on(5u);
+    }
+    return;
+  }
+
+  previous_value = nextElementLCG(previous_value, 131u, 7u,
+                                  iteration, 255u);
+  remainder = previous_value &amp; 3u;
+
+  movement_seen = 0u;
+  if (remainder == 0u) {
+    (void)exam_led_on(11u);
+    expected_direction = EXAM_JOY_UP;
+  } else if (remainder == 1u) {
+    (void)exam_led_on(10u);
+    expected_direction = EXAM_JOY_LEFT;
+  } else if (remainder == 2u) {
+    (void)exam_led_on(9u);
+    expected_direction = EXAM_JOY_RIGHT;
+  } else {
+    (void)exam_led_on(8u);
+    expected_direction = EXAM_JOY_DOWN;
+  }
+
+  iteration++;
+}
+
+static void joystick_event(uint32_t pressed)
+{
+  if (movement_seen || (pressed == 0u) || (iteration == 0u)) {
+    return;
+  }
+
+  movement_seen = 1u;
+  if (pressed &amp; expected_direction) {
+    num_correct++;
+  } else {
+    num_wrong++;
+  }
+  exam_led_clear();
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  joystick_event(pressed);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  if(exam_rit_config_ms(10u)==EXAM_OK)exam_rit_start();
+  if(exam_timer_config_ms(EXAM_TIMER0,3000u,EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER0);
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-24"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 24">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  nextElementLCG
+
+DIM             EQU     10
+
+                AREA    LCG_TEST_DATA, DATA, READWRITE, NOINIT
+; The template scatter file places this area in an UNINIT region.
+lcg_test_values SPACE   DIM
+
+                AREA    |.text|, CODE, READONLY
+
+; Reset starts at the hardware vector, fills the test array required by
+; question 1, then hands control to the C runtime and main program.
+                EXPORT  Reset_Handler
+                IMPORT  __main
+Reset_Handler   PROC
+                SUB     SP, SP, #8      ; Keep SP aligned; argument 5 at [SP].
+                MOVS    R4, #255
+                STR     R4, [SP]
+                LDR     R4, =lcg_test_values
+                MOVS    R0, #1          ; Seed.
+                MOVS    R5, #0          ; Index n.
+
+lcg_reset_loop
+                MOVS    R1, #131
+                MOVS    R2, #7
+                MOV     R3, R5
+                BL      nextElementLCG
+                STRB    R0, [R4, R5]
+                ADDS    R5, R5, #1
+                CMP     R5, #DIM
+                BLO     lcg_reset_loop
+
+                ADD     SP, SP, #8
+                LDR     R0, =__main
+                BX      R0
+                ENDP
+
+; uint32_t nextElementLCG(previous, a, c, index, modulus)
+nextElementLCG  PROC
+                LDR     R12, [SP]       ; Fifth argument: modulus.
+                MUL     R0, R0, R1
+                ADDS    R0, R0, R2
+                EORS    R0, R0, R3
+                UDIV    R1, R0, R12
+                MLS     R0, R1, R12, R0
+                BX      LR
+                ENDP
+
+                ALIGN   4
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-25"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 25">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-26"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 26">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-27"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 27">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-28"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 28">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/rhythm-first-movement/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-29"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 29">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-timer-call-effects">Timer call effects</h2><table><thead><tr><th>Call</th><th>Counter</th><th>Configuration and interrupts</th></tr></thead><tbody><tr><td>General timer config_ticks/ms/hz</td><td>TC=PC=0; PR=0; stopped</td><td>Owns MR0, preserves MR1..3 and capture/output setup; clears IR and NVIC pending. Interrupt modes enable NVIC and assign priority equal to timer number.</td></tr><tr><td>General timer start</td><td>Count from current TC/PC</td><td>Retains configuration and pending flags; does not reset.</td></tr><tr><td>General timer stop</td><td>Pause TC/PC</td><td>Retains configuration and pending flags; does not disable NVIC.</td></tr><tr><td>General timer reset</td><td>TC=PC=0; stopped</td><td>Retains configuration; does not acknowledge IR or disable NVIC.</td></tr><tr><td>General timer ack</td><td>No counter change</td><td>Read IR once, clear those hardware flags, return saved bits 0..5. Does not explicitly clear NVIC pending.</td></tr><tr><td>RIT config</td><td>Counter=0; stopped</td><td>Select core clock, clear mask and hardware/controller pending, enable interrupt.</td></tr><tr><td>RIT reset</td><td>Counter=0; retains running state</td><td>Does not acknowledge the interrupt or change the interval.</td></tr><tr><td>SysTick config</td><td>Clear current count; starts immediately</td><td>Set reload and enable core-clock counting and its interrupt.</td></tr></tbody></table></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2025-07-01-a1.html">E2025-07-01-A1</a></li><li><a href="../exams/e2025-07-01-a2.html">E2025-07-01-A2</a></li><li><a href="../exams/e2026-06-25-b1.html">E2026-06-25-B1</a></li><li><a href="../exams/e2026-06-25-b2.html">E2026-06-25-B2</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

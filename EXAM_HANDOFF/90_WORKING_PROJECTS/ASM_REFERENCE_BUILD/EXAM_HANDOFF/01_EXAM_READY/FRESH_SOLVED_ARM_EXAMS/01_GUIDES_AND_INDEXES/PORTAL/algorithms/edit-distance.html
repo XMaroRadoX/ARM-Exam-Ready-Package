@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Explicit string lengths. Two-row version needs separate arrays of second_length+1 words; full version checks table_elements. Return edit count, or UINT32_MAX on rejected input/dimensions.">
+  <title>Edit distance · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Edit distance</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Edit distance</h1><p>Explicit string lengths. Two-row version needs separate arrays of second_length+1 words; full version checks table_elements. Return edit count, or UINT32_MAX on rejected input/dimensions.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Recursion and dynamic programming</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(a*b) time; O(a*b) full-table or O(b) two-row space.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Explicit string lengths. Two-row version needs separate arrays of second_length+1 words; full version checks table_elements. Return edit count, or UINT32_MAX on rejected input/dimensions.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>uint32_t algorithm_edit_distance(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *previous, uint32_t *current);
+uint32_t algorithm_edit_distance_full(const char *first, const char *second, uint32_t first_length, uint32_t second_length, uint32_t *table, uint32_t table_elements);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_edit_distance</code></td><td><code>const char *first</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_edit_distance</code></td><td><code>const char *second</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_edit_distance</code></td><td><code>uint32_t first_length</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_edit_distance</code></td><td><code>uint32_t second_length</code></td><td><code>R3</code></td></tr><tr><td><code>algorithm_edit_distance</code></td><td><code>uint32_t *previous</code></td><td><code>[entry SP]</code></td></tr><tr><td><code>algorithm_edit_distance</code></td><td><code>uint32_t *current</code></td><td><code>[entry SP+4]</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>const char *first</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>const char *second</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>uint32_t first_length</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>uint32_t second_length</code></td><td><code>R3</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>uint32_t *table</code></td><td><code>[entry SP]</code></td></tr><tr><td><code>algorithm_edit_distance_full</code></td><td><code>uint32_t table_elements</code></td><td><code>[entry SP+4]</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Initialize first row/column.</li><li>For each character pair compute delete/insert/substitute.</li><li>Keep minimum.</li><li>Use either full table or two rows.</li></ol><h3>Worked trace</h3><p>&quot;cat&quot; to &quot;cut&quot;: one substitution, distance 1.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/edit-distance/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from the repaired reference.c.
+        AREA |.text.patterns|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT algorithm_edit_distance
+        EXPORT algorithm_edit_distance_full
+        ALIGN 2
+algorithm_edit_distance
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        push.w	{r8, r9, r10, r11}
+        sub	sp, #20
+        cmp	r0, #0
+        mov.w	r12, #-1
+        str	r3, [sp, #16]
+        str	r2, [sp, #4]
+        it	ne
+        cmpne	r1, #0
+        bne	_LBB0_2
+_LBB0_1
+        mov	r0, r12
+        add	sp, #20
+        pop.w	{r8, r9, r10, r11}
+        pop	{r4, r5, r6, r7, pc}
+_LBB0_2
+        ldr	r6, [r7, #8]
+        cmp	r6, #0
+        beq	_LBB0_1
+        ldr	r2, [r7, #12]
+        cmp	r2, #0
+        beq	_LBB0_1
+        movw	r3, #65534
+        ldr	r2, [sp, #16]
+        movt	r3, #16383
+        cmp	r2, r3
+        bhi	_LBB0_1
+        ldr	r2, [sp, #4]
+        adds	r3, r2, #1
+        beq	_LBB0_1
+        ldr	r2, [r7, #12]
+        cmp	r2, r6
+        beq	_LBB0_1
+        ldr	r2, [sp, #16]
+        movs	r3, #0
+        add.w	r11, r2, #1
+        ALIGN 2
+_LBB0_8
+        str.w	r3, [r6, r3, lsl #2]
+        adds	r3, #1
+        cmp	r11, r3
+        bne	_LBB0_8
+        ldr	r2, [sp, #4]
+        cmp	r2, #0
+        beq	_LBB0_17
+        sub.w	r12, r0, #1
+        ldr	r0, [r7, #12]
+        mov.w	r10, #1
+        subs	r0, #4
+        str	r0, [sp, #12]
+        ldr	r0, [r7, #8]
+        subs	r0, #4
+        str	r0, [sp, #8]
+        subs	r0, r1, #1
+        str	r0, [sp]
+        ALIGN 2
+_LBB0_11
+        ldr	r0, [sp, #16]
+        cmp	r0, #0
+        ldr	r0, [r7, #12]
+        str.w	r10, [r0]
+        beq	_LBB0_14
+        ldr	r5, [r0]
+        ldr	r6, [sp]
+        ldrd	r4, r9, [sp, #8]
+        ldr	r3, [sp, #16]
+        ALIGN 2
+_LBB0_13
+        ldr	lr, [r4, #4]!
+        ldrb.w	r2, [r12, r10]
+        ldr.w	r8, [r4, #4]
+        ldrb	r1, [r6, #1]!
+        add.w	r0, r8, #1
+        adds	r5, #1
+        cmp	r2, r1
+        it	ne
+        addne.w	lr, lr, #1
+        cmp	r0, r5
+        it	lo
+        movlo	r5, r0
+        cmp	r5, lr
+        it	hs
+        movhs	r5, lr
+        str.w	r5, [r9, #8]
+        subs	r3, #1
+        add.w	r9, r9, #4
+        bne	_LBB0_13
+_LBB0_14
+        ldrd	r4, r3, [sp, #8]
+        mov	r5, r11
+        ALIGN 2
+_LBB0_15
+        ldr	r0, [r3, #4]!
+        subs	r5, #1
+        str	r0, [r4, #4]!
+        bne	_LBB0_15
+        ldr	r0, [sp, #4]
+        cmp	r10, r0
+        add.w	r10, r10, #1
+        bne	_LBB0_11
+_LBB0_17
+        ldr	r0, [sp, #16]
+        ldr	r1, [r7, #8]
+        ldr.w	r12, [r1, r0, lsl #2]
+        b	_LBB0_1
+_Lfunc_end0
+        ALIGN 2
+algorithm_edit_distance_full
+        push	{r4, r5, r6, r7, lr}
+        add	r7, sp, #12
+        push.w	{r8, r9, r10, r11}
+        sub	sp, #28
+        str	r3, [sp, #16]
+        adds.w	lr, r3, #1
+        mov.w	r3, #0
+        mov	r6, r2
+        adc	r3, r3, #0
+        adds	r4, r2, #1
+        mov.w	r12, #-1
+        str	r6, [sp, #8]
+        beq.w	_LBB1_18
+        cmp	r3, #0
+        bne.w	_LBB1_18
+        cmp	r0, #0
+        beq.w	_LBB1_18
+        cmp	r1, #0
+        beq.w	_LBB1_18
+        ldr.w	r8, [r7, #8]
+        cmp.w	r8, #0
+        beq	_LBB1_18
+        ldr	r3, [r7, #12]
+        mul	r6, lr, r4
+        cmp	r6, r3
+        bhi	_LBB1_18
+        mvn	r3, #-1073741824
+        udiv	r3, r3, lr
+        cmp	r4, r3
+        bhi	_LBB1_18
+        ldr	r2, [sp, #16]
+        movs	r3, #4
+        add.w	r3, r3, r2, lsl #2
+        movs	r6, #0
+        mov	r5, r8
+        ALIGN 2
+_LBB1_8
+        str	r6, [r5]
+        adds	r6, #1
+        cmp	r4, r6
+        add	r5, r3
+        bne	_LBB1_8
+        ldr	r2, [sp, #16]
+        movs	r6, #0
+        adds	r3, r2, #1
+        str.w	lr, [sp]
+        ALIGN 2
+_LBB1_10
+        str.w	r6, [r8, r6, lsl #2]
+        adds	r6, #1
+        cmp	r3, r6
+        bne	_LBB1_10
+        ldr	r2, [sp, #8]
+        cmp	r2, #0
+        beq	_LBB1_17
+        subs	r1, #1
+        ldr	r2, [sp, #16]
+        str	r1, [sp, #4]
+        movs	r1, #4
+        add.w	r1, r1, r2, lsl #2
+        str	r1, [sp, #12]
+        ldr	r1, [r7, #8]
+        mov.w	r9, #0
+        subs	r1, #4
+        str	r1, [sp, #24]
+        movs	r1, #8
+        add.w	r10, r1, r2, lsl #2
+        movs	r1, #1
+        str	r1, [sp, #20]
+        b	_LBB1_14
+        ALIGN 2
+_LBB1_13
+        ldr	r1, [sp, #8]
+        ldr	r2, [sp, #20]
+        ldr	r3, [sp, #24]
+        cmp	r2, r1
+        add.w	r1, r2, #1
+        ldr	r2, [sp, #12]
+        add.w	r9, r9, #1
+        add	r3, r2
+        strd	r1, r3, [sp, #20]
+        beq	_LBB1_17
+_LBB1_14
+        ldr	r1, [sp, #16]
+        cmp	r1, #0
+        beq	_LBB1_13
+        ldr	r2, [sp, #12]
+        add.w	r1, r9, #1
+        mul	r3, r2, r1
+        ldr	r1, [sp, #20]
+        ldr.w	r12, [sp, #4]
+        sub.w	lr, r1, #1
+        ldr	r1, [r7, #8]
+        ldr.w	r11, [sp, #24]
+        ldr	r5, [r1, r3]
+        ldr	r3, [sp, #16]
+        ALIGN 2
+_LBB1_16
+        ldr.w	r8, [r11, #8]
+        ldrb.w	r6, [r0, lr]
+        ldrb	r1, [r12, #1]!
+        add.w	r4, r8, #1
+        add.w	r8, r11, r10
+        adds	r5, #1
+        ldr	r2, [r11, #4]!
+        cmp	r6, r1
+        it	ne
+        addne	r2, #1
+        cmp	r4, r5
+        it	lo
+        movlo	r5, r4
+        cmp	r5, r2
+        it	hs
+        movhs	r5, r2
+        subs	r3, #1
+        str.w	r5, [r8, #4]
+        bne	_LBB1_16
+        b	_LBB1_13
+_LBB1_17
+        ldr	r0, [sp, #8]
+        ldr	r1, [sp]
+        muls	r0, r1, r0
+        ldr	r1, [r7, #8]
+        add.w	r0, r1, r0, lsl #2
+        ldr	r1, [sp, #16]
+        ldr.w	r12, [r0, r1, lsl #2]
+_LBB1_18
+        mov	r0, r12
+        add	sp, #28
+        pop.w	{r8, r9, r10, r11}
+        pop	{r4, r5, r6, r7, pc}
+_Lfunc_end1
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/edit-distance/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Edit distance.
+ * Recognition cue: insert delete substitute dynamic programming.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+static uint32_t algorithm_edit_distance_min3(uint32_t first, uint32_t second,
+                                             uint32_t third) {
+  uint32_t minimum = (first &lt; second) ? first : second;
+  return (third &lt; minimum) ? third : minimum;
+}
+
+uint32_t algorithm_edit_distance(const char *first, const char *second,
+                                 uint32_t first_length, uint32_t second_length,
+                                 uint32_t *previous, uint32_t *current) {
+  uint32_t row;
+  uint32_t column;
+
+  if ((first == NULL) || (second == NULL) || (previous == NULL) || (current == NULL) ||
+      (current == previous) || first_length == UINT32_MAX ||
+      second_length &gt;= UINT32_MAX / 4u) {
+    return UINT32_MAX;
+  }
+  for (column = 0u; column &lt;= second_length; ++column) {
+    previous[column] = column;
+  }
+  for (row = 1u; row &lt;= first_length; ++row) {
+    current[0] = row;
+    for (column = 1u; column &lt;= second_length; ++column) {
+      uint32_t deletion = previous[column] + 1u;
+      uint32_t insertion = current[column - 1u] + 1u;
+      uint32_t substitution =
+          previous[column - 1u] + (first[row - 1u] != second[column - 1u]);
+      current[column] = algorithm_edit_distance_min3(deletion, insertion, substitution);
+    }
+    for (column = 0u; column &lt;= second_length; ++column) {
+      previous[column] = current[column];
+    }
+  }
+  return previous[second_length];
+}
+
+uint32_t algorithm_edit_distance_full(const char *first, const char *second,
+                                      uint32_t first_length, uint32_t second_length,
+                                      uint32_t *table, uint32_t table_elements) {
+  uint32_t row;
+  uint32_t column;
+  uint32_t columns = second_length + 1u;
+
+  if ((first == NULL) || (second == NULL) || (table == NULL) || (columns == 0u) ||
+      first_length == UINT32_MAX || (first_length + 1u &gt; UINT32_MAX / 4u / columns) ||
+      (table_elements &lt; (first_length + 1u) * columns)) {
+    return UINT32_MAX;
+  }
+  for (row = 0u; row &lt;= first_length; ++row) {
+    table[row * columns] = row;
+  }
+  for (column = 0u; column &lt;= second_length; ++column) {
+    table[column] = column;
+  }
+  for (row = 1u; row &lt;= first_length; ++row) {
+    for (column = 1u; column &lt;= second_length; ++column) {
+      uint32_t deletion = table[(row - 1u) * columns + column] + 1u;
+      uint32_t insertion = table[row * columns + column - 1u] + 1u;
+      uint32_t substitution = table[(row - 1u) * columns + column - 1u] +
+                              (first[row - 1u] != second[column - 1u]);
+      table[row * columns + column] =
+          algorithm_edit_distance_min3(deletion, insertion, substitution);
+    }
+  }
+  return table[first_length * columns + second_length];
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/edit-distance/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Edit distance.
+ * Recognition cue: insert delete substitute dynamic programming.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+static uint32_t algorithm_edit_distance_min3(uint32_t first, uint32_t second,
+                                             uint32_t third);
+
+uint32_t algorithm_edit_distance(const char *first, const char *second,
+                                 uint32_t first_length, uint32_t second_length,
+                                 uint32_t *previous, uint32_t *current);
+
+uint32_t algorithm_edit_distance_full(const char *first, const char *second,
+                                      uint32_t first_length, uint32_t second_length,
+                                      uint32_t *table, uint32_t table_elements);
+
+static int pattern_core_vector(void) {
+  uint32_t p[8], c[8];
+  return algorithm_edit_distance(&quot;kitten&quot;, &quot;sitting&quot;, 6, 7, p, c) == 3;
+}
+static int pattern_edge_vectors(void) {
+  uint32_t p[4], c[4], t[16];
+  return algorithm_edit_distance(&quot;&quot;, &quot;abc&quot;, 0, 3, p, c) == 3 &amp;&amp;
+         algorithm_edit_distance(&quot;abc&quot;, &quot;&quot;, 3, 0, p, c) == 3 &amp;&amp;
+         algorithm_edit_distance_full(&quot;abc&quot;, &quot;adc&quot;, 3, 3, t, 16) == 1 &amp;&amp;
+         algorithm_edit_distance_full(&quot;a&quot;, &quot;b&quot;, 1, 1, t, 3) == UINT32_MAX;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

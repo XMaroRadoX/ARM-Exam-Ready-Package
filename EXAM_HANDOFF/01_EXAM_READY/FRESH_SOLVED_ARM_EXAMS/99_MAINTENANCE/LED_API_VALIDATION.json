@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "singleLedScenarios": 8192,
+  "wholeDisplaySequences": 512,
+  "labels": "All uint8_t values, including all eight valid labels",
+  "initialDisplayMasks": [
+    "0x00",
+    "0x05",
+    "0x81",
+    "0xFF"
+  ],
+  "interruptState": "Enabled and already masked; original state restored",
+  "executedExports": [
+    "exam_led_clear",
+    "exam_led_off",
+    "exam_led_on",
+    "exam_led_one_hot",
+    "exam_led_read",
+    "exam_led_toggle",
+    "exam_led_write"
+  ],
+  "physicalBoard": "Not tested",
+  "method": "Actual LED helper bodies compiled for Cortex-M3; mock low-level LED driver"
+}

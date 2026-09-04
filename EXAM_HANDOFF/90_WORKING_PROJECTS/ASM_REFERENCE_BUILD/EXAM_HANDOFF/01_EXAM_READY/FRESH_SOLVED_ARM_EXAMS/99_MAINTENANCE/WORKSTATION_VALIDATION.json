@@ -1,0 +1,50 @@
+{
+  "structuralChecks": 32486,
+  "errors": [],
+  "hostSyntaxWithActualHeaders": [
+    {
+      "project": "project-buttons",
+      "file": "Source/sample.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-buttons",
+      "file": "Source/button_EXINT/IRQ_button.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-buttons",
+      "file": "Source/RIT/IRQ_RIT.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-timed",
+      "file": "Source/sample.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-timed",
+      "file": "Source/timer/IRQ_timer.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-analog",
+      "file": "Source/sample.c",
+      "status": "PASS",
+      "details": ""
+    },
+    {
+      "project": "project-analog",
+      "file": "Source/timer/IRQ_timer.c",
+      "status": "PASS",
+      "details": ""
+    }
+  ],
+  "nativeKeilBuild": "Not available: Keil uVision/ARMASM and the device pack were not found in checked paths. LLVM target compilation is reported separately.",
+  "physicalBoard": "Not performed; board required for input/timing/output claims."
+}

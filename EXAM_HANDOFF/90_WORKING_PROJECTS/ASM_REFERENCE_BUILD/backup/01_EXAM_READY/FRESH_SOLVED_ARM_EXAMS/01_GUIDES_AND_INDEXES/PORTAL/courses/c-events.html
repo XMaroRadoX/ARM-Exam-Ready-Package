@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Read, trace, attempt, check, then progress.">
+  <title>11. Interrupts, volatile, and shared events · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Courses" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Courses</a><span aria-hidden="true">/</span><span aria-current="page">11. Interrupts, volatile, and shared events</span></nav><header class="page-heading"><p class="eyebrow">Courses</p><h1>11. Interrupts, volatile, and shared events</h1><p>Read, trace, attempt, check, then progress.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-before-this-lesson">Before this lesson</a><a href="#section-understand-the-idea">Understand the idea</a><a href="#section-worked-example">Worked example</a><a href="#section-execution-trace">Execution trace</a><a href="#section-try-it-before-the-answer">Try it before the answer</a><a href="#section-common-mistakes-and-symptoms">Common mistakes and symptoms</a><a href="#section-checkpoint">Checkpoint</a><a href="#section-deeper-explanation-and-source-examples">Deeper explanation and source examples</a><a href="#section-connect-this-skill-to-the-exam">Connect this skill to the exam</a></nav><div class="page-body"><section class="section-block" data-course-lesson="c-events"><p class="eyebrow">C from zero · Exam core</p><h2 id="section-before-this-lesson">Before this lesson</h2><p><a href="c-files.html">10. Headers, declarations, and ownership</a> — finish its checkpoint first.</p><h2 id="section-understand-the-idea">Understand the idea</h2><p>An interrupt temporarily diverts execution into a handler. Foreground is ordinary main-loop work. A peripheral flag identifies the interrupt&#x27;s cause. Clearing that hardware flag and consuming a software event are different operations.</p><p>volatile says a value can change outside ordinary control flow. It does not make compound operations atomic. Read a flag, process, then clear it: an interrupt between the read and clear can be lost.</p><p>The API&#x27;s atomic event helpers transfer bit flags. A bit means &#x27;at least one occurrence&#x27;; repeated sets coalesce. If every occurrence matters, use a bounded counter or queue with a stated overflow policy and brief protection. Long calculations belong in foreground. Do not wait for interrupts with interrupts disabled.</p><h2 id="section-worked-example">Worked example</h2><p class="notice">Illustrative fragment unless explicitly marked as a complete project below. Read the contract and required placement before copying.</p><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* In the single existing Timer0 handler: */
+if (exam_timer_ack(EXAM_TIMER0) &amp; 1u) {
+    exam_events_set(1u);
+}
+/* In the foreground loop: */
+uint32_t events = exam_events_take(1u);
+if (events &amp; 1u) {
+    /* bounded foreground work */
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-execution-trace">Execution trace</h2><p>Two IRQs set bit 0 before main consumes it → main receives 1, not 2. The flag is a pending condition, not a count.</p><h2 id="section-try-it-before-the-answer">Try it before the answer</h2><p>A sensor must retain every sample in order. Design the storage and full-buffer policy.</p><details class="lesson-reveal"><summary>Hint 1</summary><p>Notification and sample storage are separate.</p></details><details class="lesson-reveal"><summary>Hint 2</summary><p>Decide what happens when producer overtakes consumer.</p></details><details class="lesson-reveal"><summary>Reveal the worked answer</summary><p>Use a fixed-capacity sample queue with protected indexes. A bit can announce nonempty storage but cannot replace it. For example reject newest on full and increment an overflow count; do not silently discard required data.</p></details><h2 id="section-common-mistakes-and-symptoms">Common mistakes and symptoms</h2><p>volatile alone cannot protect read-modify-write. A wrong acknowledgement can cause endless IRQ entries. An empty-check followed by sleep has a race; use a documented wait strategy or bounded foreground polling.</p><h2 id="section-checkpoint">Checkpoint</h2><p>Explain why two events coalesce and when a queue is required.</p><label class="completion-control js-only"><input type="checkbox" data-lesson-complete="c-events"> I can explain and demonstrate this checkpoint</label><h2 id="section-deeper-explanation-and-source-examples">Deeper explanation and source examples</h2><details class="lesson-reveal"><summary>Continue into the maintained reference chapter</summary><p>The Official Combined Exam API does not register application callbacks. Write the exact handler required by the startup file or paper. Keep the handler short: acknowledge the source, copy data if required, set an event, and return.</p><details class="code-panel" open><summary>Show C code</summary><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">enum { EVENT_BUTTON = 1u &lt;&lt; 0 };
+
+void EINT0_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_INT0);
+  exam_events_set(EVENT_BUTTON);
+}
+
+void foreground_step(void)
+{
+  if ((exam_events_take(EVENT_BUTTON) &amp; EVENT_BUTTON) != 0u) {
+    exam_led_toggle(11u);
+  }
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div></details><p>Use <code>volatile</code> for state changed asynchronously. For a multi-step shared snapshot, protect only the copy with <code>exam_critical_enter()</code> and <code>exam_critical_exit()</code>; perform slow work after leaving the critical section.</p></details><h2 id="section-connect-this-skill-to-the-exam">Connect this skill to the exam</h2><ul><li>Pattern: <a href="../patterns/event-flags-counters-and-queues.html">Event flags counters and queues</a></li><li>Pattern: <a href="../patterns/atomic-isr-event-handoff.html">Atomic ISR event handoff</a></li><li><a href="../exams/2023-02-07-q2.html">2023-02-07-Q2: Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.</a></li><li><a href="../exams/2023-07-04-q2.html">2023-07-04-Q2: Every two seconds test the next source value and display the result as a one-hot LED value.</a></li><li><a href="../search.html">Search related patterns, implementations, and API calls</a></li><li><a href="coverage.html">See all lecture and question mappings</a></li></ul><p>API: <a href="../api/exam-events-set.html">exam_events_set</a> · <a href="../api/exam-events-take.html">exam_events_take</a> · <a href="../api/exam-timer-ack.html">exam_timer_ack</a></p><nav class="lesson-navigation" aria-label="Lesson navigation"><a href="c-files.html">← 10. Headers, declarations, and ownership</a><a href="c-integration.html">12. C calls assembly and incremental debugging →</a></nav></section><div class="progress-tools js-only"><button type="button" data-progress-export>Export progress</button><label>Import progress<input type="file" data-progress-import accept="application/json,.json"></label></div><p data-storage-status role="status"></p></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

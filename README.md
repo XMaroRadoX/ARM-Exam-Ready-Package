@@ -1,14 +1,9 @@
 # ARM Exam Ready Package
 
-The maintained package is in [`EXAM_HANDOFF`](EXAM_HANDOFF).
+Open [`EXAM_HANDOFF/START_HERE.html`](EXAM_HANDOFF/START_HERE.html).
 
-- `EXAM_HANDOFF/ARM_Exam_Project` is the clean Keil project copied and submitted.
-- `EXAM_HANDOFF/Study Material` is the private atlas, solution library, practice
-  material, test evidence, tools and verified archives.
-
-Start private navigation at
-[`Study Material/README.md`](EXAM_HANDOFF/Study%20Material/README.md).
-
-The Keil project is intentionally free of Markdown, reports, generated build
-output and private study material.
-
+The primary resource is the newly verified searchable library in
+`EXAM_HANDOFF/01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS`. Clean starting templates,
+original course material, additional historical reference, and personal working
+projects are kept in separate folders so they cannot be confused during the
+exam.

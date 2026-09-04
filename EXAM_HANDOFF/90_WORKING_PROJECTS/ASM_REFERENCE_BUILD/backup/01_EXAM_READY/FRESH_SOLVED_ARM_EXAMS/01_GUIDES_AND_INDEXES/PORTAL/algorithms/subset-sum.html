@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Return whether target can be formed using each item at most once. reachable has target+1 bytes. Null inputs or target==SIZE_MAX return 0; zero-valued items do not change reachability.">
+  <title>Subset-sum dynamic programming · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="06"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Subset-sum dynamic programming</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Subset-sum dynamic programming</h1><p>Return whether target can be formed using each item at most once. reachable has target+1 bytes. Null inputs or target==SIZE_MAX return 0; zero-valued items do not change reachability.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Recursion and dynamic programming</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(n x target) time and O(target) space.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Return whether target can be formed using each item at most once. reachable has target+1 bytes. Null inputs or target==SIZE_MAX return 0; zero-valued items do not change reachability.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int subset_sum(const unsigned short *a, size_t n, size_t target, unsigned char *reachable)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>subset_sum</code></td><td><code>const unsigned short *a</code></td><td><code>R0</code></td></tr><tr><td><code>subset_sum</code></td><td><code>size_t n</code></td><td><code>R1</code></td></tr><tr><td><code>subset_sum</code></td><td><code>size_t target</code></td><td><code>R2</code></td></tr><tr><td><code>subset_sum</code></td><td><code>unsigned char *reachable</code></td><td><code>R3</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Mark only sum zero reachable.</li><li>Process each positive value.</li><li>Traverse sums downward to prevent reusing that item.</li></ol><h3>Worked trace</h3><p>values [3,5], target 6 -&gt; false; target 8 -&gt; true.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/subset-sum/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Subset-sum dynamic programming
+; int subset_sum(const unsigned short *a, size_t n, size_t target, unsigned char *reachable)
+; Return whether target can be formed using each item at most once. reachable has target+1 bytes. Null inputs or target==SIZE_MAX return 0; zero-valued items do not change reachability.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT subset_sum
+subset_sum
+        cmp r0,#0
+        beq su_bad
+        cmp r3,#0
+        beq su_bad
+        cmn r2,#1
+        beq su_bad
+        push {r4-r8,lr}
+        movs r4,#0
+        movs r5,#0
+su_init
+        strb r5,[r3,r4]
+        cmp r4,r2
+        beq su_start
+        adds r4,#1
+        b su_init
+su_start
+        movs r5,#1
+        strb r5,[r3]
+        movs r4,#0
+su_outer
+        cmp r4,r1
+        bhs su_done
+        ldrh r5,[r0,r4,lsl #1]
+        cmp r5,#0
+        beq su_next
+        add r6,r2,#1
+su_inner
+        cmp r6,r5
+        bls su_next
+        subs r6,#1
+        sub r7,r6,r5
+        ldrb r8,[r3,r7]
+        cmp r8,#0
+        beq su_inner
+        movs r8,#1
+        strb r8,[r3,r6]
+        b su_inner
+su_next
+        adds r4,#1
+        b su_outer
+su_done
+        ldrb r0,[r3,r2]
+        pop {r4-r8,pc}
+su_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/subset-sum/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int subset_sum(const unsigned short *a, size_t n, size_t target, unsigned char *r) {
+  if (!a || !r || target == SIZE_MAX)
+    return 0;
+  for (size_t s = 0; s &lt;= target; s++)
+    r[s] = 0;
+  r[0] = 1;
+  for (size_t i = 0; i &lt; n; i++)
+    if (a[i])
+      for (size_t s = target + 1; s &gt; a[i];) {
+        --s;
+        if (r[s - a[i]])
+          r[s] = 1;
+      }
+  return r[target] != 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/subset-sum/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int subset_sum(const unsigned short *a, size_t n, size_t target,
+               unsigned char *reachable);
+int test_main(void) {
+  unsigned short a[] = {3, 5};
+  unsigned char r[10];
+  CHECK(!subset_sum(a, 2, 6, r));
+  CHECK(subset_sum(a, 2, 8, r));
+  CHECK(subset_sum(a, 0, 0, r));
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

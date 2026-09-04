@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Bound results or convert signed magnitude safely">
+  <title>Clamp absolute saturation and overflow · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Clamp absolute saturation and overflow</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Clamp absolute saturation and overflow</h1><p>Bound results or convert signed magnitude safely</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Bound results or convert signed magnitude safely.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>abs(INT_MIN) is not representable as positive int32.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Write overflow policy before choosing branch conditions.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Check limits before risky operation
+2. widen if needed
+3. choose saturate/error/wrap</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>clamp(-3,0,10)=0; clamp12=10.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Write overflow policy before choosing branch conditions.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. abs(INT_MIN) is not representable as positive int32.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Write overflow policy before choosing branch conditions.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>INT_MIN; exact limits; justoutside.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>abs(INT_MIN) is not representable as positive int32. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">saturating arithmetic assembly</a><a href="#variant-1">saturating arithmetic c</a></nav><h3 id="variant-0">Baseline: saturating arithmetic assembly</h3><p>pat-alg-saturating-arithmetic-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly, algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_abs_i32, algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Clamp absolute saturation and overflow.
+ * Recognition cue: clamp signed arithmetic without overflow.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly(int64_t value, int32_t minimum,
+                                          int32_t maximum);
+
+uint32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_abs_i32(int32_t value);
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32(int32_t first,
+                                                  int32_t second);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly(50, 0, 10) == 10 &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly(-2, 0, 10) == 0;
+}
+static int pattern_edge_vectors(void) {
+  return algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly(5, 10, 0) == 10 &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_abs_i32(INT32_MIN) ==
+             UINT32_C(2147483648) &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32(INT32_MAX, 1) == INT32_MAX &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32(INT32_MIN, -1) == INT32_MIN;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from reference.c.
+
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly
+                EXPORT  algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_abs_i32
+                EXPORT  algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32
+
+                ALIGN   2
+algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly
+; %bb.0:
+	push	{r7, lr}
+	mov	r7, sp
+	asr.w	r12, r3, #31
+	subs.w	lr, r3, r0
+	sbcs.w	r12, r12, r1
+	mov	r12, r0
+	it	lt
+	movlt	r12, r3
+	subs	r0, r0, r2
+	sbcs.w	r0, r1, r2, asr #31
+	it	lt
+	movlt	r12, r2
+	cmp	r2, r3
+	it	gt
+	movgt	r12, r2
+	mov	r0, r12
+	pop	{r7, pc}
+Lfunc_end0
+                                        ; -- End function
+                ALIGN   2
+algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_abs_i32
+; %bb.0:
+	cmp	r0, #0
+	it	mi
+	rsbmi	r0, r0, #0
+	bx	lr
+Lfunc_end1
+                                        ; -- End function
+                ALIGN   2
+algorithm_algorithm_pat_alg_saturating_arithmetic_001_assembly_add_i32
+; %bb.0:
+	adds	r0, r0, r1
+	mov.w	r1, #-2147483648
+	it	vs
+	eorvs.w	r0, r1, r0, asr #31
+	bx	lr
+Lfunc_end2
+                                        ; -- End function
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: saturating arithmetic c</h3><p>pat-alg-saturating-arithmetic-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Clamp absolute saturation and overflow.
+ * Recognition cue: clamp signed arithmetic without overflow.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c(int64_t value, int32_t minimum,
+                                          int32_t maximum);
+
+uint32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_abs_i32(int32_t value);
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_add_i32(int32_t first,
+                                                  int32_t second);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_saturating_arithmetic_001_c(50, 0, 10) == 10 &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_c(-2, 0, 10) == 0;
+}
+static int pattern_edge_vectors(void) {
+  return algorithm_algorithm_pat_alg_saturating_arithmetic_001_c(5, 10, 0) == 10 &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_abs_i32(INT32_MIN) ==
+             UINT32_C(2147483648) &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_add_i32(INT32_MAX, 1) == INT32_MAX &amp;&amp;
+         algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_add_i32(INT32_MIN, -1) == INT32_MIN;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-saturating-arithmetic-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Clamp absolute saturation and overflow.
+ * Recognition cue: clamp signed arithmetic without overflow.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c(int64_t value, int32_t minimum,
+                                          int32_t maximum) {
+  if (minimum &gt; maximum) {
+    return minimum;
+  }
+  if (value &lt; minimum) {
+    return minimum;
+  }
+  if (value &gt; maximum) {
+    return maximum;
+  }
+  return (int32_t)value;
+}
+
+uint32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_abs_i32(int32_t value) {
+  return (value &lt; 0) ? (uint32_t)(-(int64_t)value) : (uint32_t)value;
+}
+
+int32_t algorithm_algorithm_pat_alg_saturating_arithmetic_001_c_add_i32(int32_t first,
+                                                  int32_t second) {
+  return algorithm_algorithm_pat_alg_saturating_arithmetic_001_c((int64_t)first + second, INT32_MIN,
+                                           INT32_MAX);
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2026-02-18-a1.html">E2026-02-18-A1</a></li><li><a href="../exams/e2026-02-18-a2.html">E2026-02-18-A2</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1512 @@
+{
+  "exams": 23,
+  "questions": [
+    {
+      "questionId": "2023-02-07-Q1",
+      "examId": "E2023-02-07",
+      "date": "2023-02-07",
+      "variant": "Sort FreeRunning Timer",
+      "question": "Q1",
+      "statement": "Copy signed bytes into byte storage, then sort ascending with insertion sort.",
+      "constraints": "signed byte storage",
+      "requiredInterface": "assembly algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Sorting"
+      ],
+      "components": [
+        "Arrays",
+        "Sorting",
+        "ABI"
+      ],
+      "functionsOrHandlers": "copyData; insertionSort",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-02-07-Q2",
+      "examId": "E2023-02-07",
+      "date": "2023-02-07",
+      "variant": "Sort FreeRunning Timer",
+      "question": "Q2",
+      "statement": "Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.",
+      "constraints": "Timer1 MR0=0xFF; reset without match IRQ",
+      "requiredInterface": "C peripherals + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q2/main.c"
+      ],
+      "algorithms": [
+        "Sorting"
+      ],
+      "components": [
+        "Sorting",
+        "LED",
+        "Buttons",
+        "Timer1",
+        "Modulo",
+        "Capture"
+      ],
+      "functionsOrHandlers": "main; EINT0_IRQHandler; EINT1_IRQHandler",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_off",
+        "exam_led_on",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-02-24-Q1",
+      "examId": "E2023-02-24",
+      "date": "2023-02-24",
+      "variant": "Kaprekar SVC",
+      "question": "Q1",
+      "statement": "Iterate the four-digit Kaprekar routine until 6174 and return the iteration count.",
+      "constraints": "target 6174",
+      "requiredInterface": "assembly algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Sorting",
+        "Decimal"
+      ],
+      "components": [
+        "Sorting",
+        "Decimal"
+      ],
+      "functionsOrHandlers": "KaprekarRoutine",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-02-24-Q2",
+      "examId": "E2023-02-24",
+      "date": "2023-02-24",
+      "variant": "Kaprekar SVC",
+      "question": "Q2",
+      "statement": "Handle SVC number 50, read the stacked argument, run Kaprekar, and return the count through the exception frame.",
+      "constraints": "SVC #50",
+      "requiredInterface": "exception handler",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q2/assembly.s"
+      ],
+      "algorithms": [
+        "Decimal"
+      ],
+      "components": [
+        "Decimal",
+        "SVC",
+        "Exceptions",
+        "Delays"
+      ],
+      "functionsOrHandlers": "SVC_Handler",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-05-17-Q1",
+      "examId": "E2023-05-17",
+      "date": "2023-05-17",
+      "variant": "Signed 64 Division",
+      "question": "Q1",
+      "statement": "Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL and return a signed 32-bit quotient.",
+      "constraints": "32 quotient iterations",
+      "requiredInterface": "assembly arithmetic",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic"
+      ],
+      "components": [
+        "Arithmetic",
+        "ABI"
+      ],
+      "functionsOrHandlers": "SDIV64",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-05-17-Q2",
+      "examId": "E2023-05-17",
+      "date": "2023-05-17",
+      "variant": "Signed 64 Division",
+      "question": "Q2",
+      "statement": "Extend signed 64/32 division with the requested N, Z, C and V result flags.",
+      "constraints": "NZCV",
+      "requiredInterface": "assembly arithmetic + flags",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q2/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic"
+      ],
+      "components": [
+        "Arithmetic"
+      ],
+      "functionsOrHandlers": "SDIV64S",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-07-04-Q1",
+      "examId": "E2023-07-04",
+      "date": "2023-07-04",
+      "variant": "Sociable Timer",
+      "question": "Q1",
+      "statement": "Generate and validate a sociable-number chain, stopping within eight elements.",
+      "constraints": "maximum 8 elements",
+      "requiredInterface": "assembly algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "functionsOrHandlers": "isSociable",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-07-04-Q2",
+      "examId": "E2023-07-04",
+      "date": "2023-07-04",
+      "variant": "Sociable Timer",
+      "question": "Q2",
+      "statement": "Every two seconds test the next source value and display the result as a one-hot LED value.",
+      "constraints": "2000 ms",
+      "requiredInterface": "C timer + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q2/main.c"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Recurrence",
+        "LED",
+        "Timer1",
+        "Periodic",
+        "Delays"
+      ],
+      "functionsOrHandlers": "main; answer_timer1",
+      "apiCalls": [
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_on",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-09-18-Q1",
+      "examId": "E2023-09-18",
+      "date": "2023-09-18",
+      "variant": "DigitAddition Buttons",
+      "question": "Q1",
+      "statement": "Build the digit-addition series in memory and return the accumulated digit sum, returning zero on overflow.",
+      "constraints": "unsigned carry detection",
+      "requiredInterface": "assembly algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Arithmetic",
+        "Decimal"
+      ],
+      "components": [
+        "Arrays",
+        "Arithmetic",
+        "Decimal"
+      ],
+      "functionsOrHandlers": "digitSum; digitaddition",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2023-09-18-Q2",
+      "examId": "E2023-09-18",
+      "date": "2023-09-18",
+      "variant": "DigitAddition Buttons",
+      "question": "Q2",
+      "statement": "Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.",
+      "constraints": "K up to 50",
+      "requiredInterface": "C state machine + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "LED",
+        "Buttons",
+        "C-to-assembly"
+      ],
+      "functionsOrHandlers": "main; EINT0_IRQHandler; EINT1_IRQHandler; EINT2_IRQHandler",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_off",
+        "exam_led_on"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-02-12-Q1",
+      "examId": "E2024-02-12",
+      "date": "2024-02-12",
+      "variant": "Maze LCG Timer",
+      "question": "Q1",
+      "statement": "Propagate maze direction letters from the exit until no additional cells can be labelled.",
+      "constraints": "walls # and exit E",
+      "requiredInterface": "assembly maze algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Maze"
+      ],
+      "components": [
+        "Maze"
+      ],
+      "functionsOrHandlers": "mazeSolver",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-02-12-Q2",
+      "examId": "E2024-02-12",
+      "date": "2024-02-12",
+      "variant": "Maze LCG Timer",
+      "question": "Q2",
+      "statement": "Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.",
+      "constraints": "modulus 101; threshold 18",
+      "requiredInterface": "C peripherals + algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q2/main.c"
+      ],
+      "algorithms": [
+        "Recurrence",
+        "Maze"
+      ],
+      "components": [
+        "Recurrence",
+        "Maze",
+        "Buttons",
+        "Debounce",
+        "Timer0",
+        "C-to-assembly"
+      ],
+      "functionsOrHandlers": "main; next_random; EINT2_IRQHandler",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-02-28-Q1",
+      "examId": "E2024-02-28",
+      "date": "2024-02-28",
+      "variant": "ShortestPath Timer",
+      "question": "Q1",
+      "statement": "Compute shortest-path distances from the exit through an encoded maze.",
+      "constraints": "0 wall, 1 start, 2 exit",
+      "requiredInterface": "assembly maze algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Searching",
+        "Maze"
+      ],
+      "components": [
+        "Searching",
+        "Maze"
+      ],
+      "functionsOrHandlers": "shortestPath",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-02-28-Q2",
+      "examId": "E2024-02-28",
+      "date": "2024-02-28",
+      "variant": "ShortestPath Timer",
+      "question": "Q2",
+      "statement": "Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.",
+      "constraints": "500 ms phases",
+      "requiredInterface": "C timer state machine",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "LED",
+        "Timer0",
+        "Delays"
+      ],
+      "functionsOrHandlers": "main; answer_timer0",
+      "apiCalls": [
+        "exam_events_set",
+        "exam_events_take",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_on",
+        "exam_led_write",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-07-09-Q1",
+      "examId": "E2024-07-09",
+      "date": "2024-07-09",
+      "variant": "DFS SysTick",
+      "question": "Q1",
+      "statement": "Choose a valid neighbor, including a SysTick-based randomized selection helper.",
+      "constraints": "directions 1..4",
+      "requiredInterface": "assembly helper",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Sorting",
+        "Maze"
+      ],
+      "components": [
+        "Sorting",
+        "Maze",
+        "SysTick",
+        "ABI"
+      ],
+      "functionsOrHandlers": "chooseNeighbor; chooseRandomNeighbor",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-07-09-Q2",
+      "examId": "E2024-07-09",
+      "date": "2024-07-09",
+      "variant": "DFS SysTick",
+      "question": "Q2",
+      "statement": "Run randomized depth-first maze traversal with stack backtracking and a strong Reset_Handler that starts SysTick.",
+      "constraints": "SysTick LOAD 0xFFFFFF",
+      "requiredInterface": "assembly traversal + startup",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/main.c",
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Searching",
+        "Maze"
+      ],
+      "components": [
+        "Arrays",
+        "Searching",
+        "Maze",
+        "SysTick",
+        "Reset"
+      ],
+      "functionsOrHandlers": "depthFirstSearch; Reset_Handler",
+      "apiCalls": [
+        "exam_init",
+        "exam_led_write",
+        "exam_systick_config_ticks"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-09-16-Q1",
+      "examId": "E2024-09-16",
+      "date": "2024-09-16",
+      "variant": "Kruskal Buttons",
+      "question": "Q1",
+      "statement": "Apply Kruskal-style wall removal using seven ABI arguments and merge component labels.",
+      "constraints": "horizontal/vertical wall arrays",
+      "requiredInterface": "assembly graph algorithm + ABI",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Graph",
+        "Maze"
+      ],
+      "components": [
+        "Arrays",
+        "Graph",
+        "Maze",
+        "ABI",
+        "Stack arguments"
+      ],
+      "functionsOrHandlers": "kruskal",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2024-09-16-Q2",
+      "examId": "E2024-09-16",
+      "date": "2024-09-16",
+      "variant": "Kruskal Buttons",
+      "question": "Q2",
+      "statement": "Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.",
+      "constraints": "choices 2,3,4",
+      "requiredInterface": "C state machine + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/main.c"
+      ],
+      "algorithms": [
+        "Recurrence",
+        "Graph"
+      ],
+      "components": [
+        "Recurrence",
+        "Graph",
+        "LED",
+        "Buttons",
+        "C-to-assembly"
+      ],
+      "functionsOrHandlers": "main; EINT1_IRQHandler; EINT2_IRQHandler",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM1-Q1",
+      "examId": "E2025-01-29-A1",
+      "date": "2025-01-29",
+      "variant": "ARM 1 Affine Two Timers",
+      "question": "Q1",
+      "statement": "Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.",
+      "constraints": "8x8 GF(2)",
+      "requiredInterface": "assembly bit algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Bits",
+        "Matrix"
+      ],
+      "components": [
+        "Bits",
+        "Matrix"
+      ],
+      "functionsOrHandlers": "bitwiseAffineTransformation",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM1-Q2",
+      "examId": "E2025-01-29-A1",
+      "date": "2025-01-29",
+      "variant": "ARM 1 Affine Two Timers",
+      "question": "Q2",
+      "statement": "Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.",
+      "constraints": "500 ms blink",
+      "requiredInterface": "C peripherals + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q2/main.c"
+      ],
+      "algorithms": [
+        "Bits"
+      ],
+      "components": [
+        "Bits",
+        "LED",
+        "Buttons",
+        "Debounce",
+        "Timer0",
+        "Timer1",
+        "Capture",
+        "Delays",
+        "Multi-timer"
+      ],
+      "functionsOrHandlers": "main; answer_timer0",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_reset",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM2-Q1",
+      "examId": "E2025-01-29-A2",
+      "date": "2025-01-29",
+      "variant": "ARM 2 Matrix Two Timers",
+      "question": "Q1",
+      "statement": "Multiply two 8x8 bit matrices over GF(2).",
+      "constraints": "8x8 matrices",
+      "requiredInterface": "assembly bit algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic",
+        "Bits",
+        "Matrix"
+      ],
+      "components": [
+        "Arithmetic",
+        "Bits",
+        "Matrix"
+      ],
+      "functionsOrHandlers": "bitMatrixMultiplication",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM2-Q2",
+      "examId": "E2025-01-29-A2",
+      "date": "2025-01-29",
+      "variant": "ARM 2 Matrix Two Timers",
+      "question": "Q2",
+      "statement": "Capture matrix rows with Timer1 and buttons, compute C, and display its rows periodically.",
+      "constraints": "8 rows",
+      "requiredInterface": "C peripherals + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm2-q2/main.c"
+      ],
+      "algorithms": [
+        "Matrix"
+      ],
+      "components": [
+        "Matrix",
+        "LED",
+        "Buttons",
+        "Timer0",
+        "Timer1",
+        "Periodic",
+        "Capture",
+        "Multi-timer"
+      ],
+      "functionsOrHandlers": "main; answer_timer0",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_reset",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM3-Q1",
+      "examId": "E2025-01-29-A3",
+      "date": "2025-01-29",
+      "variant": "ARM 3 Transpose Timer",
+      "question": "Q1",
+      "statement": "Transpose an 8x8 bit matrix stored as eight bytes.",
+      "constraints": "8 bytes",
+      "requiredInterface": "assembly bit algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Bits",
+        "Matrix"
+      ],
+      "components": [
+        "Bits",
+        "Matrix"
+      ],
+      "functionsOrHandlers": "transposition",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-01-29_ARM3-Q2",
+      "examId": "E2025-01-29-A3",
+      "date": "2025-01-29",
+      "variant": "ARM 3 Transpose Timer",
+      "question": "Q2",
+      "statement": "Capture A and B with Timer2 and verify transpose distributes over XOR.",
+      "constraints": "(A xor B)^T",
+      "requiredInterface": "C peripherals + verification",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q2/main.c"
+      ],
+      "algorithms": [
+        "Bits",
+        "Matrix"
+      ],
+      "components": [
+        "Bits",
+        "Matrix",
+        "LED",
+        "Buttons",
+        "Timer2",
+        "Capture"
+      ],
+      "functionsOrHandlers": "main",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_on",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-02-12_ARM1-Q1",
+      "examId": "E2025-02-12-A1",
+      "date": "2025-02-12",
+      "variant": "ARM 1 Sine DAC",
+      "question": "Q1",
+      "statement": "Approximate sine with the requested Maclaurin terms and fixed-point scaling.",
+      "constraints": "sine series",
+      "requiredInterface": "assembly arithmetic",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic"
+      ],
+      "components": [
+        "Arithmetic"
+      ],
+      "functionsOrHandlers": "Maclaurin",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-02-12_ARM1-Q2",
+      "examId": "E2025-02-12-A1",
+      "date": "2025-02-12",
+      "variant": "ARM 1 Sine DAC",
+      "question": "Q2",
+      "statement": "Generate a 45-sample sine waveform through the DAC at the required Timer0 threshold.",
+      "constraints": "45 samples; k=1263",
+      "requiredInterface": "C DAC + timer IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "Timer0",
+        "DAC",
+        "Speaker"
+      ],
+      "functionsOrHandlers": "main; answer_timer0",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_dac_init",
+        "exam_dac_write",
+        "exam_init",
+        "exam_timer_ack",
+        "exam_timer_config_ticks",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-02-12_ARM2-Q1",
+      "examId": "E2025-02-12-A2",
+      "date": "2025-02-12",
+      "variant": "ARM 2 Cosine DAC",
+      "question": "Q1",
+      "statement": "Approximate cosine with the requested Maclaurin terms and fixed-point scaling.",
+      "constraints": "cosine series",
+      "requiredInterface": "assembly arithmetic",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic"
+      ],
+      "components": [
+        "Arithmetic"
+      ],
+      "functionsOrHandlers": "Maclaurin",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-02-12_ARM2-Q2",
+      "examId": "E2025-02-12-A2",
+      "date": "2025-02-12",
+      "variant": "ARM 2 Cosine DAC",
+      "question": "Q2",
+      "statement": "Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.",
+      "constraints": "45 samples; k=1592",
+      "requiredInterface": "C DAC + timer IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "Timer1",
+        "DAC",
+        "Speaker"
+      ],
+      "functionsOrHandlers": "main; answer_timer1",
+      "apiCalls": [
+        "exam_button_ack",
+        "exam_buttons_init",
+        "exam_dac_init",
+        "exam_dac_write",
+        "exam_init",
+        "exam_timer_ack",
+        "exam_timer_config_ticks",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM1-Q1",
+      "examId": "E2025-07-01-A1",
+      "date": "2025-07-01",
+      "variant": "ARM 1 LCG Rhythm",
+      "question": "Q1",
+      "statement": "Compute the next LCG element from five arguments, including the fifth stack argument.",
+      "constraints": "five arguments",
+      "requiredInterface": "assembly arithmetic + ABI",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arithmetic",
+        "Recurrence"
+      ],
+      "components": [
+        "Arithmetic",
+        "Recurrence",
+        "ABI",
+        "Stack arguments"
+      ],
+      "functionsOrHandlers": "nextElementLCG",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM1-Q2",
+      "examId": "E2025-07-01-A1",
+      "date": "2025-07-01",
+      "variant": "ARM 1 LCG Rhythm",
+      "question": "Q2",
+      "statement": "Strong Reset_Handler generates the requested LCG sequence before entering C.",
+      "constraints": "256 elements",
+      "requiredInterface": "startup assembly",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/assembly.s"
+      ],
+      "algorithms": [
+        "Recurrence"
+      ],
+      "components": [
+        "Recurrence",
+        "Reset",
+        "Assembly-to-C"
+      ],
+      "functionsOrHandlers": "Reset_Handler",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM1-Q3",
+      "examId": "E2025-07-01-A1",
+      "date": "2025-07-01",
+      "variant": "ARM 1 LCG Rhythm",
+      "question": "Q3",
+      "statement": "Run the Timer0/joystick rhythm interaction with explicit edge handling and LED feedback.",
+      "constraints": "3000 ms",
+      "requiredInterface": "C state machine + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/main.c"
+      ],
+      "algorithms": [
+        "Games"
+      ],
+      "components": [
+        "Games",
+        "LED",
+        "Timer0",
+        "RIT",
+        "Joystick",
+        "Delays"
+      ],
+      "functionsOrHandlers": "main; answer_joystick_sample; answer_timer0",
+      "apiCalls": [
+        "exam_init",
+        "exam_joystick_init",
+        "exam_joystick_pressed_edges",
+        "exam_joystick_read",
+        "exam_led_clear",
+        "exam_led_on",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM2-Q1",
+      "examId": "E2025-07-01-A2",
+      "date": "2025-07-01",
+      "variant": "ARM 2 LCG Rhythm",
+      "question": "Q1",
+      "statement": "Fill an LCG sequence through an assembly routine using AAPCS arguments.",
+      "constraints": "sequence fill",
+      "requiredInterface": "assembly arithmetic",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Arithmetic",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Arithmetic",
+        "Recurrence",
+        "ABI"
+      ],
+      "functionsOrHandlers": "LCGsequence",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM2-Q2",
+      "examId": "E2025-07-01-A2",
+      "date": "2025-07-01",
+      "variant": "ARM 2 LCG Rhythm",
+      "question": "Q2",
+      "statement": "Strong Reset_Handler prepares the LCG data required by the board exercise.",
+      "constraints": "256 elements",
+      "requiredInterface": "startup assembly",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q2/assembly.s"
+      ],
+      "algorithms": [
+        "Recurrence"
+      ],
+      "components": [
+        "Recurrence",
+        "Reset",
+        "Assembly-to-C"
+      ],
+      "functionsOrHandlers": "Reset_Handler",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2025-07-01_ARM2-Q3",
+      "examId": "E2025-07-01-A2",
+      "date": "2025-07-01",
+      "variant": "ARM 2 LCG Rhythm",
+      "question": "Q3",
+      "statement": "Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.",
+      "constraints": "2500 ms",
+      "requiredInterface": "C state machine + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/main.c"
+      ],
+      "algorithms": [
+        "Games"
+      ],
+      "components": [
+        "Games",
+        "LED",
+        "Timer1",
+        "RIT",
+        "Joystick",
+        "Delays"
+      ],
+      "functionsOrHandlers": "main; answer_joystick_sample; answer_timer1",
+      "apiCalls": [
+        "exam_init",
+        "exam_joystick_init",
+        "exam_joystick_pressed_edges",
+        "exam_joystick_read",
+        "exam_led_clear",
+        "exam_led_on",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM1-Q1",
+      "examId": "E2026-02-03-A1",
+      "date": "2026-02-03",
+      "variant": "ARM 1 LookAndSay ADC",
+      "question": "Q1",
+      "statement": "Produce the next look-and-say term from an unsigned decimal integer.",
+      "constraints": "count then digit",
+      "requiredInterface": "assembly decimal algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Decimal"
+      ],
+      "components": [
+        "Decimal"
+      ],
+      "functionsOrHandlers": "Look_and_Say",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM1-Q2",
+      "examId": "E2026-02-03-A1",
+      "date": "2026-02-03",
+      "variant": "ARM 1 LookAndSay ADC",
+      "question": "Q2",
+      "statement": "Continuously display ADC high eight bits; INT0 freezes them, calls Look_and_Say, and displays the low result byte.",
+      "constraints": "12-bit ADC; high8/low8",
+      "requiredInterface": "C ADC + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm1-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "LED",
+        "Buttons",
+        "Debounce",
+        "ADC",
+        "C-to-assembly"
+      ],
+      "functionsOrHandlers": "main; ADC_IRQHandler; EINT0_IRQHandler",
+      "apiCalls": [
+        "exam_adc_init",
+        "exam_adc_irq_capture",
+        "exam_adc_start",
+        "exam_adc_take",
+        "exam_button_events_take",
+        "exam_buttons_init",
+        "exam_debounce_begin",
+        "exam_debounce_config",
+        "exam_debounce_tick",
+        "exam_init",
+        "exam_led_write",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM2-Q1",
+      "examId": "E2026-02-03-A2",
+      "date": "2026-02-03",
+      "variant": "ARM 2 RLE ADC",
+      "question": "Q1",
+      "statement": "Run-length encode decimal digit runs as digit followed by count.",
+      "constraints": "digit then count",
+      "requiredInterface": "assembly decimal algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Decimal"
+      ],
+      "components": [
+        "Decimal"
+      ],
+      "functionsOrHandlers": "run_length_encoding",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM2-Q2",
+      "examId": "E2026-02-03-A2",
+      "date": "2026-02-03",
+      "variant": "ARM 2 RLE ADC",
+      "question": "Q2",
+      "statement": "Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.",
+      "constraints": "12-bit ADC; high8/low8",
+      "requiredInterface": "C ADC + IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q2/main.c"
+      ],
+      "algorithms": [],
+      "components": [
+        "LED",
+        "Buttons",
+        "Debounce",
+        "ADC",
+        "C-to-assembly"
+      ],
+      "functionsOrHandlers": "main; ADC_IRQHandler; EINT1_IRQHandler",
+      "apiCalls": [
+        "exam_adc_init",
+        "exam_adc_irq_capture",
+        "exam_adc_start",
+        "exam_adc_take",
+        "exam_button_events_take",
+        "exam_buttons_init",
+        "exam_debounce_begin",
+        "exam_debounce_config",
+        "exam_debounce_tick",
+        "exam_init",
+        "exam_led_write",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM3-Q1",
+      "examId": "E2026-02-03-A3",
+      "date": "2026-02-03",
+      "variant": "ARM 3 Recaman ADC Timer",
+      "question": "Q1",
+      "statement": "Fill up to 255 words with the Recaman sequence.",
+      "constraints": "maximum 255",
+      "requiredInterface": "assembly sequence algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "functionsOrHandlers": "Recaman",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-03_ARM3-Q2",
+      "examId": "E2026-02-03-A3",
+      "date": "2026-02-03",
+      "variant": "ARM 3 Recaman ADC Timer",
+      "question": "Q2",
+      "statement": "Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.",
+      "constraints": "2000 ms; 255 words",
+      "requiredInterface": "C ADC + timer IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q2/main.c"
+      ],
+      "algorithms": [
+        "Recurrence"
+      ],
+      "components": [
+        "Recurrence",
+        "LED",
+        "Buttons",
+        "Debounce",
+        "Timer0",
+        "ADC",
+        "Periodic",
+        "Delays"
+      ],
+      "functionsOrHandlers": "main; answer_timer0",
+      "apiCalls": [
+        "exam_adc_init",
+        "exam_adc_irq_capture",
+        "exam_adc_start",
+        "exam_adc_take",
+        "exam_button_events_take",
+        "exam_buttons_init",
+        "exam_debounce_begin",
+        "exam_debounce_config",
+        "exam_debounce_tick",
+        "exam_events_set",
+        "exam_events_take",
+        "exam_init",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_reset",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-18_ARM1-Q1",
+      "examId": "E2026-02-18-A1",
+      "date": "2026-02-18",
+      "variant": "ARM 1 Three Timers",
+      "question": "Q1",
+      "statement": "Fill 1000 Hofstadter Q terms iteratively and return the maximum.",
+      "constraints": "1000 terms in board part",
+      "requiredInterface": "assembly sequence algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "functionsOrHandlers": "HofstadterQ",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-18_ARM1-Q2",
+      "examId": "E2026-02-18-A1",
+      "date": "2026-02-18",
+      "variant": "ARM 1 Three Timers",
+      "question": "Q2",
+      "statement": "Map Hofstadter Q values to note pitch and duration with three timers and stream SinTable to the DAC.",
+      "constraints": "Pmax/Pmin 5351/1062 and 40000000/625000; k 1/5",
+      "requiredInterface": "C timers + DAC IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q2/main.c"
+      ],
+      "algorithms": [
+        "Recurrence"
+      ],
+      "components": [
+        "Recurrence",
+        "Timer0",
+        "Timer1",
+        "Timer2",
+        "DAC",
+        "Speaker",
+        "One-shot",
+        "Delays",
+        "Multi-timer"
+      ],
+      "functionsOrHandlers": "answer_timer0; answer_timer1; answer_timer2",
+      "apiCalls": [
+        "exam_dac_init",
+        "exam_dac_write",
+        "exam_init",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_config_ticks",
+        "exam_timer_is_running",
+        "exam_timer_reset",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-18_ARM2-Q1",
+      "examId": "E2026-02-18-A2",
+      "date": "2026-02-18",
+      "variant": "ARM 2 Three Timers",
+      "question": "Q1",
+      "statement": "Fill 1000 Hofstadter-Conway terms iteratively and return the maximum.",
+      "constraints": "1000 terms in board part",
+      "requiredInterface": "assembly sequence algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "components": [
+        "Arrays",
+        "Recurrence"
+      ],
+      "functionsOrHandlers": "HofstadterConway",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-02-18_ARM2-Q2",
+      "examId": "E2026-02-18-A2",
+      "date": "2026-02-18",
+      "variant": "ARM 2 Three Timers",
+      "question": "Q2",
+      "statement": "Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.",
+      "constraints": "same two threshold formulas",
+      "requiredInterface": "C timers + DAC IRQ",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q2/main.c"
+      ],
+      "algorithms": [
+        "Recurrence"
+      ],
+      "components": [
+        "Recurrence",
+        "Timer0",
+        "Timer1",
+        "Timer2",
+        "DAC",
+        "Speaker",
+        "One-shot",
+        "Delays",
+        "Multi-timer"
+      ],
+      "functionsOrHandlers": "answer_timer0; answer_timer1; answer_timer2",
+      "apiCalls": [
+        "exam_dac_init",
+        "exam_dac_write",
+        "exam_init",
+        "exam_timer_ack",
+        "exam_timer_config_ms",
+        "exam_timer_config_ticks",
+        "exam_timer_is_running",
+        "exam_timer_reset",
+        "exam_timer_start",
+        "exam_timer_stop"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-06-25_ARM1-Q1",
+      "examId": "E2026-06-25-B1",
+      "date": "2026-06-25",
+      "variant": "ARM 1 BullsAndCows",
+      "question": "Q1",
+      "statement": "Compute bulls and cows using per-digit frequency arrays and pack the score.",
+      "constraints": "(2*bulls-1)<<4 plus (2*cows-1)",
+      "requiredInterface": "assembly game algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Decimal",
+        "Games"
+      ],
+      "components": [
+        "Arrays",
+        "Decimal",
+        "Games"
+      ],
+      "functionsOrHandlers": "BullsAndCows",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-06-25_ARM1-Q2",
+      "examId": "E2026-06-25-B1",
+      "date": "2026-06-25",
+      "variant": "ARM 1 BullsAndCows",
+      "question": "Q2",
+      "statement": "Implement the full joystick Bulls-and-Cows game, preserving one timer-derived secret across guesses.",
+      "constraints": "four digits 0..3",
+      "requiredInterface": "C game state machine",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q2/main.c"
+      ],
+      "algorithms": [
+        "Decimal",
+        "Games"
+      ],
+      "components": [
+        "Decimal",
+        "Games",
+        "LED",
+        "Debounce",
+        "Timer0",
+        "RIT",
+        "Joystick"
+      ],
+      "functionsOrHandlers": "main; answer_joystick_sample",
+      "apiCalls": [
+        "exam_critical_enter",
+        "exam_critical_exit",
+        "exam_events_set",
+        "exam_events_take",
+        "exam_init",
+        "exam_joystick_init",
+        "exam_joystick_pressed_edges",
+        "exam_joystick_read",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-06-25_ARM2-Q1",
+      "examId": "E2026-06-25-B2",
+      "date": "2026-06-25",
+      "variant": "ARM 2 Mastermind",
+      "question": "Q1",
+      "statement": "Compute exact and partial Mastermind matches with used-position arrays and pack the score.",
+      "constraints": "(2*exact-1)<<4 plus (2*partial-1)",
+      "requiredInterface": "assembly game algorithm",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q1/assembly.s"
+      ],
+      "algorithms": [
+        "Arrays",
+        "Games"
+      ],
+      "components": [
+        "Arrays",
+        "Games"
+      ],
+      "functionsOrHandlers": "Mastermind",
+      "apiCalls": [],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    },
+    {
+      "questionId": "2026-06-25_ARM2-Q2",
+      "examId": "E2026-06-25-B2",
+      "date": "2026-06-25",
+      "variant": "ARM 2 Mastermind",
+      "question": "Q2",
+      "statement": "Implement the full joystick Mastermind game with the paper-specific direction mapping.",
+      "constraints": "four digits 0..3",
+      "requiredInterface": "C game state machine",
+      "requiredFiles": [
+        "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q2/main.c"
+      ],
+      "algorithms": [
+        "Decimal",
+        "Games"
+      ],
+      "components": [
+        "Decimal",
+        "Games",
+        "LED",
+        "Timer0",
+        "RIT",
+        "Joystick"
+      ],
+      "functionsOrHandlers": "main; answer_joystick_sample",
+      "apiCalls": [
+        "exam_critical_enter",
+        "exam_critical_exit",
+        "exam_events_set",
+        "exam_events_take",
+        "exam_init",
+        "exam_joystick_init",
+        "exam_joystick_pressed_edges",
+        "exam_joystick_read",
+        "exam_led_clear",
+        "exam_led_write",
+        "exam_rit_ack",
+        "exam_rit_config_ms",
+        "exam_rit_start",
+        "exam_timer_config_ticks",
+        "exam_timer_read",
+        "exam_timer_start"
+      ],
+      "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier",
+      "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"
+    }
+  ]
+}

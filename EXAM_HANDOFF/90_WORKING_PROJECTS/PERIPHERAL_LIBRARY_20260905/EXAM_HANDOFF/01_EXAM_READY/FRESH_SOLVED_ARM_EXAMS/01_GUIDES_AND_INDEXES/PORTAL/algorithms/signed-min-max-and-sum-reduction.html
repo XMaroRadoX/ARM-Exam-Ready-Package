@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Nonempty signed/unsigned word scans return status and a result struct with minimum,maximum and 64-bit sum. Result storage is disjoint from input. Both signed and unsigned variants have matching assembly.">
+  <title>Signed min max and sum reduction · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Signed min max and sum reduction</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Signed min max and sum reduction</h1><p>Nonempty signed/unsigned word scans return status and a result struct with minimum,maximum and 64-bit sum. Result storage is disjoint from input. Both signed and unsigned variants have matching assembly.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(n) time, O(1) space.</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Nonempty signed/unsigned word scans return status and a result struct with minimum,maximum and 64-bit sum. Result storage is disjoint from input. Both signed and unsigned variants have matching assembly.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int algorithm_signed_min_max_and_sum_reduction(const int32_t *values, uint32_t count, algorithm_signed_min_max_and_sum_reduction_signed_result_t *result);
+int algorithm_signed_min_max_and_sum_reduction_unsigned( const uint32_t *values, uint32_t count, algorithm_signed_min_max_and_sum_reduction_unsigned_result_t *result);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_signed_min_max_and_sum_reduction</code></td><td><code>const int32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_signed_min_max_and_sum_reduction</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_signed_min_max_and_sum_reduction</code></td><td><code>algorithm_signed_min_max_and_sum_reduction_signed_result_t *result</code></td><td><code>R2</code></td></tr><tr><td><code>algorithm_signed_min_max_and_sum_reduction_unsigned</code></td><td><code>const uint32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>algorithm_signed_min_max_and_sum_reduction_unsigned</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>algorithm_signed_min_max_and_sum_reduction_unsigned</code></td><td><code>algorithm_signed_min_max_and_sum_reduction_unsigned_result_t *result</code></td><td><code>R2</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Initialize min/max from first element and sum from zero.</li><li>Scan once.</li><li>Update signed comparisons.</li><li>Accumulate widened sum.</li></ol><h3>Worked trace</h3><p>[-2,7,1] -&gt; minimum -2,maximum 7,sum 6.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-min-max-and-sum-reduction/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; int algorithm_signed_min_max_and_sum_reduction(const int32_t *values, uint32_t count,
+;                               signed_result_t *result)
+; result offsets: minimum=0, maximum=4, int64 sum low=8/high=12.
+; Leaf; saves R4-R11 (32-byte frame).
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  algorithm_signed_min_max_and_sum_reduction
+
+algorithm_signed_min_max_and_sum_reduction PROC
+                CMP     R0, #0
+                BEQ     reduction_invalid
+                CMP     R2, #0
+                BEQ     reduction_invalid
+                CMP     R1, #0
+                BEQ     reduction_invalid
+                PUSH    {R4-R11}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                LDR     R8, [R4]
+                MOV     R9, R8
+                MOVS    R10, #0
+                MOVS    R11, #0
+                MOVS    R7, #0
+reduction_loop
+                LDR     R3, [R4, R7, LSL #2]
+                CMP     R3, R8
+                IT      LT
+                MOVLT   R8, R3
+                CMP     R3, R9
+                IT      GT
+                MOVGT   R9, R3
+                ADDS    R10, R10, R3
+                ASR     R2, R3, #31
+                ADC     R11, R11, R2
+                ADDS    R7, R7, #1
+                CMP     R7, R5
+                BNE     reduction_loop
+                STR     R8, [R6, #0]
+                STR     R9, [R6, #4]
+                STR     R10, [R6, #8]
+                STR     R11, [R6, #12]
+                MOVS    R0, #1
+                POP     {R4-R11}
+                BX      LR
+reduction_invalid
+                MOVS    R0, #0
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+        EXPORT algorithm_signed_min_max_and_sum_reduction_unsigned
+algorithm_signed_min_max_and_sum_reduction_unsigned
+        cmp r0,#0
+        beq ur_bad
+        cmp r2,#0
+        beq ur_bad
+        cmp r1,#0
+        beq ur_bad
+        push {r4-r9}
+        ldr r4,[r0]
+        mov r5,r4
+        movs r6,#0
+        movs r7,#0
+        movs r8,#0
+ur_loop
+        cmp r8,r1
+        bhs ur_done
+        ldr r9,[r0,r8,lsl #2]
+        cmp r9,r4
+        bhs ur_max
+        mov r4,r9
+ur_max
+        cmp r9,r5
+        bls ur_sum
+        mov r5,r9
+ur_sum
+        adds r6,r6,r9
+        adc r7,r7,#0
+        adds r8,#1
+        b ur_loop
+ur_done
+        str r4,[r2]
+        str r5,[r2,#4]
+        str r6,[r2,#8]
+        str r7,[r2,#12]
+        movs r0,#1
+        pop {r4-r9}
+        bx lr
+ur_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-min-max-and-sum-reduction/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed min max and sum reduction.
+ * Recognition cue: reduce array to minimum maximum and sum.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+typedef struct {
+  int32_t minimum;
+  int32_t maximum;
+  int64_t sum;
+} algorithm_signed_min_max_and_sum_reduction_signed_result_t;
+
+typedef struct {
+  uint32_t minimum;
+  uint32_t maximum;
+  uint64_t sum;
+} algorithm_signed_min_max_and_sum_reduction_unsigned_result_t;
+
+int algorithm_signed_min_max_and_sum_reduction(
+    const int32_t *values, uint32_t count,
+    algorithm_signed_min_max_and_sum_reduction_signed_result_t *result) {
+  uint32_t index;
+
+  if ((values == NULL) || (result == NULL) || (count == 0u)) {
+    return 0;
+  }
+  result-&gt;minimum = values[0];
+  result-&gt;maximum = values[0];
+  result-&gt;sum = 0;
+  for (index = 0u; index &lt; count; ++index) {
+    if (values[index] &lt; result-&gt;minimum) {
+      result-&gt;minimum = values[index];
+    }
+    if (values[index] &gt; result-&gt;maximum) {
+      result-&gt;maximum = values[index];
+    }
+    result-&gt;sum += values[index];
+  }
+  return 1;
+}
+
+int algorithm_signed_min_max_and_sum_reduction_unsigned(
+    const uint32_t *values, uint32_t count,
+    algorithm_signed_min_max_and_sum_reduction_unsigned_result_t *result) {
+  uint32_t index;
+
+  if ((values == NULL) || (result == NULL) || (count == 0u)) {
+    return 0;
+  }
+  result-&gt;minimum = values[0];
+  result-&gt;maximum = values[0];
+  result-&gt;sum = 0u;
+  for (index = 0u; index &lt; count; ++index) {
+    if (values[index] &lt; result-&gt;minimum) {
+      result-&gt;minimum = values[index];
+    }
+    if (values[index] &gt; result-&gt;maximum) {
+      result-&gt;maximum = values[index];
+    }
+    result-&gt;sum += values[index];
+  }
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/signed-min-max-and-sum-reduction/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed min max and sum reduction.
+ * Recognition cue: reduce array to minimum maximum and sum.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+typedef struct {
+  int32_t minimum;
+  int32_t maximum;
+  int64_t sum;
+} algorithm_signed_min_max_and_sum_reduction_signed_result_t;
+
+typedef struct {
+  uint32_t minimum;
+  uint32_t maximum;
+  uint64_t sum;
+} algorithm_signed_min_max_and_sum_reduction_unsigned_result_t;
+
+int algorithm_signed_min_max_and_sum_reduction(
+    const int32_t *values, uint32_t count,
+    algorithm_signed_min_max_and_sum_reduction_signed_result_t *result);
+
+int algorithm_signed_min_max_and_sum_reduction_unsigned(
+    const uint32_t *values, uint32_t count,
+    algorithm_signed_min_max_and_sum_reduction_unsigned_result_t *result);
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {-2, 5, 1};
+  algorithm_signed_min_max_and_sum_reduction_signed_result_t r;
+  return algorithm_signed_min_max_and_sum_reduction(a, 3, &amp;r) &amp;&amp; r.minimum == -2 &amp;&amp;
+         r.maximum == 5 &amp;&amp; r.sum == 4;
+}
+static int pattern_edge_vectors(void) {
+  int32_t a[] = {INT32_MIN, INT32_MAX};
+  uint32_t u[] = {0, UINT32_MAX};
+  algorithm_signed_min_max_and_sum_reduction_signed_result_t s;
+  algorithm_signed_min_max_and_sum_reduction_unsigned_result_t r;
+  return !algorithm_signed_min_max_and_sum_reduction(NULL, 0, &amp;s) &amp;&amp;
+         algorithm_signed_min_max_and_sum_reduction(a, 2, &amp;s) &amp;&amp; s.sum == -1 &amp;&amp;
+         algorithm_signed_min_max_and_sum_reduction_unsigned(u, 2, &amp;r) &amp;&amp;
+         r.sum == UINT32_MAX;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div><section id="complete-project-method-signed-min-max-and-sum-reduction"><h2>Complete projects and worked method</h2><section class="section-block"><h2 id="method-signed-min-max-and-sum-reduction-section-how-to-recognize-it">How to recognize it</h2><p>Summarize signed values in one pass.</p><h2 id="method-signed-min-max-and-sum-reduction-section-when-not-to-use-it">When not to use it</h2><p>Initializing max to zero fails all-negative inputs.</p><h2 id="method-signed-min-max-and-sum-reduction-section-inputs-and-outputs">Inputs and outputs</h2><p>Return values versus output pointers must match prototype.</p><h2 id="method-signed-min-max-and-sum-reduction-section-solving-method">Solving method</h2><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Handle empty contract
+2. initialize min/max from first element
+3. widen sum if required
+4. scan remainder</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="method-signed-min-max-and-sum-reduction-section-worked-trace">Worked trace</h2><p>[-5,-2,-9] -&gt; min-9,max-2,sum-16.</p><h2 id="method-signed-min-max-and-sum-reduction-section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Return values versus output pointers must match prototype.</p><h2 id="method-signed-min-max-and-sum-reduction-section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Initializing max to zero fails all-negative inputs.</p><h2 id="method-signed-min-max-and-sum-reduction-section-adaptation-checklist">Adaptation checklist</h2><p>Return values versus output pointers must match prototype.</p><h2 id="method-signed-min-max-and-sum-reduction-section-boundary-tests">Boundary tests</h2><p>empty; one; allnegative; sum overflow.</p><h2 id="method-signed-min-max-and-sum-reduction-section-common-mistakes">Common mistakes</h2><p>Initializing max to zero fails all-negative inputs. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="method-signed-min-max-and-sum-reduction-section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#method-signed-min-max-and-sum-reduction-variant-0">reduction assembly</a><a href="#method-signed-min-max-and-sum-reduction-variant-1">reduction c</a></nav><h3 id="method-signed-min-max-and-sum-reduction-variant-0">Baseline: reduction assembly</h3><p>pat-alg-reduction-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, algorithm_algorithm_pat_alg_reduction_001_assembly, algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed min max and sum reduction.
+ * Recognition cue: reduce array to minimum maximum and sum.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+typedef struct {
+  int32_t minimum;
+  int32_t maximum;
+  int64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_assembly_signed_result_t;
+
+typedef struct {
+  uint32_t minimum;
+  uint32_t maximum;
+  uint64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned_result_t;
+
+int algorithm_algorithm_pat_alg_reduction_001_assembly(const int32_t *values, uint32_t count,
+                          algorithm_algorithm_pat_alg_reduction_001_assembly_signed_result_t *result);
+
+int algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned(
+    const uint32_t *values, uint32_t count,
+    algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned_result_t *result);
+
+
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {-2, 5, 1};
+  algorithm_algorithm_pat_alg_reduction_001_assembly_signed_result_t r;
+  return algorithm_algorithm_pat_alg_reduction_001_assembly(a, 3, &amp;r) &amp;&amp; r.minimum == -2 &amp;&amp; r.maximum == 5 &amp;&amp;
+         r.sum == 4;
+}
+static int pattern_edge_vectors(void) {
+  int32_t a[] = {INT32_MIN, INT32_MAX};
+  uint32_t u[] = {0, UINT32_MAX};
+  algorithm_algorithm_pat_alg_reduction_001_assembly_signed_result_t s;
+  algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned_result_t r;
+  return !algorithm_algorithm_pat_alg_reduction_001_assembly(NULL, 0, &amp;s) &amp;&amp;
+         algorithm_algorithm_pat_alg_reduction_001_assembly(a, 2, &amp;s) &amp;&amp; s.sum == -1 &amp;&amp;
+         algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned(u, 2, &amp;r) &amp;&amp; r.sum == UINT32_MAX;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; int algorithm_algorithm_pat_alg_reduction_001_assembly(const int32_t *values, uint32_t count,
+;                               signed_result_t *result)
+; result offsets: minimum=0, maximum=4, int64 sum low=8/high=12.
+; Leaf; saves R4-R11 (32-byte frame).
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  algorithm_algorithm_pat_alg_reduction_001_assembly
+
+algorithm_algorithm_pat_alg_reduction_001_assembly PROC
+                CMP     R0, #0
+                BEQ     reduction_invalid
+                CMP     R2, #0
+                BEQ     reduction_invalid
+                CMP     R1, #0
+                BEQ     reduction_invalid
+                PUSH    {R4-R11}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                LDR     R8, [R4]
+                MOV     R9, R8
+                MOVS    R10, #0
+                MOVS    R11, #0
+                MOVS    R7, #0
+reduction_loop
+                LDR     R3, [R4, R7, LSL #2]
+                CMP     R3, R8
+                IT      LT
+                MOVLT   R8, R3
+                CMP     R3, R9
+                IT      GT
+                MOVGT   R9, R3
+                ADDS    R10, R10, R3
+                ASR     R2, R3, #31
+                ADC     R11, R11, R2
+                ADDS    R7, R7, #1
+                CMP     R7, R5
+                BNE     reduction_loop
+                STR     R8, [R6, #0]
+                STR     R9, [R6, #4]
+                STR     R10, [R6, #8]
+                STR     R11, [R6, #12]
+                MOVS    R0, #1
+                POP     {R4-R11}
+                BX      LR
+reduction_invalid
+                MOVS    R0, #0
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+        EXPORT algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned
+algorithm_algorithm_pat_alg_reduction_001_assembly_unsigned
+        cmp r0,#0
+        beq ur_bad
+        cmp r2,#0
+        beq ur_bad
+        cmp r1,#0
+        beq ur_bad
+        push {r4-r9}
+        ldr r4,[r0]
+        mov r5,r4
+        movs r6,#0
+        movs r7,#0
+        movs r8,#0
+ur_loop
+        cmp r8,r1
+        bhs ur_done
+        ldr r9,[r0,r8,lsl #2]
+        cmp r9,r4
+        bhs ur_max
+        mov r4,r9
+ur_max
+        cmp r9,r5
+        bls ur_sum
+        mov r5,r9
+ur_sum
+        adds r6,r6,r9
+        adc r7,r7,#0
+        adds r8,#1
+        b ur_loop
+ur_done
+        str r4,[r2]
+        str r5,[r2,#4]
+        str r6,[r2,#8]
+        str r7,[r2,#12]
+        movs r0,#1
+        pop {r4-r9}
+        bx lr
+ur_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="method-signed-min-max-and-sum-reduction-variant-1">Variant: reduction c</h3><p>pat-alg-reduction-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed min max and sum reduction.
+ * Recognition cue: reduce array to minimum maximum and sum.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+typedef struct {
+  int32_t minimum;
+  int32_t maximum;
+  int64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t;
+
+typedef struct {
+  uint32_t minimum;
+  uint32_t maximum;
+  uint64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_c_unsigned_result_t;
+
+int algorithm_algorithm_pat_alg_reduction_001_c(const int32_t *values, uint32_t count,
+                          algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t *result);
+
+int algorithm_algorithm_pat_alg_reduction_001_c_unsigned(
+    const uint32_t *values, uint32_t count,
+    algorithm_algorithm_pat_alg_reduction_001_c_unsigned_result_t *result);
+
+
+
+static int pattern_core_vector(void) {
+  int32_t a[] = {-2, 5, 1};
+  algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t r;
+  return algorithm_algorithm_pat_alg_reduction_001_c(a, 3, &amp;r) &amp;&amp; r.minimum == -2 &amp;&amp; r.maximum == 5 &amp;&amp;
+         r.sum == 4;
+}
+static int pattern_edge_vectors(void) {
+  int32_t a[] = {INT32_MIN, INT32_MAX};
+  uint32_t u[] = {0, UINT32_MAX};
+  algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t s;
+  algorithm_algorithm_pat_alg_reduction_001_c_unsigned_result_t r;
+  return !algorithm_algorithm_pat_alg_reduction_001_c(NULL, 0, &amp;s) &amp;&amp;
+         algorithm_algorithm_pat_alg_reduction_001_c(a, 2, &amp;s) &amp;&amp; s.sum == -1 &amp;&amp;
+         algorithm_algorithm_pat_alg_reduction_001_c_unsigned(u, 2, &amp;r) &amp;&amp; r.sum == UINT32_MAX;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-reduction-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="method-signed-min-max-and-sum-reduction-listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Signed min max and sum reduction.
+ * Recognition cue: reduce array to minimum maximum and sum.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+typedef struct {
+  int32_t minimum;
+  int32_t maximum;
+  int64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t;
+
+typedef struct {
+  uint32_t minimum;
+  uint32_t maximum;
+  uint64_t sum;
+} algorithm_algorithm_pat_alg_reduction_001_c_unsigned_result_t;
+
+int algorithm_algorithm_pat_alg_reduction_001_c(const int32_t *values, uint32_t count,
+                          algorithm_algorithm_pat_alg_reduction_001_c_signed_result_t *result) {
+  uint32_t index;
+
+  if ((values == NULL) || (result == NULL) || (count == 0u)) {
+    return 0;
+  }
+  result-&gt;minimum = values[0];
+  result-&gt;maximum = values[0];
+  result-&gt;sum = 0;
+  for (index = 0u; index &lt; count; ++index) {
+    if (values[index] &lt; result-&gt;minimum) {
+      result-&gt;minimum = values[index];
+    }
+    if (values[index] &gt; result-&gt;maximum) {
+      result-&gt;maximum = values[index];
+    }
+    result-&gt;sum += values[index];
+  }
+  return 1;
+}
+
+int algorithm_algorithm_pat_alg_reduction_001_c_unsigned(
+    const uint32_t *values, uint32_t count,
+    algorithm_algorithm_pat_alg_reduction_001_c_unsigned_result_t *result) {
+  uint32_t index;
+
+  if ((values == NULL) || (result == NULL) || (count == 0u)) {
+    return 0;
+  }
+  result-&gt;minimum = values[0];
+  result-&gt;maximum = values[0];
+  result-&gt;sum = 0u;
+  for (index = 0u; index &lt; count; ++index) {
+    if (values[index] &lt; result-&gt;minimum) {
+      result-&gt;minimum = values[index];
+    }
+    if (values[index] &gt; result-&gt;maximum) {
+      result-&gt;maximum = values[index];
+    }
+    result-&gt;sum += values[index];
+  }
+  return 1;
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="method-signed-min-max-and-sum-reduction-section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2024-09-16.html">E2024-09-16</a></li><li><a href="../exams/e2026-02-18-a1.html">E2026-02-18-A1</a></li><li><a href="../exams/e2026-02-18-a2.html">E2026-02-18-A2</a></li><li><a href="../exams/e2026-06-25-b1.html">E2026-06-25-B1</a></li></ul></section></section></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

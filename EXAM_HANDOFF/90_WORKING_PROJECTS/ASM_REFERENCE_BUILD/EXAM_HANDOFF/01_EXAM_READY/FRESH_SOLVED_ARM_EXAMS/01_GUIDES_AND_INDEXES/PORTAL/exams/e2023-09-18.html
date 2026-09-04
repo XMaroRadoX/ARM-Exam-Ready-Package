@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Build the digit-addition series in memory and return the accumulated digit sum, returning zero on overflow.; Debounced buttons compose binary K; INT0 builds the series and checks the stated identity on LEDs 4/5.">
+  <title>2023-09-18 DigitAddition Buttons · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2023-09-18 DigitAddition Buttons</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2023-09-18 DigitAddition Buttons</h1><p>Build the digit-addition series in memory and return the accumulated digit sum, returning zero on overflow.; Debounced buttons compose binary K; INT0 builds the series and checks the stated identity on LEDs 4/5.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2023-09-18</dd></div><div class="fact"><dt>Variant</dt><dd>DigitAddition Buttons</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Buttons, Debounce, EINT, Acknowledgement, Event Flags</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/22-23/20230918%20arm.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Build the digit-addition series in memory and return the accumulated digit sum, returning zero on overflow.</p><div class="tag-list"><span class="tag">Arrays</span><span class="tag">Arithmetic</span><span class="tag">Decimal</span></div><p><a href="2023-09-18-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/sorted-merge.html">Study Arrays</a> · <a href="../algorithms/decimal-digit-algorithms.html">Study Decimal</a></p></article><article class="question"><h3>Q2</h3><p>Debounced buttons compose binary K; INT0 builds the series and checks the stated identity on LEDs 4/5.</p><div class="tag-list"><span class="tag">LED</span><span class="tag">Buttons</span><span class="tag">Debounce</span><span class="tag">C-to-assembly</span></div><p><a href="2023-09-18-q2.html">Read complete solution for Q2</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Buttons, Debounce, EINT, Acknowledgement, Event Flags.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Arrays, Arithmetic, Decimal. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-09-18_DigitAddition_Buttons/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+
+extern uint32_t digitSum(uint32_t value);
+extern uint32_t digitaddition(uint32_t *area, uint32_t count);
+
+static uint32_t series[10];
+static volatile uint32_t entered_value;
+
+static void handle_button(exam_button_t button)
+{
+  uint32_t reported;
+  uint32_t formula;
+  if (button == EXAM_BUTTON_KEY1) {
+    entered_value &lt;&lt;= 1;        /* append binary digit 0 */
+  } else if (button == EXAM_BUTTON_KEY2) {
+    entered_value = (entered_value &lt;&lt; 1) | 1u;
+  } else if (button == EXAM_BUTTON_INT0) {
+    series[0] = entered_value;
+    reported = digitaddition(series, 10u);
+    formula = series[9] - series[0] + digitSum(series[9]);
+    if (reported == formula) {
+      (void)exam_led_on(4u);
+      (void)exam_led_off(5u);
+    } else {
+      (void)exam_led_off(4u);
+      (void)exam_led_on(5u);
+    }
+  }
+}
+
+void EINT0_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_INT0); handle_button(EXAM_BUTTON_INT0); }
+void EINT1_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY1); handle_button(EXAM_BUTTON_KEY1); }
+void EINT2_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY2); handle_button(EXAM_BUTTON_KEY2); }
+
+int main(void)
+{
+  exam_init();
+  entered_value = 0u;
+  exam_led_clear();
+  exam_buttons_init();
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-09-18_DigitAddition_Buttons/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  digitSum
+                EXPORT  digitaddition
+
+; uint32_t digitSum(uint32_t a)
+digitSum        PROC
+                MOVS    R1, #0
+                MOVS    R2, #10
+ds_loop         CMP     R0, #0
+                BEQ     ds_done
+                UDIV    R3, R0, R2
+                MLS     R12, R3, R2, R0
+                ADD     R1, R1, R12
+                MOV     R0, R3
+                B       ds_loop
+ds_done         MOV     R0, R1
+                BX      LR
+                ENDP
+
+; uint32_t digitaddition(uint32_t *area, uint32_t count)
+digitaddition   PROC
+                PUSH    {R4-R8, LR}     ; 24-byte aligned non-leaf frame
+                CMP     R1, #0
+                BEQ     da_zero
+                MOV     R4, R0
+                MOV     R5, R1
+                LDR     R6, [R4]        ; current term
+                MOV     R0, R6
+                BL      digitSum
+                MOV     R7, R0          ; sum of all digits
+                MOVS    R8, #1
+da_loop         CMP     R8, R5
+                BHS     da_done
+                MOV     R0, R6
+                BL      digitSum
+                ADDS    R6, R6, R0
+                BCS     da_zero
+                STR     R6, [R4, R8, LSL #2]
+                ADD     R7, R7, R0
+                ADDS    R8, R8, #1
+                B       da_loop
+da_done         MOV     R0, R7
+                POP     {R4-R8, PC}
+da_zero         MOVS    R0, #0
+                POP     {R4-R8, PC}
+                ENDP
+                END
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/signed-and-unsigned-byte-arrays.html">Signed and unsigned byte arrays</a></li><li><a href="../patterns/deterministic-debounce.html">Deterministic debounce</a></li><li><a href="../patterns/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../patterns/event-flags-counters-and-queues.html">Event flags counters and queues</a></li><li><a href="../algorithms/decimal-digit-algorithms.html">Decimal digit algorithms</a></li><li><a href="../algorithms/decimal-extraction-and-reconstruction.html">Decimal extraction and reconstruction</a></li><li><a href="../algorithms/decimal-digit-count.html">Decimal digit count</a></li><li><a href="../algorithms/decimal-digit-product.html">Decimal digit product</a></li><li><a href="../algorithms/checked-decimal-reversal.html">Checked decimal reversal</a></li><li><a href="../algorithms/sorted-merge.html">Merge two sorted arrays</a></li><li><a href="../algorithms/array-bit-differences.html">Total bit differences between word arrays</a></li><li><a href="../algorithms/parse-u32.html">Checked unsigned decimal parsing</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

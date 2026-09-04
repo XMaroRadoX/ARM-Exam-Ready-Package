@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Compute integer a^n in logarithmic multiplications">
+  <title>Exponentiation by squaring · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Exponentiation by squaring</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Exponentiation by squaring</h1><p>Compute integer a^n in logarithmic multiplications</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Compute integer a^n in logarithmic multiplications.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Unchecked intermediates may overflow quickly.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Define 0^0 and avoid unused final squaring overflow.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Start result1
+2. if exponent bit set multiply
+3. square base
+4. shift exponent
+5. apply defined overflow/modulo rule</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>3^5: result3,base9; base81; result243.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Define 0^0 and avoid unused final squaring overflow.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Unchecked intermediates may overflow quickly.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Define 0^0 and avoid unused final squaring overflow.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>exponent0; base0; large overflow; modulo policy.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Unchecked intermediates may overflow quickly. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">fast power assembly</a><a href="#variant-1">fast power c</a></nav><h3 id="variant-0">Baseline: fast power assembly</h3><p>pat-alg-fast-power-001: complete assembly implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main, algorithm_algorithm_pat_alg_fast_power_001_assembly, algorithm_algorithm_pat_alg_fast_power_001_assembly_checked. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Exponentiation by squaring.
+ * Recognition cue: fast power modular exponentiation.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_fast_power_001_assembly(uint32_t base, uint32_t exponent,
+                                uint32_t modulus);
+
+int algorithm_algorithm_pat_alg_fast_power_001_assembly_checked(uint32_t base, uint32_t exponent,
+                                   uint32_t *result);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_fast_power_001_assembly(3, 4, 5) == 1;
+}
+static int pattern_edge_vectors(void) {
+  uint32_t out = 0;
+  return algorithm_algorithm_pat_alg_fast_power_001_assembly(7, 0, 5) == 1 &amp;&amp;
+         algorithm_algorithm_pat_alg_fast_power_001_assembly_checked(3, 4, &amp;out) &amp;&amp; out == 81 &amp;&amp;
+         !algorithm_algorithm_pat_alg_fast_power_001_assembly_checked(UINT32_MAX, 2, &amp;out);
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Matching Cortex-M3 Thumb implementation generated from reference.c.
+
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                IMPORT  __aeabi_uldivmod
+
+                EXPORT  algorithm_algorithm_pat_alg_fast_power_001_assembly
+                EXPORT  algorithm_algorithm_pat_alg_fast_power_001_assembly_checked
+
+                ALIGN   2
+algorithm_algorithm_pat_alg_fast_power_001_assembly
+; %bb.0:
+	push	{r4, r5, r6, r7, lr}
+	add	r7, sp, #12
+	push.w	{r8, r9, r10}
+	mov	r10, r2
+	mov	r5, r1
+	mov	r6, r0
+	cbz	r2, LBB0_2
+; %bb.1:
+	udiv	r0, r6, r10
+	subs.w	r8, r10, #1
+	mls	r6, r0, r10, r6
+	mov.w	r9, #0
+	it	ne
+	movne.w	r8, #1
+	cbnz	r5, LBB0_3
+	b	LBB0_11
+LBB0_2
+	mov.w	r9, #0
+	mov.w	r8, #1
+	cbz	r5, LBB0_11
+LBB0_3
+	movs	r4, #0
+	b	LBB0_5
+                ALIGN   2
+LBB0_4                                ;   in Loop: Header=BB0_5 Depth=1
+	movs	r4, #0
+	mov	r6, r0
+	lsrs	r5, r5, #1
+	beq	LBB0_11
+LBB0_5                                ; =&gt;This Inner Loop Header: Depth=1
+	lsls	r0, r5, #31
+	beq	LBB0_9
+; %bb.6:                                ;   in Loop: Header=BB0_5 Depth=1
+	cmp.w	r10, #0
+	umull	r0, r1, r6, r8
+	beq	LBB0_8
+; %bb.7:                                ;   in Loop: Header=BB0_5 Depth=1
+	mla	r1, r6, r9, r1
+	mov	r2, r10
+	mla	r1, r4, r8, r1
+	movs	r3, #0
+	bl	__aeabi_uldivmod
+	mov	r8, r2
+	mov	r9, r3
+	b	LBB0_9
+LBB0_8                                ;   in Loop: Header=BB0_5 Depth=1
+	mov.w	r9, #0
+	mov	r8, r0
+                ALIGN   2
+LBB0_9                                ;   in Loop: Header=BB0_5 Depth=1
+	cmp.w	r10, #0
+	umull	r0, r1, r6, r6
+	beq	LBB0_4
+; %bb.10:                               ;   in Loop: Header=BB0_5 Depth=1
+	mla	r1, r6, r4, r1
+	mov	r2, r10
+	mla	r1, r6, r4, r1
+	movs	r3, #0
+	bl	__aeabi_uldivmod
+	mov	r6, r2
+	mov	r4, r3
+	lsrs	r5, r5, #1
+	bne	LBB0_5
+LBB0_11
+	mov	r0, r8
+	pop.w	{r8, r9, r10}
+	pop	{r4, r5, r6, r7, pc}
+Lfunc_end0
+                                        ; -- End function
+                ALIGN   2
+algorithm_algorithm_pat_alg_fast_power_001_assembly_checked
+; %bb.0:
+	cmp	r2, #0
+	itt	eq
+	moveq	r0, #0
+	bxeq	lr
+LBB1_1
+	push	{r7, lr}
+	mov	r7, sp
+	mov.w	r12, #1
+	cbnz	r1, LBB1_5
+LBB1_2
+	movs	r3, #1
+	str.w	r12, [r2]
+LBB1_3
+	pop.w	{r7, lr}
+	mov	r0, r3
+	bx	lr
+                ALIGN   2
+LBB1_4                                ;   in Loop: Header=BB1_5 Depth=1
+	cmp	r1, #1
+	lsr.w	r1, r1, #1
+	bls	LBB1_2
+LBB1_5                                ; =&gt;This Inner Loop Header: Depth=1
+	lsls	r3, r1, #31
+	beq	LBB1_9
+; %bb.6:                                ;   in Loop: Header=BB1_5 Depth=1
+	cbz	r0, LBB1_8
+; %bb.7:                                ;   in Loop: Header=BB1_5 Depth=1
+	umull	r3, lr, r0, r12
+	cmp.w	lr, #0
+	bne	LBB1_12
+LBB1_8                                ;   in Loop: Header=BB1_5 Depth=1
+	mul	r12, r12, r0
+LBB1_9                                ;   in Loop: Header=BB1_5 Depth=1
+	cmp	r1, #1
+	beq	LBB1_4
+; %bb.10:                               ;   in Loop: Header=BB1_5 Depth=1
+	movs	r3, #0
+	cmp.w	r3, r0, lsr #16
+	bne	LBB1_3
+; %bb.11:                               ;   in Loop: Header=BB1_5 Depth=1
+	muls	r0, r0, r0
+	b	LBB1_4
+LBB1_12
+	movs	r3, #0
+	b	LBB1_3
+Lfunc_end1
+                                        ; -- End function
+
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-assembly/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: fast power c</h3><p>pat-alg-fast-power-001: complete c implementation and executable cases.</p><p>Run once: pattern_result=0 and LED mask0x01 means all included cases passed; otherwise pattern_result identifies the failed fixture line and LEDs show0xFF. Inspect test_main for exact inputs and results.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>No periodic interrupts; main calls test_main once</td></tr><tr><td>Algorithm uses only the explicitly declared inputs and scratch storage</td></tr></tbody></table><p>Entry: main. Relevant functions: pattern_core_vector, pattern_edge_vectors, pattern_test_suite, test_main, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Exponentiation by squaring.
+ * Recognition cue: fast power modular exponentiation.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_fast_power_001_c(uint32_t base, uint32_t exponent,
+                                uint32_t modulus);
+
+int algorithm_algorithm_pat_alg_fast_power_001_c_checked(uint32_t base, uint32_t exponent,
+                                   uint32_t *result);
+
+
+
+static int pattern_core_vector(void) {
+  return algorithm_algorithm_pat_alg_fast_power_001_c(3, 4, 5) == 1;
+}
+static int pattern_edge_vectors(void) {
+  uint32_t out = 0;
+  return algorithm_algorithm_pat_alg_fast_power_001_c(7, 0, 5) == 1 &amp;&amp;
+         algorithm_algorithm_pat_alg_fast_power_001_c_checked(3, 4, &amp;out) &amp;&amp; out == 81 &amp;&amp;
+         !algorithm_algorithm_pat_alg_fast_power_001_c_checked(UINT32_MAX, 2, &amp;out);
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+
+volatile int pattern_result;
+int main(void){exam_init();pattern_result=test_main();exam_led_write(pattern_result?0xFFu:0x01u);for(;;){}}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/reference.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/algorithm-pat-alg-fast-power-001-c/Source/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Exponentiation by squaring.
+ * Recognition cue: fast power modular exponentiation.
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+
+uint32_t algorithm_algorithm_pat_alg_fast_power_001_c(uint32_t base, uint32_t exponent,
+                                uint32_t modulus) {
+  uint64_t result = 1u;
+  uint64_t factor = base;
+
+  if (modulus != 0u) {
+    result %= modulus;
+    factor %= modulus;
+  }
+  while (exponent != 0u) {
+    if ((exponent &amp; 1u) != 0u) {
+      result = (modulus != 0u) ? (result * factor) % modulus
+                               : (uint32_t)(result * factor);
+    }
+    factor = (modulus != 0u) ? (factor * factor) % modulus
+                             : (uint32_t)(factor * factor);
+    exponent &gt;&gt;= 1u;
+  }
+  return (uint32_t)result;
+}
+
+int algorithm_algorithm_pat_alg_fast_power_001_c_checked(uint32_t base, uint32_t exponent,
+                                   uint32_t *result) {
+  uint32_t accumulated = 1u;
+
+  if (result == NULL) {
+    return 0;
+  }
+  while (exponent != 0u) {
+    if ((exponent &amp; 1u) != 0u) {
+      if ((base != 0u) &amp;&amp; (accumulated &gt; UINT32_MAX / base)) {
+        return 0;
+      }
+      accumulated *= base;
+    }
+    exponent &gt;&gt;= 1u;
+    if (exponent != 0u) {
+      if ((base != 0u) &amp;&amp; (base &gt; UINT32_MAX / base)) {
+        return 0;
+      }
+      base *= base;
+    }
+  }
+  *result = accumulated;
+  return 1;
+}
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><p>This is a possible variation or extra-practice pattern.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>
