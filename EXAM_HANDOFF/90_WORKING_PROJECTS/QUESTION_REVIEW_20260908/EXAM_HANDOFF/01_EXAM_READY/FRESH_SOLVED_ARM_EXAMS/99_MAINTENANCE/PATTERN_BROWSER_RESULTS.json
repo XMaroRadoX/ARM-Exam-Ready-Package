@@ -1,0 +1,19 @@
+{
+  "checks": 34,
+  "errors": [],
+  "pages": 6,
+  "screenshots": [
+    "api-exam-timer-config-match.html.png",
+    "api-index.html.png",
+    "courses-pattern-projects.html.png",
+    "narrow-api-exam-timer-config-match.html.png",
+    "narrow-api-index.html.png",
+    "narrow-courses-pattern-projects.html.png",
+    "narrow-patterns-joystick-event-state-machine.html.png",
+    "narrow-patterns-signed-and-unsigned-array-sorting.html.png",
+    "narrow-patterns-timer-setup-and-ownership.html.png",
+    "patterns-joystick-event-state-machine.html.png",
+    "patterns-signed-and-unsigned-array-sorting.html.png",
+    "patterns-timer-setup-and-ownership.html.png"
+  ]
+}

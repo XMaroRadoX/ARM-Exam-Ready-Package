@@ -1,0 +1,5 @@
+"C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\EXAM_HANDOFF\90_WORKING_PROJECTS\QUESTION_REVIEW_20260908\EXAM_HANDOFF\90_WORKING_PROJECTS\EXAM_REVIEW_BUILDS\2026-06-25_ARM2-Q1\Source\ASM_funct.s", line 94: Warning: A1581W: Added 2 bytes of padding at address 0xbe
+   94 000000c0                 LTORG
+0 Errors, 1 Warning
+
+Program Size: Code=6272 RO-data=320 RW-data=4 ZI-data=756  

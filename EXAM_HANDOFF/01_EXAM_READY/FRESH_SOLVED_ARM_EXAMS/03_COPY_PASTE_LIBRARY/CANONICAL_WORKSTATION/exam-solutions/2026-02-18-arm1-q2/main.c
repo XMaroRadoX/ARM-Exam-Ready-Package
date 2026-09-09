@@ -54,7 +54,8 @@ void TIMER0_IRQHandler(void)
     return;
   }
 
-  if (exam_timer_is_running(EXAM_TIMER1) ||
+  if (sequence_index >= SEQUENCE_LENGTH ||
+      exam_timer_is_running(EXAM_TIMER1) ||
       exam_timer_is_running(EXAM_TIMER2)) {
     return;
   }
@@ -92,6 +93,7 @@ void TIMER1_IRQHandler(void)
     return;
   }
 
+  if (!exam_timer_is_running(EXAM_TIMER1)) return;
   sample_index++;
   if (sample_index == SAMPLE_COUNT) {
     sample_index = 0u;

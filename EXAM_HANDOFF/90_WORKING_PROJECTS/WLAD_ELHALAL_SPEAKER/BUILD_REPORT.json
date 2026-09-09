@@ -1,0 +1,20 @@
+{
+  "native_toolchain": "Arm Compiler 6.22",
+  "targets": {
+    "board": {
+      "status": "PASS",
+      "source_count": 18,
+      "image_sha256": "72401f542226b37c714cd68ffb7e9ed23922f677ccd3f68886455439fbd2d5ec",
+      "image": "Objects\\board\\speaker.axf"
+    },
+    "simulator": {
+      "status": "PASS",
+      "source_count": 18,
+      "image_sha256": "222dd0c2f91c888a67dd3130bd1c3012405bb8c70447fc4428a6ed51fac590ba",
+      "image": "Objects\\simulator\\speaker.axf"
+    }
+  },
+  "physical_board": "Not tested",
+  "audio": "6 seconds, 8 kHz mono IMA ADPCM",
+  "validation_scope": "Native command-line compilation/linking; no flashing or debugger execution."
+}

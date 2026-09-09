@@ -1,0 +1,214 @@
+{
+  "native_armasm": "NOT_RUN: Keil ARMASM not located",
+  "results": [
+    {
+      "slug": "a-star-grid",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "c2b4bd33c739db8aa5ad909ff02d14544b26e7f4260222f5f41897e141d76884",
+      "c_sha256": "d3027039370b0dbcba94611336e8af8136034b147a67d9687d997fe47880ee0a",
+      "assertions": 5,
+      "executed_exports": [
+        "astar_grid"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "base-conversion",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "49c049013f976a439fdf1128a3c255453b0a23f34afff8e1cc6002a54365029d",
+      "c_sha256": "fa67ca06e3a79055291c8023752b34db1a9c2a73479e7d436498c235ca4c5c09",
+      "assertions": 3,
+      "executed_exports": [
+        "u32_to_base"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "bellman-ford",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "7756416edef8652f8dcabfc9cb066fe66309f66772fafe290a46307169b0dc65",
+      "c_sha256": "b5292b19239c21f20f0e572a1faa1dcb3903f5e78fb786b2f7b29ea396fcb441",
+      "assertions": 4,
+      "executed_exports": [
+        "bellman_ford"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "bipartite-test",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "c1cc00751a3afe42e40d3aaa7a269a497bfafdd9ff7b783cf786cd8080dabb83",
+      "c_sha256": "4958e654124b50e83b035eec293bf3cd814bc4d7c89ca0eb0167e1f8f4370d44",
+      "assertions": 3,
+      "executed_exports": [
+        "graph_is_bipartite"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "cocktail-sort",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e20be3e817051f7c71be3b6ceae52645293bdc4cf5d038b0149319acdb9aef29",
+      "c_sha256": "6920913517624bb2c53fdfb79ffd10ef95f2bc637b0fca4f82c2b7221980be7a",
+      "assertions": 93,
+      "executed_exports": [
+        "cocktail_sort"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "debounce-state-machine",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "3247cb658de4c9f8edb3e0fb9a5e028d48665e37d41d05786c2210b5822cda32",
+      "c_sha256": "62f8c1122ff93ab7aab87ead5385c223e26293df06746a1f2ee912414d4d328a",
+      "assertions": 5,
+      "executed_exports": [
+        "debounce_update"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "directed-cycle-detection",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "a551eb891db3502766072a14ef363dbf95167edd84a5edf2b9ef124bdc494af4",
+      "c_sha256": "6cce9d07e6b68ccb8ba8bf2475cd0fa903a9886fe9cf8f3e7f15021b43ec05ba",
+      "assertions": 3,
+      "executed_exports": [
+        "directed_cycle"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "floyd-warshall",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "cb5688245ddae36b9e6892204edb71c6ff3ec4afa3302ccbef171d5d9b4c4e9d",
+      "c_sha256": "06e266637b1e144c506e4e0b5533064a12556df870952ff5c7e13d592f847741",
+      "assertions": 3,
+      "executed_exports": [
+        "floyd_warshall"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "insertion-sort",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "e74722562d9841391c54e6a7061205b2f6fa6813ca33233371c7ceb42013a93b",
+      "c_sha256": "1bd8f4536d0fec1c4de1693e75b69df544283dc5dc21db1b112188319bc9ca73",
+      "assertions": 92,
+      "executed_exports": [
+        "insertion_sort"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "kruskal-mst",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "9e007b84684657b8b20e84a132d4bf7fa2f1d6227884e6262e1d1139b357ab2c",
+      "c_sha256": "a7c085f85dfe73e68a244ecc3a0f69d5b243103d46e5cb5d6433aeb17ac4bd7f",
+      "assertions": 4,
+      "executed_exports": [
+        "kruskal_mst"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "prim-mst",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "0783579e2f7fa4a411ea166f8042ceb4da0cec11fcc0dc0d232cd623ae107fd4",
+      "c_sha256": "84f8e7334180ccc4544c09dcbcd8807ea5be66ef71281092ddf79a73f700629e",
+      "assertions": 4,
+      "executed_exports": [
+        "prim_mst"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "quickselect",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "678f4967134802ab350e8f300a640b1e32bbe0a179d8c18d35209f931d099b72",
+      "c_sha256": "f97494327e3272ef68ea7754825f270a41f4b3388be2f29d68a2be3062bb074e",
+      "assertions": 3,
+      "executed_exports": [
+        "quickselect"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "radix-sort",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "f1b07fbf181f77fb80092dc89be59a6cc1d46f02e9e534636005996495ebd772",
+      "c_sha256": "3535c1a79c01b8e85805661ba22fd5ea6e33e95671a5ab63c7c35e83a2635e58",
+      "assertions": 3,
+      "executed_exports": [
+        "radix_sort_u32"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "rectangular-matrix-transpose",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "5116964ba5a56c12dab3a41550a830fe53df2a1ab0e8f85dd77acfa734fc8b16",
+      "c_sha256": "725a17ed6702dd85feee4ed557fe9ee878b1f399c72156b172b1be45ff96970a",
+      "assertions": 3,
+      "executed_exports": [
+        "matrix_transpose"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "shell-sort",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "a946c9d21b46c7273c41b8ec26789ebdc3f56f3b346d1fd7b07e72ecd835c246",
+      "c_sha256": "77674c453bd5115c13329a272f62b0bc9970a1eafa9d387989c467e9c24cc4ad",
+      "assertions": 93,
+      "executed_exports": [
+        "shell_sort"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "subset-sum",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "f18448306ba2aa398f568b48ddc2e2dd3c442ae6003e5e39c1a4827dc5e4cc40",
+      "c_sha256": "7dcafe7681ea86663aaccfb3063763e849affe0e324bca1e583b61b046e71251",
+      "assertions": 3,
+      "executed_exports": [
+        "subset_sum"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "threshold-hysteresis",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "fa5bd558c9d8a434c6804711735ecc9fef6a901c0577d166cf444b6e8779f323",
+      "c_sha256": "51e95ca0563bea3d54c7e0eae30e2754a75a087cee6325ca498f00651e36d5bc",
+      "assertions": 4,
+      "executed_exports": [
+        "hysteresis_update"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "topological-sort",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "8f178c298886e1f36857cf237329940b0eae12cba7193d4888a4a469a24e0ac3",
+      "c_sha256": "eb6b5979fec975e548ea4a944f697c273a5f1fbcfa5a6dc22df7a498fa5e6a8c",
+      "assertions": 2,
+      "executed_exports": [
+        "topological_sort"
+      ],
+      "untested_exports": []
+    },
+    {
+      "slug": "upper-bound-equal-range",
+      "status": "C_AND_THUMB_EXECUTION_PASS",
+      "assembly_sha256": "f24ec878552dce35afea405887e95ec0efa4b38a4dbe926ee8ccbd9fb508b2b9",
+      "c_sha256": "490329706166443e9c464cd4ca13e2c0c167a9f8c4f5df91bb2cf22223400965",
+      "assertions": 4,
+      "executed_exports": [
+        "upper_bound_i32"
+      ],
+      "untested_exports": []
+    }
+  ]
+}

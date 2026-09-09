@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Count maximal runs of non-whitespace bytes. ASCII space, tab, line feed, vertical tab, form feed, and carriage return are separators. Return -1 for null or unterminated input.">
+  <title>Count ASCII words · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Count ASCII words</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Count ASCII words</h1><p>Count maximal runs of non-whitespace bytes. ASCII space, tab, line feed, vertical tab, form feed, and carriage return are separators. Return -1 for null or unterminated input.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Strings</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(capacity) time; O(1) auxiliary storage</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><div class="question"><h3>Exam question</h3><p>Write a C function and matching ARMASM subroutine named string_count_ascii_words to count ascii words. Use the exact interface below, obey the stated failure behaviour, and preserve the AAPCS register and stack rules.</p></div><p>Count maximal runs of non-whitespace bytes. ASCII space, tab, line feed, vertical tab, form feed, and carriage return are separators. Return -1 for null or unterminated input.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int32_t string_count_ascii_words(const uint8_t *text, uint32_t capacity)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>string_count_ascii_words</code></td><td><code>const uint8_t *text</code></td><td><code>R0</code></td></tr><tr><td><code>string_count_ascii_words</code></td><td><code>uint32_t capacity</code></td><td><code>R1</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Validate NUL within capacity.</li><li>Track whether the scan is inside a word.</li><li>Increment only when a non-space byte begins a new word.</li></ol><h3>Worked trace</h3><p>For &quot; ARM\tC  ASM\n&quot;, word starts occur at A, C, and A, so the result is 3.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/count-ascii-words/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Count ASCII words
+; int32_t string_count_ascii_words(const uint8_t *text, uint32_t capacity)
+; Count maximal runs of non-whitespace bytes. ASCII space, tab, line feed, vertical tab, form feed, and carriage return are separators. Return -1 for null or unterminated input.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT string_count_ascii_words
+string_count_ascii_words
+        ; R0=text,R1=capacity. Validate first; R3=words,R4=inside-word flag.
+        cmp r0,#0
+        beq scw_bad
+        cmp r1,#0
+        bmi scw_bad
+        push {r4-r6,lr}
+        mov r5,r0
+        mov r6,r1
+        movs r2,#0
+scw_validate
+        cmp r2,r6
+        bhs scw_fail
+        ldrb r3,[r5,r2]
+        adds r2,#1
+        cmp r3,#0
+        bne scw_validate
+        subs r2,#1
+        movs r3,#0
+        movs r4,#0
+        movs r1,#0
+scw_loop
+        cmp r1,r2
+        bhs scw_done
+        ldrb r0,[r5,r1]
+        cmp r0,#32
+        beq scw_space
+        cmp r0,#9
+        blo scw_nonspace
+        cmp r0,#13
+        bls scw_space
+scw_nonspace
+        cmp r4,#0
+        bne scw_next
+        adds r3,#1
+        movs r4,#1
+        b scw_next
+scw_space
+        movs r4,#0
+scw_next
+        adds r1,#1
+        b scw_loop
+scw_done
+        mov r0,r3
+        pop {r4-r6,pc}
+scw_fail
+        pop {r4-r6,lr}
+scw_bad
+        mvn r0,#0
+        bx lr
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/count-ascii-words/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+/* Exam prompt: Count ASCII words
+ * Contract: Count maximal runs of non-whitespace bytes. ASCII space, tab, line feed,
+ * vertical tab, form feed, and carriage return are separators. Return -1 for null or
+ * unterminated input. Method:
+ * 1. Validate NUL within capacity.
+ * 2. Track whether the scan is inside a word.
+ * 3. Increment only when a non-space byte begins a new word.
+ */
+static int ascii_space(uint8_t c) { return c == &#x27; &#x27; || (c &gt;= &#x27;\t&#x27; &amp;&amp; c &lt;= &#x27;\r&#x27;); }
+int32_t string_count_ascii_words(const uint8_t *text, uint32_t capacity) {
+  if (!text)
+    return -1;
+  uint32_t length = 0;
+  while (length &lt; capacity &amp;&amp; text[length])
+    ++length;
+  if (length == capacity || length &gt; INT32_MAX)
+    return -1;
+  uint32_t words = 0;
+  int inside = 0;
+  for (uint32_t i = 0; i &lt; length; ++i) {
+    int space = ascii_space(text[i]);
+    if (!space &amp;&amp; !inside)
+      ++words;
+    inside = !space;
+  }
+  return (int32_t)words;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/count-ascii-words/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int32_t string_count_ascii_words(const uint8_t *text, uint32_t capacity);
+int test_main(void) {
+  uint8_t a[] = &quot; ARM\tC  ASM\n&quot;, empty[] = &quot;&quot;, bad[] = {&#x27;A&#x27;, &#x27;B&#x27;};
+  CHECK(string_count_ascii_words(a, sizeof a) == 3);
+  CHECK(string_count_ascii_words(empty, 1) == 0);
+  CHECK(string_count_ascii_words(bad, 2) == -1);
+  CHECK(string_count_ascii_words(0, 2) == -1);
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Common exam mistakes</h3><ul><li>Dereferencing the data pointer before handling the documented empty-input case.</li><li>Using a result or accumulator width that is too small for the stated range.</li><li>Writing the output before every pointer, count and overflow condition has been validated.</li></ul><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -16,6 +16,9 @@ from urllib.parse import quote, unquote
 from canonical_portal_content import ALGORITHM_VARIANTS, EXTRA_ALGORITHMS
 import existing_algorithm_repairs
 import exam_algorithms_numeric, exam_algorithms_arrays, exam_algorithms_strings, exam_algorithms_matrices
+import exam_algorithms_fundamentals_arrays, exam_algorithms_fundamentals_strings
+import exam_algorithms_fundamentals_arithmetic, exam_algorithms_fundamentals_bits
+import exam_algorithms_fundamentals_matrices
 from algorithm_catalog import ENTRIES as NEW_ALGORITHMS
 from algorithm_review import source_details, VARIANT_SUFFIX
 from algorithm_pages import body as algorithm_page_body, readable_c
@@ -46,10 +49,12 @@ ASSETS = PORTAL / "assets"
 HOME = ROOT / "START_HERE.html"
 ALGORITHM_LIBRARY = ROOT / "03_ADDITIONAL_STUDY_MATERIAL" / "02 - Code Recipes" / "11 - Maximum Algorithm Reference"
 GENERATED_SOURCES = LIBRARY / "03_COPY_PASTE_LIBRARY" / "CANONICAL_WORKSTATION"
+ALGORITHM_INVENTORY_OUTPUT = MAINTENANCE / "ALGORITHM_INVENTORY.json"
 API_HEADER = ROOT / "01_EXAM_READY" / "02_STARTING_TEMPLATES" / "Official Combined Exam API" / "Source" / "exam_api" / "exam_api.h"
 STARTING_TEMPLATE = ROOT / "01_EXAM_READY" / "02_STARTING_TEMPLATES" / "Official Combined Exam API"
-API_REFERENCE = STARTING_TEMPLATE / "EXAM_API_QUICK_REFERENCE.md"
-API_GAP_REPORT = STARTING_TEMPLATE / "API_GAP_REPORT.md"
+TEMPLATE_REFERENCE = STARTING_TEMPLATE.with_name("Official Combined Exam API Reference")
+API_REFERENCE = TEMPLATE_REFERENCE / "EXAM_API_QUICK_REFERENCE.md"
+API_GAP_REPORT = TEMPLATE_REFERENCE / "API_GAP_REPORT.md"
 TEMPLATE_INTEGRATION = GUIDES / "USING_SOLVED_ANSWERS_WITH_OFFICIAL_TEMPLATE.md"
 
 NAV = [
@@ -635,14 +640,19 @@ def build_search(items: list[dict[str, object]]) -> None:
     kinds = [value[0] for value in SECTION_META.values()]
     body = f'''<section class="filter-panel" data-global-search><form class="search-form"><label class="hidden" for="global-q">Search the workstation</label><input id="global-q" name="q" type="search" placeholder="Search by title, alias, topic, component, or summary"><button type="submit">Search</button></form>
       <div class="filter-bar"><label>Section<select data-search-filter="kind"><option value="">All sections</option>{''.join(f'<option>{esc(x)}</option>' for x in kinds)}</select></label><label>Language<select data-search-filter="languages"><option value="">All languages</option><option>C</option><option>Assembly</option><option>Both</option></select></label><label>Component<select data-search-filter="components"><option value="">All components</option>{''.join(f'<option>{x}</option>' for x in ['LED','Buttons','Joystick','Timer','RIT','SysTick','ADC','DAC','SVC'])}</select></label><label>Exam history<select data-search-filter="examHistory"><option value="">All history</option><option>Appeared in past exams</option><option>Possible variation</option><option>Extra practice</option></select></label></div><div data-search-results aria-live="polite"></div></section>'''
-    extra = f'<script src="{rel(ASSETS / "portal-data.js", target)}"></script>'
+    extra = f'<script data-search-corpus data-src="{rel(ASSETS / "portal-data.js", target)}"></script>'
     write(target, page(target, "Search everything", "Search all six sections from one place.", body, [("Home", HOME), ("Search", target)], extra_head=extra))
     public = {"items": items}
     write(ASSETS / "portal-data.js", "window.ARM_PORTAL_DATA=" + json.dumps(public, ensure_ascii=False, separators=(",", ":")) + ";\n")
 
 
-def connect_related(items: list[dict[str, object]]) -> None:
+BASE_BUILD_SEARCH = build_search
+
+
+def connect_related(items: list[dict[str, object]], only_kind: str = "") -> None:
     for item in items:
+        if only_kind and item.get("kind") != only_kind:
+            continue
         item_terms = {slug(str(value)) for value in list(item.get("components", [])) + list(item.get("topics", [])) if value}
         scored = []
         for candidate in items:
@@ -657,6 +667,8 @@ def connect_related(items: list[dict[str, object]]) -> None:
 
 
 def build_exams(exams: list[dict[str, str]], questions: list[dict[str, str]], solutions: list[dict[str, str]], pattern_links: dict[str, Path], algorithm_links: dict[str, Path], combo_links: dict[str, Path], items: list[dict[str, object]]) -> None:
+    from question_review import read_reviews, render as render_question_review, assembly_dependency
+    reviews = read_reviews()
     index = PORTAL / "exams" / "index.html"
     solution_by_id = {row.get("exam_id", ""): row for row in solutions}
     question_manifest: list[dict[str, object]] = []
@@ -714,30 +726,44 @@ def build_exams(exams: list[dict[str, str]], questions: list[dict[str, str]], so
             needs_asm = any(token in requested_files for token in (".s", "asm_", "assembly"))
             if not needs_c and not needs_asm:
                 needs_c = True
+            review = reviews[q["question_id"]]
+            dependency = assembly_dependency(review)
             question_raw_dir = GENERATED_SOURCES / "exam-solutions" / slug(q.get("question_id") or f"{exam_id}-q{number}")
             question_c_path = question_raw_dir / "main.c" if needs_c else None
-            question_asm_path = question_raw_dir / "assembly.s" if needs_asm else None
+            question_asm_path = question_raw_dir / "assembly.s" if needs_asm or dependency else None
+            # Optional reviewed per-question answers override the whole project.
+            question_source_dir = c_path.parent / qtitle if c_path else None
+            question_notes = question_source_dir / "README.md" if question_source_dir else None
+            extra_answer_paths = []
             if question_c_path:
-                write(question_c_path, source_code(c_path))
+                specific = question_source_dir / "main.c" if question_source_dir else None
+                write(question_c_path, source_code(specific if specific and specific.exists() else c_path))
             if question_asm_path:
-                write(question_asm_path, source_code(asm_path))
+                specific = question_source_dir / "assembly.s" if question_source_dir else None
+                write(question_asm_path, source_code(dependency or (specific if specific and specific.exists() else asm_path)))
+            if question_source_dir and question_source_dir.exists():
+                for companion in sorted(question_source_dir.glob("IRQ_*.c")):
+                    target = question_raw_dir / companion.name
+                    write(target, source_code(companion))
+                    extra_answer_paths.append(target)
+                if question_notes.exists():
+                    write(question_raw_dir / "README.md", source_code(question_notes))
             code_sections = ""
             if needs_c:
                 code_sections += f'<h2>Complete C answer</h2>{details_code("Show complete C solution", source_code(question_c_path), question_c_path, question_destination, "C", True)}'
-            if needs_asm:
+            if question_asm_path:
                 code_sections += f'<h2>Complete ARM assembly answer</h2>{details_code("Show complete assembly solution", source_code(question_asm_path), question_asm_path, question_destination, "Assembly", True)}'
-            method_steps = [
-                "Write the exact prototype, handler names, constants, and ownership required by the paper.",
-                fields.get("Implementation", "Separate hardware ownership from the bounded computation and keep interrupt work short."),
-                "Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.",
-                "Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.",
-            ]
+            for companion in extra_answer_paths:
+                code_sections += f'<h2>Complete replacement: {esc(companion.name)}</h2>{details_code("Show complete " + companion.name, source_code(companion), companion, question_destination, "C", True)}'
             relevant_algorithms = [href(path, question_destination, f"Study {label}") for label, path in algorithm_links.items() if any(slug(tag) in slug(label) or slug(label) in slug(tag) for tag in question_algorithms)][:6]
-            required_language = "C and assembly" if needs_c and needs_asm else "C" if needs_c else "Assembly"
-            question_body = f'''<section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>{esc(fields.get('Goal', qsummary))}</dd></div><div class="fact"><dt>Required answer</dt><dd>{esc(required_language)}</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>{esc(q.get('function_or_handler') or 'Use the exact paper interface')}</dd></div><div class="fact"><dt>Architecture</dt><dd>{esc(q.get('architecture') or 'Follow the paper')}</dd></div></dl><p>{href(pdf_path, question_destination, 'View original exam PDF', 'button') if pdf_path else ''}</p></section><section class="section-block"><h2>Inputs, outputs, constraints, and ownership</h2><p>{esc(fields.get('Data/ABI', q.get('argument_mapping') or qsummary))}</p><p><strong>Constants:</strong> {esc(q.get('constants') or 'Use the exact constants in the paper.')}</p><p><strong>Components:</strong> {esc(', '.join(qtags) or 'Core CPU and memory')}</p><h2>Bounded solution method</h2><ol>{''.join(f'<li>{esc(step)}</li>' for step in method_steps)}</ol></section><section class="section-block">{code_sections}</section><section class="section-block"><h2>Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2>Complexity and memory</h2><p>The algorithm tags are {esc(', '.join(question_algorithms) or 'paper-specific state transitions')}. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2>Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2>Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2>Related handbook pages</h2>{('<ul>'+''.join(f'<li>{x}</li>' for x in relevant_algorithms)+'</ul>') if relevant_algorithms else '<p>Use the tags above in the Algorithms and Solution Patterns sections.</p>'}</section>'''
+            paper = ROOT / review['paper']
+            paper_links = '<p>' + ' · '.join('<a class="button" href="' + esc(rel(paper, question_destination)) + '#page=' + str(n) + '">Original paper — page ' + str(n) + '</a>' for n in review['pages']) + '</p>'
+            related = ('<ul>'+''.join(f'<li>{x}</li>' for x in relevant_algorithms)+'</ul>') if relevant_algorithms else '<p>Use the Algorithms and Solution Patterns sections for related methods.</p>'
+            notes_link = '<p>' + href(question_raw_dir / 'README.md', question_destination, 'Existing detailed walkthrough and placement table') + '</p>' if question_notes and question_notes.exists() else ''
+            question_body = render_question_review(review, code_sections, paper_links, related, notes_link)
             write(question_destination, page(question_destination, f"{title} — {qtitle}", qsummary, question_body, [("Home", HOME), ("Past Exams", index), (title, destination), (qtitle, question_destination)], "Past Exams"))
-            items.append({"id": f"question-{slug(q.get('question_id',''))}", "kind": "Past Exams", "title": f"{title} — {qtitle}", "summary": qsummary, "route": rel(question_destination, PORTAL / "search.html"), "examHistory": "Appeared in past exams", "languages": ["Both" if needs_c and needs_asm else "C" if needs_c else "Assembly"], "components": qtags, "topics": question_algorithms, "aliases": split_tags(q.get("keywords", ""), q.get("function_or_handler", "")), "relatedIds": []})
-            question_manifest.append({"questionId": q.get("question_id"), "examId": exam_id, "date": date, "variant": variant, "question": qtitle, "statement": qsummary, "constraints": q.get("constants", ""), "requiredInterface": q.get("architecture", ""), "requiredFiles": [str(path.relative_to(ROOT)).replace("\\", "/") for path in (question_c_path, question_asm_path) if path], "algorithms": question_algorithms, "components": qtags, "functionsOrHandlers": q.get("function_or_handler", ""), "apiCalls": sorted(set(re.findall(r"\bexam_[A-Za-z0-9_]+(?=\s*\()", (source_code(question_c_path) if question_c_path else "") + (source_code(question_asm_path) if question_asm_path else "")))), "compileStatus": "Previously checked with the supplied platform; API symbols re-audited by the canonical verifier", "behaviorStatus": "Deterministic algorithms are source-testable; hardware flow is statically checked without a board claim"})
+            items.append({"id": f"question-{slug(q.get('question_id',''))}", "kind": "Past Exams", "title": f"{title} — {qtitle}", "summary": qsummary, "route": rel(question_destination, PORTAL / "search.html"), "examHistory": "Appeared in past exams", "languages": ["Both" if needs_c and question_asm_path else "C" if needs_c else "Assembly"], "components": qtags, "topics": question_algorithms, "aliases": split_tags(q.get("keywords", ""), q.get("function_or_handler", "")), "relatedIds": []})
+            question_manifest.append({"questionId": q.get("question_id"), "examId": exam_id, "date": date, "variant": variant, "question": qtitle, "statement": qsummary, "constraints": q.get("constants", ""), "requiredInterface": q.get("architecture", ""), "requiredFiles": [str(path.relative_to(ROOT)).replace("\\", "/") for path in (question_c_path, question_asm_path, *extra_answer_paths) if path], "algorithms": question_algorithms, "components": qtags, "functionsOrHandlers": q.get("function_or_handler", ""), "apiCalls": sorted(set(re.findall(r"\bexam_[A-Za-z0-9_]+(?=\s*\()", (source_code(question_c_path) if question_c_path else "") + (source_code(question_asm_path) if question_asm_path else "")))), "compileStatus": review["verification"]["nativeBuild"]["status"] + ": " + review["verification"]["nativeBuild"]["detail"], "behaviorStatus": review["reviewStatus"] + "; physical board UNVERIFIED", "reviewedOn": review["reviewedOn"], "limitations": review["limitations"]})
         related_patterns = [href(path, destination, label) for label, path in list(pattern_links.items()) if any(slug(token) in slug(label) for token in algorithm_list + component_list)][:8]
         related_algorithms = [href(path, destination, label) for label, path in algorithm_links.items() if any(slug(token) in slug(label) for token in algorithm_list)][:8]
         related_combos = [href(path, destination, label) for label, path in combo_links.items() if any(slug(token) in slug(label) for token in component_list)][:6]
@@ -745,6 +771,12 @@ def build_exams(exams: list[dict[str, str]], questions: list[dict[str, str]], so
         c_role = f"C owns initialization, the foreground state machine, and these hardware components: {', '.join(component_list) or 'core CPU only'}."
         asm_role = f"Assembly owns the requested computation: {', '.join(algorithm_list) or 'the paper-specific algorithm'}. It must match the C prototype and preserve the ARM calling convention."
         body = f'''<section class="section-block"><h2>Exam overview</h2>{facts}{pdf}</section><section class="section-block"><h2>Questions and complete answers</h2>{''.join(qhtml)}</section><section class="section-block"><h2>Whole-project answer</h2><p><strong>C:</strong> {esc(c_role)}</p><p><strong>Assembly:</strong> {esc(asm_role)}</p>{details_code('Show whole historical C answer', source_code(c_path), c_path, destination, 'C')}{details_code('Show whole historical assembly answer', source_code(asm_path), asm_path, destination, 'Assembly')}</section><section class="section-block"><h2>Related study material</h2>{related_html}</section>'''
+        if c_path:
+            companions = ''.join(details_code('Show whole-project ' + p.name, source_code(p), p, destination, 'C') for p in sorted(c_path.parent.glob('IRQ_*.c')))
+            body += '<section class="section-block"><h2>Whole-project companion files</h2>' + companions + '<p>Use each question page for the exact template placement steps and evidence applicable to that answer.</p></section>' if companions else ''
+        whole_notes = c_path.parent / "README.md" if c_path else None
+        if whole_notes and whole_notes.exists():
+            body = '<section class="section-block">' + markdown_fragment(source_code(whole_notes), whole_notes, destination) + '</section>' + body
         write(destination, page(destination, title, summary, body, [("Home", HOME), ("Past Exams", index), (title, destination)], "Past Exams"))
         items.append({"id": f"exam-{slug(exam_id)}", "kind": "Past Exams", "title": title, "summary": summary, "route": rel(destination, PORTAL / "search.html"), "examHistory": "Appeared in past exams", "languages": ["Both"], "components": component_list, "topics": algorithm_list, "aliases": split_tags(row.get("date", ""), row.get("project", ""), *(q.get("keywords", "") for q in exam_questions)), "relatedIds": []})
 
@@ -870,6 +902,7 @@ def build_algorithms(exams: list[dict[str, str]], items: list[dict[str, object]]
     links: dict[str, Path] = {}
     cards: list[str] = []
     inventory = []
+    fundamental_links: list[tuple[str, str, Path]] = []
     families: set[str] = set()
     legacy_tests = {e["slug"]: e["test"] for e in legacy_test_entries()}
     primary = [read_algorithm_source(folder) for folder in sorted(ALGORITHM_LIBRARY.iterdir()) if folder.is_dir() and (folder / "c" / "reference.c").exists()]
@@ -934,6 +967,7 @@ def build_algorithms(exams: list[dict[str, str]], items: list[dict[str, object]]
         asm_section = details_code("Show ARM assembly implementation", asm_code, asm_path, destination, "Assembly") if asm_path else "<p>This entry is kept in C because its allocation, library, or graph bookkeeping would make a standalone assembly listing less useful than the ABI-focused implementations elsewhere in this handbook.</p>"
         inventory.append({"slug":public_slug,"title":title,"source_group":data.get("source_id",public_slug),
                           "shared_source":bool(data.get("shared_source")),"history":history,
+                          "fundamentals_group":data.get("fundamentals_group", ""),
                           "focus_entry":data.get("focus_entry",""),"prototype":data.get("prototype",""),
                           "assembly_exports":re.findall(r"(?m)^\s*EXPORT\s+(\w+)",asm_code),
                           "reference":c_path.relative_to(ROOT).as_posix(),
@@ -943,8 +977,19 @@ def build_algorithms(exams: list[dict[str, str]], items: list[dict[str, object]]
         attrs = f'data-filter-item data-family="{esc(family)}" data-language="{esc("Both" if asm_path else "C")}" data-history="{esc(history)}"'
         cards.append(card(title, str(data.get("summary") or recognition), destination, index, "Study algorithm", f'<div class="tag-list">{tags([family, "Both" if asm_path else "C", history])}</div>', attrs))
         items.append({"id": f"algorithm-{public_slug}", "kind": "Algorithms", "title": title, "summary": str(data.get("summary") or recognition), "route": rel(destination, PORTAL / "search.html"), "examHistory": history, "languages": ["Both" if asm_path else "C"], "components": [], "topics": [family, title], "aliases": split_tags(title, recognition), "relatedIds": []})
-    body = f'''<section class="notice"><strong>{len(entries)} study entries from 129 source implementations:</strong> 60 new exam-focused routines, 19 completed assembly references, and 50 reviewed source groups. Related variations share source files. Every entry includes ARM assembly, C, its contract, and expected-output tests.</section><section class="filter-panel" data-filter-scope><div class="filter-bar"><label>Search algorithms<input type="search" data-filter="text" placeholder="Quicksort, graph shortest path, ring buffer..."></label><label>Problem family<select data-filter="family"><option value="">All families</option>{''.join(f'<option>{esc(x)}</option>' for x in sorted(families))}</select></label><label>Language<select data-filter="language"><option value="">All languages</option><option>C</option><option>Both</option></select></label><label>Exam history<select data-filter="history"><option value="">All history</option><option>Appeared in past exams</option><option>Possible variation</option><option>Extra practice</option></select></label></div><p class="results-note" data-results-note aria-live="polite"></p><div class="grid">{''.join(cards)}</div></section>'''
-    write(MAINTENANCE/"ALGORITHM_INVENTORY.json",json.dumps(inventory,indent=2)+"\n")
+        if data.get("fundamentals_group"):
+            fundamental_links.append((str(data["fundamentals_group"]), title, destination))
+    basics = PORTAL / "algorithms" / "basic-exam-algorithms.html"
+    group_order = ["Count and measure", "Compare and test", "Copy and move", "Search", "Transform", "Strings", "Arithmetic", "Bits and bytes", "Matrices"]
+    basic_sections = []
+    for group in group_order:
+        links_in_group = [(title, destination) for entry_group, title, destination in fundamental_links if entry_group == group]
+        if links_in_group:
+            basic_sections.append(f'<section class="section-block"><h2>{esc(group)}</h2><ul>' + ''.join(f'<li>{href(destination, basics, title)}</li>' for title, destination in links_in_group) + '</ul></section>')
+    basic_body = f'<section class="notice"><strong>{len(fundamental_links)} separate exam prompts.</strong> Each link opens one question with its own contract, ARMASM, matching C, register map, trace, and executable tests.</section>' + ''.join(basic_sections)
+    write(basics, page(basics, "Basic Exam Algorithms", "Direct links to one-prompt fundamentals.", basic_body, [("Home", HOME), ("Algorithms", index), ("Basic Exam Algorithms", basics)], "Algorithms"))
+    body = f'''<section class="notice"><strong>{len(entries)} one-prompt study entries:</strong> every entry includes ARM assembly, matching C, its contract, a worked trace, and expected-output tests. {href(basics, index, f'Open the {len(fundamental_links)}-entry Basic Exam Algorithms index')}.</section><section class="filter-panel" data-filter-scope><div class="filter-bar"><label>Search algorithms<input type="search" data-filter="text" placeholder="Quicksort, array length, string append, matrix trace..."></label><label>Problem family<select data-filter="family"><option value="">All families</option>{''.join(f'<option>{esc(x)}</option>' for x in sorted(families))}</select></label><label>Language<select data-filter="language"><option value="">All languages</option><option>C</option><option>Both</option></select></label><label>Exam history<select data-filter="history"><option value="">All history</option><option>Appeared in past exams</option><option>Possible variation</option><option>Extra practice</option></select></label></div><p class="results-note" data-results-note aria-live="polite"></p><div class="grid">{''.join(cards)}</div></section>'''
+    write(ALGORITHM_INVENTORY_OUTPUT,json.dumps(inventory,indent=2)+"\n")
     write(index, page(index, "Algorithms", SECTION_META["algorithms"][1], body, [("Home", HOME), ("Algorithms", index)], "Algorithms"))
     return links
 
@@ -1192,6 +1237,18 @@ def build_guides(peripheral_rows: list[dict[str, str]], items: list[dict[str, ob
 
 
 def main() -> None:
+    global PORTAL, ASSETS, GENERATED_SOURCES, ALGORITHM_INVENTORY_OUTPUT
+    import sys
+    source_assets = ASSETS
+    output_options = [arg.split("=", 1)[1] for arg in sys.argv if arg.startswith("--output-root=")]
+    if output_options:
+        stage_root = Path(output_options[-1]).resolve()
+        if stage_root != ROOT.resolve() and ROOT.resolve() not in stage_root.parents:
+            raise SystemExit("--output-root must remain inside the package workspace")
+        PORTAL = stage_root / "PORTAL"
+        ASSETS = PORTAL / "assets"
+        GENERATED_SOURCES = stage_root / "CANONICAL_WORKSTATION"
+        ALGORITHM_INVENTORY_OUTPUT = stage_root / "ALGORITHM_INVENTORY.json"
     exams = read_csv(COURSE / "REVIEWED_EXAM_INDEX.csv")
     questions = read_csv(GUIDES / "QUESTION_INDEX.csv")
     patterns = read_csv(COURSE / "CANONICAL_PATTERN_INDEX.csv")
@@ -1205,14 +1262,14 @@ def main() -> None:
             raise SystemExit(f"Canonical {key} count changed: expected {value}, found {counts[key]}")
     if counts["algorithms"] < 100:
         raise SystemExit(f"Expected at least 100 algorithms, found {counts['algorithms']}")
-    import sys
     if "--algorithms-only" in sys.argv:
-        data_text=(ASSETS/"portal-data.js").read_text(encoding="utf-8")
+        data_text=(source_assets/"portal-data.js").read_text(encoding="utf-8")
         existing=json.loads(re.fullmatch(r"\s*window\.ARM_PORTAL_DATA=(.*);\s*",data_text,re.S).group(1))["items"]
-        items=[item for item in existing if item.get("kind")!="Algorithms"]
+        items=[item for item in existing if not item["id"].startswith(("algorithm-", "text-"))]
         build_algorithms(exams,items)
-        connect_related(items)
-        build_search(items)
+        connect_related(items, "Algorithms")
+        from REFRESH_SEARCH import refresh
+        refresh(globals(), items)
         print("Updated algorithms and search without replacing exam solutions or API pages")
         print(json.dumps(counts,indent=2))
         return

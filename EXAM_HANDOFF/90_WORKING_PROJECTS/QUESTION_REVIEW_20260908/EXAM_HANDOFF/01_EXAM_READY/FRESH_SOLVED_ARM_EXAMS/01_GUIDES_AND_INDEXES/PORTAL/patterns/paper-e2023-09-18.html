@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.">
+  <title>2023-09-18 DigitAddition Buttons · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">2023-09-18 DigitAddition Buttons</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>2023-09-18 DigitAddition Buttons</h1><p>Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-observable-behavior">Problem and observable behavior</a><a href="#section-resource-and-interrupt-ownership">Resource and interrupt ownership</a><a href="#section-state-transitions-and-event-sequence">State transitions and event sequence</a><a href="#section-setup-values-and-timing">Setup values and timing</a><a href="#section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</a><a href="#section-verification">Verification</a><a href="#section-complete-replacement-files">Complete replacement files</a><a href="#section-related-references">Related references</a></nav><div class="page-body"><section class="section-block"><p class="eyebrow">Appeared in past exams</p><h2 id="section-problem-and-observable-behavior">Problem and observable behavior</h2><p>Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.</p><p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/paper-e2023-09-18.zip">Download complete project ZIP</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/sample.uvprojx">Open complete Keil project</a></p><h2 id="section-resource-and-interrupt-ownership">Resource and interrupt ownership</h2><table><thead><tr><th>Resource</th><th>Role</th></tr></thead><tbody><tr><td>LED</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr><tr><td>Buttons</td><td>Follow exact source ownership below; generic practice allocations do not apply.</td></tr></tbody></table><ul><li>2023-09-18-Q2: main; EINT0_IRQHandler; EINT1_IRQHandler; EINT2_IRQHandler; EINT1 appends0; EINT2 appends1; EINT0 runs the computation; K up to 50</li></ul><h2 id="section-state-transitions-and-event-sequence">State transitions and event sequence</h2><p>Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.</p><h2 id="section-setup-values-and-timing">Setup values and timing</h2><p>K up to 50</p><h2 id="section-inputs-expected-results-and-boundaries">Inputs, expected results and boundaries</h2><p>Follow the exact input sequence and expected result in the linked original question and reviewed mapping.</p><p>Check initial state, press and release, simultaneous reset and action, held inputs, endpoints, restart, and delayed foreground processing. No physical-board result is claimed.</p><p><a href="../exams/2023-09-18-q2.html">2023-09-18-Q2 — exact question and reviewed answer</a></p><p><a href="../../../../../02_ORIGINAL_MATERIALS/Exams/22-23/20230918%20arm.pdf">Original paper</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-09-18_DigitAddition_Buttons/EXAM_MAPPING.md">EXAM MAPPING</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-09-18_DigitAddition_Buttons/ADAPTATION_MAP.md">ADAPTATION MAP</a></p><p><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2023-09-18_DigitAddition_Buttons/REVISION_REVIEW.md">REVISION REVIEW</a></p><h2 id="section-verification">Verification</h2><p><a href="../../../99_MAINTENANCE/SCENARIO_VALIDATION.json">Behavioral and structural results</a> · <a href="../../../99_MAINTENANCE/SCENARIO_NATIVE_BUILDS.json">Native build results</a>. Reports identify tests actually run; simulation does not establish electrical or analog behavior.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-replacement-files">Complete replacement files</h2><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+
+extern uint32_t digitSum(uint32_t value);
+extern uint32_t digitaddition(uint32_t *area, uint32_t count);
+
+static uint32_t series[10];
+static volatile uint32_t entered_value;
+
+static void handle_button(exam_button_t button)
+{
+  uint32_t reported;
+  uint32_t formula;
+  if (button == EXAM_BUTTON_KEY1) {
+    entered_value &lt;&lt;= 1;        /* append binary digit 0 */
+  } else if (button == EXAM_BUTTON_KEY2) {
+    entered_value = (entered_value &lt;&lt; 1) | 1u;
+  } else if (button == EXAM_BUTTON_INT0) {
+    series[0] = entered_value;
+    reported = digitaddition(series, 10u);
+    formula = series[9] - series[0] + digitSum(series[9]);
+    if (reported == formula) {
+      (void)exam_led_on(4u);
+      (void)exam_led_off(5u);
+    } else {
+      (void)exam_led_off(4u);
+      (void)exam_led_on(5u);
+    }
+  }
+}
+
+void EINT0_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_INT0); handle_button(EXAM_BUTTON_INT0); }
+void EINT1_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY1); handle_button(EXAM_BUTTON_KEY1); }
+void EINT2_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY2); handle_button(EXAM_BUTTON_KEY2); }
+
+int main(void)
+{
+  exam_init();
+  entered_value = 0u;
+  exam_led_clear();
+  exam_buttons_init();
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  digitSum
+                EXPORT  digitaddition
+
+; uint32_t digitSum(uint32_t a)
+digitSum        PROC
+                MOVS    R1, #0
+                MOVS    R2, #10
+ds_loop         CMP     R0, #0
+                BEQ     ds_done
+                UDIV    R3, R0, R2
+                MLS     R12, R3, R2, R0
+                ADD     R1, R1, R12
+                MOV     R0, R3
+                B       ds_loop
+ds_done         MOV     R0, R1
+                BX      LR
+                ENDP
+
+; uint32_t digitaddition(uint32_t *area, uint32_t count)
+digitaddition   PROC
+                PUSH    {R4-R8, LR}     ; 24-byte aligned non-leaf frame
+                CMP     R1, #0
+                BEQ     da_zero
+                MOV     R4, R0
+                MOV     R5, R1
+                LDR     R6, [R4]        ; current term
+                MOV     R0, R6
+                BL      digitSum
+                MOV     R7, R0          ; sum of all digits
+                MOVS    R8, #1
+da_loop         CMP     R8, R5
+                BHS     da_done
+                MOV     R0, R6
+                BL      digitSum
+                ADDS    R6, R6, R0
+                BCS     da_zero
+                STR     R6, [R4, R8, LSL #2]
+                ADD     R7, R7, R0
+                ADDS    R8, R8, #1
+                B       da_loop
+da_done         MOV     R0, R7
+                POP     {R4-R8, PC}
+da_zero         MOVS    R0, #0
+                POP     {R4-R8, PC}
+                ENDP
+                END
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2023-09-18/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-references">Related references</h2><p><a href="../algorithms/index.html">Algorithms</a> · <a href="index.html">All peripheral combinations</a></p><a href="../api/exam-button-ack.html">exam_button_ack</a> <a href="../api/exam-buttons-init.html">exam_buttons_init</a> <a href="../api/exam-init.html">exam_init</a> <a href="../api/exam-led-clear.html">exam_led_clear</a> <a href="../api/exam-led-off.html">exam_led_off</a> <a href="../api/exam-led-on.html">exam_led_on</a> </section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

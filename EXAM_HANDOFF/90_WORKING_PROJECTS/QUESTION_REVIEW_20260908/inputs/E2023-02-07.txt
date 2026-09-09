@@ -1,0 +1,211 @@
+{"exam_id": "E2023-02-07", "date": "2023-02-07", "project": "2023-02-07_Sort_FreeRunning_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230207 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 07.02.2023 – part II 
+ 
+Question 1 
+ 
+Given two areas of memory, the first one containing byte constants and the second one being 
+uninitialized, write the copyData subroutine in ARM assembly language, which copies the 
+content of the first area of memory to the second one. The subroutine receives in input: 
+- the address of the first area of memory 
+- the address of the second area of memory 
+- the number of elements declared in the first area of memory 
+The procedure does not return any value. 
+The size of the second area of memory is higher than or equal to the size of the first area. 
+Example: 
+  AREA constants, DATA, READONLY 
+inputData DCB 3, -14, 15, -92, 65, 35, -89      
+      
+  AREA variables, DATA, READWRITE 
+outputData space 12 
+ 
+Then, write the insertionSort subroutine, which receives in input: 
+- the address of an area of memory (READWRITE) 
+- the number of elements in the area (7 in the previous example) 
+The procedure does not return any value. It sorts the elements, rewriting the area of memory, by 
+means of the insertion sort algorithm. The pseudocode of the insertion sort is the following (A is the 
+array to sort): 
+1. i ← 1 
+2. while i < length(A) 
+3.         x ← A[i] 
+4.         j ← i - 1 
+5.         while j >= 0 and A[j] > x 
+6.                 A[j+1] ← A[j] 
+7.                 j ← j - 1 
+8.         end while 
+9.         A[j+1] ← x 
+10.         i ← i + 1 
+11. end while 
+ 
+In the example above, if the subroutine receives the address of outputData, at the end the area 
+contains the values -92, -89, -14, 3, 15, 35, 65. 
+ 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 07.02.2023 – part II 
+ 
+Question 2 
+ 
+Extend the project developed in the previous question as follows. 
+ 
+Initialize timer 1 to count from 0 to 0xFF. When the timer counter reaches 0xFF, it is reset and it 
+starts counting again; no interrupt is generated. 
+ 
+Declare an uninitialized array of char. The size of the array is MAX_VALUES, which is a positive 
+constant that you can define as you prefer (e.g., MAX_VALUES = 20). 
+ 
+When button INT0 is pressed, you have to: 
+- Read the value of the timer counter of timer 1 
+- Assign the value to the first available element (i.e., not yet initialized) of the array of char. 
+At the first pressure of the button, the value of the timer counter will be saved at position 0 
+of the array; at the second pressure it will be saved at position 1, etc. If all elements of the 
+array have already been initialized, the value of the timer counter is not used. 
+- Alternatively switch on led 6 and led 7 to signal the correct read of the timer counter. At the 
+first pressure of the button, led 6 is switched on and led 7 is switched off. At the second 
+pressure, led 6 it switched off and led 7 is switched on. At the third pressure of the button, 
+led 6 is switched on and led 7 is switched off, etc. 
+ 
+When button KEY1 is pressed, you have to: 
+- Switch off led 6 and 7 
+- Call the insertionSort subroutine, passing the address of the array of char and the 
+number of initialized elements. The subroutine will sort the elements of the array, 
+considering them as signed byte values. 
+- When the subroutine ends, switch on led 11. 
+ 
+ 
+ 
+
+--- QUESTION ---
+{"question_id": "2023-02-07-Q1", "date": "2023-02-07", "question": "Q1", "requirement_summary": "Copy signed bytes into byte storage, then sort ascending with insertion sort.", "keywords": "copy signed-byte insertion-sort array ABI", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q1/assembly.s", "function_or_handler": "copyData; insertionSort", "argument_mapping": "R0 source, R1 destination, R2 length; then R0 array, R1 length", "architecture": "assembly algorithm", "constants": "signed byte storage", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "ABI", "algorithm_tags": "Arrays|Sorting", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  copyData
+                EXPORT  insertionSort
+
+; void copyData(const int8_t *source, int8_t *destination, uint32_t length)
+copyData        PROC
+                CMP     R2, #0
+                BEQ     copy_done
+copy_loop
+                LDRB    R3, [R0], #1
+                STRB    R3, [R1], #1
+                SUBS    R2, R2, #1
+                BNE     copy_loop
+copy_done
+                BX      LR
+                ENDP
+
+; void insertionSort(int8_t *values, uint32_t length)
+; Signed byte loads make negative values sort correctly.
+insertionSort   PROC
+                PUSH    {R4-R8, LR}
+                MOV     R4, R0          ; Base address.
+                MOV     R5, R1          ; Array length.
+                CMP     R5, #1
+                BLS     sort_done
+
+                MOVS    R6, #1          ; i = 1.
+sort_outer
+                CMP     R6, R5
+                BHS     sort_done
+
+                LDRSB   R7, [R4, R6]    ; x = A[i].
+                SUBS    R8, R6, #1      ; j = i - 1.
+
+sort_inner
+                CMP     R8, #0
+                BLT     sort_insert
+                LDRSB   R0, [R4, R8]
+                CMP     R0, R7
+                BLE     sort_insert
+
+                ADDS    R1, R8, #1
+                STRB    R0, [R4, R1]
+                SUBS    R8, R8, #1
+                B       sort_inner
+
+sort_insert
+                ADDS    R8, R8, #1
+                STRB    R7, [R4, R8]
+                ADDS    R6, R6, #1
+                B       sort_outer
+
+sort_done
+                POP     {R4-R8, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2023-02-07-Q2", "date": "2023-02-07", "question": "Q2", "requirement_summary": "Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.", "keywords": "Timer1 modulo INT0 KEY1 raw interrupt LED sort", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q2/main.c", "function_or_handler": "main; EINT0_IRQHandler; EINT1_IRQHandler", "argument_mapping": "INT0 reads Timer1 TC immediately; KEY1 calls insertionSort inside EINT1_IRQHandler", "architecture": "C peripherals + IRQ", "constants": "Timer1 MR0=0xFF; reset without match IRQ", "peripheral_tags": "LED|Buttons|Timer1", "interrupt_tags": "EINT|Acknowledgement", "timing_tags": "Modulo|Capture", "architecture_tags": "", "algorithm_tags": "Sorting", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/main.c ---
+/* Exam of 7 February 2023, questions 1 and 2. */
+#include <stdint.h>
+#include "LPC17xx.h"
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+#include "exam_api.h"
+
+#define MAX_VALUES 20u
+
+extern void copyData(const int8_t *source, int8_t *destination,
+                     uint32_t length);
+extern void insertionSort(int8_t *values, uint32_t length);
+
+static int8_t values[MAX_VALUES];
+static uint32_t value_count;
+static uint32_t show_led6 = 1u;
+
+void EINT0_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_INT0);
+
+  if (value_count < MAX_VALUES) {
+    values[value_count] = (int8_t)exam_timer_read(EXAM_TIMER1);
+    value_count++;
+
+    if (show_led6) {
+      (void)exam_led_on(6u);  /* physical LED6 */
+      (void)exam_led_off(7u); /* physical LED7 */
+    } else {
+      (void)exam_led_off(6u);
+      (void)exam_led_on(7u);
+    }
+    show_led6 ^= 1u;
+  }
+}
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+  (void)exam_led_off(6u);
+  (void)exam_led_off(7u);
+  insertionSort(values, value_count);
+  (void)exam_led_on(11u); /* physical LED11 */
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Timer1 resets at 0xFF, but its match does not generate an interrupt. */
+  (void)exam_timer_config_ticks(EXAM_TIMER1, 0xFFu,
+                                EXAM_TIMER_MODULO_NO_IRQ);
+  exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}

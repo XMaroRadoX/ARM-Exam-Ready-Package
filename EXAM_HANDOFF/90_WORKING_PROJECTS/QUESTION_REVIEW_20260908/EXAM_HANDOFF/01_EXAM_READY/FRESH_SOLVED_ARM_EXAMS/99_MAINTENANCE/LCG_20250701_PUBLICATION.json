@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "complete_files": 11,
+  "local_links_checked": 114,
+  "complete_code_blocks": true,
+  "native_project_and_zip_match": true,
+  "question_required_files": [
+    1,
+    3,
+    4
+  ],
+  "browser_preview": "Unavailable: browser policy blocks local file URLs",
+  "physical_board": "NOT_TESTED"
+}

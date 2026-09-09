@@ -1,0 +1,254 @@
+{"exam_id": "E2026-02-03-A2", "date": "2026-02-03", "project": "2026-02-03_ARM2_RLE_ADC", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_2.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 03/02/2026 
+ 
+B2 
+Please read the following notes before proceeding 
+1) It is recommended to save the project on the C drive during development. Once you have 
+completed your work, you must save the project inside the exam folder on the Z drive (the 
+same folder where you found this document). Projects saved elsewhere will not be 
+collected and will be permanently lost. 
+2) The assembly subroutine developed in the first exercise must comply with the ARM 
+Architecture Procedure Call Standard (AAPCS) standard (in terms of parameter passing, 
+returned value, callee-saved registers). 
+3) If you prefer, you can begin with the second exercise. Since it requires calling the assembly 
+subroutine from the first exercise, you can create a stub in the assembly file to proceed. For 
+example: 
+ 
+subroutineName PROC 
+ ; to do: add code 
+ MOV r0, #10  ; example of a return value 
+ BX LR 
+ ENDP 
+ 
+4) To earn points on all exercises, it is recommended that you write at least some code for 
+each. 
+5) The final project must run on the actual board (e.g., button debouncing is required). 
+ 
+ 
+Special characters with Italian keyboards 
+- Square brackets [ ] 
+  Left bracket: ATL GR + [ 
+  Right bracket: ALT GR + ] 
+- Curly brackets { }  
+  Left bracket: LSHIFT + ALT GR + [ 
+  Right bracket: LSHIFT + ALT GR + ] 
+- Hash # : ALT GR + à  
+ 
+ 
+Bitwise operations in C 
+Left shift by N bits  =  A<<N      
+Right shift by N bits  =  A>>N 
+ 
+A XOR B  =  A^B 
+A AND B  =  A&B   (&& is the logical AND) 
+A OR B  =  A|B  (|| is the logical OR) 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 03/02/2026 
+ 
+B2 
+Question 1 (10 points) 
+Run-Length Encoding (RLE) is a simple, lossless data compression algorithm that reduces file size 
+by replacing consecutive identical digits (a "run") with a single instance of the digit and a count of 
+its repetitions. For example, the number 2222779 is encoded as 247291 because: 
+ 2 is repeated 4 times → 24 
+ 7 is repeated 2 times → 72 
+ 9 is repeated 1 time → 91 
+ 
+Write the run_length_encoding subroutine in ARM assembly language. You must follow this 
+prototype: 
+ 
+uint32_t run_length_encoding(uint32_t digits); 
+ 
+ 
+The subroutine receives an unsigned integer in input, and returns the encoded sequence of the run-
+length-encoding algorithm as an unsigned integer. 
+You can assume that: 
+- each digit in the input number occurs at most 9 times 
+- no overflow occurs during the computation 
+- the encoded sequence can be held in a 32 bit unsigned integer. 
+ 
+Suggestions. You can extract the digits of a number from least significant to most significant by 
+repeatedly dividing by 10 and taking the remainder. For example: 
+2222779 / 10 = 222277 with remainder 9 
+222277 / 10 = 22227 with remainder 7 
+22227 / 10 = 2222 with remainder 7 
+2222 / 10 = 222 with remainder 2 
+222 / 10 = 22 with remainder 2 
+22 / 10 = 2 with remainder 2 
+2 / 10 = 0 with remainder 2 
+You know that there are no more digits when the quotient (result of the division) is 0. 
+ 
+Note that the digits are extracted from right to left; then, they must be processed from left to right in 
+order to compute the Run-Length Encoding. For each group of consecutive identical digits, first 
+append the digit and then the count by repeated multiplication by 10. In detail, you start by 
+initializing n = 0 and in every new iteration nnew = nold * 10 + digit and then nnew = nold * 10 + count. 
+In the example: 
+- the digit 2 occurs four times: 
+o n = 0 * 10 + 2 = 2 
+o n = 2 * 10 + 4 = 24 
+- the digit 7 occurs twice: 
+o n = 24 * 10 + 7 = 247 
+o n = 247 * 10 + 2 = 2472 
+- the digit 9 occurs once: 
+o n = 2472 * 10 + 9 = 24729 
+o n = 24729 * 10 + 1 = 247291 
+ 
+ 
+ 
+ 
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 03/02/2026 
+ 
+B2 
+ 
+ 
+Question 2 (8 points) 
+Add the following functionalities to your project. 
+ 
+1) Convert the analog value of the potentiometer to a digital value using the A/D converter. The 
+A/D converter produces a 12-bit digital output. Display the 8 most significant bits of this result 
+using the LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to the least 
+significant bit (of the displayed 8-bit value). 
+ 
+2) When the user presses the Key1 button, take the last 8 most significant bits produced in the last 
+A/D conversion (i.e., the 8-bit value displayed on the LEDs) and pass this value to the 
+run_length_encoding subroutine. Then, display the 8 least significant bits of the result on the 
+LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to the least 
+significant bit of the displayed result. 
+ 
+ 
+
+--- QUESTION ---
+{"question_id": "2026-02-03_ARM2-Q1", "date": "2026-02-03", "question": "Q1", "requirement_summary": "Run-length encode decimal digit runs as digit followed by count.", "keywords": "run length encoding decimal runs compression", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q1/assembly.s", "function_or_handler": "run_length_encoding", "argument_mapping": "R0 digits; R0 encoded value", "architecture": "assembly decimal algorithm", "constants": "digit then count", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Decimal", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  run_length_encoding
+
+; uint32_t run_length_encoding(uint32_t digits)
+run_length_encoding PROC
+                PUSH    {R4-R10, LR}
+                SUB     SP, SP, #16     ; Reversed decimal digits.
+                MOV     R4, SP
+                MOV     R5, R0
+                MOVS    R6, #0          ; Number of digits.
+                MOVS    R10, #10
+
+extract_digits
+                UDIV    R7, R5, R10
+                MLS     R8, R7, R10, R5
+                STRB    R8, [R4, R6]
+                ADDS    R6, R6, #1
+                MOV     R5, R7
+                CMP     R5, #0
+                BNE     extract_digits
+
+                SUBS    R6, R6, #1
+                LDRB    R7, [R4, R6]    ; Current digit.
+                MOVS    R8, #1          ; Run length.
+                MOVS    R9, #0          ; Result.
+
+look_loop
+                CMP     R6, #0
+                BEQ     append_look_run
+                SUBS    R6, R6, #1
+                LDRB    R5, [R4, R6]
+                CMP     R5, R7
+                BNE     append_then_continue
+                ADDS    R8, R8, #1
+                B       look_loop
+
+append_then_continue
+                MUL     R9, R9, R10
+                ADD     R9, R9, R7
+                MUL     R9, R9, R10
+                ADD     R9, R9, R8
+                MOV     R7, R5
+                MOVS    R8, #1
+                B       look_loop
+
+append_look_run
+                MUL     R9, R9, R10
+                ADD     R9, R9, R7
+                MUL     R9, R9, R10
+                ADD     R9, R9, R8
+                MOV     R0, R9
+                ADD     SP, SP, #16
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2026-02-03_ARM2-Q2", "date": "2026-02-03", "question": "Q2", "requirement_summary": "Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.", "keywords": "ADC potentiometer KEY1 debounce LED high8 RLE", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q2/main.c", "function_or_handler": "main; ADC_IRQHandler; EINT1_IRQHandler", "argument_mapping": "ADC fresh flag feeds main; debounced KEY1 triggers assembly", "architecture": "C ADC + IRQ", "constants": "12-bit ADC; high8/low8", "peripheral_tags": "LED|Buttons|Debounce|ADC", "interrupt_tags": "EINT|ADC IRQ|Acknowledgement", "timing_tags": "", "architecture_tags": "C-to-assembly", "algorithm_tags": "", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/main.c ---
+/* Exam of 3 February 2026: debounced button and stable result display. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+extern uint32_t run_length_encoding(uint32_t digits);
+
+/* Foreground-owned state: IRQs only capture input or publish events. */
+static uint8_t latest_value;
+static uint8_t have_sample;
+
+void EINT1_IRQHandler(void)
+{
+  (void)exam_debounce_begin(EXAM_BUTTON_KEY1);
+}
+
+void RIT_IRQHandler(void)
+{
+  exam_rit_ack();
+  exam_debounce_tick();
+}
+
+void ADC_IRQHandler(void) { exam_adc_irq_capture(); }
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Package debounce recommendation; the paper does not prescribe 10/50 ms. */
+  if (exam_debounce_config(10u, 50u) != EXAM_OK ||
+      exam_rit_config_ms(10u) != EXAM_OK) {
+    exam_led_write(0xFFu);
+    for (;;) { __WFI(); }
+  }
+  exam_rit_start();
+  exam_adc_init();
+  exam_adc_start();
+
+  for (;;) {
+    uint16_t sample;
+    if (exam_adc_take(&sample)) {
+      uint8_t value = (uint8_t)(sample >> 4);
+      /* Hold a computed result until the potentiometer high8 value changes.
+         The paper specifies no fixed result-hold duration. */
+      if (!have_sample || value != latest_value) exam_led_write(value);
+      latest_value = value;
+      have_sample = 1u;
+      exam_adc_start();
+    }
+    if ((exam_button_events_take() & EXAM_BUTTON_EVENT_KEY1) != 0u && have_sample) {
+      exam_led_write((uint8_t)run_length_encoding(latest_value));
+    }
+    __WFI();
+  }
+}

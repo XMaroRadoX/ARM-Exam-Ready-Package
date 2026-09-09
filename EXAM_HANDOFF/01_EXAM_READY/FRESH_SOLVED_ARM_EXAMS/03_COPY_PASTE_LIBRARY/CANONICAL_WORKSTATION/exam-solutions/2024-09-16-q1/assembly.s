@@ -36,7 +36,11 @@ kr_h_wall       CMP     R0, #1
                 B       kr_merge
 kr_vertical     SUB     R6, R6, R10
                 CMP     R6, R10
-                BHS     kr_check_done
+                BLO     kr_vertical_valid
+                CMP     R5, R10         ; no later wall is reachable if x>=N,y>=N
+                BHS     kr_done         ; failure: leave partial labels for caller
+                B       kr_check_done
+kr_vertical_valid
                 LDRB    R0, [R9, R6]
                 CMP     R0, #0
                 BNE     kr_v_wall

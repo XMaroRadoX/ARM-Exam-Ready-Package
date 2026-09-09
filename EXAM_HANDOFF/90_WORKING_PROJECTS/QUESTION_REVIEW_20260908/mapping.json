@@ -1,0 +1,1208 @@
+[
+  {
+    "question": {
+      "question_id": "2023-02-07-Q1",
+      "date": "2023-02-07",
+      "question": "Q1",
+      "requirement_summary": "Copy signed bytes into byte storage, then sort ascending with insertion sort.",
+      "keywords": "copy signed-byte insertion-sort array ABI",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q1/assembly.s",
+      "function_or_handler": "copyData; insertionSort",
+      "argument_mapping": "R0 source, R1 destination, R2 length; then R0 array, R1 length",
+      "architecture": "assembly algorithm",
+      "constants": "signed byte storage",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI",
+      "algorithm_tags": "Arrays|Sorting",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-02-07",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230207 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-02-07-Q2",
+      "date": "2023-02-07",
+      "question": "Q2",
+      "requirement_summary": "Capture characters with INT0 using Timer1 and alternate LEDs 6/7; KEY1 sorts and lights LED11.",
+      "keywords": "Timer1 modulo INT0 KEY1 raw interrupt LED sort",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q2/main.c",
+      "function_or_handler": "main; EINT0_IRQHandler; EINT1_IRQHandler",
+      "argument_mapping": "INT0 reads Timer1 TC immediately; KEY1 calls insertionSort inside EINT1_IRQHandler",
+      "architecture": "C peripherals + IRQ",
+      "constants": "Timer1 MR0=0xFF; reset without match IRQ",
+      "peripheral_tags": "LED|Buttons|Timer1",
+      "interrupt_tags": "EINT|Acknowledgement",
+      "timing_tags": "Modulo|Capture",
+      "architecture_tags": "",
+      "algorithm_tags": "Sorting",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2023-02-07",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230207 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-02-24-Q1",
+      "date": "2023-02-24",
+      "question": "Q1",
+      "requirement_summary": "Iterate the four-digit Kaprekar routine until 6174 and return the iteration count.",
+      "keywords": "Kaprekar digit frequency sort 6174 loop",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q1/assembly.s",
+      "function_or_handler": "KaprekarRoutine",
+      "argument_mapping": "R0 four-digit value; R0 iteration count",
+      "architecture": "assembly algorithm",
+      "constants": "target 6174",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Sorting|Decimal",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-02-24",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230224 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-02-24-Q2",
+      "date": "2023-02-24",
+      "question": "Q2",
+      "requirement_summary": "Handle SVC number 50, read the stacked argument, run Kaprekar, and return the count through the exception frame.",
+      "keywords": "SVC exception stack frame MSP PSP immediate handler",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q2/assembly.s",
+      "function_or_handler": "SVC_Handler",
+      "argument_mapping": "stacked R0 input; stacked R0 output; SVC immediate 50",
+      "architecture": "exception handler",
+      "constants": "SVC #50",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "Delays",
+      "architecture_tags": "SVC|Exceptions",
+      "algorithm_tags": "Decimal",
+      "usage_tags": "Complete recipe|Direct registers"
+    },
+    "exam": "E2023-02-24",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230224 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-05-17-Q1",
+      "date": "2023-05-17",
+      "question": "Q1",
+      "requirement_summary": "Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL and return a signed 32-bit quotient.",
+      "keywords": "signed division 64 32 long-division two-word no-mul ABI",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q1/assembly.s",
+      "function_or_handler": "SDIV64",
+      "argument_mapping": "R0 upper dividend, R1 lower dividend, R2 divisor; R0 quotient",
+      "architecture": "assembly arithmetic",
+      "constants": "32 quotient iterations",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI",
+      "algorithm_tags": "Arithmetic",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-05-17",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230517 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-05-17_Signed_64_Division/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-05-17-Q2",
+      "date": "2023-05-17",
+      "question": "Q2",
+      "requirement_summary": "Extend signed 64/32 division with the requested N, Z, C and V result flags.",
+      "keywords": "APSR NZCV signed division overflow flags",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q2/assembly.s",
+      "function_or_handler": "SDIV64S",
+      "argument_mapping": "same arguments as SDIV64; R0 quotient and APSR flags",
+      "architecture": "assembly arithmetic + flags",
+      "constants": "NZCV",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arithmetic",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-05-17",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230517 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-05-17_Signed_64_Division/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-07-04-Q1",
+      "date": "2023-07-04",
+      "question": "Q1",
+      "requirement_summary": "Generate and validate a sociable-number chain, stopping within eight elements.",
+      "keywords": "sociable aliquot proper-divisor sum cycle array",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q1/assembly.s",
+      "function_or_handler": "isSociable",
+      "argument_mapping": "R0 start, R1 output area; R0 chain length or zero",
+      "architecture": "assembly algorithm",
+      "constants": "maximum 8 elements",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-07-04",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230704 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-07-04-Q2",
+      "date": "2023-07-04",
+      "question": "Q2",
+      "requirement_summary": "Every two seconds test the next source value and display the result as a one-hot LED value.",
+      "keywords": "Timer1 periodic 2s LED one-hot sociable",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q2/main.c",
+      "function_or_handler": "main; answer_timer1",
+      "argument_mapping": "Timer1 IRQ advances the source array",
+      "architecture": "C timer + IRQ",
+      "constants": "2000 ms",
+      "peripheral_tags": "LED|Timer1",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "Periodic|Delays",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Recurrence",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2023-07-04",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230704 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-09-18-Q1",
+      "date": "2023-09-18",
+      "question": "Q1",
+      "requirement_summary": "Build the digit-addition series in memory and return the accumulated digit sum, returning zero on overflow.",
+      "keywords": "digit sum series overflow carry memory",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q1/assembly.s",
+      "function_or_handler": "digitSum; digitaddition",
+      "argument_mapping": "R0 area, R1 count; R0 total or zero",
+      "architecture": "assembly algorithm",
+      "constants": "unsigned carry detection",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Arithmetic|Decimal",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2023-09-18",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230918 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2023-09-18-Q2",
+      "date": "2023-09-18",
+      "question": "Q2",
+      "requirement_summary": "Raw button interrupts compose binary K; INT0 builds the series and checks the stated identity on LEDs4/5.",
+      "keywords": "buttons raw INT0 KEY1 KEY2 binary K identity LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q2/main.c",
+      "function_or_handler": "main; EINT0_IRQHandler; EINT1_IRQHandler; EINT2_IRQHandler",
+      "argument_mapping": "EINT1 appends0; EINT2 appends1; EINT0 runs the computation",
+      "architecture": "C state machine + IRQ",
+      "constants": "K up to 50",
+      "peripheral_tags": "LED|Buttons",
+      "interrupt_tags": "EINT|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "C-to-assembly",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2023-09-18",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230918 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-02-12-Q1",
+      "date": "2024-02-12",
+      "question": "Q1",
+      "requirement_summary": "Propagate maze direction letters from the exit until no additional cells can be labelled.",
+      "keywords": "maze flood-fill propagation N E S W fixed-point",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q1/assembly.s",
+      "function_or_handler": "mazeSolver",
+      "argument_mapping": "R0 rows, R1 columns, R2 flat maze address",
+      "architecture": "assembly maze algorithm",
+      "constants": "walls # and exit E",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Maze",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2024-02-12",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240212 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-02-12-Q2",
+      "date": "2024-02-12",
+      "question": "Q2",
+      "requirement_summary": "Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.",
+      "keywords": "LCG Timer0 KEY2 debounce random maze",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q2/main.c",
+      "function_or_handler": "main; next_random; EINT2_IRQHandler",
+      "argument_mapping": "Timer0 TC seeds LCG; KEY2 event starts generation",
+      "architecture": "C peripherals + algorithm",
+      "constants": "modulus 101; threshold 18",
+      "peripheral_tags": "Buttons|Debounce|Timer0",
+      "interrupt_tags": "EINT|Timer IRQ|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "C-to-assembly",
+      "algorithm_tags": "Recurrence|Maze",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2024-02-12",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240212 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-02-28-Q1",
+      "date": "2024-02-28",
+      "question": "Q1",
+      "requirement_summary": "Compute shortest-path distances from the exit through an encoded maze.",
+      "keywords": "maze shortest path distance propagation breadth fixed-point",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q1/assembly.s",
+      "function_or_handler": "shortestPath",
+      "argument_mapping": "R0 rows, R1 columns, R2 maze address; R0 start distance",
+      "architecture": "assembly maze algorithm",
+      "constants": "0 wall, 1 start, 2 exit",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Searching|Maze",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2024-02-28",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240228 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-02-28-Q2",
+      "date": "2024-02-28",
+      "question": "Q2",
+      "requirement_summary": "Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.",
+      "keywords": "Timer0 500ms LED route directions state machine",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q2/main.c",
+      "function_or_handler": "main; answer_timer0",
+      "argument_mapping": "Timer0 IRQ alternates direction and blank phases",
+      "architecture": "C timer state machine",
+      "constants": "500 ms phases",
+      "peripheral_tags": "LED|Timer0",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "Delays",
+      "architecture_tags": "",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2024-02-28",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240228 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-07-09-Q1",
+      "date": "2024-07-09",
+      "question": "Q1",
+      "requirement_summary": "Choose a valid neighbor, including a SysTick-based randomized selection helper.",
+      "keywords": "choose neighbor random SysTick modulo DFS",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q1/assembly.s",
+      "function_or_handler": "chooseNeighbor; chooseRandomNeighbor",
+      "argument_mapping": "R0-R3 neighbor states; R0 direction 0..4",
+      "architecture": "assembly helper",
+      "constants": "directions 1..4",
+      "peripheral_tags": "SysTick",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI",
+      "algorithm_tags": "Sorting|Maze",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2024-07-09",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240709 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-07-09-Q2",
+      "date": "2024-07-09",
+      "question": "Q2",
+      "requirement_summary": "Run randomized depth-first maze traversal with stack backtracking and a strong Reset_Handler that starts SysTick.",
+      "keywords": "DFS maze stack backtrack Reset_Handler SysTick LOAD",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/main.c; 03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/assembly.s",
+      "function_or_handler": "depthFirstSearch; Reset_Handler",
+      "argument_mapping": "R0 maze, R1 rows, R2 columns, R3 start",
+      "architecture": "assembly traversal + startup",
+      "constants": "SysTick LOAD 0xFFFFFF",
+      "peripheral_tags": "SysTick",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "Reset",
+      "algorithm_tags": "Arrays|Searching|Maze",
+      "usage_tags": "Complete recipe|Direct registers"
+    },
+    "exam": "E2024-07-09",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240709 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/main.c",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-09-16-Q1",
+      "date": "2024-09-16",
+      "question": "Q1",
+      "requirement_summary": "Apply Kruskal-style wall removal using seven ABI arguments and merge component labels.",
+      "keywords": "Kruskal maze seven arguments stack ABI merge components",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q1/assembly.s",
+      "function_or_handler": "kruskal",
+      "argument_mapping": "R0-R3 first four args; remaining three on caller stack",
+      "architecture": "assembly graph algorithm + ABI",
+      "constants": "horizontal/vertical wall arrays",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI|Stack arguments",
+      "algorithm_tags": "Arrays|Graph|Maze",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2024-09-16",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240916 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2024-09-16-Q2",
+      "date": "2024-09-16",
+      "question": "Q2",
+      "requirement_summary": "Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.",
+      "keywords": "two button sequence raw parameters LED Kruskal",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/main.c",
+      "function_or_handler": "main; EINT1_IRQHandler; EINT2_IRQHandler",
+      "argument_mapping": "First raw IRQ selects increment; second selects offset and calls the algorithm",
+      "architecture": "C state machine + IRQ",
+      "constants": "choices 2,3,4",
+      "peripheral_tags": "LED|Buttons",
+      "interrupt_tags": "EINT|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "C-to-assembly",
+      "algorithm_tags": "Recurrence|Graph",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2024-09-16",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240916 arm.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM1-Q1",
+      "date": "2025-01-29",
+      "question": "Q1",
+      "requirement_summary": "Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.",
+      "keywords": "affine transformation GF2 bit matrix XOR",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q1/assembly.s",
+      "function_or_handler": "bitwiseAffineTransformation",
+      "argument_mapping": "R0 input byte; R1 matrix; R2 vector; R0 transformed byte",
+      "architecture": "assembly bit algorithm",
+      "constants": "8x8 GF(2)",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Bits|Matrix",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-01-29-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM1-Q2",
+      "date": "2025-01-29",
+      "question": "Q2",
+      "requirement_summary": "Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.",
+      "keywords": "Timer1 INT0 KEY1 XOR affine Timer0 blink LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q2/main.c",
+      "function_or_handler": "main; answer_timer0",
+      "argument_mapping": "debounced events capture and transform; Timer0 toggles display",
+      "architecture": "C peripherals + IRQ",
+      "constants": "500 ms blink",
+      "peripheral_tags": "LED|Buttons|Debounce|Timer0|Timer1",
+      "interrupt_tags": "EINT|Timer IRQ|Acknowledgement|Event Flags",
+      "timing_tags": "Capture|Delays|Multi-timer",
+      "architecture_tags": "",
+      "algorithm_tags": "Bits",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-01-29-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM2-Q1",
+      "date": "2025-01-29",
+      "question": "Q1",
+      "requirement_summary": "Multiply two 8x8 bit matrices over GF(2).",
+      "keywords": "bit matrix multiplication GF2 parity rows columns",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm2-q1/assembly.s",
+      "function_or_handler": "bitMatrixMultiplication",
+      "argument_mapping": "R0 A, R1 B, R2 C",
+      "architecture": "assembly bit algorithm",
+      "constants": "8x8 matrices",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arithmetic|Bits|Matrix",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-01-29-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM2-Q2",
+      "date": "2025-01-29",
+      "question": "Q2",
+      "requirement_summary": "Capture matrix rows with Timer1 and buttons, compute C, and display its rows periodically.",
+      "keywords": "Timer1 buttons matrix rows Timer0 LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm2-q2/main.c",
+      "function_or_handler": "main; answer_timer0",
+      "argument_mapping": "events fill A/B; Timer0 cycles C rows",
+      "architecture": "C peripherals + IRQ",
+      "constants": "8 rows",
+      "peripheral_tags": "LED|Buttons|Timer0|Timer1",
+      "interrupt_tags": "Timer IRQ|Acknowledgement|Event Flags",
+      "timing_tags": "Periodic|Capture|Multi-timer",
+      "architecture_tags": "",
+      "algorithm_tags": "Matrix",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-01-29-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM3-Q1",
+      "date": "2025-01-29",
+      "question": "Q1",
+      "requirement_summary": "Transpose an 8x8 bit matrix stored as eight bytes.",
+      "keywords": "bit matrix transpose 8x8 masks",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q1/assembly.s",
+      "function_or_handler": "transposition",
+      "argument_mapping": "R0 input address, R1 output address",
+      "architecture": "assembly bit algorithm",
+      "constants": "8 bytes",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Bits|Matrix",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-01-29-A3",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM3.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-01-29_ARM3-Q2",
+      "date": "2025-01-29",
+      "question": "Q2",
+      "requirement_summary": "Capture A and B with Timer2 and verify transpose distributes over XOR.",
+      "keywords": "Timer2 buttons transpose XOR identity LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q2/main.c",
+      "function_or_handler": "main",
+      "argument_mapping": "events fill matrices then compare both sides of identity",
+      "architecture": "C peripherals + verification",
+      "constants": "(A xor B)^T",
+      "peripheral_tags": "LED|Buttons|Timer2",
+      "interrupt_tags": "Event Flags",
+      "timing_tags": "Capture",
+      "architecture_tags": "",
+      "algorithm_tags": "Bits|Matrix",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-01-29-A3",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM3.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-02-12_ARM1-Q1",
+      "date": "2025-02-12",
+      "question": "Q1",
+      "requirement_summary": "Approximate sine with the requested Maclaurin terms and fixed-point scaling.",
+      "keywords": "Maclaurin sine fixed point factorial powers",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q1/assembly.s",
+      "function_or_handler": "Maclaurin",
+      "argument_mapping": "R0 angle/fixed input; R0 approximation",
+      "architecture": "assembly arithmetic",
+      "constants": "sine series",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arithmetic",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-02-12-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-02-12_ARM1-Q2",
+      "date": "2025-02-12",
+      "question": "Q2",
+      "requirement_summary": "Generate a 45-sample sine waveform through the DAC at the required Timer0 threshold.",
+      "keywords": "DAC speaker sine table Timer0 45 wrap",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q2/main.c",
+      "function_or_handler": "main; answer_timer0",
+      "argument_mapping": "Timer0 IRQ writes one DAC sample and wraps index",
+      "architecture": "C DAC + timer IRQ",
+      "constants": "45 samples; k=1263",
+      "peripheral_tags": "Timer0|DAC|Speaker",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-02-12-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-02-12_ARM2-Q1",
+      "date": "2025-02-12",
+      "question": "Q1",
+      "requirement_summary": "Approximate cosine with the requested Maclaurin terms and fixed-point scaling.",
+      "keywords": "Maclaurin cosine fixed point factorial powers",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q1/assembly.s",
+      "function_or_handler": "Maclaurin",
+      "argument_mapping": "R0 angle/fixed input; R0 approximation",
+      "architecture": "assembly arithmetic",
+      "constants": "cosine series",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arithmetic",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-02-12-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-02-12_ARM2-Q2",
+      "date": "2025-02-12",
+      "question": "Q2",
+      "requirement_summary": "Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.",
+      "keywords": "DAC speaker cosine table Timer1 45 wrap",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/main.c",
+      "function_or_handler": "main; answer_timer1",
+      "argument_mapping": "Timer1 IRQ writes one DAC sample and wraps index",
+      "architecture": "C DAC + timer IRQ",
+      "constants": "45 samples; k=1592",
+      "peripheral_tags": "Timer1|DAC|Speaker",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-02-12-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM1-Q1",
+      "date": "2025-07-01",
+      "question": "Q1",
+      "requirement_summary": "Implement nextElementLCG and fill a DIM-byte array in Reset_Handler; DIM=10 in the worked answer.",
+      "keywords": "LCG five arguments PUSH POP stack STRB Reset_Handler byte array",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q1/assembly.s",
+      "function_or_handler": "nextElementLCG; Reset_Handler",
+      "argument_mapping": "R0 previous, R1 a, R2 c, R3 n; fifth argument m on stack; return R0",
+      "architecture": "assembly arithmetic + ABI",
+      "constants": "seed=1; a=131; c=7; n=0..9; m=255; 10 elements",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI|Stack arguments",
+      "algorithm_tags": "Arithmetic|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-07-01-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250701.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q1/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM1-Q2",
+      "date": "2025-07-01",
+      "question": "Q2",
+      "requirement_summary": "Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.",
+      "keywords": "Timer0 3s LED modulo ten calls nextElementLCG",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/main.c; 03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/assembly.s",
+      "function_or_handler": "main; TIMER0_IRQHandler; nextElementLCG",
+      "argument_mapping": "R0 previous, R1 a, R2 c, R3 n; fifth argument m on stack; return R0",
+      "architecture": "C timer IRQ + ARM assembly",
+      "constants": "seed=1; a=131; c=7; n=0..9; m=255; 10 elements",
+      "peripheral_tags": "LED|Timer0",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "3000 ms periodic",
+      "architecture_tags": "C-to-assembly|Stack arguments",
+      "algorithm_tags": "Recurrence",
+      "usage_tags": "Complete recipe|Direct registers"
+    },
+    "exam": "E2025-07-01-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250701.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/main.c",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/assembly.s",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/IRQ_timer.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM1-Q3",
+      "date": "2025-07-01",
+      "question": "Q3",
+      "requirement_summary": "Accept only the first joystick movement per three-second LED round; score ten rounds and show LED4 for victory or LED5 otherwise.",
+      "keywords": "Timer0 3s joystick edges rhythm LED RIT",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/main.c; 03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/assembly.s",
+      "function_or_handler": "main; TIMER0_IRQHandler; RIT_IRQHandler; game_next_round; game_poll_joystick; nextElementLCG",
+      "argument_mapping": "Timer0 opens rounds; RIT polls new direction edges; waiting_for_move accepts one response.",
+      "architecture": "C state machine + IRQ",
+      "constants": "seed=1; a=131; c=7; n=0..9; m=255; 10 elements; Timer0=3000ms; RIT=10ms; final score at 33s",
+      "peripheral_tags": "LED|Timer0|RIT|Joystick",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "Delays",
+      "architecture_tags": "",
+      "algorithm_tags": "Games",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-07-01-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/ARM questions/20250701.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/main.c",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/assembly.s",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/IRQ_RIT.c",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/IRQ_timer.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM2-Q1",
+      "date": "2025-07-01",
+      "question": "Q1",
+      "requirement_summary": "Fill an LCG sequence through an assembly routine using AAPCS arguments.",
+      "keywords": "LCG sequence array modulus AAPCS",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q1/assembly.s",
+      "function_or_handler": "LCGsequence",
+      "argument_mapping": "R0 area, R1 length, R2 seed, R3 parameters per paper",
+      "architecture": "assembly arithmetic",
+      "constants": "sequence fill",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "ABI",
+      "algorithm_tags": "Arrays|Arithmetic|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2025-07-01-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM2-Q2",
+      "date": "2025-07-01",
+      "question": "Q2",
+      "requirement_summary": "Strong Reset_Handler prepares the LCG data required by the board exercise.",
+      "keywords": "Reset_Handler LCG sequence startup",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q2/assembly.s",
+      "function_or_handler": "Reset_Handler",
+      "argument_mapping": "initializes storage then transfers to __main",
+      "architecture": "startup assembly",
+      "constants": "256 elements",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "Reset|Assembly-to-C",
+      "algorithm_tags": "Recurrence",
+      "usage_tags": "Complete recipe|Direct registers"
+    },
+    "exam": "E2025-07-01-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2025-07-01_ARM2-Q3",
+      "date": "2025-07-01",
+      "question": "Q3",
+      "requirement_summary": "Run the Timer1/joystick first-movement rhythm interaction without hidden background ownership.",
+      "keywords": "Timer1 2.5s joystick first movement edge RIT LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/main.c",
+      "function_or_handler": "main; answer_joystick_sample; answer_timer1",
+      "argument_mapping": "RIT detects first edge; Timer1 advances rounds",
+      "architecture": "C state machine + IRQ",
+      "constants": "2500 ms",
+      "peripheral_tags": "LED|Timer1|RIT|Joystick",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "Delays",
+      "architecture_tags": "",
+      "algorithm_tags": "Games",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2025-07-01-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_07_01/ARM2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM1-Q1",
+      "date": "2026-02-03",
+      "question": "Q1",
+      "requirement_summary": "Produce the next look-and-say term from an unsigned decimal integer.",
+      "keywords": "look-and-say decimal runs digit count",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm1-q1/assembly.s",
+      "function_or_handler": "Look_and_Say",
+      "argument_mapping": "R0 digits; R0 next term",
+      "architecture": "assembly decimal algorithm",
+      "constants": "count then digit",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Decimal",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-02-03-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM1_LookAndSay_ADC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM1-Q2",
+      "date": "2026-02-03",
+      "question": "Q2",
+      "requirement_summary": "Continuously display ADC high eight bits; INT0 freezes them, calls Look_and_Say, and displays the low result byte.",
+      "keywords": "ADC potentiometer INT0 debounce LED high8",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm1-q2/main.c",
+      "function_or_handler": "main; ADC_IRQHandler; EINT0_IRQHandler",
+      "argument_mapping": "ADC fresh flag feeds main; debounced INT0 triggers assembly",
+      "architecture": "C ADC + IRQ",
+      "constants": "12-bit ADC; high8/low8",
+      "peripheral_tags": "LED|Buttons|Debounce|ADC",
+      "interrupt_tags": "EINT|ADC IRQ|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "C-to-assembly",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-02-03-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM1_LookAndSay_ADC/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM2-Q1",
+      "date": "2026-02-03",
+      "question": "Q1",
+      "requirement_summary": "Run-length encode decimal digit runs as digit followed by count.",
+      "keywords": "run length encoding decimal runs compression",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q1/assembly.s",
+      "function_or_handler": "run_length_encoding",
+      "argument_mapping": "R0 digits; R0 encoded value",
+      "architecture": "assembly decimal algorithm",
+      "constants": "digit then count",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Decimal",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-02-03-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM2-Q2",
+      "date": "2026-02-03",
+      "question": "Q2",
+      "requirement_summary": "Continuously display ADC high eight bits; KEY1 runs RLE and displays the low result byte.",
+      "keywords": "ADC potentiometer KEY1 debounce LED high8 RLE",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q2/main.c",
+      "function_or_handler": "main; ADC_IRQHandler; EINT1_IRQHandler",
+      "argument_mapping": "ADC fresh flag feeds main; debounced KEY1 triggers assembly",
+      "architecture": "C ADC + IRQ",
+      "constants": "12-bit ADC; high8/low8",
+      "peripheral_tags": "LED|Buttons|Debounce|ADC",
+      "interrupt_tags": "EINT|ADC IRQ|Acknowledgement",
+      "timing_tags": "",
+      "architecture_tags": "C-to-assembly",
+      "algorithm_tags": "",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-02-03-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM3-Q1",
+      "date": "2026-02-03",
+      "question": "Q1",
+      "requirement_summary": "Fill up to 255 words with the Recaman sequence.",
+      "keywords": "Recaman sequence uniqueness array positive subtraction",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q1/assembly.s",
+      "function_or_handler": "Recaman",
+      "argument_mapping": "R0 area, R1 uint8 length",
+      "architecture": "assembly sequence algorithm",
+      "constants": "maximum 255",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-02-03-A3",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_3.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-03_ARM3-Q2",
+      "date": "2026-02-03",
+      "question": "Q2",
+      "requirement_summary": "Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.",
+      "keywords": "ADC KEY2 debounce Timer0 2s Recaman LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q2/main.c",
+      "function_or_handler": "main; answer_timer0",
+      "argument_mapping": "ADC supplies length; KEY2 builds; Timer0 displays",
+      "architecture": "C ADC + timer IRQ",
+      "constants": "2000 ms; 255 words",
+      "peripheral_tags": "LED|Buttons|Debounce|Timer0|ADC",
+      "interrupt_tags": "EINT|Timer IRQ|ADC IRQ|Acknowledgement",
+      "timing_tags": "Periodic|Delays",
+      "architecture_tags": "",
+      "algorithm_tags": "Recurrence",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-02-03-A3",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_3.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-18_ARM1-Q1",
+      "date": "2026-02-18",
+      "question": "Q1",
+      "requirement_summary": "Fill 1000 Hofstadter Q terms iteratively and return the maximum.",
+      "keywords": "Hofstadter Q sequence iterative maximum array",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q1/assembly.s",
+      "function_or_handler": "HofstadterQ",
+      "argument_mapping": "R0 area, R1 dimension; R0 maximum",
+      "architecture": "assembly sequence algorithm",
+      "constants": "1000 terms in board part",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-02-18-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-18_ARM1-Q2",
+      "date": "2026-02-18",
+      "question": "Q2",
+      "requirement_summary": "Map Hofstadter Q values to note pitch and duration with three timers and stream SinTable to the DAC.",
+      "keywords": "three timers audio DAC SinTable pitch duration one-shot",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q2/main.c",
+      "function_or_handler": "answer_timer0; answer_timer1; answer_timer2",
+      "argument_mapping": "Timer0=A 50ms, Timer1=B pitch, Timer2=C duration",
+      "architecture": "C timers + DAC IRQ",
+      "constants": "Pmax/Pmin 5351/1062 and 40000000/625000; k 1/5",
+      "peripheral_tags": "Timer0|Timer1|Timer2|DAC|Speaker",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "One-shot|Delays|Multi-timer",
+      "architecture_tags": "",
+      "algorithm_tags": "Recurrence",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-02-18-A1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-18_ARM2-Q1",
+      "date": "2026-02-18",
+      "question": "Q1",
+      "requirement_summary": "Fill 1000 Hofstadter-Conway terms iteratively and return the maximum.",
+      "keywords": "Hofstadter Conway sequence iterative maximum array",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q1/assembly.s",
+      "function_or_handler": "HofstadterConway",
+      "argument_mapping": "R0 area, R1 dimension; R0 maximum",
+      "architecture": "assembly sequence algorithm",
+      "constants": "1000 terms in board part",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Recurrence",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-02-18-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-02-18_ARM2-Q2",
+      "date": "2026-02-18",
+      "question": "Q2",
+      "requirement_summary": "Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.",
+      "keywords": "three timers audio DAC SinTable pitch duration one-shot",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q2/main.c",
+      "function_or_handler": "answer_timer0; answer_timer1; answer_timer2",
+      "argument_mapping": "Timer0=A 50ms, Timer1=B pitch, Timer2=C duration",
+      "architecture": "C timers + DAC IRQ",
+      "constants": "same two threshold formulas",
+      "peripheral_tags": "Timer0|Timer1|Timer2|DAC|Speaker",
+      "interrupt_tags": "Timer IRQ|Acknowledgement",
+      "timing_tags": "One-shot|Delays|Multi-timer",
+      "architecture_tags": "",
+      "algorithm_tags": "Recurrence",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-02-18-A2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-06-25_ARM1-Q1",
+      "date": "2026-06-25",
+      "question": "Q1",
+      "requirement_summary": "Compute bulls and cows using per-digit frequency arrays and pack the score.",
+      "keywords": "Bulls and Cows frequency exact partial packed score",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q1/assembly.s",
+      "function_or_handler": "BullsAndCows",
+      "argument_mapping": "R0 guess, R1 secret, R2 guessFrequency, R3 secretFrequency",
+      "architecture": "assembly game algorithm",
+      "constants": "(2*bulls-1)<<4 plus (2*cows-1)",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Decimal|Games",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-06-25-B1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-06-25_ARM1-Q2",
+      "date": "2026-06-25",
+      "question": "Q2",
+      "requirement_summary": "Implement the full joystick Bulls-and-Cows game, preserving one timer-derived secret across guesses.",
+      "keywords": "joystick game Timer0 secret debounce edges LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q2/main.c",
+      "function_or_handler": "main; answer_joystick_sample",
+      "argument_mapping": "Timer0 TC creates secret; RIT polls joystick edges",
+      "architecture": "C game state machine",
+      "constants": "four digits 0..3",
+      "peripheral_tags": "LED|Debounce|Timer0|RIT|Joystick",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Decimal|Games",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-06-25-B1",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_1.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/main.c"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-06-25_ARM2-Q1",
+      "date": "2026-06-25",
+      "question": "Q1",
+      "requirement_summary": "Compute exact and partial Mastermind matches with used-position arrays and pack the score.",
+      "keywords": "Mastermind exact partial used arrays packed score",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q1/assembly.s",
+      "function_or_handler": "Mastermind",
+      "argument_mapping": "R0 guess, R1 secret, R2 usedGuess, R3 usedSecret",
+      "architecture": "assembly game algorithm",
+      "constants": "(2*exact-1)<<4 plus (2*partial-1)",
+      "peripheral_tags": "",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Arrays|Games",
+      "usage_tags": "Complete recipe"
+    },
+    "exam": "E2026-06-25-B2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/assembly.s"
+    ]
+  },
+  {
+    "question": {
+      "question_id": "2026-06-25_ARM2-Q2",
+      "date": "2026-06-25",
+      "question": "Q2",
+      "requirement_summary": "Implement the full joystick Mastermind game with the paper-specific direction mapping.",
+      "keywords": "joystick Mastermind Timer0 secret RIT edges LED",
+      "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q2/main.c",
+      "function_or_handler": "main; answer_joystick_sample",
+      "argument_mapping": "Timer0 TC creates secret; RIT polls joystick edges",
+      "architecture": "C game state machine",
+      "constants": "four digits 0..3",
+      "peripheral_tags": "LED|Timer0|RIT|Joystick",
+      "interrupt_tags": "",
+      "timing_tags": "",
+      "architecture_tags": "",
+      "algorithm_tags": "Decimal|Games",
+      "usage_tags": "Complete recipe|Professor interface|Exam API"
+    },
+    "exam": "E2026-06-25-B2",
+    "pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_2.pdf",
+    "sources": [
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/main.c"
+    ]
+  }
+]

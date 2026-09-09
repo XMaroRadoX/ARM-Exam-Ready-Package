@@ -1,0 +1,75 @@
+.syntax unified
+.cpu cortex-m3
+.thumb
+.text
+.global shortestPath
+shortestPath:
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R1
+                MOV     R5, R2
+                MUL     R6, R0, R1
+                MOVS    R7, #0
+sp_wave:
+MOVS    R12, #0
+                MOVS    R8, #0
+sp_scan:
+CMP     R8, R6
+                BHS     sp_next_wave
+                LDRB    R9, [R5, R8]
+                CMP     R9, #' '
+                BNE     sp_check_entry
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BNE     sp_scan_next
+sp_mark:
+ADDS    R9, R7, #1
+                STRB    R9, [R5, R8]
+                ADD     R12, R12, #1
+                B       sp_scan_next
+sp_check_entry:
+CMP     R9, #'e'
+                BNE     sp_scan_next
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+sp_scan_next:
+ADDS    R8, R8, #1
+                B       sp_scan
+sp_next_wave:
+CMP     R12, #0
+                BEQ     sp_unreachable
+                ADDS    R7, R7, #1
+                CMP     R7, #32
+                BLO     sp_wave
+sp_unreachable:
+MVN     R0, #0
+                POP     {R4-R11, R12, PC}
+sp_found:
+MOV     R0, R7
+                POP     {R4-R11, R12, PC}

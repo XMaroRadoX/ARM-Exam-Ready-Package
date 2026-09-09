@@ -8,7 +8,7 @@ extern uint32_t bitwiseAffineTransformation(const uint8_t *matrix,
                                              uint32_t c);
 
 static const uint8_t transformation_matrix[8] = {
-  0xF8u, 0x7Cu, 0x3Eu, 0x1Fu, 0x8Fu, 0xC7u, 0xE3u, 0xF1u
+  0x8Fu, 0xC7u, 0xE3u, 0xF1u, 0xF8u, 0x7Cu, 0x3Eu, 0x1Fu
 };
 
 static uint8_t displayed_value;

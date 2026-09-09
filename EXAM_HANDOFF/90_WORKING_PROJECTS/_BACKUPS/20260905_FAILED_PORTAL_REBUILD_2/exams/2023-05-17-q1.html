@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL and return a signed 32-bit quotient.">
+  <title>2023-05-17 Signed 64 Division — Q1 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2023-05-17.html">2023-05-17 Signed 64 Division</a><span aria-hidden="true">/</span><span aria-current="page">Q1</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2023-05-17 Signed 64 Division — Q1</h1><p>Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL and return a signed 32-bit quotient.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-complete-arm-assembly-answer">Complete ARM assembly answer</a><a href="#section-why-the-important-lines-are-there">Why the important lines are there</a><a href="#section-complexity-and-memory">Complexity and memory</a><a href="#section-common-wrong-answers">Common wrong answers</a><a href="#section-source-status">Source status</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Divide a signed 64-bit dividend by a signed 32-bit divisor without MUL and return a signed 32-bit quotient.</dd></div><div class="fact"><dt>Required answer</dt><dd>Assembly</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>SDIV64</dd></div><div class="fact"><dt>Architecture</dt><dd>assembly arithmetic</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/22-23/20230517%20arm.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>R0 upper dividend, R1 lower dividend, R2 divisor; R0 quotient</p><p><strong>Constants:</strong> 32 quotient iterations</p><p><strong>Components:</strong> Arithmetic, ABI</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><h2 id="section-complete-arm-assembly-answer">Complete ARM assembly answer</h2><details class="code-panel" open><summary>Show complete assembly solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q1/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 1">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  SDIV64
+                EXPORT  SDIV64S
+
+; int32_t SDIV64(int32_t upper, uint32_t lower, int32_t divisor)
+SDIV64          PROC
+                PUSH    {R4-R8, LR}
+                EOR     R4, R0, R2      ; sign of quotient
+                CMP     R0, #0
+                BGE     div_abs_d
+                MVN     R1, R1
+                MVN     R0, R0
+                ADDS    R1, R1, #1
+                MOVS    R8, #0
+                ADCS    R0, R0, R8
+div_abs_d       CMP     R2, #0
+                IT      LT
+                RSBLT   R2, R2, #0
+                MOVS    R3, #0          ; quotient
+                MOVS    R5, #32
+div_loop        LSLS    R1, R1, #1
+                ADC     R0, R0, R0      ; shift U:L left as one 64-bit value
+                LSLS    R3, R3, #1
+                CMP     R0, R2
+                BLO     div_next
+                SUB     R0, R0, R2
+                ORR     R3, R3, #1
+div_next        SUBS    R5, R5, #1
+                BNE     div_loop
+                CMP     R4, #0
+                IT      MI
+                RSBMI   R3, R3, #0
+                MOV     R0, R3
+                POP     {R4-R8, PC}
+                ENDP
+
+; Same quotient, with N/Z from the result, C=0 and V from the paper&#x27;s test.
+SDIV64S         PROC
+                PUSH    {R4-R8, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                CMP     R4, #0
+                BGE     divs_abs_d
+                MVN     R5, R5
+                MVN     R4, R4
+                ADDS    R5, R5, #1
+                MOVS    R8, #0
+                ADCS    R4, R4, R8
+divs_abs_d      CMP     R6, #0
+                IT      LT
+                RSBLT   R6, R6, #0
+                LSRS    R6, R6, #1
+                CMP     R6, R4
+                ITE     HI
+                MOVHI   R7, #0
+                MOVLS   R7, #1          ; overflow flag
+                BL      SDIV64
+                MRS     R4, APSR
+                BIC     R4, R4, #0xF0000000
+                CMP     R0, #0
+                IT      MI
+                ORRMI   R4, R4, #0x80000000
+                IT      EQ
+                ORREQ   R4, R4, #0x40000000
+                CMP     R7, #0
+                IT      NE
+                ORRNE   R4, R4, #0x10000000
+                MSR     APSR_nzcvq, R4
+                POP     {R4-R8, PC}
+                ENDP
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-why-the-important-lines-are-there">Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2 id="section-complexity-and-memory">Complexity and memory</h2><p>The algorithm tags are Arithmetic. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2 id="section-common-wrong-answers">Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2 id="section-source-status">Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><p>Use the tags above in the Algorithms and Solution Patterns sections.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

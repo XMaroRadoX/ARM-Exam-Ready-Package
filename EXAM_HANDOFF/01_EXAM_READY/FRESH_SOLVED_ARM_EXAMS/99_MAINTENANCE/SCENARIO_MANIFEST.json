@@ -11053,8 +11053,8 @@
     "route": "patterns/paper-e2025-07-01-a1.html",
     "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/paper-e2025-07-01-a1",
     "files": {
-      "Source/sample.c": "a414acb0c6e07a2ffc4e62a3a218b249a591ec2f07108b3e1b292986f97ec9dd",
-      "Source/ASM_funct.s": "0ad448703b70f4c4000eb25a1d62eb8c46157c004a3b1ea18a8e9bdcf56b7f94",
+      "Source/sample.c": "2745e7459552311a9f8dff9db6d28316b83b2c1a4d9da82c6b4c12e6fc1eee80",
+      "Source/ASM_funct.s": "f6c5f9894dd14a4248ed88584589e6e1faa7d780c6f8068186ea69109e72799e",
       "Source/button_EXINT/IRQ_button.c": "9fdf27f29f4b41e96dd41b3d8423310bb377ed085242ed8891efdb00466aa04e",
       "Source/timer/IRQ_timer.c": "9fdf27f29f4b41e96dd41b3d8423310bb377ed085242ed8891efdb00466aa04e",
       "Source/RIT/IRQ_RIT.c": "9fdf27f29f4b41e96dd41b3d8423310bb377ed085242ed8891efdb00466aa04e",
@@ -11069,13 +11069,15 @@
     ],
     "history": "Appeared in past exams",
     "questions": [
+      "2025-07-01_ARM1-Q2",
       "2025-07-01_ARM1-Q3"
     ],
     "group": "Past exams",
     "mode": null,
     "clock": null,
     "resources": [
-      "2025-07-01_ARM1-Q3: main; answer_joystick_sample; answer_timer0; RIT polls edges; Timer0 advances rounds; 3000 ms"
+      "2025-07-01_ARM1-Q2: main; TIMER0_IRQHandler; nextElementLCG; R0 previous, R1 a, R2 c, R3 n; fifth argument m on stack; return R0; seed=1; a=131; c=7; n=0..9; m=255; 10 elements",
+      "2025-07-01_ARM1-Q3: main; TIMER0_IRQHandler; RIT_IRQHandler; game_next_round; game_poll_joystick; nextElementLCG; Timer0 opens rounds; RIT polls new direction edges; waiting_for_move accepts one response.; seed=1; a=131; c=7; n=0..9; m=255; 10 elements; Timer0=3000ms; RIT=10ms; final score at 33s"
     ],
     "expected": "Follow the exact input sequence and expected result in the linked original question and reviewed mapping.",
     "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source",

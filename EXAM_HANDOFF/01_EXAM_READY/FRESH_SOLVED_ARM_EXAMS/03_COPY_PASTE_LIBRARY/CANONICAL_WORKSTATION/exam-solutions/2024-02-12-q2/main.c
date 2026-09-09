@@ -12,7 +12,7 @@ extern uint32_t mazeSolver(uint32_t rows, uint32_t columns, uint8_t *maze);
 static uint8_t maze[NUM_ROWS][NUM_COLUMNS];
 static volatile uint32_t longest_path;
 
-static uint32_t lcg_next(uint32_t value) { return (value * 18u) % 101u; }
+static uint32_t lcg_next(uint32_t value) { return ((value % 101u) * 18u) % 101u; }
 
 static void generate_maze(uint32_t seed)
 {

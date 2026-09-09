@@ -25,6 +25,15 @@ validation limits recorded in `ASM_REFERENCE_VALIDATION.json`.
 
 ## Courses, search, and exam guidance
 
+### Algorithm-only updates
+
+Use `python -B BUILD_STUDENT_PORTAL.py --algorithms-only` in an isolated current
+copy to regenerate the complete algorithm catalog and Basic Exam Algorithms
+index. This route preserves pattern entries classified as Algorithms, refreshes
+the source corpus and navigation, and retains the enhanced search controls.
+Do not call `BASE_BUILD_SEARCH` directly after a partial content build: it skips
+search metadata, section bindings, and the presentation controls.
+
 ### Search-only updates
 
 Use `python -B REFRESH_SEARCH.py` in an isolated current copy when changing
@@ -38,6 +47,11 @@ interrupts, timing, and ABI/memory tags in their respective question-index
 columns. Recognition phrases and exact function names remain separate.
 Exam-level tags are the union of the question tags; original PDFs receive
 whole-paper metadata, never a guessed question-to-page mapping.
+
+Search data loads on demand through local classic scripts, including under
+`file:` URLs. Keep corpus references as `data-search-corpus data-src` so browsing
+does not load the full corpus. Run `node VERIFY_SEARCH_SPEED.cjs --browser`
+with Playwright and an installed browser after changing these controls.
 
 Global, catalog, and API-sidebar searches share `portal_logic.js`. Catalog
 cards are matched against their associated full content, with a direct link

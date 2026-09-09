@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Maintain repeated timing over many intervals">
+  <title>Periodic match scheduling · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">Periodic match scheduling</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>Periodic match scheduling</h1><p>Maintain repeated timing over many intervals</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-timer-call-effects">Timer call effects</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Maintain repeated timing over many intervals.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Resetting from delayed foreground can accumulate drift.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>State whether to catch up, drop, or count missed deadlines.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Choose reset-on-match or advance compare from previous deadline
+2. acknowledge
+3. bound delayed catch-up</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>deadlines100,200,300 remain scheduled even if servicing at205.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. State whether to catch up, drop, or count missed deadlines.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Resetting from delayed foreground can accumulate drift.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>State whether to catch up, drop, or count missed deadlines.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>late service; wrap; missed multiple intervals.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Resetting from delayed foreground can accumulate drift. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">timer periodic</a><a href="#variant-1">timer multiple matches</a><a href="#variant-2">dac duration</a></nav><h3 id="variant-0">Baseline: timer periodic</h3><p>Count and display every half-second match.</p><p>After reset count=0; after two matches count=2 and display=0x02.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0: 500 ms; TIMER0_IRQHandler updates count; foreground idle</td></tr></tbody></table><p>Entry: main. Relevant functions: require, TIMER0_IRQHandler, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+volatile uint32_t tick_count;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags = exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags, 0u)) {
+    ++tick_count;
+    exam_led_write((uint8_t)tick_count);
+  }
+}
+int main(void) {
+  exam_init();
+  require(exam_timer_config_ms(EXAM_TIMER0, 500u, EXAM_TIMER_PERIODIC));
+  exam_timer_start(EXAM_TIMER0);
+  for (;;) {}
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-periodic/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: timer multiple matches</h3><p>Configure four match notifications using explicit PCLK and PR.</p><p>At core100MHz,divider4,PR24, matches arrive at250us,500us,750us,1000us; MR0 resets the period.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0:four match channels; one handler tests a single snapshot</td></tr></tbody></table><p>Entry: main. Relevant functions: require, main, TIMER0_IRQHandler. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+volatile uint32_t matches[4];
+static void require(exam_status_t s) { if (s != EXAM_OK) for (;;) {} }
+int main(void) {
+  exam_init();
+  require(exam_timer_config_ticks(EXAM_TIMER0, 1000u, EXAM_TIMER_PERIODIC));
+  require(exam_timer_set_clock_divider(EXAM_TIMER0, 4u));
+  require(exam_timer_set_prescaler(EXAM_TIMER0, 24u));
+  require(exam_timer_config_match(EXAM_TIMER0, 1u, 250u, EXAM_MATCH_INTERRUPT));
+  require(exam_timer_config_match(EXAM_TIMER0, 2u, 500u, EXAM_MATCH_INTERRUPT));
+  require(exam_timer_config_match(EXAM_TIMER0, 3u, 750u, EXAM_MATCH_INTERRUPT));
+  exam_timer_start(EXAM_TIMER0);
+  for (;;) {}
+}
+/* Replace TIMER0_IRQHandler in Source/timer/IRQ_timer.c; keep one definition. */
+void TIMER0_IRQHandler(void) {
+  uint32_t flags = exam_timer_ack(EXAM_TIMER0);
+  uint8_t i;
+  for (i = 0u; i &lt; 4u; ++i)
+    if (exam_timer_match_happened(flags, i)) ++matches[i];
+}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/timer-multiple-matches/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-2">Variant: dac duration</h3><p>Waveform timer plus independent duration timer.</p><p>Timer0 streams; after100ms Timer1 stops Timer0 and writes midpoint512. No queued playback resumes afterward.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0:1263 ticks/sample</td></tr><tr><td>Timer1:100ms one-shot stops Timer0</td></tr></tbody></table><p>Entry: main. Relevant functions: require, TIMER0_IRQHandler, begin_wave, TIMER1_IRQHandler, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+static const uint16_t waveform[8]={512u,768u,1023u,768u,512u,256u,0u,256u};
+volatile uint32_t sample_index, completed;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags,0u)) {
+    (void)exam_dac_write(waveform[sample_index]);
+    if (++sample_index == 8u) { sample_index=0u; ++completed; }
+  }
+}
+void begin_wave(void) {
+  sample_index=0u;completed=0u;
+  exam_timer_reset(EXAM_TIMER0);(void)exam_timer_ack(EXAM_TIMER0);exam_timer_start(EXAM_TIMER0);
+}
+void TIMER1_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER1);
+  if (exam_timer_match_happened(flags,0u)) { exam_timer_stop(EXAM_TIMER0);(void)exam_dac_write(512); }
+}
+int main(void) {
+  exam_init();exam_dac_init();
+  require(exam_timer_config_ticks(EXAM_TIMER0,1263u,EXAM_TIMER_PERIODIC));
+  require(exam_timer_config_ms(EXAM_TIMER1,100u,EXAM_TIMER_ONE_SHOT));
+  begin_wave();exam_timer_start(EXAM_TIMER1);
+  for (;;) {}
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-17"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 17">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-18"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 18">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-19"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 19">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-20"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 20">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-21"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 21">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-22"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 22">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-timer-call-effects">Timer call effects</h2><table><thead><tr><th>Call</th><th>Counter</th><th>Configuration and interrupts</th></tr></thead><tbody><tr><td>General timer config_ticks/ms/hz</td><td>TC=PC=0; PR=0; stopped</td><td>Owns MR0, preserves MR1..3 and capture/output setup; clears IR and NVIC pending. Interrupt modes enable NVIC and assign priority equal to timer number.</td></tr><tr><td>General timer start</td><td>Count from current TC/PC</td><td>Retains configuration and pending flags; does not reset.</td></tr><tr><td>General timer stop</td><td>Pause TC/PC</td><td>Retains configuration and pending flags; does not disable NVIC.</td></tr><tr><td>General timer reset</td><td>TC=PC=0; stopped</td><td>Retains configuration; does not acknowledge IR or disable NVIC.</td></tr><tr><td>General timer ack</td><td>No counter change</td><td>Read IR once, clear those hardware flags, return saved bits 0..5. Does not explicitly clear NVIC pending.</td></tr><tr><td>RIT config</td><td>Counter=0; stopped</td><td>Select core clock, clear mask and hardware/controller pending, enable interrupt.</td></tr><tr><td>RIT reset</td><td>Counter=0; retains running state</td><td>Does not acknowledge the interrupt or change the interval.</td></tr><tr><td>SysTick config</td><td>Clear current count; starts immediately</td><td>Set reload and enable core-clock counting and its interrupt.</td></tr></tbody></table></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2023-07-04.html">E2023-07-04</a></li><li><a href="../exams/e2024-02-28.html">E2024-02-28</a></li><li><a href="../exams/e2024-07-09.html">E2024-07-09</a></li><li><a href="../exams/e2025-01-29-a1.html">E2025-01-29-A1</a></li><li><a href="../exams/e2025-01-29-a2.html">E2025-01-29-A2</a></li><li><a href="../exams/e2025-02-12-a1.html">E2025-02-12-A1</a></li><li><a href="../exams/e2025-02-12-a2.html">E2025-02-12-A2</a></li><li><a href="../exams/e2025-07-01-a1.html">E2025-07-01-A1</a></li><li><a href="../exams/e2025-07-01-a2.html">E2025-07-01-A2</a></li><li><a href="../exams/e2026-02-03-a3.html">E2026-02-03-A3</a></li><li><a href="../exams/e2026-02-18-a1.html">E2026-02-18-A1</a></li><li><a href="../exams/e2026-02-18-a2.html">E2026-02-18-A2</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "Q1": {
+    "status": "THUMB_RESET_HANDLER_EXECUTION_PASS",
+    "array": [
+      138,
+      234,
+      63,
+      103,
+      236,
+      71,
+      126,
+      198,
+      182,
+      125
+    ],
+    "stack_restored": true,
+    "array_overrun": false
+  },
+  "Q2": {
+    "status": "THUMB_EXECUTION_WITH_MOCK_PERIPHERALS_PASS",
+    "assertions": 6,
+    "abi": "R4-R11, SP restoration and 8-byte call alignment checked"
+  },
+  "Q3": {
+    "status": "THUMB_EXECUTION_WITH_MOCK_PERIPHERALS_PASS",
+    "assertions": 21,
+    "abi": "R4-R11, SP restoration and 8-byte call alignment checked"
+  },
+  "limits": [
+    "LLVM directive translation, not native Keil ARMASM",
+    "Mock peripherals, not physical board execution",
+    "10 ms input polling; no separate mechanical debounce guarantee"
+  ],
+  "source_sha256": {
+    "Q1/assembly.s": "a3235309d71f6d631e5ef7220bbfb7f8f3a790e0e73377fc1558b4b326d214a5",
+    "Q2/assembly.s": "a94b70a3b8b85f1ee2988289af1e2beceef9b1f9cfbaac7d18ff4471c7740285",
+    "Q2/IRQ_timer.c": "7f6df2635814b38c4bd4bec620bf441e0db239b41aa40b985389a58a98a95402",
+    "Q2/main.c": "a30b25f9fa9732fdfee5e41b1c92c4c922ec16632864e180bce3a7d847a1871f",
+    "Q3/assembly.s": "a94b70a3b8b85f1ee2988289af1e2beceef9b1f9cfbaac7d18ff4471c7740285",
+    "Q3/IRQ_RIT.c": "339089c34d5cef6645032b0a7530fe212cb20b1e0a99401bd9ba9f6c79e0e146",
+    "Q3/IRQ_timer.c": "7f6df2635814b38c4bd4bec620bf441e0db239b41aa40b985389a58a98a95402",
+    "Q3/main.c": "3498f30860342b785a5f3a15a4629eed53610452d258a38dfa43c08f31a75eb4"
+  }
+}

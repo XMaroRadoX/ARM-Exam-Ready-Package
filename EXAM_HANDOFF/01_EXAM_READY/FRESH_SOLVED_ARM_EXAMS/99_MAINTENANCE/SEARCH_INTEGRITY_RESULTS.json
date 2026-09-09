@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "checks": 174599,
-  "records": 10492,
-  "sourceIdentities": 30959,
-  "inventoriedFiles": 30866,
+  "checks": 181684,
+  "records": 10950,
+  "sourceIdentities": 31687,
+  "inventoriedFiles": 26438,
   "reviewedExams": 23,
   "reviewedQuestions": 48,
   "attachments": 378,

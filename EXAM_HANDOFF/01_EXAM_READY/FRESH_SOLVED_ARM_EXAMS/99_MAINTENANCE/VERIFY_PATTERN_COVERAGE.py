@@ -31,7 +31,7 @@ def main():
   except (ValueError,FileNotFoundError) as e:check(False,str(e))
   check((folder/'README.md').exists(),key+': missing replacement instructions')
   for doc in ['EXAM_API_QUICK_REFERENCE.md','API_GAP_REPORT.md']:
-   check((folder/doc).read_bytes()==(b.STARTING_TEMPLATE/doc).read_bytes(),key+': copied API reference is stale '+doc)
+   check((folder/doc).read_bytes()==(b.TEMPLATE_REFERENCE/doc).read_bytes(),key+': copied API reference is stale '+doc)
   current={str(f.relative_to(folder)):sha(f) for f in [folder/'sample.uvprojx',*sorted((folder/'Source').rglob('*'))] if f.is_file()}
   n=native.get(key,{})
   check(n.get('status')=='PASS' and n.get('sources')==current,key+': native build absent, failed or stale')

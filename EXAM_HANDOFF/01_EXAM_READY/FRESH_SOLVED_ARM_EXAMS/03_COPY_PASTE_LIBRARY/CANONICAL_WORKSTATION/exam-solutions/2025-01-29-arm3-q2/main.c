@@ -5,7 +5,7 @@
 
 /* Single-LED API arguments are physical board labels LD4 through LD11. */
 
-extern void transpose(const uint8_t *source, uint8_t *destination);
+extern void transposition(const uint8_t *source, uint8_t *destination);
 
 static uint8_t matrix_a[8];
 static uint8_t matrix_b[8];
@@ -49,9 +49,9 @@ void EINT0_IRQHandler(void)
     matrix_a_xor_b[i] = matrix_a[i] ^ matrix_b[i];
   }
 
-  transpose(matrix_a_xor_b, left_side);
-  transpose(matrix_a, transpose_a);
-  transpose(matrix_b, transpose_b);
+  transposition(matrix_a_xor_b, left_side);
+  transposition(matrix_a, transpose_a);
+  transposition(matrix_b, transpose_b);
 
   for (i = 0u; i < 8u; i++) {
     right_side[i] = transpose_a[i] ^ transpose_b[i];

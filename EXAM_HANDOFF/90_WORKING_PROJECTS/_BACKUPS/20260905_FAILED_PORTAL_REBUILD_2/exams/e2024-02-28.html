@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Compute shortest-path distances from the exit through an encoded maze.; Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.">
+  <title>2024-02-28 ShortestPath Timer · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2024-02-28 ShortestPath Timer</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2024-02-28 ShortestPath Timer</h1><p>Compute shortest-path distances from the exit through an encoded maze.; Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2024-02-28</dd></div><div class="fact"><dt>Variant</dt><dd>ShortestPath Timer</dd></div><div class="fact"><dt>Questions</dt><dd>2</dd></div><div class="fact"><dt>Components</dt><dd>LED, Timer0, Timer IRQ, Acknowledgement, Delays</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/23-24/20240228%20arm.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Compute shortest-path distances from the exit through an encoded maze.</p><div class="tag-list"><span class="tag">Searching</span><span class="tag">Maze</span></div><p><a href="2024-02-28-q1.html">Read complete solution for Q1</a></p><p><a href="../algorithms/flood-fill-and-maze-propagation.html">Study Maze</a></p></article><article class="question"><h3>Q2</h3><p>Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.</p><div class="tag-list"><span class="tag">LED</span><span class="tag">Timer0</span><span class="tag">Delays</span></div><p><a href="2024-02-28-q2.html">Read complete solution for Q2</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Timer0, Timer IRQ, Acknowledgement, Delays.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Searching, Maze. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2024-02-28_ShortestPath_Timer/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+static void leds_fill(void)
+{
+  (void)exam_led_write(0xFFu);
+}
+#define ROWS 9u
+#define COLS 8u
+#define EVENT_HALF_SECOND (1u&lt;&lt;0)
+extern uint32_t shortestPath(uint32_t rows,uint32_t columns,uint8_t *maze);
+static uint8_t maze[ROWS][COLS]={&quot;XXXXXXXX&quot;,{&#x27;X&#x27;,0,&#x27; &#x27;,&#x27; &#x27;,&#x27; &#x27;,&#x27; &#x27;,&#x27; &#x27;,&#x27;X&#x27;},&quot;X XXXX X&quot;,&quot;X      X&quot;,&quot;XX X XXX&quot;,&quot;X  X  eX&quot;,&quot;X XX XXX&quot;,&quot;X      X&quot;,&quot;XXXXXXXX&quot;};
+static uint32_t position;
+static int32_t step_value;
+static uint8_t showing;
+
+void TIMER0_IRQHandler(void)
+{ if ((exam_timer_ack(EXAM_TIMER0) &amp; 1u) != 0u) exam_events_set(EVENT_HALF_SECOND); }
+
+static uint8_t find_entrance(void)
+{ uint32_t i; uint8_t *cells=&amp;maze[0][0]; for(i=0u;i&lt;ROWS*COLS;++i)if(cells[i]==&#x27;e&#x27;){position=i;return 1u;} return 0u; }
+
+static void show_next_move(void)
+{
+  uint32_t next=position; uint8_t board_label=4u;
+  if(step_value&lt;0){exam_led_clear();return;}
+  uint8_t *cells=&amp;maze[0][0];
+  if(cells[position+1u]==(uint8_t)step_value){next=position+1u;board_label=4u;}
+  else if(cells[position+COLS]==(uint8_t)step_value){next=position+COLS;board_label=5u;}
+  else if(cells[position-1u]==(uint8_t)step_value){next=position-1u;board_label=6u;}
+  else if(cells[position-COLS]==(uint8_t)step_value){next=position-COLS;board_label=7u;}
+  else { step_value=-1; return; }
+  position=next; (void)exam_led_on(board_label); showing=1u;
+}
+
+int main(void)
+{
+  exam_init();
+  step_value=(int32_t)shortestPath(ROWS,COLS,&amp;maze[0][0]);
+  showing=0u; exam_led_clear();
+  if(!find_entrance() ||
+     exam_timer_config_ms(EXAM_TIMER0,500u,EXAM_TIMER_PERIODIC)!=EXAM_OK) {
+    leds_fill();
+  } else {
+    exam_timer_start(EXAM_TIMER0);
+  }
+
+  for (;;) {
+    if((exam_events_take(EVENT_HALF_SECOND)&amp;EVENT_HALF_SECOND)==0u) {
+      __WFI();
+      continue;
+    }
+    if(showing){exam_led_clear();showing=0u;--step_value;} else show_next_move();
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2024-02-28_ShortestPath_Timer/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  shortestPath
+
+; uint32_t shortestPath(uint32_t rows, uint32_t columns, uint8_t *maze)
+shortestPath    PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R1          ; columns
+                MOV     R5, R2          ; maze
+                MUL     R6, R0, R1      ; cells
+                MOVS    R7, #0          ; current wave value
+sp_wave        MOVS    R8, #0
+sp_scan        CMP     R8, R6
+                BHS     sp_next_wave
+                LDRB    R9, [R5, R8]
+                CMP     R9, #&#x27; &#x27;
+                BNE     sp_check_entry
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BNE     sp_scan_next
+sp_mark         ADDS    R9, R7, #1
+                STRB    R9, [R5, R8]
+                B       sp_scan_next
+sp_check_entry  CMP     R9, #&#x27;e&#x27;
+                BNE     sp_scan_next
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+sp_scan_next    ADDS    R8, R8, #1
+                B       sp_scan
+sp_next_wave    ADDS    R7, R7, #1
+                B       sp_wave
+sp_found        MOV     R0, R7
+                POP     {R4-R11, R12, PC}
+                ENDP
+                END
+
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><ul><li><a href="../patterns/flood-fill-and-maze-propagation.html">Flood fill and maze propagation</a></li><li><a href="../algorithms/flood-fill-and-maze-propagation.html">Flood fill and maze propagation</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

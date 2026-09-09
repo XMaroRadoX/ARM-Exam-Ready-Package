@@ -1,0 +1,30 @@
+[
+  {
+    "project": "Q1_Assembly",
+    "target": "LandTiger_LPC1768 (release)",
+    "result": "PASS",
+    "source_files": 18,
+    "warnings": 0
+  },
+  {
+    "project": "Q1_Assembly",
+    "target": "SW_Debug",
+    "result": "PASS",
+    "source_files": 18,
+    "warnings": 0
+  },
+  {
+    "project": "Q2_Timer_LEDs",
+    "target": "LandTiger_LPC1768 (release)",
+    "result": "PASS",
+    "source_files": 18,
+    "warnings": 0
+  },
+  {
+    "project": "Q2_Timer_LEDs",
+    "target": "SW_Debug",
+    "result": "PASS",
+    "source_files": 18,
+    "warnings": 0
+  }
+]

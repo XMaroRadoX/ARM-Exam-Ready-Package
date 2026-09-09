@@ -21,7 +21,10 @@ static void handle_button(exam_button_t button)
   } else if (button == EXAM_BUTTON_INT0) {
     series[0] = entered_value;
     reported = digitaddition(series, 10u);
-    formula = series[9] - series[0] + digitSum(series[9]);
+    /* Zero seed legitimately generates ten zeroes. Other zero returns mean
+       overflow and leave the tail incomplete, so do not read that tail. */
+    formula = (reported || series[0] == 0u)
+      ? series[9] - series[0] + digitSum(series[9]) : UINT32_MAX;
     if (reported == formula) {
       (void)exam_led_on(4u);
       (void)exam_led_off(5u);

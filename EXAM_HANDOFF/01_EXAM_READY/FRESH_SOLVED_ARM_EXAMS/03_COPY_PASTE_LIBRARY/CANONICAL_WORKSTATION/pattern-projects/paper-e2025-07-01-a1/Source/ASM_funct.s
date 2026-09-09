@@ -1,56 +1,32 @@
-                AREA    |.text|, CODE, READONLY
                 PRESERVE8
                 THUMB
 
+                AREA    asm_functions, CODE, READONLY
                 EXPORT  nextElementLCG
 
-DIM             EQU     10
-
-                AREA    LCG_TEST_DATA, DATA, READWRITE, NOINIT
-; The template scatter file places this area in an UNINIT region.
-lcg_test_values SPACE   DIM
-
-                AREA    |.text|, CODE, READONLY
-
-; Reset starts at the hardware vector, fills the test array required by
-; question 1, then hands control to the C runtime and main program.
-                EXPORT  Reset_Handler
-                IMPORT  __main
-Reset_Handler   PROC
-                SUB     SP, SP, #8      ; Keep SP aligned; argument 5 at [SP].
-                MOVS    R4, #255
-                STR     R4, [SP]
-                LDR     R4, =lcg_test_values
-                MOVS    R0, #1          ; Seed.
-                MOVS    R5, #0          ; Index n.
-
-lcg_reset_loop
-                MOVS    R1, #131
-                MOVS    R2, #7
-                MOV     R3, R5
-                BL      nextElementLCG
-                STRB    R0, [R4, R5]
-                ADDS    R5, R5, #1
-                CMP     R5, #DIM
-                BLO     lcg_reset_loop
-
-                ADD     SP, SP, #8
-                LDR     R0, =__main
-                BX      R0
-                ENDP
-
-; uint32_t nextElementLCG(previous, a, c, index, modulus)
+; Inputs: R0=previous, R1=a, R2=c, R3=n, [SP]=m.
+; Output: R0=((a * previous + c) XOR n) mod m.
+; Parameters in this paper are unsigned and m=255 is nonzero.
 nextElementLCG  PROC
-                LDR     R12, [SP]       ; Fifth argument: modulus.
-                MUL     R0, R0, R1
-                ADDS    R0, R0, R2
-                EORS    R0, R0, R3
-                UDIV    R1, R0, R12
-                MLS     R0, R1, R12, R0
-                BX      LR
-                ENDP
+                ; Preserve the caller's R4 and the return address: 8 bytes.
+                PUSH    {R4, LR}
 
-                ALIGN   4
-                LTORG
-                ALIGN   4
+                ; The fifth argument was at [SP] on entry.
+                ; The push moved SP down 8 bytes, so now read [SP + 8].
+                LDR     R4, [SP, #8]
+
+                MUL     R0, R1, R0      ; a * previous
+                ADD     R0, R0, R2      ; Add c
+                EOR     R0, R0, R3      ; XOR with iteration n
+
+                ; Modulo = value - (integer quotient * modulus).
+                ; R1's original multiplier is no longer needed.
+                UDIV    R1, R0, R4
+                MUL     R1, R1, R4
+                SUB     R0, R0, R1      ; Leave the remainder in R0
+
+                ; Restore R4 and return by loading the saved LR into PC.
+                ; Do not restore R0: that would overwrite our answer.
+                POP     {R4, PC}
+                ENDP
                 END

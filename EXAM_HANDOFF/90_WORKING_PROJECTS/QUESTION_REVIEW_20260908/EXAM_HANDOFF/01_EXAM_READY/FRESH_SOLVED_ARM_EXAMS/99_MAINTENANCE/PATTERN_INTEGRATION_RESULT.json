@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "reviewedFiles": 7314,
+  "backedUpExisting": 212,
+  "newFiles": 7102,
+  "snapshotFilesUnchangedBeforeCopy": 2428,
+  "postCopyHashChecks": 7314,
+  "backup": "90_WORKING_PROJECTS/_BACKUPS/20260904_PATTERN_API",
+  "otherWorktreesModified": false,
+  "physicalBoard": "Not tested",
+  "recipesPatched": 7,
+  "recipeHashChecks": 7
+}

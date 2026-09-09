@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.">
+  <title>2025-07-01 ARM 1 LCG Rhythm — Q2 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2025-07-01-a1.html">2025-07-01 ARM 1 LCG Rhythm</a><span aria-hidden="true">/</span><span aria-current="page">Q2</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-07-01 ARM 1 LCG Rhythm — Q2</h1><p>Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-put-each-complete-file-in-the-working-template">Put each complete file in the working template</a><a href="#section-what-happens-every-three-seconds">What happens every three seconds</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-c-answer">Complete C answer</a><a href="#section-complete-arm-assembly-answer">Complete ARM assembly answer</a><a href="#section-complete-replacement-irq-timer-c">Complete replacement: IRQ_timer.c</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.</dd></div><div class="fact"><dt>Required answer</dt><dd>C and assembly</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>main; TIMER0_IRQHandler; nextElementLCG</dd></div><div class="fact"><dt>Architecture</dt><dd>C timer IRQ + ARM assembly</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/ARM%20questions/20250701.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>R0 previous, R1 a, R2 c, R3 n; fifth argument m on stack; return R0</p><p><strong>Constants:</strong> seed=1; a=131; c=7; n=0..9; m=255; 10 elements</p><p><strong>Components:</strong> Recurrence, LED, Timer0, C-to-assembly, Stack arguments, 3000 ms periodic</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><p># Question 2: complete three-second LED answer</p><h2 id="section-put-each-complete-file-in-the-working-template">Put each complete file in the working template</h2><div class="table-wrap"><table><thead><tr><th>Download</th><th>Destination</th></tr></thead><tbody><tr><td>main.c</td><td>Source/sample.c</td></tr><tr><td>assembly.s</td><td>Source/ASM_funct.s</td></tr><tr><td>IRQ_timer.c</td><td>Source/timer/IRQ_timer.c</td></tr></tbody></table></div><p>The complete C answer includes TIMER0_IRQHandler so it is readable in one file. The provided IRQ_timer.c retains Timer1-3 and omits only the duplicate Timer0 handler. Replace files rather than appending a second handler. This changes placement only; it is the same timer/LED solution.</p><p>Keep the template's original startup file. Replace Q1's custom reset assembly with this callable-only assembly so normal Reset_Handler enters C main.</p><h2 id="section-what-happens-every-three-seconds">What happens every three seconds</h2><p>The timer handler acknowledges the MR0 interrupt, calls nextElementLCG once, selects the LED using 11 - (value % 4), clears the old LED, and turns on the new one. Static previous and n retain their values between interrupts.</p><p>The C compiler passes previous/a/c/n in R0-R3 and the fifth argument on the stack. The returned R0 becomes value.</p><div class="table-wrap"><table><thead><tr><th>Remainder</th><th>LED</th></tr></thead><tbody><tr><td>0</td><td>11</td></tr><tr><td>1</td><td>10</td></tr><tr><td>2</td><td>9</td></tr><tr><td>3</td><td>8</td></tr></tbody></table></div><p>Expected LED order: 9, 9, 8, 8, 11, 8, 9, 9, 9, 10.</p><p>The first LED appears at approximately 3 seconds. After the tenth call at approximately 30 seconds, Timer0 stops and LED10 stays on. No joystick or RIT is needed for Q2.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Do not restart previous or n on every interrupt. Do not call the assembly function from a fast foreground loop. Do not leave the old LED on. Do not pass low-level LED indexes to helpers that expect physical labels.</p></section><section class="section-block"><h2 id="section-complete-c-answer">Complete C answer</h2><details class="code-panel" open><summary>Show complete C solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Q2: one generated value and one LED every three seconds.
+ * Copy this complete file to Source/sample.c in a WORKING template.
+ * Use the supplied IRQ_timer.c replacement: Timer0 is owned here.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+/* Compiler passes the first four arguments in R0-R3 and m on the stack. */
+extern uint32_t nextElementLCG(uint32_t previous, uint32_t a,
+                               uint32_t c, uint32_t n, uint32_t m);
+
+void TIMER0_IRQHandler(void)
+{
+    /* Static locals retain their values between timer interrupts. */
+    static uint32_t previous = 1u;
+    static uint32_t n = 0u;
+    uint32_t pending;
+    uint32_t value;
+    uint32_t remainder;
+    uint8_t led;
+
+    pending = exam_timer_ack(EXAM_TIMER0); /* Read AND clear event flags. */
+    if ((pending &amp; 1u) == 0u) {
+        return;                           /* Not our MR0 interval event. */
+    }
+    if (n &gt;= 10u) {
+        return;                           /* Never call LCG an 11th time. */
+    }
+
+    value = nextElementLCG(previous, 131u, 7u, n, 255u);
+    remainder = value % 4u;
+    led = (uint8_t)(11u - remainder);      /* 0-&gt;11, 1-&gt;10, 2-&gt;9, 3-&gt;8. */
+
+    exam_led_clear();                     /* Old LED off before new LED on. */
+    exam_led_on(led);                      /* Physical board label, not index. */
+    previous = value;
+    n++;
+
+    if (n == 10u) {
+        exam_timer_stop(EXAM_TIMER0);      /* Q2 leaves the last LED lit. */
+    }
+}
+
+int main(void)
+{
+    exam_init();
+    exam_led_clear();
+    if (exam_timer_config_ms(EXAM_TIMER0, 3000u,
+                             EXAM_TIMER_PERIODIC) != EXAM_OK) {
+        while (1) { }                     /* Configuration failed. */
+    }
+    exam_timer_start(EXAM_TIMER0);
+    while (1) {
+        __WFI();                          /* Hardware schedules the work. */
+    }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-complete-arm-assembly-answer">Complete ARM assembly answer</h2><details class="code-panel" open><summary>Show complete assembly solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                PRESERVE8
+                THUMB
+
+                AREA    asm_functions, CODE, READONLY
+                EXPORT  nextElementLCG
+
+; Inputs: R0=previous, R1=a, R2=c, R3=n, [SP]=m.
+; Output: R0=((a * previous + c) XOR n) mod m.
+; Parameters in this paper are unsigned and m=255 is nonzero.
+nextElementLCG  PROC
+                ; Preserve the caller&#x27;s R4 and the return address: 8 bytes.
+                PUSH    {R4, LR}
+
+                ; The fifth argument was at [SP] on entry.
+                ; The push moved SP down 8 bytes, so now read [SP + 8].
+                LDR     R4, [SP, #8]
+
+                MUL     R0, R1, R0      ; a * previous
+                ADD     R0, R0, R2      ; Add c
+                EOR     R0, R0, R3      ; XOR with iteration n
+
+                ; Modulo = value - (integer quotient * modulus).
+                ; R1&#x27;s original multiplier is no longer needed.
+                UDIV    R1, R0, R4
+                MUL     R1, R1, R4
+                SUB     R0, R0, R1      ; Leave the remainder in R0
+
+                ; Restore R4 and return by loading the saved LR into PC.
+                ; Do not restore R0: that would overwrite our answer.
+                POP     {R4, PC}
+                ENDP
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-complete-replacement-irq-timer-c">Complete replacement: IRQ_timer.c</h2><details class="code-panel" open><summary>Show complete IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Complete replacement for Source/timer/IRQ_timer.c.
+ * TIMER0_IRQHandler is defined in the supplied sample.c answer.
+ * Keep the unused timer handlers here; do not duplicate Timer0.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+void TIMER1_IRQHandler(void) { exam_timer_ack(EXAM_TIMER1); }
+void TIMER2_IRQHandler(void) { exam_timer_ack(EXAM_TIMER2); }
+void TIMER3_IRQHandler(void) { exam_timer_ack(EXAM_TIMER3); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><p>Use the tags above in the Algorithms and Solution Patterns sections.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="AND corresponding bits and XOR the products instead of using integer addition.">
+  <title>GF(2) row-column dot products · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">GF(2) row-column dot products</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>GF(2) row-column dot products</h1><p>AND corresponding bits and XOR the products instead of using integer addition.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(8^3) time, O(1) space for fixed 8x8 matrices.</dd></div></dl><p><strong>Routine for this variation:</strong> <code>algorithm_gf_2_row_column_dot_products</code>. The downloadable file also includes its related helpers and variants.</p><p>This page shares its source implementation with related variants; it is not an additional independent implementation.</p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><p>Packed 8x8 binary matrices; bit 8*r+c represents cell(r,c). Multiplication is over GF(2): XOR the AND products.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>uint64_t algorithm_gf_2_row_column_dot_products(uint64_t a, uint64_t b);</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>algorithm_gf_2_row_column_dot_products</code></td><td><code>uint64_t a</code></td><td><code>R0:R1</code></td></tr><tr><td><code>algorithm_gf_2_row_column_dot_products</code></td><td><code>uint64_t b</code></td><td><code>R2:R3</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Clear output.</li><li>For every result row and column.</li><li>XOR the eight pairwise AND products.</li><li>Set the packed result bit.</li></ol><h3>Worked trace</h3><p>Multiplying any packed matrix by the binary identity preserves it.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/gf-2-row-column-dot-products/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Handwritten Cortex-M3 Thumb exam reference.
+; Verification status is supplied by the simulator/build reports.
+; uint64_t algorithm_gf_2_row_column_dot_products(uint64_t a, uint64_t b)
+; R0:R1=a, R2:R3=b, R0:R1=result over GF(2). Leaf; saves R4-R11.
+                AREA    |.text.patterns|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  algorithm_gf_2_row_column_dot_products
+
+algorithm_gf_2_row_column_dot_products PROC
+                PUSH    {R4-R11}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0         ; row
+matmul_row
+                MOVS    R11, #0         ; column
+matmul_column
+                MOVS    R0, #0          ; parity accumulator
+                MOVS    R12, #0         ; k
+matmul_dot
+                LSL     R1, R10, #3
+                ADD     R1, R1, R12     ; a index = row*8+k
+                CMP     R1, #32
+                BLO     matmul_a_low
+                SUB     R2, R1, #32
+                LSR     R2, R5, R2
+                B       matmul_a_ready
+matmul_a_low
+                LSR     R2, R4, R1
+matmul_a_ready
+                AND     R2, R2, #1
+
+                LSL     R1, R12, #3
+                ADD     R1, R1, R11     ; b index = k*8+column
+                CMP     R1, #32
+                BLO     matmul_b_low
+                SUB     R3, R1, #32
+                LSR     R3, R7, R3
+                B       matmul_b_ready
+matmul_b_low
+                LSR     R3, R6, R1
+matmul_b_ready
+                AND     R3, R3, #1
+                AND     R2, R2, R3
+                EOR     R0, R0, R2
+                ADD     R12, R12, #1
+                CMP     R12, #8
+                BNE     matmul_dot
+
+                CMP     R0, #0
+                BEQ     matmul_next_column
+                LSL     R1, R10, #3
+                ADD     R1, R1, R11
+                MOVS    R2, #1
+                CMP     R1, #32
+                BLO     matmul_set_low
+                SUB     R1, R1, #32
+                LSL     R2, R2, R1
+                ORR     R9, R9, R2
+                B       matmul_next_column
+matmul_set_low
+                LSL     R2, R2, R1
+                ORR     R8, R8, R2
+matmul_next_column
+                ADD     R11, R11, #1
+                CMP     R11, #8
+                BNE     matmul_column
+                ADD     R10, R10, #1
+                CMP     R10, #8
+                BNE     matmul_row
+                MOV     R0, R8
+                MOV     R1, R9
+                POP     {R4-R11}
+                BX      LR
+                ENDP
+
+                LTORG
+                ALIGN   2
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/gf-2-row-column-dot-products/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Packed binary matrix multiplication.
+ * Recognition cue: multiply packed binary matrices over GF(2).
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint64_t algorithm_gf_2_row_column_dot_products(uint64_t a, uint64_t b) {
+  uint64_t o = 0;
+  uint32_t r, c, k;
+  for (r = 0; r &lt; 8; r++)
+    for (c = 0; c &lt; 8; c++) {
+      uint32_t v = 0;
+      for (k = 0; k &lt; 8; k++)
+        v ^= (uint32_t)((a &gt;&gt; (r * 8 + k)) &amp; (b &gt;&gt; (k * 8 + c)) &amp; 1u);
+      o |= (uint64_t)v &lt;&lt; (r * 8 + c);
+    }
+  return o;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/gf-2-row-column-dot-products/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+
+/*
+ * Exam-study reference: Packed binary matrix multiplication.
+ * Recognition cue: multiply packed binary matrices over GF(2).
+ *
+ * Contract rules:
+ * - Fixed-width types make width and signedness part of the interface.
+ * - A pointer never carries its length; count/capacity arguments are explicit.
+ * - const input objects are not mutated. Non-const outputs may be changed only
+ *   within their documented bounds.
+ * - Invalid, empty, duplicate and arithmetic-limit behavior is executable in
+ *   pattern_edge_vectors() and described in the adjacent README.
+ *
+ * Trace the validation step first, then the main loop/recurrence invariant,
+ * then the final result or capacity check. Public suffix functions are named
+ * variants of the same advertised pattern, not unrelated shortcuts.
+ */
+
+/* Primary algorithm and its named variants. */
+uint64_t algorithm_gf_2_row_column_dot_products(uint64_t a, uint64_t b);
+
+static int pattern_core_vector(void) {
+  uint64_t i = UINT64_C(0x8040201008040201);
+  return algorithm_gf_2_row_column_dot_products(i, i) == i;
+}
+static int pattern_edge_vectors(void) {
+  uint64_t identity = UINT64_C(0x8040201008040201);
+  return algorithm_gf_2_row_column_dot_products(0, identity) == 0 &amp;&amp;
+         algorithm_gf_2_row_column_dot_products(identity, 0) == 0;
+}
+int pattern_test_suite(void) {
+  if (!pattern_core_vector())
+    return __LINE__;
+  if (!pattern_edge_vectors())
+    return __LINE__;
+  return 0;
+}
+int test_main(void) { return pattern_test_suite(); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

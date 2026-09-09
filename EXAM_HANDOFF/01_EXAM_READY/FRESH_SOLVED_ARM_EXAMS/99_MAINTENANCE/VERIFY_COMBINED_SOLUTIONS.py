@@ -6,6 +6,7 @@ import re
 import sys
 from canonical_api_reference import API_DOCS
 from pathlib import Path
+from question_review import read_reviews, current_sources
 
 
 PACKAGE = Path(__file__).resolve().parents[1]
@@ -24,9 +25,10 @@ API_HEADER = (
     / "exam_api.h"
 )
 
-EXPECTED_QUESTIONS = 48
-EXPECTED_C_FILES = 21
-EXPECTED_ASSEMBLY_FILES = 28
+REVIEWS = read_reviews()
+EXPECTED_QUESTIONS = len(REVIEWS)
+EXPECTED_C_FILES = sum(any(p.name == 'main.c' for p in current_sources(r)) for r in REVIEWS.values())
+EXPECTED_ASSEMBLY_FILES = sum(any(p.suffix == '.s' for p in current_sources(r)) for r in REVIEWS.values())
 
 BANNED_TOKENS = (
     "button_callback_t",
@@ -96,10 +98,11 @@ def main() -> int:
     for path in c_files:
         text = path.read_text(encoding="utf-8", errors="replace")
         label = path.relative_to(SOLUTIONS).as_posix()
-        used_api.update(names(r"\b(exam_[A-Za-z0-9_]+)\s*\(", text))
-
         if text.count('#include "exam_api.h"') != 1:
             issues.append(f"{label}: must include exam_api.h exactly once")
+        text += '\n' + '\n'.join(p.read_text(encoding='utf-8') for p in path.parent.glob('IRQ_*.c'))
+        used_api.update(names(r"\b(exam_[A-Za-z0-9_]+)\s*\(", text))
+        assembly_exports = names(r"^\s*(?:EXPORT|GLOBAL)\s+([A-Za-z_][A-Za-z0-9_]*)", (path.parent/'assembly.s').read_text(encoding='utf-8'))
         for token in BANNED_TOKENS:
             if re.search(rf"\b{re.escape(token)}\b", text):
                 issues.append(f"{label}: obsolete token {token}")

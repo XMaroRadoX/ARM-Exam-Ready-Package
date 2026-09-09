@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Return the arithmetic mean truncated toward zero. Require 1..INT32_MAX elements and valid pointers. The 64-bit sum prevents intermediate 32-bit overflow; invalid input returns 0 without writing.">
+  <title>Integer array mean · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Integer array mean</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Integer array mean</h1><p>Return the arithmetic mean truncated toward zero. Require 1..INT32_MAX elements and valid pointers. The 64-bit sum prevents intermediate 32-bit overflow; invalid input returns 0 without writing.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(count) time; O(1) auxiliary storage</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><div class="question"><h3>Exam question</h3><p>Write a C function and matching ARMASM subroutine named integer_array_mean to integer array mean. Use the exact interface below, obey the stated failure behaviour, and preserve the AAPCS register and stack rules.</p></div><p>Return the arithmetic mean truncated toward zero. Require 1..INT32_MAX elements and valid pointers. The 64-bit sum prevents intermediate 32-bit overflow; invalid input returns 0 without writing.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int integer_array_mean(const int32_t *values, uint32_t count, int32_t *mean_out)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>integer_array_mean</code></td><td><code>const int32_t *values</code></td><td><code>R0</code></td></tr><tr><td><code>integer_array_mean</code></td><td><code>uint32_t count</code></td><td><code>R1</code></td></tr><tr><td><code>integer_array_mean</code></td><td><code>int32_t *mean_out</code></td><td><code>R2</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Accumulate an exact signed 64-bit sum.</li><li>Divide the signed sum by the positive count.</li><li>Store the quotient, which always fits int32_t.</li></ol><h3>Worked trace</h3><p>For [-8,3,4], sum=-1 and -1/3 truncates toward zero to 0.</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-array-mean/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Integer array mean
+; int integer_array_mean(const int32_t *values, uint32_t count, int32_t *mean_out)
+; Return the arithmetic mean truncated toward zero. Require 1..INT32_MAX elements and valid pointers. The 64-bit sum prevents intermediate 32-bit overflow; invalid input returns 0 without writing.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT integer_array_mean
+integer_array_mean
+        ; R0=values, R1=count, R2=mean_out. __aeabi_ldivmod receives R0:R1 / R2:R3.
+        cmp r0,#0
+        beq iam_bad
+        cmp r2,#0
+        beq iam_bad
+        cmp r1,#0
+        beq iam_bad
+        bmi iam_bad
+        push {r4-r8,lr}
+        mov r4,r0
+        mov r5,r1
+        mov r6,r2
+        movs r7,#0
+        movs r8,#0
+        mov r12,r5
+iam_loop
+        ldr r0,[r4],#4
+        asr r1,r0,#31
+        adds r7,r7,r0
+        adc r8,r8,r1
+        subs r12,#1
+        bne iam_loop
+        mov r0,r7
+        mov r1,r8
+        mov r2,r5
+        movs r3,#0
+        bl __aeabi_ldivmod
+        str r0,[r6]
+        movs r0,#1
+        pop {r4-r8,pc}
+iam_bad
+        movs r0,#0
+        bx lr
+        IMPORT __aeabi_ldivmod
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-array-mean/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+/* Exam prompt: Integer array mean
+ * Contract: Return the arithmetic mean truncated toward zero. Require 1..INT32_MAX
+ * elements and valid pointers. The 64-bit sum prevents intermediate 32-bit overflow;
+ * invalid input returns 0 without writing. Method:
+ * 1. Accumulate an exact signed 64-bit sum.
+ * 2. Divide the signed sum by the positive count.
+ * 3. Store the quotient, which always fits int32_t.
+ */
+int integer_array_mean(const int32_t *values, uint32_t count, int32_t *mean_out) {
+  if (!values || !mean_out || count == 0 || count &gt; INT32_MAX)
+    return 0;
+  int64_t sum = 0;
+  for (uint32_t i = 0; i &lt; count; ++i)
+    sum += values[i];
+  *mean_out = (int32_t)(sum / (int64_t)count);
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/integer-array-mean/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int integer_array_mean(const int32_t *values, uint32_t count, int32_t *mean_out);
+int test_main(void) {
+  int32_t a[] = {-8, 3, 4}, b[] = {INT32_MAX, INT32_MAX}, m = 77;
+  CHECK(integer_array_mean(a, 3, &amp;m) &amp;&amp; m == 0);
+  CHECK(integer_array_mean(b, 2, &amp;m) &amp;&amp; m == INT32_MAX);
+  m = 77;
+  CHECK(!integer_array_mean(a, 0, &amp;m) &amp;&amp; m == 77);
+  CHECK(!integer_array_mean(0, 3, &amp;m) &amp;&amp; m == 77);
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Common exam mistakes</h3><ul><li>Dereferencing the data pointer before handling the documented empty-input case.</li><li>Using a result or accumulator width that is too small for the stated range.</li><li>Writing the output before every pointer, count and overflow condition has been validated.</li></ul><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

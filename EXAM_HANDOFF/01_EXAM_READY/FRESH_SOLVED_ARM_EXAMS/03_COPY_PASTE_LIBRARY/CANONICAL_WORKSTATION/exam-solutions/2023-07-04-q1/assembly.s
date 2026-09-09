@@ -37,6 +37,11 @@ sociable_not_found
 
 ; R0 = n. Return the aliquot sum in R0.
 aliquotSum      PROC
+                CMP     R0, #1
+                BHI     aliquot_nontrivial
+                MOVS    R0, #0
+                BX      LR
+aliquot_nontrivial
                 MOVS    R1, #1          ; sum = 1.
                 MOVS    R2, #2          ; a = 2.
 

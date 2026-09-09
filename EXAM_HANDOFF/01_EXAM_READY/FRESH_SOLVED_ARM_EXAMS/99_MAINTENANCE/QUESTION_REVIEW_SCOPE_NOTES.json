@@ -1,0 +1,105 @@
+{
+  "preexistingOutsideQuestionScope": [
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-apsr-flag-contract.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-assembly-objects-and-exported-symbols.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-balanced-early-exit-from-inner-search.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-fifth-and-later-arguments.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-four-register-argument-contract.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-nested-loops-with-preserved-outer-state.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-non-leaf-prologue-and-epilogue.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-register-preservation-and-stack-safety.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-row-major-matrix-addressing.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-signed-and-unsigned-byte-arrays.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/asm/technique-word-array-traversal.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-adapt-a-partial-pattern-match.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-assembly-stub-to-real-integration.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-build-recovery-and-submission.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/guides/technique-question-prose-to-a-contract.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/algorithms/fixed-point-multiply-and-recurrence.html",
+      "finding": "Existing presentation audit reports unequal listing and copy-control counts",
+      "unchangedFromBaseline": true,
+      "originalStillUnchanged": true
+    }
+  ],
+  "preexistingBrowserTestAssumption": {
+    "script": "BROWSER_SEARCH_QA.cjs",
+    "finding": "The broad browser script expects a data-filter=text control on algorithms/index.html, but that unchanged index uses the current static algorithm navigation. The script passes its exam-search checks before timing out there. BROWSER_QUESTION_REVIEW_QA.cjs covers the changed question pages and their exam/global search flows.",
+    "algorithmIndexUnchanged": true
+  }
+}

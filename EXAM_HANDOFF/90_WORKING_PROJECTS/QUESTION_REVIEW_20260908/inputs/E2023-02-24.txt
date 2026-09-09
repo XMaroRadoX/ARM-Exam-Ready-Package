@@ -1,0 +1,238 @@
+{"exam_id": "E2023-02-24", "date": "2023-02-24", "project": "2023-02-24_Kaprekar_SVC", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230224 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 24.02.2023 – part II 
+ 
+Question 1 
+ 
+Write the KaprekarRoutine subroutine, which receives in input a 32-bit unsigned number a, 
+ranging between 1000 and 9999. The subroutines implements the following tasks: 
+- it computes a new number b by sorting the digits of a by descending order 
+- it computes a new number c by sorting the digits of a by ascending order 
+- it returns d = b - c 
+ 
+Example. 
+a = 3075 
+The subroutine computes b = 7530 and c = 0357. 
+The returning value is d = 7530 – 357 = 7173. 
+ 
+You can obtain the digits of a number (from the least significant to the most significant) by 
+repeatedly dividing by 10 and taking the remainder. For example: 
+3075 / 10 = 307 with remainder 5 
+307 / 10 = 30 with remainder 7 
+30 / 10 = 3 with remainder 0 
+3 / 10 = 0 with remainder 3 
+ 
+After sorting the digits, you can build the new numbers b and c by repeated multiplication by 10. In 
+the previous example, the digits in descending order are 7, 5, 3, 0. You can build b as follows: 
+- first iteration: b = 7 
+- second iteration: b = 7 * 10 + 5 = 75 
+- third iteration: b = 75 * 10 + 3 = 753 
+- fourth iteration: b = 753 * 10 + 0 = 7530 
+ 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 24.02.2023 – part II 
+ 
+Question 2 
+ 
+Implement the handler for the supervisor call 50. 
+The handler repeatedly calls the KaprekarRoutine subroutine developed in the previous 
+exercise, passing the value stored in r0. The loop ends when the KaprekarRoutine subroutine 
+returns 6174. The handler sets r6 equal to the number of iterations (i.e., the number of times the 
+subroutine was called). 
+ 
+Examples 
+If the supervisor call is called with r0 = 3075, the subsequent values of r0 are: 7173 -> 6354 -> 
+3087 -> 8352 -> 6174 and the handler returns 5. 
+ 
+It is proved that, for any four-digit numbers in base 10 (with at least two distinct digits), the 
+Kaprekar's routine always yields the number 6174 after at most seven iterations. The value 6174 is 
+known as Kaprekar's constant. 
+ 
+Note: within the handler, you can get the 16-bit operating code of the supervisor call by accessing 
+the stack at position SP + 24 (you can assume that the calling program was using the main stack). 
+The immediate value of the supervisor call is stored in the least significant byte. 
+ 
+
+--- QUESTION ---
+{"question_id": "2023-02-24-Q1", "date": "2023-02-24", "question": "Q1", "requirement_summary": "Iterate the four-digit Kaprekar routine until 6174 and return the iteration count.", "keywords": "Kaprekar digit frequency sort 6174 loop", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q1/assembly.s", "function_or_handler": "KaprekarRoutine", "argument_mapping": "R0 four-digit value; R0 iteration count", "architecture": "assembly algorithm", "constants": "target 6174", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Sorting|Decimal", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  KaprekarRoutine
+                EXPORT  SVC_Handler
+
+; uint32_t KaprekarRoutine(uint32_t a)
+; R0 is a four-digit number. The 10-word local table counts its digits.
+KaprekarRoutine PROC
+                PUSH    {R4-R11, LR}
+                SUB     SP, SP, #44     ; 36+44 = 80 bytes, preserving alignment
+                MOV     R4, SP          ; frequency[10]
+                MOVS    R5, #0
+kap_clear       CMP     R5, #10
+                BHS     kap_extract
+                MOVS    R6, #0
+                STR     R6, [R4, R5, LSL #2]
+                ADDS    R5, R5, #1
+                B       kap_clear
+
+kap_extract     MOV     R7, R0
+                MOVS    R5, #4
+                MOVS    R8, #10
+kap_digit       UDIV    R9, R7, R8
+                MLS     R10, R9, R8, R7 ; remainder = value - quotient*10
+                LDR     R11, [R4, R10, LSL #2]
+                ADDS    R11, R11, #1
+                STR     R11, [R4, R10, LSL #2]
+                MOV     R7, R9
+                SUBS    R5, R5, #1
+                BNE     kap_digit
+
+                MOVS    R6, #0          ; descending number b
+                MOVS    R5, #9
+kap_desc_digit  LDR     R7, [R4, R5, LSL #2]
+kap_desc_repeat CMP     R7, #0
+                BEQ     kap_desc_next
+                MUL     R6, R6, R8
+                ADD     R6, R6, R5
+                SUBS    R7, R7, #1
+                B       kap_desc_repeat
+kap_desc_next   SUBS    R5, R5, #1
+                BPL     kap_desc_digit
+
+                MOVS    R7, #0          ; ascending number c
+                MOVS    R5, #0
+kap_asc_digit   LDR     R9, [R4, R5, LSL #2]
+kap_asc_repeat  CMP     R9, #0
+                BEQ     kap_asc_next
+                MUL     R7, R7, R8
+                ADD     R7, R7, R5
+                SUBS    R9, R9, #1
+                B       kap_asc_repeat
+kap_asc_next    ADDS    R5, R5, #1
+                CMP     R5, #10
+                BLO     kap_asc_digit
+
+                SUB     R0, R6, R7
+                ADD     SP, SP, #44
+                POP     {R4-R11, PC}
+                ENDP
+
+; Supervisor service 50 repeatedly applies KaprekarRoutine and leaves the
+; iteration count in R6 as required by the paper. The caller uses MSP.
+SVC_Handler     PROC
+                MRS     R7, MSP         ; original hardware frame before software saves
+                PUSH    {R4, R5, R7, LR}
+                LDR     R5, [R7, #24]
+                LDRB    R5, [R5, #-2]
+                CMP     R5, #50
+                BNE     svc_return
+                LDR     R0, [R7]
+                MOVS    R6, #0
+svc_loop        BL      KaprekarRoutine
+                ADDS    R6, R6, #1
+                MOVW    R5, #6174
+                CMP     R0, R5
+                BNE     svc_loop
+                STR     R0, [R7]        ; make final R0 visible after exception return
+svc_return      POP     {R4, R5, R7, LR}
+                BX      LR
+                ENDP
+                END
+
+
+--- QUESTION ---
+{"question_id": "2023-02-24-Q2", "date": "2023-02-24", "question": "Q2", "requirement_summary": "Handle SVC number 50, read the stacked argument, run Kaprekar, and return the count through the exception frame.", "keywords": "SVC exception stack frame MSP PSP immediate handler", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q2/assembly.s", "function_or_handler": "SVC_Handler", "argument_mapping": "stacked R0 input; stacked R0 output; SVC immediate 50", "architecture": "exception handler", "constants": "SVC #50", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "Delays", "architecture_tags": "SVC|Exceptions", "algorithm_tags": "Decimal", "usage_tags": "Complete recipe|Direct registers"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  KaprekarRoutine
+                EXPORT  SVC_Handler
+
+; uint32_t KaprekarRoutine(uint32_t a)
+; R0 is a four-digit number. The 10-word local table counts its digits.
+KaprekarRoutine PROC
+                PUSH    {R4-R11, LR}
+                SUB     SP, SP, #44     ; 36+44 = 80 bytes, preserving alignment
+                MOV     R4, SP          ; frequency[10]
+                MOVS    R5, #0
+kap_clear       CMP     R5, #10
+                BHS     kap_extract
+                MOVS    R6, #0
+                STR     R6, [R4, R5, LSL #2]
+                ADDS    R5, R5, #1
+                B       kap_clear
+
+kap_extract     MOV     R7, R0
+                MOVS    R5, #4
+                MOVS    R8, #10
+kap_digit       UDIV    R9, R7, R8
+                MLS     R10, R9, R8, R7 ; remainder = value - quotient*10
+                LDR     R11, [R4, R10, LSL #2]
+                ADDS    R11, R11, #1
+                STR     R11, [R4, R10, LSL #2]
+                MOV     R7, R9
+                SUBS    R5, R5, #1
+                BNE     kap_digit
+
+                MOVS    R6, #0          ; descending number b
+                MOVS    R5, #9
+kap_desc_digit  LDR     R7, [R4, R5, LSL #2]
+kap_desc_repeat CMP     R7, #0
+                BEQ     kap_desc_next
+                MUL     R6, R6, R8
+                ADD     R6, R6, R5
+                SUBS    R7, R7, #1
+                B       kap_desc_repeat
+kap_desc_next   SUBS    R5, R5, #1
+                BPL     kap_desc_digit
+
+                MOVS    R7, #0          ; ascending number c
+                MOVS    R5, #0
+kap_asc_digit   LDR     R9, [R4, R5, LSL #2]
+kap_asc_repeat  CMP     R9, #0
+                BEQ     kap_asc_next
+                MUL     R7, R7, R8
+                ADD     R7, R7, R5
+                SUBS    R9, R9, #1
+                B       kap_asc_repeat
+kap_asc_next    ADDS    R5, R5, #1
+                CMP     R5, #10
+                BLO     kap_asc_digit
+
+                SUB     R0, R6, R7
+                ADD     SP, SP, #44
+                POP     {R4-R11, PC}
+                ENDP
+
+; Supervisor service 50 repeatedly applies KaprekarRoutine and leaves the
+; iteration count in R6 as required by the paper. The caller uses MSP.
+SVC_Handler     PROC
+                MRS     R7, MSP         ; original hardware frame before software saves
+                PUSH    {R4, R5, R7, LR}
+                LDR     R5, [R7, #24]
+                LDRB    R5, [R5, #-2]
+                CMP     R5, #50
+                BNE     svc_return
+                LDR     R0, [R7]
+                MOVS    R6, #0
+svc_loop        BL      KaprekarRoutine
+                ADDS    R6, R6, #1
+                MOVW    R5, #6174
+                CMP     R0, R5
+                BNE     svc_loop
+                STR     R0, [R7]        ; make final R0 visible after exception return
+svc_return      POP     {R4, R5, R7, LR}
+                BX      LR
+                ENDP
+                END

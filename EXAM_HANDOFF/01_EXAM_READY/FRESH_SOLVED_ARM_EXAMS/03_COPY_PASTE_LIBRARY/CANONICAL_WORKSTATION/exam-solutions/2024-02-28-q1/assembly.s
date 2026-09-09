@@ -10,7 +10,8 @@ shortestPath    PROC
                 MOV     R5, R2          ; maze
                 MUL     R6, R0, R1      ; cells
                 MOVS    R7, #0          ; current wave value
-sp_wave        MOVS    R8, #0
+sp_wave        MOVS    R12, #0         ; number of newly labelled passages
+                MOVS    R8, #0
 sp_scan        CMP     R8, R6
                 BHS     sp_next_wave
                 LDRB    R9, [R5, R8]
@@ -34,6 +35,7 @@ sp_scan        CMP     R8, R6
                 BNE     sp_scan_next
 sp_mark         ADDS    R9, R7, #1
                 STRB    R9, [R5, R8]
+                ADD     R12, R12, #1
                 B       sp_scan_next
 sp_check_entry  CMP     R9, #'e'
                 BNE     sp_scan_next
@@ -55,8 +57,13 @@ sp_check_entry  CMP     R9, #'e'
                 BEQ     sp_found
 sp_scan_next    ADDS    R8, R8, #1
                 B       sp_scan
-sp_next_wave    ADDS    R7, R7, #1
-                B       sp_wave
+sp_next_wave    CMP     R12, #0
+                BEQ     sp_unreachable
+                ADDS    R7, R7, #1
+                CMP     R7, #32         ; byte 32 is also the passage marker
+                BLO     sp_wave
+sp_unreachable  MVN     R0, #0          ; explicit failure extension: UINT32_MAX
+                POP     {R4-R11, R12, PC}
 sp_found        MOV     R0, R7
                 POP     {R4-R11, R12, PC}
                 ENDP

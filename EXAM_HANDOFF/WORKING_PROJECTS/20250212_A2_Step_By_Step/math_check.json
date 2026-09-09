@@ -1,0 +1,329 @@
+{
+  "status": "PASS",
+  "scope": "Reference arithmetic/state model, not ARM execution",
+  "sample_rate_hz": 19794.140934283452,
+  "waveform_frequency_hz": 439.86979853963226,
+  "computed_sample_writes": 8978,
+  "first_zero_interrupt": 8979,
+  "output_range": [
+    450,
+    550
+  ],
+  "samples": [
+    {
+      "ticks": -22,
+      "input": -31,
+      "maclaurin": 2,
+      "output": 501,
+      "index": 0
+    },
+    {
+      "ticks": -21,
+      "input": -30,
+      "maclaurin": -9,
+      "output": 496,
+      "index": 1
+    },
+    {
+      "ticks": -20,
+      "input": -29,
+      "maclaurin": -20,
+      "output": 490,
+      "index": 2
+    },
+    {
+      "ticks": -19,
+      "input": -27,
+      "maclaurin": -41,
+      "output": 480,
+      "index": 3
+    },
+    {
+      "ticks": -18,
+      "input": -26,
+      "maclaurin": -51,
+      "output": 475,
+      "index": 4
+    },
+    {
+      "ticks": -17,
+      "input": -24,
+      "maclaurin": -67,
+      "output": 467,
+      "index": 5
+    },
+    {
+      "ticks": -16,
+      "input": -23,
+      "maclaurin": -75,
+      "output": 463,
+      "index": 6
+    },
+    {
+      "ticks": -15,
+      "input": -21,
+      "maclaurin": -86,
+      "output": 457,
+      "index": 7
+    },
+    {
+      "ticks": -14,
+      "input": -20,
+      "maclaurin": -91,
+      "output": 455,
+      "index": 8
+    },
+    {
+      "ticks": -13,
+      "input": -19,
+      "maclaurin": -95,
+      "output": 453,
+      "index": 9
+    },
+    {
+      "ticks": -12,
+      "input": -17,
+      "maclaurin": -100,
+      "output": 450,
+      "index": 10
+    },
+    {
+      "ticks": -11,
+      "input": -16,
+      "maclaurin": -100,
+      "output": 450,
+      "index": 11
+    },
+    {
+      "ticks": -10,
+      "input": -14,
+      "maclaurin": -99,
+      "output": 451,
+      "index": 12
+    },
+    {
+      "ticks": -9,
+      "input": -13,
+      "maclaurin": -97,
+      "output": 452,
+      "index": 13
+    },
+    {
+      "ticks": -8,
+      "input": -11,
+      "maclaurin": -89,
+      "output": 456,
+      "index": 14
+    },
+    {
+      "ticks": -7,
+      "input": -10,
+      "maclaurin": -84,
+      "output": 458,
+      "index": 15
+    },
+    {
+      "ticks": -6,
+      "input": -9,
+      "maclaurin": -78,
+      "output": 461,
+      "index": 16
+    },
+    {
+      "ticks": -5,
+      "input": -7,
+      "maclaurin": -65,
+      "output": 468,
+      "index": 17
+    },
+    {
+      "ticks": -4,
+      "input": -6,
+      "maclaurin": -57,
+      "output": 472,
+      "index": 18
+    },
+    {
+      "ticks": -3,
+      "input": -4,
+      "maclaurin": -39,
+      "output": 481,
+      "index": 19
+    },
+    {
+      "ticks": -2,
+      "input": -3,
+      "maclaurin": -30,
+      "output": 485,
+      "index": 20
+    },
+    {
+      "ticks": -1,
+      "input": -1,
+      "maclaurin": -10,
+      "output": 495,
+      "index": 21
+    },
+    {
+      "ticks": 0,
+      "input": 0,
+      "maclaurin": 0,
+      "output": 500,
+      "index": 22
+    },
+    {
+      "ticks": 1,
+      "input": 1,
+      "maclaurin": 10,
+      "output": 505,
+      "index": 23
+    },
+    {
+      "ticks": 2,
+      "input": 3,
+      "maclaurin": 30,
+      "output": 515,
+      "index": 24
+    },
+    {
+      "ticks": 3,
+      "input": 4,
+      "maclaurin": 39,
+      "output": 519,
+      "index": 25
+    },
+    {
+      "ticks": 4,
+      "input": 6,
+      "maclaurin": 57,
+      "output": 528,
+      "index": 26
+    },
+    {
+      "ticks": 5,
+      "input": 7,
+      "maclaurin": 65,
+      "output": 532,
+      "index": 27
+    },
+    {
+      "ticks": 6,
+      "input": 9,
+      "maclaurin": 78,
+      "output": 539,
+      "index": 28
+    },
+    {
+      "ticks": 7,
+      "input": 10,
+      "maclaurin": 84,
+      "output": 542,
+      "index": 29
+    },
+    {
+      "ticks": 8,
+      "input": 11,
+      "maclaurin": 89,
+      "output": 544,
+      "index": 30
+    },
+    {
+      "ticks": 9,
+      "input": 13,
+      "maclaurin": 97,
+      "output": 548,
+      "index": 31
+    },
+    {
+      "ticks": 10,
+      "input": 14,
+      "maclaurin": 99,
+      "output": 549,
+      "index": 32
+    },
+    {
+      "ticks": 11,
+      "input": 16,
+      "maclaurin": 100,
+      "output": 550,
+      "index": 33
+    },
+    {
+      "ticks": 12,
+      "input": 17,
+      "maclaurin": 100,
+      "output": 550,
+      "index": 34
+    },
+    {
+      "ticks": 13,
+      "input": 19,
+      "maclaurin": 95,
+      "output": 547,
+      "index": 35
+    },
+    {
+      "ticks": 14,
+      "input": 20,
+      "maclaurin": 91,
+      "output": 545,
+      "index": 36
+    },
+    {
+      "ticks": 15,
+      "input": 21,
+      "maclaurin": 86,
+      "output": 543,
+      "index": 37
+    },
+    {
+      "ticks": 16,
+      "input": 23,
+      "maclaurin": 75,
+      "output": 537,
+      "index": 38
+    },
+    {
+      "ticks": 17,
+      "input": 24,
+      "maclaurin": 67,
+      "output": 533,
+      "index": 39
+    },
+    {
+      "ticks": 18,
+      "input": 26,
+      "maclaurin": 51,
+      "output": 525,
+      "index": 40
+    },
+    {
+      "ticks": 19,
+      "input": 27,
+      "maclaurin": 41,
+      "output": 520,
+      "index": 41
+    },
+    {
+      "ticks": 20,
+      "input": 29,
+      "maclaurin": 20,
+      "output": 510,
+      "index": 42
+    },
+    {
+      "ticks": 21,
+      "input": 30,
+      "maclaurin": 9,
+      "output": 504,
+      "index": 43
+    },
+    {
+      "ticks": 22,
+      "input": 31,
+      "maclaurin": -2,
+      "output": 499,
+      "index": 44
+    }
+  ]
+}

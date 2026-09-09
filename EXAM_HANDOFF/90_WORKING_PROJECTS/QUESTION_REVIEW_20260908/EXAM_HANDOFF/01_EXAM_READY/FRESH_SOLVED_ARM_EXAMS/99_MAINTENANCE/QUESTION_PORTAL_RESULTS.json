@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "questionPages": 48,
+  "checks": 446,
+  "fileUrls": true,
+  "externalRequests": 0,
+  "javaScriptErrors": 0,
+  "viewports": [
+    1440,
+    390
+  ]
+}

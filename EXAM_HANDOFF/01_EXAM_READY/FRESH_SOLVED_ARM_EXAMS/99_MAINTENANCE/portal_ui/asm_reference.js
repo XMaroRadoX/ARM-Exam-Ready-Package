@@ -6,7 +6,7 @@
   const entries=[...document.querySelectorAll('[data-asm-entry]')];
   const groups=[...document.querySelectorAll('[data-asm-group]')];
   const count=document.querySelector('#asm-count');
-  const engine=window.ARM_PORTAL_DATA&&window.ARM_PORTAL_LOGIC ? window.ARM_PORTAL_LOGIC.prepare(window.ARM_PORTAL_DATA.items) : null;
+  let revision=0;
   const searchUrl=new URL(document.querySelector('[data-search-shortcut]').href,location.href);
   const link=document.createElement('a');link.textContent='Search whole package';
   const linkRow=document.createElement('p');linkRow.append(link);count.after(linkRow);
@@ -17,7 +17,15 @@
   }
   function restore(){const params=new URLSearchParams(location.search);input.value=params.get('asm-q')||'';category.value=params.get('asm-category')||'';}
 
-  function filter(){
+  async function filter(){
+    const current=++revision;
+    let engine;
+    if(input.value.trim()){
+      count.textContent='Searching…';
+      try{engine=await window.ARM_PORTAL_ENGINE();}
+      catch(_){if(current===revision)count.textContent='Search index could not be loaded. Try again.';return;}
+      if(current!==revision)return;
+    }
     const terms=input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
     const matches=engine&&terms.length ? engine.scoped(input.value,{kind:'ASM Reference',topics:category.value}) : null;
     const whole=new URL(searchUrl);if(input.value.trim())whole.searchParams.set('q',input.value.trim());link.href=whole.href;

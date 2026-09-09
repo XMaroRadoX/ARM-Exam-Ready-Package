@@ -1,0 +1,79 @@
+﻿pattern_id,category,title,primary_tag,exam_ids
+PAT-ALG-SORTING-001,algorithms,Signed and unsigned array sorting,alg:sorting,E2023-02-07;E2023-02-24
+PAT-ALG-RECURRENCE-001,algorithms,Bounded recurrence into an array,alg:recurrence,E2023-02-24;E2023-07-04;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2
+PAT-ALG-GRAPH-SEARCH-001,algorithms,Matrix and graph traversal,alg:graph-search,E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16
+PAT-ALG-FREQUENCY-COUNT-001,algorithms,Frequency-count comparison,alg:frequency-count,E2026-06-25-B1;E2026-06-25-B2
+PAT-ALG-FIXED-POINT-001,algorithms,Fixed-point multiply and recurrence,alg:fixed-point,E2025-02-12-A1;E2025-02-12-A2
+PAT-FLOW-NESTED-LOOP-001,control-flow,Nested loops with preserved outer state,flow:nested-loop,E2023-02-07;E2023-02-24;E2023-07-04;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2026-02-03-A1;E2026-02-03-A3;E2026-06-25-B2
+PAT-FLOW-EARLY-BREAK-001,control-flow,Balanced early exit from inner search,flow:early-break,E2023-02-07;E2024-02-12;E2025-01-29-A2;E2026-02-03-A2;E2026-06-25-B2
+PAT-MEM-BYTE-ARRAY-001,memory,Signed and unsigned byte arrays,mem:byte-array,E2023-02-07;E2024-02-12;E2024-02-28;E2024-07-09;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2026-02-03-A1;E2026-02-03-A2
+PAT-MEM-WORD-ARRAY-001,memory,Word-array traversal,mem:word-array,E2023-07-04;E2023-09-18;E2024-09-16;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-MEM-MATRIX-ROW-MAJOR-001,memory,Row-major matrix addressing,mem:matrix-row-major,E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3
+PAT-AAPCS-FOUR-ARGS-001,aapcs,Four-register argument contract,abi:four-register-args,E2024-07-09;E2024-09-16;E2026-06-25-B1;E2026-06-25-B2
+PAT-AAPCS-STACKED-ARGS-001,aapcs,Fifth and later arguments,abi:stacked-args,E2024-09-16;E2025-07-01-A1;E2025-07-01-A2
+PAT-AAPCS-NONLEAF-001,aapcs,Non-leaf prologue and epilogue,abi:nonleaf,E2023-02-07;E2023-02-24;E2023-07-04;E2023-09-18;E2024-07-09;E2024-09-16;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A3
+PAT-CPU-FLAGS-001,exceptions,APSR flag contract,cpu:flags,E2023-05-17;E2023-09-18
+PAT-CPU-SVC-001,exceptions,SVC immediate decoding,cpu:svc,E2023-02-24
+PAT-CPU-EXCEPTION-FRAME-001,exceptions,MSP/PSP exception-frame selection,cpu:exception-frame,E2023-02-24
+PAT-TIMER-OWNERSHIP-001,timers,Timer setup and ownership,board:timer,E2023-02-07;E2023-07-04;E2024-02-12;E2024-02-28;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-GPIO-EVENT-001,gpio-input,GPIO event capture,board:gpio,E2023-02-07;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-06-25-B1;E2026-06-25-B2
+PAT-GPIO-JOYSTICK-001,gpio-input,Joystick event state machine,board:joystick,E2025-07-01-A1;E2025-07-01-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-ADC-SAMPLE-001,adc-dac,ADC sample conversion,board:adc,E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3
+PAT-DAC-STREAM-001,adc-dac,DAC table streaming,board:dac,E2025-02-12-A1;E2025-02-12-A2;E2026-02-18-A1;E2026-02-18-A2
+PAT-STATE-EVENT-LOOP-001,state-machines,ISR-to-foreground event loop,state:event-loop,E2023-07-04;E2023-09-18;E2024-02-28;E2024-09-16;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-STATE-DEBOUNCE-001,state-machines,Deterministic debounce,state:debounce,E2023-02-07;E2023-09-18;E2024-02-12;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-06-25-B1;E2026-06-25-B2
+PAT-TIMER-PERIODIC-001,timers,Periodic match scheduling,timing:periodic,E2023-07-04;E2024-02-28;E2024-07-09;E2025-01-29-A1;E2025-01-29-A2;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2
+PAT-TIMER-FREE-RUNNING-001,timers,Free-running timer seed,timing:free-running,E2023-02-07;E2024-02-12;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2026-06-25-B1;E2026-06-25-B2
+PAT-AAPCS-STACK-SAFETY-001,aapcs,Register preservation and stack safety,risk:stack-alignment,E2023-02-07;E2023-02-24;E2023-05-17;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-07-09;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-STATE-IRQ-HANDOFF-001,state-machines,Atomic ISR event handoff,risk:irq-shared-state,E2023-02-07;E2023-07-04;E2023-09-18;E2024-02-12;E2024-02-28;E2024-09-16;E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-02-12-A1;E2025-02-12-A2;E2025-07-01-A1;E2025-07-01-A2;E2026-02-03-A1;E2026-02-03-A2;E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-TIMER-VECTOR-OWNERSHIP-001,timers,Exclusive interrupt-vector ownership,risk:vector-ownership,E2023-02-07;E2024-07-09;E2026-02-18-A1;E2026-02-18-A2
+PAT-DATA-ASM-OBJECTS-001,memory,Assembly objects and exported symbols,exam-derived:data-sum,E2023-02-07;E2025-01-29-A3
+PAT-ALG-WIDE-DIVISION-001,algorithms,Signed 64-by-32 restoring division,exam-derived:signed-div,E2023-05-17
+PAT-MEM-PACKED-TRANSPOSE-001,memory,Packed 8x8 bit-matrix transpose,exam-derived:transpose,E2025-01-29-A3
+PAT-ALG-PACKED-MATMUL-001,algorithms,Packed binary matrix multiplication,exam-derived:matmul,E2025-01-29-A2
+PAT-ALG-DFS-STACK-001,algorithms,Bounded DFS with an explicit stack,exam-derived:dfs-stack,E2024-07-09
+PAT-ALG-COMPONENT-MERGE-001,algorithms,Component-label merge,exam-derived:component-merge,E2024-09-16
+PAT-ALG-LCG-001,algorithms,Five-argument linear congruential generator,exam-derived:lcg,E2024-02-12;E2025-07-01-A1;E2025-07-01-A2
+PAT-ALG-RUN-LENGTH-001,algorithms,Run-length encoding,exam-derived:rle,E2026-02-03-A1;E2026-02-03-A2
+PAT-ALG-LOOK-AND-SAY-001,algorithms,Bounded look-and-say generation,exam-derived:look-say,E2026-02-03-A1
+PAT-ALG-INDIRECT-RECURRENCE-001,algorithms,Indirect-index recurrence,exam-derived:recaman,E2026-02-03-A3;E2026-02-18-A1;E2026-02-18-A2
+PAT-ALG-REDUCTION-001,algorithms,Signed min max and sum reduction,exam-derived:reduction,E2024-09-16;E2026-02-18-A1;E2026-02-18-A2;E2026-06-25-B1
+PAT-ALG-CONSUME-ONCE-MATCH-001,algorithms,Consume-once duplicate-safe matching,exam-derived:bulls,E2026-06-25-B1;E2026-06-25-B2
+PAT-ALG-LINEAR-SEARCH-001,algorithms,Linear search variants,supplementary:linear-search,E2026-02-03-A3
+PAT-ALG-BINARY-SEARCH-001,algorithms,Binary search and lower bound,supplementary:binary-search,
+PAT-ALG-ARRAY-REVERSAL-001,algorithms,In-place array reversal,supplementary:reverse,
+PAT-ALG-ARRAY-ROTATION-001,algorithms,Left and right array rotation,supplementary:rotate,
+PAT-ALG-SELECTION-SORT-001,algorithms,Selection sort,supplementary:selection,
+PAT-ALG-BUBBLE-SORT-001,algorithms,Bubble sort with early termination,supplementary:bubble,
+PAT-ALG-MERGE-SORT-001,algorithms,Stable merge sort,supplementary:merge-sort,
+PAT-ALG-QUICKSORT-001,algorithms,Partition-based quicksort,supplementary:quicksort,
+PAT-ALG-HEAP-SORT-001,algorithms,Heap construction and heap sort,supplementary:heap-sort,
+PAT-ALG-COUNTING-SORT-001,algorithms,Bounded counting sort,supplementary:counting-sort,
+PAT-ALG-GCD-LCM-001,algorithms,Euclidean GCD and overflow-aware LCM,supplementary:gcd,
+PAT-ALG-PRIME-FACTORIZATION-001,algorithms,Prime testing and trial factorization,supplementary:prime,E2023-07-04
+PAT-ALG-INTEGER-SQRT-001,algorithms,Integer square root,supplementary:isqrt,
+PAT-ALG-FAST-POWER-001,algorithms,Exponentiation by squaring,supplementary:power,
+PAT-ALG-DECIMAL-DIGITS-001,algorithms,Decimal digit algorithms,supplementary:digits,E2023-02-24;E2023-09-18
+PAT-ALG-POPCOUNT-PARITY-001,algorithms,Population count and parity,supplementary:popcount,
+PAT-ALG-BITFIELD-001,algorithms,Bitfield extraction insertion and packing,supplementary:bitfield,E2025-01-29-A1;E2025-01-29-A2;E2025-01-29-A3;E2025-07-01-A2;E2026-06-25-B1;E2026-06-25-B2
+PAT-ALG-SATURATING-ARITHMETIC-001,algorithms,Clamp absolute saturation and overflow,supplementary:saturate,E2026-02-18-A1;E2026-02-18-A2
+PAT-ALG-PREFIX-SUM-001,algorithms,Prefix sums and range sums,supplementary:prefix,
+PAT-ALG-HISTOGRAM-MODE-001,algorithms,Histogram frequency and mode,supplementary:histogram,
+PAT-ALG-HORNER-001,algorithms,Horner polynomial evaluation,supplementary:horner,
+PAT-ALG-MOVING-AVERAGE-001,algorithms,Moving average and sliding window,supplementary:moving,
+PAT-ALG-STRING-PRIMITIVES-001,algorithms,Bounded string primitives,supplementary:string,
+PAT-ALG-MEMMOVE-001,algorithms,Overlap-safe memory movement,supplementary:memmove,
+PAT-ALG-CHECKSUM-CRC-001,algorithms,Checksums and CRC table structure,supplementary:checksum,
+PAT-DS-RING-BUFFER-001,data-structures,Circular ring buffer,supplementary:ring,
+PAT-DS-STACK-001,data-structures,Array-backed stack,supplementary:stack,E2024-07-09
+PAT-DS-CIRCULAR-QUEUE-001,data-structures,Circular queue,supplementary:queue,
+PAT-DS-LINKED-LIST-001,data-structures,Singly linked-list operations,supplementary:linked,
+PAT-ALG-BFS-001,algorithms,Breadth-first search,supplementary:bfs,
+PAT-ALG-RECURSIVE-DFS-001,algorithms,Recursive DFS with depth contract,supplementary:recursive-dfs,
+PAT-ALG-FLOOD-FILL-001,algorithms,Flood fill and maze propagation,supplementary:flood,E2024-02-12;E2024-02-28
+PAT-ALG-DIJKSTRA-001,algorithms,Dijkstra shortest path,supplementary:dijkstra,
+PAT-DS-UNION-FIND-001,data-structures,Union-find with compression and rank,supplementary:union-find,E2024-09-16
+PAT-ALG-KNAPSACK-001,algorithms,Bounded zero-one knapsack,supplementary:knapsack,
+PAT-ALG-COIN-CHANGE-001,algorithms,Coin change,supplementary:coin,
+PAT-ALG-LIS-001,algorithms,Longest increasing subsequence,supplementary:lis,
+PAT-ALG-EDIT-DISTANCE-001,algorithms,Edit distance,supplementary:edit,

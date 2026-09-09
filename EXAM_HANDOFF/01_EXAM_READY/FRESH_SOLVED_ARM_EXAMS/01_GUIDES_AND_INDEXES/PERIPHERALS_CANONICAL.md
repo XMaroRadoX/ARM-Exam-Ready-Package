@@ -214,6 +214,11 @@ sample has been captured.
 
 ## Lesson 11: DAC / speaker
 
+Worked example: [Potentiometer-controlled speaker: complete C code](POTENTIOMETER_SPEAKER.md).
+Read the knob through the ADC, choose one of three pitches, and use Timer0
+to alternate the DAC output. The example explains each file and the difference
+between timer update frequency and audible tone frequency.
+
 The DAC accepts samples from 0 through 1023.
 
 ```c
@@ -230,16 +235,51 @@ not hide the timer inside a playback service.
 `exam_events_set()` is suitable for publishing bit events from a handler.
 Foreground code atomically consumes selected bits with `exam_events_take()`.
 
+The custom event store is one `uint32_t`, so it can represent up to 32
+independent event types at once. Assign each type one unique bit from 0 through
+31. These are presence flags, not queued occurrences: setting the same bit
+several times before it is taken still records one pending event.
+
 ```c
-enum { EVENT_SAMPLE = 1u << 0 };
+enum {
+  EVENT_SAMPLE = 1u << 0,
+  EVENT_RESET  = 1u << 1,
+  EVENT_UPDATE = 1u << 2
+};
 
 void TIMER0_IRQHandler(void)
 {
   if ((exam_timer_ack(EXAM_TIMER0) & 1u) != 0u) {
-    exam_events_set(EVENT_SAMPLE);
+    /* OR combines independent flags; both become pending. */
+    exam_events_set(EVENT_SAMPLE | EVENT_UPDATE);
   }
 }
 ```
+
+Foreground code can take several selected flags together and then handle every
+returned flag. `exam_events_take(mask)` clears only bits selected by `mask`;
+other pending custom events remain stored.
+
+```c
+uint32_t events = exam_events_take(
+    EVENT_SAMPLE | EVENT_RESET | EVENT_UPDATE);
+
+if ((events & EVENT_SAMPLE) != 0u) {
+  /* Handle the sample request. */
+}
+if ((events & EVENT_RESET) != 0u) {
+  /* Handle reset too when both are pending. */
+}
+if ((events & EVENT_UPDATE) != 0u) {
+  /* Update the output. */
+}
+```
+
+Use independent `if` statements when multiple pending events must all run.
+An `else if` chain handles only the first matching branch, even though `take`
+has already cleared every requested bit. Source-code order determines action
+order; bit numbers do not create priority. Use a protected counter when every
+occurrence matters, or a queue when ordered payloads must be preserved.
 
 Use `volatile` for asynchronously changed objects. Protect a compound snapshot
 with `exam_critical_enter()` and `exam_critical_exit()`, then do slow work after

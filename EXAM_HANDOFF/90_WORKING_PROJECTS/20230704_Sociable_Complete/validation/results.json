@@ -1,0 +1,328 @@
+{
+  "native_builds": [
+    {
+      "project": "Q1_Assembly",
+      "target": "LandTiger_LPC1768 (release)",
+      "result": "PASS",
+      "source_files": 18,
+      "warnings": 0
+    },
+    {
+      "project": "Q1_Assembly",
+      "target": "SW_Debug",
+      "result": "PASS",
+      "source_files": 18,
+      "warnings": 0
+    },
+    {
+      "project": "Q2_Timer_LEDs",
+      "target": "LandTiger_LPC1768 (release)",
+      "result": "PASS",
+      "source_files": 18,
+      "warnings": 0
+    },
+    {
+      "project": "Q2_Timer_LEDs",
+      "target": "SW_Debug",
+      "result": "PASS",
+      "source_files": 18,
+      "warnings": 0
+    }
+  ],
+  "aliquot_cases": 101,
+  "sociable_cases": [
+    {
+      "input": 0,
+      "result": 0,
+      "terms": []
+    },
+    {
+      "input": 1,
+      "result": 0,
+      "terms": []
+    },
+    {
+      "input": 2,
+      "result": 0,
+      "terms": [
+        1
+      ]
+    },
+    {
+      "input": 3,
+      "result": 0,
+      "terms": [
+        1
+      ]
+    },
+    {
+      "input": 4,
+      "result": 0,
+      "terms": [
+        3,
+        1
+      ]
+    },
+    {
+      "input": 6,
+      "result": 1,
+      "terms": [
+        6
+      ]
+    },
+    {
+      "input": 12,
+      "result": 0,
+      "terms": [
+        16,
+        15,
+        9,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "input": 16,
+      "result": 0,
+      "terms": [
+        15,
+        9,
+        4,
+        3,
+        1
+      ]
+    },
+    {
+      "input": 25,
+      "result": 0,
+      "terms": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "input": 28,
+      "result": 1,
+      "terms": [
+        28
+      ]
+    },
+    {
+      "input": 97,
+      "result": 0,
+      "terms": [
+        1
+      ]
+    },
+    {
+      "input": 100,
+      "result": 0,
+      "terms": [
+        117,
+        65,
+        19,
+        1
+      ]
+    },
+    {
+      "input": 220,
+      "result": 2,
+      "terms": [
+        284,
+        220
+      ]
+    },
+    {
+      "input": 284,
+      "result": 2,
+      "terms": [
+        220,
+        284
+      ]
+    },
+    {
+      "input": 496,
+      "result": 1,
+      "terms": [
+        496
+      ]
+    },
+    {
+      "input": 12496,
+      "result": 5,
+      "terms": [
+        14288,
+        15472,
+        14536,
+        14264,
+        12496
+      ]
+    },
+    {
+      "input": 8128,
+      "result": 1,
+      "terms": [
+        8128
+      ]
+    },
+    {
+      "input": 5564,
+      "result": 2,
+      "terms": [
+        5020,
+        5564
+      ]
+    },
+    {
+      "input": 5400,
+      "result": 0,
+      "terms": [
+        13200,
+        32928,
+        67872,
+        137760,
+        370272,
+        839328,
+        1680672,
+        3568992
+      ]
+    },
+    {
+      "input": 14264,
+      "result": 5,
+      "terms": [
+        12496,
+        14288,
+        15472,
+        14536,
+        14264
+      ]
+    },
+    {
+      "input": 1305184,
+      "result": 4,
+      "terms": [
+        1264460,
+        1547860,
+        1727636,
+        1305184
+      ]
+    },
+    {
+      "input": 1598470,
+      "result": 2,
+      "terms": [
+        1511930,
+        1598470
+      ]
+    },
+    {
+      "input": 4938136,
+      "result": 4,
+      "terms": [
+        5753864,
+        5504056,
+        5423384,
+        4938136
+      ]
+    }
+  ],
+  "boundary_cases": 3,
+  "irq_rows": [
+    {
+      "interrupt": 1,
+      "input": 8128,
+      "result": 1,
+      "mask": 128
+    },
+    {
+      "interrupt": 2,
+      "input": 5564,
+      "result": 2,
+      "mask": 64
+    },
+    {
+      "interrupt": 3,
+      "input": 5400,
+      "result": 0,
+      "mask": 0
+    },
+    {
+      "interrupt": 4,
+      "input": 14264,
+      "result": 5,
+      "mask": 8
+    },
+    {
+      "interrupt": 5,
+      "input": 1305184,
+      "result": 4,
+      "mask": 16
+    },
+    {
+      "interrupt": 6,
+      "input": 1598470,
+      "result": 2,
+      "mask": 64
+    },
+    {
+      "interrupt": 7,
+      "input": 4938136,
+      "result": 4,
+      "mask": 16
+    },
+    {
+      "interrupt": 8,
+      "input": 8128,
+      "result": 1,
+      "mask": 128
+    },
+    {
+      "interrupt": 9,
+      "input": 5564,
+      "result": 2,
+      "mask": 64
+    },
+    {
+      "interrupt": 10,
+      "input": 5400,
+      "result": 0,
+      "mask": 0
+    },
+    {
+      "interrupt": 11,
+      "input": 14264,
+      "result": 5,
+      "mask": 8
+    },
+    {
+      "interrupt": 12,
+      "input": 1305184,
+      "result": 4,
+      "mask": 16
+    },
+    {
+      "interrupt": 13,
+      "input": 1598470,
+      "result": 2,
+      "mask": 64
+    },
+    {
+      "interrupt": 14,
+      "input": 4938136,
+      "result": 4,
+      "mask": 16
+    }
+  ],
+  "all_display_values": "0..8 PASS",
+  "abi": "R4-R11 and SP preserved; nested-call stack aligned",
+  "execution": "Native Arm-compiled code executed in Unicorn; peripheral API calls mocked for IRQ tests",
+  "limits": "No physical board, real interrupt entry, or wall-clock timing validation"
+}

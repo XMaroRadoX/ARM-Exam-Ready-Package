@@ -160,12 +160,12 @@ Playback timing matters. If every sample must be emitted, do not transfer sample
 "Derive sample rate, table length, frequency, and stop behavior.", "DAC|Speaker|Timer", 11),
 
 lesson("board-events", "12. Atomic handoff and simultaneous events",
-"""Choose a representation matching the information you need. A Boolean/bit records presence. A counter preserves multiplicity but not individual payloads. A queue preserves ordered payloads at a capacity cost. There is no universally correct replacement among them.
+"""Choose a representation matching the information you need. The custom event store is one uint32_t, so it supports up to 32 independent event types using unique bit positions 0 through 31. A Boolean/bit records presence: setting the same bit several times before it is taken still records one pending event. A counter preserves multiplicity but not individual payloads. A queue preserves ordered payloads at a capacity cost. There is no universally correct replacement among them.
 
-exam_events_take(mask) atomically takes only requested event bits. Process independent bits using independent if statements. For shared multi-step state, enter a brief critical section and restore the exact returned interrupt mask with exam_critical_exit.
+exam_events_set(A | B) can publish several flags together. exam_events_take(mask) atomically returns and clears only requested event bits; unrequested pending bits remain stored. Process independent returned bits using independent if statements. An else-if chain handles only its first match even though take has cleared all requested bits. For shared multi-step state, enter a brief critical section and restore the exact returned interrupt mask with exam_critical_exit.
 
-Define simultaneous-event priority in the state machine: for example reset before increment, or first finish a pending calculation. 'Whatever branch happens to come first' is not a specification.""",
-"uint32_t saved = exam_critical_enter();\n/* copy/clear a small shared counter here */\nexam_critical_exit(saved);\nuint32_t e = exam_events_take(3u);\nif (e & 1u) { /* event A */ }\nif (e & 2u) { /* event B */ }",
+Source-code order determines action order; bit numbers do not create priority. Define simultaneous-event priority in the state machine: for example reset before increment, or first finish a pending calculation. 'Whatever branch happens to come first' is not a specification.""",
+"enum { EVENT_A = 1u << 0, EVENT_B = 1u << 1 };\nexam_events_set(EVENT_A | EVENT_B);\nuint32_t e = exam_events_take(EVENT_A | EVENT_B);\nif (e & EVENT_A) { /* event A */ }\nif (e & EVENT_B) { /* event B too */ }",
 "A and B both pending → take(3) returns 3 and clears them → both independent actions can run under the chosen priority.",
 "Why must exit restore saved rather than blindly enable interrupts?",
 ["The caller may already have disabled interrupts.", "A helper must preserve its caller's state."],

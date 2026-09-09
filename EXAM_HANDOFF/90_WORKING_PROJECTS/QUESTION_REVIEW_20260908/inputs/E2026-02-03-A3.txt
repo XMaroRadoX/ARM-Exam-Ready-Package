@@ -1,0 +1,269 @@
+{"exam_id": "E2026-02-03-A3", "date": "2026-02-03", "project": "2026-02-03_ARM3_Recaman_ADC_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 03.02.2026/20260203_ARM_3.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 03/02/2026 
+ 
+B3 
+Please read the following notes before proceeding 
+1) It is recommended to save the project on the C drive during development. Once you have 
+completed your work, you must save the project inside the exam folder on the Z drive (the 
+same folder where you found this document). Projects saved elsewhere will not be 
+collected and will be permanently lost. 
+2) The assembly subroutine developed in the first exercise must comply with the ARM 
+Architecture Procedure Call Standard (AAPCS) standard (in terms of parameter passing, 
+returned value, callee-saved registers). 
+3) If you prefer, you can begin with the second exercise. Since it requires calling the assembly 
+subroutine from the first exercise, you can create a stub in the assembly file to proceed. For 
+example: 
+ 
+subroutineName PROC 
+ ; to do: add code 
+ MOV r0, #10  ; example of a return value 
+ BX LR 
+ ENDP 
+ 
+4) To earn points on all exercises, it is recommended that you write at least some code for 
+each. 
+5) The final project must run on the actual board (e.g., button debouncing is required). 
+ 
+ 
+Special characters with Italian keyboards 
+- Square brackets [ ] 
+  Left bracket: ATL GR + [ 
+  Right bracket: ALT GR + ] 
+- Curly brackets { }  
+  Left bracket: LSHIFT + ALT GR + [ 
+  Right bracket: LSHIFT + ALT GR + ] 
+- Hash # : ALT GR + à  
+ 
+ 
+Bitwise operations in C 
+Left shift by N bits  =  A<<N      
+Right shift by N bits  =  A>>N 
+ 
+A XOR B  =  A^B 
+A AND B  =  A&B   (&& is the logical AND) 
+A OR B  =  A|B  (|| is the logical OR) 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 03/02/2026 
+ 
+B3 
+Question 1 (8 points) 
+ 
+The Recamán's sequence a0, a1, a2… is defined as follows: 
+𝑎𝑛 = {
+0 if 𝑛 = 0
+𝑎𝑛−1 − 𝑛 if this value is positive and has not appeared earlier in the sequence 
+𝑎𝑛−1 + 𝑛 otherwise
+ 
+ 
+The first terms of the sequence are: 
+0, 1, 3, 6, 2, 7, 13, 20, 12, 21, 11, 22, 10, 23, 9, 24, 8, 25, 43, 62, 42, 63, 41, 18, 42, 17, 43, 16, 44, 
+15, 45, 14, 46, 79, 113, 78, 114, 77, 39, 78, 38, 79, 37, 80, 36, 81, 35, 82, 34, 83, 33, 84, 32, 85, 31, 
+86, 30, 87, 29, 88, 28, 89, 27, 90, 26, 91, 157, 224, 156, 225, 155, ... 
+ 
+Write the Recaman subroutine in ARM assembly language. You must follow this prototype: 
+ 
+ 
+void Recaman(uint32_t* area, uint8_t n); 
+ 
+ 
+The subroutine receives: 
+- the address of an uninitialized read-write data area 
+- the number of elements n. 
+The subroutine must fill the data area with the first n elements of the Recamán's sequence (starting 
+with a0). Each element is stored as a word: you have to reserve space in the data area properly. 
+ 
+ 
+Question 2 (10 points) 
+Add the following functionalities to your project. 
+ 
+1) Convert the analog value of the potentiometer to a digital value using the Analog-to-Digital 
+Converter (ADC). The ADC produces a 12-bit digital output. Display the 8 most significant bits of 
+this result on the LEDs. LED 4 corresponds to the most significant bit, and LED 11 corresponds to 
+the least significant bit (of the displayed 8-bit value). 
+ 
+2) When the user presses the Key2 button, call the Recaman subroutine passing: 
+- an uninitialized array of integers 
+- the 8 most significant bits produced by the last ADC conversion (i.e., the 8-bit value 
+currently displayed on the LEDs) 
+ 
+The Recaman subroutine fills the array with the elements of the Recamán sequence. Immediately 
+display the 8 least significant bits of the first element of the array on the LEDs (that is, since the 
+first element is zero, all LEDs must be turned off). Then, display the 8 least significant bits of each 
+subsequent element at 2-second intervals. 
+ 
+Note: the array may be defined statically, since its maximum number of elements is 255 
+(corresponding to the case in which the 8 most significant bits of the last ADC conversion are equal 
+to 0xFF). 
+ 
+ 
+
+--- QUESTION ---
+{"question_id": "2026-02-03_ARM3-Q1", "date": "2026-02-03", "question": "Q1", "requirement_summary": "Fill up to 255 words with the Recaman sequence.", "keywords": "Recaman sequence uniqueness array positive subtraction", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q1/assembly.s", "function_or_handler": "Recaman", "argument_mapping": "R0 area, R1 uint8 length", "architecture": "assembly sequence algorithm", "constants": "maximum 255", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Arrays|Recurrence", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Recaman
+
+; void Recaman(uint32_t *area, uint8_t n)
+Recaman         PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                UXTB    R5, R1
+                CMP     R5, #0
+                BEQ     recaman_done
+
+                MOVS    R6, #0
+                STR     R6, [R4]        ; a0 = 0.
+                MOVS    R6, #1          ; n = 1.
+
+recaman_loop
+                CMP     R6, R5
+                BHS     recaman_done
+
+                SUBS    R7, R6, #1
+                LDR     R8, [R4, R7, LSL #2]
+                SUBS    R9, R8, R6      ; Candidate = previous - n.
+                CMP     R9, #0
+                BLE     recaman_add
+
+                MOVS    R7, #0
+recaman_search
+                CMP     R7, R6
+                BHS     recaman_use_candidate
+                LDR     R10, [R4, R7, LSL #2]
+                CMP     R10, R9
+                BEQ     recaman_add
+                ADDS    R7, R7, #1
+                B       recaman_search
+
+recaman_use_candidate
+                STR     R9, [R4, R6, LSL #2]
+                B       recaman_next
+
+recaman_add
+                ADDS    R9, R8, R6
+                STR     R9, [R4, R6, LSL #2]
+
+recaman_next
+                ADDS    R6, R6, #1
+                B       recaman_loop
+
+recaman_done
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2026-02-03_ARM3-Q2", "date": "2026-02-03", "question": "Q2", "requirement_summary": "Use ADC high eight bits as Recaman length on KEY2, then show elements every two seconds.", "keywords": "ADC KEY2 debounce Timer0 2s Recaman LED", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q2/main.c", "function_or_handler": "main; answer_timer0", "argument_mapping": "ADC supplies length; KEY2 builds; Timer0 displays", "architecture": "C ADC + timer IRQ", "constants": "2000 ms; 255 words", "peripheral_tags": "LED|Buttons|Debounce|Timer0|ADC", "interrupt_tags": "EINT|Timer IRQ|ADC IRQ|Acknowledgement", "timing_tags": "Periodic|Delays", "architecture_tags": "", "algorithm_tags": "Recurrence", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/main.c ---
+/* Exam of 3 February 2026: debounced KEY2 and two-second playback. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+#define EVENT_SEQUENCE_STEP (1u << 0)
+extern void Recaman(uint32_t *area, uint8_t length);
+
+/* All sequence/display state belongs to the foreground. */
+static uint32_t sequence[255];
+static uint8_t latest_value;
+static uint8_t have_sample;
+static uint8_t sequence_length;
+static uint8_t sequence_active;
+static uint32_t display_index;
+
+void EINT2_IRQHandler(void)
+{
+  (void)exam_debounce_begin(EXAM_BUTTON_KEY2);
+}
+
+void RIT_IRQHandler(void)
+{
+  exam_rit_ack();
+  exam_debounce_tick();
+}
+
+void ADC_IRQHandler(void) { exam_adc_irq_capture(); }
+
+void TIMER0_IRQHandler(void)
+{
+  if ((exam_timer_ack(EXAM_TIMER0) & 1u) != 0u)
+    exam_events_set(EVENT_SEQUENCE_STEP);
+}
+
+static void begin_sequence(void)
+{
+  exam_timer_stop(EXAM_TIMER0);
+  exam_timer_reset(EXAM_TIMER0);
+  (void)exam_events_take(EVENT_SEQUENCE_STEP);
+  sequence_active = 0u;
+  sequence_length = latest_value;
+  display_index = 0u;
+  if (sequence_length == 0u) {
+    exam_led_clear();
+    return;
+  }
+  Recaman(sequence, sequence_length);
+  exam_led_write((uint8_t)sequence[0]);
+  display_index = 1u;
+  if (sequence_length > 1u &&
+      exam_timer_config_ms(EXAM_TIMER0, 2000u, EXAM_TIMER_PERIODIC) == EXAM_OK) {
+    sequence_active = 1u;
+    exam_timer_start(EXAM_TIMER0);
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Package debounce recommendation; the paper does not prescribe 10/50 ms. */
+  if (exam_debounce_config(10u, 50u) != EXAM_OK ||
+      exam_rit_config_ms(10u) != EXAM_OK) {
+    exam_led_write(0xFFu);
+    for (;;) { __WFI(); }
+  }
+  exam_rit_start();
+  exam_adc_init();
+  exam_adc_start();
+
+  for (;;) {
+    uint16_t sample;
+    if (exam_adc_take(&sample)) {
+      uint8_t value = (uint8_t)(sample >> 4);
+      /* Playback owns the display. After it ends, hold its last value
+         until a subsequent potentiometer high8 change restores preview. */
+      if (!sequence_active && (!have_sample || value != latest_value))
+        exam_led_write(value);
+      latest_value = value;
+      have_sample = 1u;
+      exam_adc_start();
+    }
+    if ((exam_button_events_take() & EXAM_BUTTON_EVENT_KEY2) != 0u && have_sample)
+      begin_sequence();
+    if ((exam_events_take(EVENT_SEQUENCE_STEP) & EVENT_SEQUENCE_STEP) != 0u &&
+        sequence_active) {
+      exam_led_write((uint8_t)sequence[display_index++]);
+      if (display_index >= sequence_length) {
+        sequence_active = 0u;
+        exam_timer_stop(EXAM_TIMER0);
+        exam_timer_reset(EXAM_TIMER0);
+      }
+    }
+    __WFI();
+  }
+}

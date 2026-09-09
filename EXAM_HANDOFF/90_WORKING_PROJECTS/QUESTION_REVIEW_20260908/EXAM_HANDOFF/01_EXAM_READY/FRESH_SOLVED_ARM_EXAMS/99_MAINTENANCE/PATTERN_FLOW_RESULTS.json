@@ -1,0 +1,104 @@
+{
+  "method": "Production C compiled at O0 with native Arm Compiler and native assembly; explicit IRQs and modeled MMIO; SystemInit substituted with100MHz clock. Normal Keil project builds verified separately.",
+  "results": [
+    {
+      "project": "timer-periodic",
+      "status": "PASS"
+    },
+    {
+      "project": "timer-exact-ticks",
+      "status": "PASS"
+    },
+    {
+      "project": "timer-one-shot",
+      "status": "PASS"
+    },
+    {
+      "project": "timer-pause-resume",
+      "status": "PASS"
+    },
+    {
+      "project": "timer-multiple-matches",
+      "status": "PASS"
+    },
+    {
+      "project": "timer-capture-pin",
+      "status": "PASS"
+    },
+    {
+      "project": "event-handoff",
+      "status": "PASS"
+    },
+    {
+      "project": "raw-capture-ff",
+      "status": "PASS"
+    },
+    {
+      "project": "raw-capture-ffff",
+      "status": "PASS"
+    },
+    {
+      "project": "ordered-binary",
+      "status": "PASS"
+    },
+    {
+      "project": "ordered-parameters",
+      "status": "PASS"
+    },
+    {
+      "project": "adc-button-sequence",
+      "status": "PASS"
+    },
+    {
+      "project": "adc-percentage",
+      "status": "PASS"
+    },
+    {
+      "project": "joystick-release",
+      "status": "PASS"
+    },
+    {
+      "project": "buttons-rit-timer",
+      "status": "PASS"
+    },
+    {
+      "project": "buttons-systick-timer",
+      "status": "PASS"
+    },
+    {
+      "project": "dac-stream",
+      "status": "PASS"
+    },
+    {
+      "project": "dac-duration",
+      "status": "PASS"
+    },
+    {
+      "project": "dac-button-once",
+      "status": "PASS"
+    },
+    {
+      "project": "game-bulls-cows",
+      "status": "PASS"
+    },
+    {
+      "project": "game-mastermind",
+      "status": "PASS"
+    },
+    {
+      "project": "rhythm-first-movement",
+      "status": "PASS"
+    },
+    {
+      "project": "dac-three-timer-notes",
+      "status": "PASS"
+    },
+    {
+      "project": "svc-frame",
+      "status": "PASS",
+      "checks": "Actual wrapper MSP/PSP selection and native C decoder/dispatcher; hardware entry/return not modeled"
+    }
+  ],
+  "physicalBoard": "Not tested",
+  "exceptionEntry": "SVC hardware entry not modeled; native wrapper build checked separately"
+}

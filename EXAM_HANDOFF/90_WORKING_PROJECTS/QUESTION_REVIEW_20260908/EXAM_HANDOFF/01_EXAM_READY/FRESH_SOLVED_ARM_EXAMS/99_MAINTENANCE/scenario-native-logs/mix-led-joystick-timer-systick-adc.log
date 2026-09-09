@@ -1,0 +1,13 @@
+C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\EXAM_HANDOFF\90_WORKING_PROJECTS\PERIPHERAL_LIBRARY_20260905\EXAM_HANDOFF\01_EXAM_READY\FRESH_SOLVED_ARM_EXAMS\03_COPY_PASTE_LIBRARY\CANONICAL_WORKSTATION\pattern-projects\mix-led-joystick-timer-systick-adc\Source\sample.c:127:32: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
+  127 |   if(!HAS_ADC && !HAS_JOYSTICK && CONTROL_CLOCK && app.running && app.ticks%50u==0u) app.value=(app.value+1u)&255u;
+      |                                ^  ~~~~~~~~~~~~~
+C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\EXAM_HANDOFF\90_WORKING_PROJECTS\PERIPHERAL_LIBRARY_20260905\EXAM_HANDOFF\01_EXAM_READY\FRESH_SOLVED_ARM_EXAMS\03_COPY_PASTE_LIBRARY\CANONICAL_WORKSTATION\pattern-projects\mix-led-joystick-timer-systick-adc\Source\sample.c:127:32: note: use '&' for a bitwise operation
+  127 |   if(!HAS_ADC && !HAS_JOYSTICK && CONTROL_CLOCK && app.running && app.ticks%50u==0u) app.value=(app.value+1u)&255u;
+      |                                ^~
+      |                                &
+C:\Personal\College\CA 2026\CA\ARM_Exam_Ready_Package\EXAM_HANDOFF\90_WORKING_PROJECTS\PERIPHERAL_LIBRARY_20260905\EXAM_HANDOFF\01_EXAM_READY\FRESH_SOLVED_ARM_EXAMS\03_COPY_PASTE_LIBRARY\CANONICAL_WORKSTATION\pattern-projects\mix-led-joystick-timer-systick-adc\Source\sample.c:127:32: note: remove constant to silence this warning
+  127 |   if(!HAS_ADC && !HAS_JOYSTICK && CONTROL_CLOCK && app.running && app.ticks%50u==0u) app.value=(app.value+1u)&255u;
+      |                                ^~~~~~~~~~~~~~~~
+1 warning generated.
+
+Program Size: Code=7006 RO-data=290 RW-data=16 ZI-data=1392  

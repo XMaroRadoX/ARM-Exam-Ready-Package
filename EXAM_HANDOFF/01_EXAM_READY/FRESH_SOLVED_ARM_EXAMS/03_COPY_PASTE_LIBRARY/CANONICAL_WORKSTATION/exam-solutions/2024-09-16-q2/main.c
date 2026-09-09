@@ -29,8 +29,17 @@ static void handle_button(exam_button_t button)
 {
   uint32_t value;
   value=button_value(button);
-  if(selection_count==0u){increment=value;selection_count=1u;}
-  else {selection_count=0u;kruskal(maze,horizontal,vertical,ROWS,COLS,increment,value);}
+  if(selection_count==0u){initialize_arrays();increment=value;selection_count=1u;}
+  else {
+    uint32_t i;
+    selection_count=0u;
+    kruskal(maze,horizontal,vertical,ROWS,COLS,increment,value);
+    /* The printed algorithm can stall for some button pairs. A nonzero
+       component label means it returned a partial maze, not success. */
+    for(i=0u;i<ROWS*COLS;++i) {
+      if(maze[i]!=0u){exam_led_write(0xFFu);break;}
+    }
+  }
 }
 
 void EINT0_IRQHandler(void)

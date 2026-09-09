@@ -52,6 +52,7 @@ const timings=[];
 for(const query of ['digitSum','20230918','18 September 2023','Q1 Timer0','Hofstadter','exam_timer_config_ms','fifth argument','Timer0 ADC','graph shortest path','quicksort','LDRSB','short-circuit']){
  const samples=[];for(let i=0;i<5;i++){const t=performance.now();engine.search(query);samples.push(performance.now()-t);}timings.push({query,maxMs:Math.max(...samples),medianMs:samples.sort((a,b)=>a-b)[2]});
 }
+if(!timings.every(t=>t.maxMs<200))console.error(JSON.stringify(timings,null,2));
 check(timings.every(t=>t.maxMs<200),'Search timing target 200 ms');
 const report={checks,records:items.length,prepareMs,timings,status:'PASS'};
 fs.writeFileSync(path.join(__dirname,'SEARCH_REGRESSION_RESULTS.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

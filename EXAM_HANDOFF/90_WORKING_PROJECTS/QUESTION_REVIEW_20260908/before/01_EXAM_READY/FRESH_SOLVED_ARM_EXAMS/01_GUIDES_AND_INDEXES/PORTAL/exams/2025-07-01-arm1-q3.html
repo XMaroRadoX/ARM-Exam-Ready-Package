@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Accept only the first joystick movement per three-second LED round; score ten rounds and show LED4 for victory or LED5 otherwise.">
+  <title>2025-07-01 ARM 1 LCG Rhythm — Q3 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2025-07-01-a1.html">2025-07-01 ARM 1 LCG Rhythm</a><span aria-hidden="true">/</span><span aria-current="page">Q3</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-07-01 ARM 1 LCG Rhythm — Q3</h1><p>Accept only the first joystick movement per three-second LED round; score ten rounds and show LED4 for victory or LED5 otherwise.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-put-each-complete-file-in-the-working-template">Put each complete file in the working template</a><a href="#section-why-use-rit">Why use RIT?</a><a href="#section-one-response-per-round">One response per round</a><a href="#section-direction-and-score-rules">Direction and score rules</a><a href="#section-the-tenth-round-still-gets-three-seconds">The tenth round still gets three seconds</a><a href="#section-complete-c-answer">Complete C answer</a><a href="#section-complete-arm-assembly-answer">Complete ARM assembly answer</a><a href="#section-complete-replacement-irq-rit-c">Complete replacement: IRQ_RIT.c</a><a href="#section-complete-replacement-irq-timer-c">Complete replacement: IRQ_timer.c</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section data-exam-search-metadata class="section-block"><h2 id="exam-topics">Exam topics</h2><p>Question · 2025-07-01 · ARM 1 LCG Rhythm</p><p><strong>Algorithms:</strong> <a href="../search.html?q=Games&amp;kind=Past+Exams">Games</a></p><p><strong>Hardware:</strong> <a href="../search.html?q=LED&amp;kind=Past+Exams">LED</a> · <a href="../search.html?q=Timer0&amp;kind=Past+Exams">Timer0</a> · <a href="../search.html?q=RIT&amp;kind=Past+Exams">RIT</a> · <a href="../search.html?q=Joystick&amp;kind=Past+Exams">Joystick</a></p><p><strong>Interrupts:</strong> <a href="../search.html?q=Timer+IRQ&amp;kind=Past+Exams">Timer IRQ</a> · <a href="../search.html?q=Acknowledgement&amp;kind=Past+Exams">Acknowledgement</a></p><p><strong>Timing:</strong> <a href="../search.html?q=Delays&amp;kind=Past+Exams">Delays</a></p></section><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Accept only the first joystick movement per three-second LED round; score ten rounds and show LED4 for victory or LED5 otherwise.</dd></div><div class="fact"><dt>Required answer</dt><dd>C and assembly</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>main; TIMER0_IRQHandler; RIT_IRQHandler; game_next_round; game_poll_joystick; nextElementLCG</dd></div><div class="fact"><dt>Architecture</dt><dd>C state machine + IRQ</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/ARM%20questions/20250701.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>Timer0 opens rounds; RIT polls new direction edges; waiting_for_move accepts one response.</p><p><strong>Constants:</strong> seed=1; a=131; c=7; n=0..9; m=255; 10 elements; Timer0=3000ms; RIT=10ms; final score at 33s</p><p><strong>Components:</strong> Games, LED, Timer0, RIT, Joystick, Delays</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><p># Question 3: complete commented rhythm game</p><h2 id="section-put-each-complete-file-in-the-working-template">Put each complete file in the working template</h2><div class="table-wrap"><table><thead><tr><th>Download</th><th>Destination</th></tr></thead><tbody><tr><td>main.c</td><td>Source/sample.c</td></tr><tr><td>assembly.s</td><td>Source/ASM_funct.s</td></tr><tr><td>IRQ_timer.c</td><td>Source/timer/IRQ_timer.c</td></tr><tr><td>IRQ_RIT.c</td><td>Source/RIT/IRQ_RIT.c</td></tr></tbody></table></div><p>The complete C answer includes both used handlers alongside the game logic. The supplied IRQ files remove those duplicate definitions while preserving the unused Timer1-3 handlers. This is the same solution as the split-file lesson, collected into one readable C answer. Do not append it to the existing handlers.</p><p>Keep the original startup file. The supplied assembly has no custom Reset_Handler: normal startup initializes C state and enters main. Q1's immediate array-generation loop is a separate test, not part of this timed game.</p><h2 id="section-why-use-rit">Why use RIT?</h2><p>Timer0 controls WHEN a new LED appears: once every 3000 ms. The joystick must be checked DURING that interval. Checking only inside Timer0 would miss a player who pressed and released between its interrupts.</p><p>RIT means Repetitive Interrupt Timer. It checks for a new joystick press every 10 ms, approximately 300 checks per round. This is an implementation choice, not an extra requirement in the paper. It allows main to wait for interrupts instead of spinning.</p><div class="table-wrap"><table><thead><tr><th>Time</th><th>Action</th></tr></thead><tbody><tr><td>3.000 s</td><td>Timer0 shows LED9; RIGHT is expected.</td></tr><tr><td>3.010 s onward</td><td>RIT checks for a new direction every 10 ms.</td></tr><tr><td>Example: 3.450 s</td><td>RIT detects the first response, updates one counter, and clears the LED.</td></tr><tr><td>Until 6.000 s</td><td>Further responses are ignored.</td></tr><tr><td>6.000 s</td><td>Timer0 starts the next round.</td></tr></tbody></table></div><p>"Immediately" means on the next sample, normally within about 10 ms; this is polling, not a zero-latency hardware input interrupt. Edge detection handles held inputs; it is not a separate mechanical-debounce guarantee.</p><h2 id="section-one-response-per-round">One response per round</h2><p>waiting_for_move is 1 when a round opens. The first directional press sets it to 0, increments num_correct or num_wrong, and switches off the LED. Only the next Timer0 round can set it back to 1.</p><p>old_joystick records each sample even when responses are disabled. The edge helper detects released-to-pressed transitions, so a held direction cannot repeatedly score or automatically answer the next round.</p><p>Equal Timer0 and RIT priorities prevent one handler interrupting the other's shared-state update. volatile requests actual accesses; it does not provide that protection by itself.</p><h2 id="section-direction-and-score-rules">Direction and score rules</h2><p>Remainders 0/1/2/3 select LED11/10/9/8 and UP/LEFT/RIGHT/DOWN.</p><p>Expected directions: RIGHT, RIGHT, DOWN, DOWN, UP, DOWN, RIGHT, RIGHT, RIGHT, LEFT.</p><p>The paper does not assign a penalty for no movement; a missed round leaves both counters unchanged. Centre/select is ignored. Simultaneous new direction presses count as wrong rather than choosing an arbitrary direction.</p><h2 id="section-the-tenth-round-still-gets-three-seconds">The tenth round still gets three seconds</h2><p>Timer0 shows the first LED at 3 seconds and the tenth at 30 seconds. It scores the game at 33 seconds, after the last response window. There are 11 Timer0 interrupts but only 10 LCG calls. The scoring branch stops both timers before displaying the result.</p><p>num_correct &gt; num_wrong lights LED4. Otherwise, including a tie, LED5 lights. No later input should clear the result LED.</p></section><section class="section-block"><h2 id="section-complete-c-answer">Complete C answer</h2><details class="code-panel" open><summary>Show complete C solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Q3: complete game, using the Q1 assembly function.
+ * Copy to Source/sample.c in a WORKING template.
+ * Timer0 and RIT handlers are included here. Use both accompanying IRQ
+ * replacement files so the linker sees exactly one owner per handler.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+extern uint32_t nextElementLCG(uint32_t previous, uint32_t a,
+                               uint32_t c, uint32_t n, uint32_t m);
+
+/* Persistent sequence state. n is the NEXT index, from 0 through 9. */
+static uint32_t previous = 1u;
+static uint32_t n = 0u;
+
+/* 1 accepts one answer; 0 ignores answers until the next round. */
+static volatile uint32_t waiting_for_move = 0u;
+static volatile uint32_t expected_direction = 0u;
+volatile uint32_t num_correct = 0u;
+volatile uint32_t num_wrong = 0u;
+
+/* Used to distinguish a new press from a direction being held. */
+static uint32_t old_joystick = 0u;
+
+/* remainder 0/1/2/3 -&gt; LED 11/10/9/8 -&gt; UP/LEFT/RIGHT/DOWN. */
+static const uint32_t directions[4] = {
+    EXAM_JOY_UP, EXAM_JOY_LEFT, EXAM_JOY_RIGHT, EXAM_JOY_DOWN
+};
+
+/* Called every three seconds by Timer0. */
+void game_next_round(void)
+{
+    uint32_t value;
+    uint32_t remainder;
+
+    waiting_for_move = 0u;                /* Close the old response window. */
+    exam_led_clear();                     /* Also clear an unanswered LED. */
+
+    /* The tenth LED has already had its FULL three-second window.
+     * This is timer interrupt 11, but it does NOT call the LCG.
+     */
+    if (n == 10u) {
+        exam_timer_stop(EXAM_TIMER0);
+        exam_rit_stop();
+        if (num_correct &gt; num_wrong) {
+            exam_led_on(4u);              /* Victory. */
+        } else {
+            exam_led_on(5u);              /* Defeat, including a tie. */
+        }
+        return;
+    }
+
+    value = nextElementLCG(previous, 131u, 7u, n, 255u);
+    previous = value;                     /* Input for the next generation. */
+    remainder = value % 4u;
+    expected_direction = directions[remainder];
+    exam_led_on((uint8_t)(11u - remainder));
+    waiting_for_move = 1u;                /* Allow precisely one response. */
+    n++;
+}
+
+/* Called every 10 ms by RIT; this is input sampling, not a new round. */
+void game_poll_joystick(void)
+{
+    uint32_t current;
+    uint32_t pressed;
+
+    /* Ignore centre/select; retain only the four directional inputs. */
+    current = exam_joystick_read()
+            &amp; (EXAM_JOY_UP | EXAM_JOY_LEFT | EXAM_JOY_RIGHT | EXAM_JOY_DOWN);
+    pressed = exam_joystick_pressed_edges(old_joystick, current);
+
+    /* Update even when answers are disabled. A held direction must not
+     * become a new answer just because the next round has started.
+     */
+    old_joystick = current;
+    if (waiting_for_move == 0u || pressed == 0u) {
+        return;
+    }
+
+    waiting_for_move = 0u;                /* First movement consumes answer. */
+    if (pressed == expected_direction) {
+        num_correct++;
+    } else {
+        num_wrong++;
+    }
+    exam_led_clear();                     /* Correct OR wrong: LED goes off. */
+}
+
+void TIMER0_IRQHandler(void)
+{
+    uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+    if ((pending &amp; 1u) != 0u) {            /* MR0 is our 3-second interval. */
+        game_next_round();
+    }
+}
+
+void RIT_IRQHandler(void)
+{
+    exam_rit_ack();                       /* Acknowledge before sampling. */
+    game_poll_joystick();
+}
+
+int main(void)
+{
+    exam_init();
+    exam_led_clear();
+    exam_joystick_init();
+    old_joystick = exam_joystick_read()
+                 &amp; (EXAM_JOY_UP | EXAM_JOY_LEFT
+                    | EXAM_JOY_RIGHT | EXAM_JOY_DOWN);
+
+    if (exam_timer_config_ms(EXAM_TIMER0, 3000u,
+                             EXAM_TIMER_PERIODIC) != EXAM_OK) {
+        while (1) { }
+    }
+    if (exam_rit_config_ms(10u) != EXAM_OK) {
+        while (1) { }
+    }
+
+    /* Equal priorities serialize the two handlers&#x27; shared-state updates.
+     * volatile alone would NOT prevent one handler preempting the other.
+     */
+    NVIC_SetPriority(TIMER0_IRQn, 0u);
+    NVIC_SetPriority(RIT_IRQn, 0u);
+    exam_rit_start();
+    exam_timer_start(EXAM_TIMER0);
+    while (1) {
+        __WFI();
+    }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-complete-arm-assembly-answer">Complete ARM assembly answer</h2><details class="code-panel" open><summary>Show complete assembly solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                PRESERVE8
+                THUMB
+
+                AREA    asm_functions, CODE, READONLY
+                EXPORT  nextElementLCG
+
+; Inputs: R0=previous, R1=a, R2=c, R3=n, [SP]=m.
+; Output: R0=((a * previous + c) XOR n) mod m.
+; Parameters in this paper are unsigned and m=255 is nonzero.
+nextElementLCG  PROC
+                ; Preserve the caller&#x27;s R4 and the return address: 8 bytes.
+                PUSH    {R4, LR}
+
+                ; The fifth argument was at [SP] on entry.
+                ; The push moved SP down 8 bytes, so now read [SP + 8].
+                LDR     R4, [SP, #8]
+
+                MUL     R0, R1, R0      ; a * previous
+                ADD     R0, R0, R2      ; Add c
+                EOR     R0, R0, R3      ; XOR with iteration n
+
+                ; Modulo = value - (integer quotient * modulus).
+                ; R1&#x27;s original multiplier is no longer needed.
+                UDIV    R1, R0, R4
+                MUL     R1, R1, R4
+                SUB     R0, R0, R1      ; Leave the remainder in R0
+
+                ; Restore R4 and return by loading the saved LR into PC.
+                ; Do not restore R0: that would overwrite our answer.
+                POP     {R4, PC}
+                ENDP
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-complete-replacement-irq-rit-c">Complete replacement: IRQ_RIT.c</h2><details class="code-panel" open><summary>Show complete IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Complete replacement for Source/RIT/IRQ_RIT.c.
+ * RIT_IRQHandler is defined in the supplied sample.c answer.
+ * This file deliberately defines no duplicate interrupt handler.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-complete-replacement-irq-timer-c">Complete replacement: IRQ_timer.c</h2><details class="code-panel" open><summary>Show complete IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Complete replacement for Source/timer/IRQ_timer.c.
+ * TIMER0_IRQHandler is defined in the supplied sample.c answer.
+ * Keep the unused timer handlers here; do not duplicate Timer0.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+void TIMER1_IRQHandler(void) { exam_timer_ack(EXAM_TIMER1); }
+void TIMER2_IRQHandler(void) { exam_timer_ack(EXAM_TIMER2); }
+void TIMER3_IRQHandler(void) { exam_timer_ack(EXAM_TIMER3); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><p>Use the tags above in the Algorithms and Solution Patterns sections.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

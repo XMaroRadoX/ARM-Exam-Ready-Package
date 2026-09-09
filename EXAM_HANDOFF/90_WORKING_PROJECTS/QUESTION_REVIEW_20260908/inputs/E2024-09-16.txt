@@ -1,0 +1,363 @@
+{"exam_id": "E2024-09-16", "date": "2024-09-16", "project": "2024-09-16_Kruskal_Buttons", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240916 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 16.09.2024 – part II 
+ 
+Question 1 
+Write the kruskal subroutine in ARM assembly to generate a maze according to the Kruskal's 
+algorithm. The maze will be stored in the following data structures: 
+- a matrix of bytes maze, where connected cells have the same value; 
+- an array of bytes horizontal_walls, which indicates the presence of a wall between 
+each pair of consecutive cells in the same row; 
+- an array of bytes vertical_walls, which indicates the presence of a wall between each 
+pair of consecutive cells in the same column. 
+Each data structure has NUM_ROW * NUM_COL elements. 
+ 
+The k-th element of horizontal_walls can have one of the following values: 
+- 0: the k-th cell (in row-major order) in the maze is connected with the cell at its right 
+- 1: there is a wall between the the k-th cell and the one at its right 
+- 2: the k-th cell is along the right border of the matrix (i.e., in the last column). 
+Similarly, the k-th element of vertical_walls can have one of the following values: 
+- 0: the k-th cell (in row-major order) in the maze is connected with the cell at its bottom 
+- 1: there is a wall between the the k-th cell and the one at its bottom 
+- 2: the k-th cell is along the bottom border of the matrix (i.e., in the last row). 
+ 
+Initially, there is a wall between every pair of cells, thus each cell has a different value because no 
+one is connected. An example is given with NUM_ROW = 3 and NUM_COL = 4. 
+ 
+horizontal_walls 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2 maze  
+vertical_walls  1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+The kruskal subroutine receives the following parameters (in the order indicated): 
+1) address of the matrix maze 
+2) address of the array horizontal_walls 
+3) address of the array vertical_walls 
+4) NUM_ROW 
+5) NUM_COL 
+6) an increment y 
+7) an offset x 
+ 
+The kruskal subroutine implements the following algorithm: 
+do 
+ x = x + y 
+ if x < NUM_ROW * NUM_COL: 
+  if horizontal_walls[x] == 1: 
+   if maze[x] !=  maze[x + 1]: 
+    horizontal_walls[x] = 0  ; remove the wall 
+    m = min(maze[x], maze[x + 1]) 
+    n = max(maze[x], maze[x + 1]) 
+    change all elements of maze equal to n to m 
+  else if horizontal_walls[x] == 0: 
+   y = y + 1 
+ else: 
+  x = x - NUM_ROW * NUM_COL 
+0 1 2 3 
+4 5 6 7 
+8 9 10 11 
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 16.09.2024 – part II 
+ 
+  if x < NUM_ROW * NUM_COL:     ; this part is very similar to the previous one 
+   if vertical_walls[x] == 1: 
+    if maze[x] !=  maze[x + NUM_COL]: 
+     vertical_walls[x] = 0  ; remove the wall 
+     m = min(maze[x], maze[x + NUM_COL]) 
+     n = max(maze[x], maze[x + NUM_COL]) 
+     change all elements of maze equal to n to m 
+   else if vertical_walls[x] == 0: 
+    y = y + 1  
+while there are elements in maze different from zero 
+ 
+Example of execution with a 4x3 matrix, x = 2 and y = 4. 
+Iteration 1  x = 2 + 4 = 6 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 1, 2 
+vertical_walls  1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 2  x = 6 + 4 = 10 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 0, 2 
+vertical_walls  1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 3  x = 10 + 4 = 14 14 >= 12 → x = 14 – 12 = 2 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 0, 2 
+vertical_walls  1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 4  x = 2 + 4 = 6  → y = 4 + 1 = 5 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 0, 2 
+vertical_walls  1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 5  x = 6 + 5 = 11   
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 0, 2 
+vertical_walls  1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 6  x = 11 + 5 = 16 16 >= 12 → x = 16 – 12 = 4  
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 1, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 7  x = 4 + 5 = 9  
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 8  x = 9 + 5 = 14  → x = 14 – 12 = 2 → y = 5 + 1 = 6 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 1, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 9  x = 2 + 6 = 8 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+0 1 2 3 
+4 5 6 6 
+8 9 10 11 
+0 1 2 3 
+4 5 6 6 
+8 9 10 10 
+0 1 2 3 
+4 5 2 2 
+8 9 10 10 
+0 1 2 3 
+4 5 2 2 
+8 9 10 10 
+0 1 2 3 
+4 5 2 2 
+8 9 10 10 
+0 1 2 3 
+4 5 2 2 
+4 9 10 10 
+0 1 2 3 
+4 5 2 2 
+4 9 9 9 
+0 1 2 3 
+4 5 2 2 
+4 9 9 9 
+0 1 2 3 
+4 5 2 2 
+4 4 4 4 
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 16.09.2024 – part II 
+ 
+Iteration 10  x = 8 + 6 = 14  → x = 14 – 12 = 2 → y = 6 + 1 = 7 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 11  x = 2 + 7 = 9  → y = 7 + 1 = 8 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 1, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 12  x = 9 + 8 = 17  17 >= 12 → x = 17 – 12 = 5  
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 1, 0, 1, 0, 0, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 13  x = 5 + 8 = 13  13 >= 12 → x = 13 – 12 = 1 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 0, 0, 1, 0, 0, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 14  x = 1 + 8 = 9  → y = 8 + 1 = 9 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 0, 0, 1, 0, 0, 1, 1, 2, 2, 2, 2 
+ 
+Iteration 15  x = 9 + 9 = 18  18 >= 12 → x = 18 – 12 = 6 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 0, 0, 1, 0, 0, 0, 1, 2, 2, 2, 2 
+ 
+Iteration 16  x = 6 + 9 = 15  15 >= 12 → x = 15 – 12 = 3 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2 
+ 
+Iteration 17  x = 3 + 9 = 12  12 >= 12 → x = 12 – 12 = 0 
+horizontal_walls 1, 1, 1, 2, 1, 1, 0, 2, 0, 0, 0, 2 
+vertical_walls  0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 2 
+ 
+  
+0 1 2 3 
+4 5 2 2 
+4 4 4 4 
+0 1 2 3 
+4 5 2 2 
+4 4 4 4 
+0 1 2 3 
+4 4 2 2 
+4 4 4 4 
+0 1 2 3 
+1 1 2 2 
+1 1 1 1 
+0 1 2 3 
+1 1 2 2 
+1 1 1 1 
+0 1 1 3 
+1 1 1 1 
+1 1 1 1 
+0 1 1 1 
+1 1 1 1 
+1 1 1 1 
+0 0 0 0 
+0 0 0 0 
+0 0 0 0 
+
+--- PDF PAGE 4 ---
+Computer Architectures 
+Exam of 16.09.2024 – part II 
+ 
+Question 2 
+Add C code that after the pressure of two buttons calls the kruskal subroutine written in the 
+previous exercise. In details, you have to define the matrix maze and the arrays in C. Then, after 
+the user presses the first button, the program initializes the variable increment as follows: 
+- If the user pressed button INT0, then increment = 2 
+- If the user pressed button Key1, then increment = 3 
+- If the user pressed button Key2, then increment = 4 
+Then, after the user presses the second button, the program initializes the variable offset as 
+follows: 
+- If the user pressed button INT0, then offset = 2 
+- If the user pressed button Key1, then offset = 3 
+- If the user pressed button Key2, then offset = 4 
+After the pressure of the second button, the program calls the kruskal subroutine passing the 
+parameters in the right order. 
+
+--- QUESTION ---
+{"question_id": "2024-09-16-Q1", "date": "2024-09-16", "question": "Q1", "requirement_summary": "Apply Kruskal-style wall removal using seven ABI arguments and merge component labels.", "keywords": "Kruskal maze seven arguments stack ABI merge components", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q1/assembly.s", "function_or_handler": "kruskal", "argument_mapping": "R0-R3 first four args; remaining three on caller stack", "architecture": "assembly graph algorithm + ABI", "constants": "horizontal/vertical wall arrays", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "ABI|Stack arguments", "algorithm_tags": "Arrays|Graph|Maze", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  kruskal
+
+; void kruskal(uint8_t *maze,uint8_t *horizontal,uint8_t *vertical,
+;              uint32_t rows,uint32_t columns,uint32_t y,uint32_t x)
+kruskal         PROC
+                MOV     R12, SP
+                PUSH    {R4-R11, LR}
+                SUB     SP, SP, #4      ; aligned 40-byte frame
+                LDR     R4, [R12]       ; columns (argument 5)
+                LDR     R5, [R12, #4]   ; increment y
+                LDR     R6, [R12, #8]   ; offset x
+                MOV     R7, R0          ; maze
+                MOV     R8, R1          ; horizontal walls
+                MOV     R9, R2          ; vertical walls
+                MUL     R10, R3, R4     ; total cells
+kr_loop         ADD     R6, R6, R5
+                CMP     R6, R10
+                BHS     kr_vertical
+                LDRB    R0, [R8, R6]
+                CMP     R0, #0
+                BNE     kr_h_wall
+                ADDS    R5, R5, #1
+                B       kr_check_done
+kr_h_wall       CMP     R0, #1
+                BNE     kr_check_done
+                ADD     R11, R6, #1
+                LDRB    R2, [R7, R6]
+                LDRB    R3, [R7, R11]
+                CMP     R2, R3
+                BEQ     kr_check_done
+                MOVS    R0, #0
+                STRB    R0, [R8, R6]
+                B       kr_merge
+kr_vertical     SUB     R6, R6, R10
+                CMP     R6, R10
+                BHS     kr_check_done
+                LDRB    R0, [R9, R6]
+                CMP     R0, #0
+                BNE     kr_v_wall
+                ADDS    R5, R5, #1
+                B       kr_check_done
+kr_v_wall       CMP     R0, #1
+                BNE     kr_check_done
+                ADD     R11, R6, R4
+                LDRB    R2, [R7, R6]
+                LDRB    R3, [R7, R11]
+                CMP     R2, R3
+                BEQ     kr_check_done
+                MOVS    R0, #0
+                STRB    R0, [R9, R6]
+kr_merge        CMP     R2, R3
+                ITE     LO
+                MOVLO   R0, R2          ; m
+                MOVHS   R0, R3
+                ITE     LO
+                MOVLO   R1, R3          ; n
+                MOVHS   R1, R2
+                MOVS    R11, #0
+kr_replace      CMP     R11, R10
+                BHS     kr_check_done
+                LDRB    R2, [R7, R11]
+                CMP     R2, R1
+                IT      EQ
+                STRBEQ  R0, [R7, R11]
+                ADDS    R11, R11, #1
+                B       kr_replace
+kr_check_done   MOVS    R11, #0
+kr_nonzero      CMP     R11, R10
+                BHS     kr_done
+                LDRB    R0, [R7, R11]
+                CMP     R0, #0
+                BNE     kr_loop
+                ADDS    R11, R11, #1
+                B       kr_nonzero
+kr_done         ADD     SP, SP, #4
+                POP     {R4-R11, PC}
+                ENDP
+                END
+
+
+
+--- QUESTION ---
+{"question_id": "2024-09-16-Q2", "date": "2024-09-16", "question": "Q2", "requirement_summary": "Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.", "keywords": "two button sequence raw parameters LED Kruskal", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/main.c", "function_or_handler": "main; EINT1_IRQHandler; EINT2_IRQHandler", "argument_mapping": "First raw IRQ selects increment; second selects offset and calls the algorithm", "architecture": "C state machine + IRQ", "constants": "choices 2,3,4", "peripheral_tags": "LED|Buttons", "interrupt_tags": "EINT|Acknowledgement", "timing_tags": "", "architecture_tags": "C-to-assembly", "algorithm_tags": "Recurrence|Graph", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/main.c ---
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+#define ROWS 3u
+#define COLS 4u
+extern void kruskal(uint8_t *maze,uint8_t *horizontal,uint8_t *vertical,
+                    uint32_t rows,uint32_t columns,uint32_t increment,uint32_t offset);
+static uint8_t maze[ROWS*COLS];
+static uint8_t horizontal[ROWS*COLS];
+static uint8_t vertical[ROWS*COLS];
+static uint32_t increment;
+static uint8_t selection_count;
+
+static uint32_t button_value(exam_button_t b)
+{ return b==EXAM_BUTTON_INT0?2u:(b==EXAM_BUTTON_KEY1?3u:4u); }
+
+static void initialize_arrays(void)
+{
+  uint32_t r,c,k;
+  for(r=0u;r<ROWS;++r)for(c=0u;c<COLS;++c){
+    k=r*COLS+c; maze[k]=(uint8_t)k;
+    horizontal[k]=(c==COLS-1u)?2u:1u;
+    vertical[k]=(r==ROWS-1u)?2u:1u;
+  }
+}
+
+static void handle_button(exam_button_t button)
+{
+  uint32_t value;
+  value=button_value(button);
+  if(selection_count==0u){increment=value;selection_count=1u;}
+  else {selection_count=0u;kruskal(maze,horizontal,vertical,ROWS,COLS,increment,value);}
+}
+
+void EINT0_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_INT0); handle_button(EXAM_BUTTON_INT0); }
+void EINT1_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY1); handle_button(EXAM_BUTTON_KEY1); }
+void EINT2_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY2); handle_button(EXAM_BUTTON_KEY2); }
+
+int main(void)
+{
+  exam_init();
+  initialize_arrays(); selection_count=0u; exam_led_clear();
+  exam_buttons_init();
+
+  for (;;) {
+    __WFI();
+  }
+}

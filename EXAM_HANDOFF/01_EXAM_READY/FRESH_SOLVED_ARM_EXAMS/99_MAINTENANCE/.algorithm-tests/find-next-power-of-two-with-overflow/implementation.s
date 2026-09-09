@@ -1,0 +1,40 @@
+; Find the next power of two with overflow detection
+; int next_power_of_two_u32(uint32_t value, uint32_t *result_out)
+; Return the smallest power of two greater than or equal to value. Define input zero as result one. Values above 0x80000000 cannot be represented and fail without writing.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT next_power_of_two_u32
+next_power_of_two_u32
+        ; R0=value,R1=result_out. R2 is the spreading temporary.
+        cmp r1,#0
+        beq npt_bad
+        cmp r0,#0
+        beq npt_one
+        cmp r0,#0x80000000
+        bhi npt_bad
+        subs r0,#1
+        lsr r2,r0,#1
+        orr r0,r0,r2
+        lsr r2,r0,#2
+        orr r0,r0,r2
+        lsr r2,r0,#4
+        orr r0,r0,r2
+        lsr r2,r0,#8
+        orr r0,r0,r2
+        lsr r2,r0,#16
+        orr r0,r0,r2
+        adds r0,#1
+        b npt_store
+npt_one
+        movs r0,#1
+npt_store
+        str r0,[r1]
+        movs r0,#1
+        bx lr
+npt_bad
+        movs r0,#0
+        bx lr
+
+        ALIGN
+        END

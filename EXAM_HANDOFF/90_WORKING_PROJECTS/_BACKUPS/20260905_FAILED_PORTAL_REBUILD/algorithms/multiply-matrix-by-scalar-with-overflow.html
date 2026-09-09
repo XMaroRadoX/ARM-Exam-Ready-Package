@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Multiply every cell by scalar in signed int32_t. Require dimensions at most 256, enough disjoint output, and no overflow. A full preflight prevents partial writes.">
+  <title>Multiply a matrix by a scalar with overflow detection · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Algorithms" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Algorithms</a><span aria-hidden="true">/</span><span aria-current="page">Multiply a matrix by a scalar with overflow detection</span></nav><header class="page-heading"><p class="eyebrow">Algorithms</p><h1>Multiply a matrix by a scalar with overflow detection</h1><p>Multiply every cell by scalar in signed int32_t. Require dimensions at most 256, enough disjoint output, and no overflow. A full preflight prevents partial writes.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-problem-and-contract">Problem and contract</a><a href="#section-how-to-solve-it">How to solve it</a><a href="#section-complete-arm-assembly">Complete ARM assembly</a><a href="#section-matching-c">Matching C</a><a href="#section-expected-results-and-boundary-tests">Expected results and boundary tests</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>Family</dt><dd>Arrays and matrices</dd></div><div class="fact"><dt>Exam history</dt><dd>Possible variation</dd></div><div class="fact"><dt>Complexity</dt><dd>O(rows*cols) time; O(1) auxiliary storage</dd></div></dl><p></p></section>
+<section class="section-block"><h2 id="section-problem-and-contract">Problem and contract</h2><div class="question"><h3>Exam question</h3><p>Write a C function and matching ARMASM subroutine named matrix_scalar_multiply_i32 to multiply a matrix by a scalar with overflow detection. Use the exact interface below, obey the stated failure behaviour, and preserve the AAPCS register and stack rules.</p></div><p>Multiply every cell by scalar in signed int32_t. Require dimensions at most 256, enough disjoint output, and no overflow. A full preflight prevents partial writes.</p><h3>C interface</h3><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>CODE</span><button type="button" class="copy-code js-only" aria-label="Copy CODE listing 1">Copy code</button></div><pre tabindex="0"><code>int matrix_scalar_multiply_i32(const int32_t *matrix, uint32_t rows,
+                               uint32_t columns, int32_t scalar,
+                               int32_t *output, uint32_t capacity)</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h3>Register map</h3><table><thead><tr><th>Function</th><th>Argument</th><th>Entry location</th></tr></thead><tbody><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>const int32_t *matrix</code></td><td><code>R0</code></td></tr><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>uint32_t rows</code></td><td><code>R1</code></td></tr><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>uint32_t columns</code></td><td><code>R2</code></td></tr><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>int32_t scalar</code></td><td><code>R3</code></td></tr><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>int32_t *output</code></td><td><code>[entry SP]</code></td></tr><tr><td><code>matrix_scalar_multiply_i32</code></td><td><code>uint32_t capacity</code></td><td><code>[entry SP+4]</code></td></tr></tbody></table><p>Stack locations above are measured at function entry. Add the bytes pushed or reserved by the prologue before loading a later argument. A word result returns in R0; a 64-bit integer returns low word in R0 and high word in R1. Modified R4–R11 registers must be restored, and SP must retain eight-byte alignment at a call.</p></section>
+<section class="section-block"><h2 id="section-how-to-solve-it">How to solve it</h2><ol><li>Validate dimensions and storage.</li><li>Use a signed 64-bit product to preflight each cell.</li><li>Repeat and store after every product is known safe.</li></ol><h3>Worked trace</h3><p>Multiplying [1,-2,3,4] by -3 produces [-3,6,-9,-12].</p></section>
+<section class="section-block"><h2 id="section-complete-arm-assembly">Complete ARM assembly</h2><details class="code-panel" open><summary>Show complete ARM implementation</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/multiply-matrix-by-scalar-with-overflow/implementation.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">; Multiply a matrix by a scalar with overflow detection
+; int matrix_scalar_multiply_i32(const int32_t *matrix, uint32_t rows,
+;                                uint32_t columns, int32_t scalar,
+;                                int32_t *output, uint32_t capacity)
+; Multiply every cell by scalar in signed int32_t. Require dimensions at most 256, enough disjoint output, and no overflow. A full preflight prevents partial writes.
+        AREA |.text.exam|, CODE, READONLY
+        THUMB
+        PRESERVE8
+        EXPORT matrix_scalar_multiply_i32
+matrix_scalar_multiply_i32
+        ; R0=matrix,R1=rows,R2=columns,R3=scalar. output and capacity are on entry stack.
+        ldr r12,[sp]
+        push {r4-r9,lr}
+        sub sp,sp,#4
+        ldr r4,[sp,#36]
+        cmp r1,#256
+        bhi msm_fail
+        cmp r2,#256
+        bhi msm_fail
+        mul r5,r1,r2
+        cmp r4,r5
+        blo msm_fail
+        cmp r5,#0
+        beq msm_yes
+        cmp r0,#0
+        beq msm_fail
+        cmp r12,#0
+        beq msm_fail
+        movs r6,#0
+msm_check
+        cmp r6,r5
+        bhs msm_write_start
+        ldr r7,[r0,r6,lsl #2]
+        smull r8,r9,r7,r3
+        asr r7,r8,#31
+        cmp r9,r7
+        bne msm_fail
+        adds r6,#1
+        b msm_check
+msm_write_start
+        movs r6,#0
+msm_write
+        cmp r6,r5
+        bhs msm_yes
+        ldr r7,[r0,r6,lsl #2]
+        mul r7,r3,r7
+        str r7,[r12,r6,lsl #2]
+        adds r6,#1
+        b msm_write
+msm_yes
+        movs r0,#1
+        b msm_return
+msm_fail
+        movs r0,#0
+msm_return
+        add sp,sp,#4
+        pop {r4-r9,pc}
+
+        ALIGN
+        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-matching-c">Matching C</h2><details class="code-panel" open><summary>Show readable C reference</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/multiply-matrix-by-scalar-with-overflow/reference.c">Open raw C file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 3">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+/* Exam prompt: Multiply a matrix by a scalar with overflow detection
+ * Contract: Multiply every cell by scalar in signed int32_t. Require dimensions at most
+ * 256, enough disjoint output, and no overflow. A full preflight prevents partial
+ * writes. Method:
+ * 1. Validate dimensions and storage.
+ * 2. Use a signed 64-bit product to preflight each cell.
+ * 3. Repeat and store after every product is known safe.
+ */
+int matrix_scalar_multiply_i32(const int32_t *matrix, uint32_t rows, uint32_t columns,
+                               int32_t scalar, int32_t *output, uint32_t capacity) {
+  if (rows &gt; 256 || columns &gt; 256)
+    return 0;
+  uint32_t count = rows * columns;
+  if (capacity &lt; count || ((!matrix || !output) &amp;&amp; count))
+    return 0;
+  for (uint32_t i = 0; i &lt; count; ++i) {
+    int64_t wide = (int64_t)matrix[i] * scalar;
+    if (wide &lt; INT32_MIN || wide &gt; INT32_MAX)
+      return 0;
+  }
+  for (uint32_t i = 0; i &lt; count; ++i)
+    output[i] = matrix[i] * scalar;
+  return 1;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section>
+<section class="section-block"><h2 id="section-expected-results-and-boundary-tests">Expected results and boundary tests</h2><p>The test fixture below contains concrete inputs and expected outputs. It is separate from the algorithm implementation. Use the same cases when stepping through the assembly.</p><details class="code-panel" open><summary>Show exact expected-output tests</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/algorithms/multiply-matrix-by-scalar-with-overflow/test_vectors.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">#define CHECK(x) do { if (!(x)) return __LINE__; } while (0)
+#include &lt;limits.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdint.h&gt;
+int matrix_scalar_multiply_i32(const int32_t *matrix, uint32_t rows, uint32_t columns,
+                               int32_t scalar, int32_t *output, uint32_t capacity);
+int test_main(void) {
+  int32_t a[] = {1, -2, 3, 4}, o[5] = {0};
+  o[4] = 77;
+  CHECK(matrix_scalar_multiply_i32(a, 2, 2, -3, o, 4));
+  CHECK(o[0] == -3 &amp;&amp; o[1] == 6 &amp;&amp; o[2] == -9 &amp;&amp; o[3] == -12 &amp;&amp; o[4] == 77);
+  int32_t x[] = {INT32_MAX};
+  o[0] = 99;
+  CHECK(!matrix_scalar_multiply_i32(x, 1, 1, 2, o, 1) &amp;&amp; o[0] == 99);
+  CHECK(!matrix_scalar_multiply_i32(a, 2, 2, 2, o, 3));
+  return 0;
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3>Common exam mistakes</h3><ul><li>Using row times rows plus column instead of row times columns plus column.</li><li>Ignoring zero dimensions, rectangular shapes or a selected row or column bound.</li><li>Partially modifying the output before a capacity or arithmetic preflight has passed.</li></ul><h3>Adapting it in an exam</h3><ul><li>Keep the declared element width and signed comparisons together when changing the input type.</li><li>Distinguish a returned value, an index, a count and a status flag before changing the calling C code.</li><li>Check the stated storage, overlap, arithmetic and recursion limits before using a larger example.</li><li>For a nested BL call, preserve live arguments and the return address as shown in the implementation.</li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

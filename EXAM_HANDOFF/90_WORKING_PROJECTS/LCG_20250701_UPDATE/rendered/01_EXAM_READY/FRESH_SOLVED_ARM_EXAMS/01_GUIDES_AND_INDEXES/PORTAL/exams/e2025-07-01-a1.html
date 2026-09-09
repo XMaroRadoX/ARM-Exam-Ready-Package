@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Implement nextElementLCG and fill a DIM-byte array in Reset_Handler; DIM=10 in the worked answer.; Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.">
+  <title>2025-07-01 ARM 1 LCG Rhythm · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><span aria-current="page">2025-07-01 ARM 1 LCG Rhythm</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2025-07-01 ARM 1 LCG Rhythm</h1><p>Implement nextElementLCG and fill a DIM-byte array in Reset_Handler; DIM=10 in the worked answer.; Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-exam-overview">Exam overview</a><a href="#section-questions-and-complete-answers">Questions and complete answers</a><a href="#section-whole-project-answer">Whole-project answer</a><a href="#section-related-study-material">Related study material</a></nav><div class="page-body"><section class="section-block"><p># July 1, 2025: the seed-1 LCG paper</p><p>The attached PDF is labelled A2, while this collection historically calls the matching recurrence ARM1. Match the formula, not the folder label.</p><ul><li><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM1_LCG_Rhythm/Answer%20Source/Q1/README.md">Q1: reset handler, byte array, and stack arguments</a></li><li><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM1_LCG_Rhythm/Answer%20Source/Q2/README.md">Q2: three-second LED sequence</a></li><li><a href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM1_LCG_Rhythm/Answer%20Source/Q3/README.md">Q3: rhythm game and why RIT is used</a></li></ul><p>Each folder contains complete commented files and an exact placement table. The main.c and assembly.s alongside this guide are the final Q3 game; use the accompanying IRQ replacement files as explained in Q3. The Q1 array test is separate.</p><p>Original paper: <a href="../../../../../02_ORIGINAL_MATERIALS/Exams/ARM%20questions/20250701.pdf">20250701.pdf</a>.</p><p>Native Keil and physical-board execution have not been performed for this revision.</p></section><section class="section-block"><h2 id="section-exam-overview">Exam overview</h2><dl class="fact-grid"><div class="fact"><dt>Date</dt><dd>2025-07-01</dd></div><div class="fact"><dt>Variant</dt><dd>ARM 1 LCG Rhythm</dd></div><div class="fact"><dt>Questions</dt><dd>3</dd></div><div class="fact"><dt>Components</dt><dd>LED, Timer0, RIT, Joystick, Timer IRQ, Acknowledgement, 3000 ms periodic, Delays</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/ARM%20questions/20250701.pdf">View exam PDF</a></p></section><section class="section-block"><h2 id="section-questions-and-complete-answers">Questions and complete answers</h2><article class="question"><h3>Q1</h3><p>Implement nextElementLCG and fill a DIM-byte array in Reset_Handler; DIM=10 in the worked answer.</p><div class="tag-list"><span class="tag">Arithmetic</span><span class="tag">Recurrence</span><span class="tag">ABI</span><span class="tag">Stack arguments</span></div><p><a href="2025-07-01-arm1-q1.html">Read complete solution for Q1</a></p></article><article class="question"><h3>Q2</h3><p>Generate one LCG value in each of the first ten Timer0 interrupts, every three seconds; use value modulo 4 to light exactly one LED8-11.</p><div class="tag-list"><span class="tag">Recurrence</span><span class="tag">LED</span><span class="tag">Timer0</span><span class="tag">C-to-assembly</span><span class="tag">Stack arguments</span><span class="tag">3000 ms periodic</span></div><p><a href="2025-07-01-arm1-q2.html">Read complete solution for Q2</a></p></article><article class="question"><h3>Q3</h3><p>Accept only the first joystick movement per three-second LED round; score ten rounds and show LED4 for victory or LED5 otherwise.</p><div class="tag-list"><span class="tag">Games</span><span class="tag">LED</span><span class="tag">Timer0</span><span class="tag">RIT</span><span class="tag">Joystick</span><span class="tag">Delays</span></div><p><a href="2025-07-01-arm1-q3.html">Read complete solution for Q3</a></p></article></section><section class="section-block"><h2 id="section-whole-project-answer">Whole-project answer</h2><p><strong>C:</strong> C owns initialization, the foreground state machine, and these hardware components: LED, Timer0, RIT, Joystick, Timer IRQ, Acknowledgement, 3000 ms periodic, Delays.</p><p><strong>Assembly:</strong> Assembly owns the requested computation: Arithmetic, Recurrence, Games. It must match the C prototype and preserve the ARM calling convention.</p><details class="code-panel" open><summary>Show whole historical C answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM1_LCG_Rhythm/Answer%20Source/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Q3: complete game, using the Q1 assembly function.
+ * Copy to Source/sample.c in a WORKING template.
+ * Timer0 and RIT handlers are included here. Use both accompanying IRQ
+ * replacement files so the linker sees exactly one owner per handler.
+ */
+#include &quot;LPC17xx.h&quot;
+#include &quot;exam_api.h&quot;
+
+extern uint32_t nextElementLCG(uint32_t previous, uint32_t a,
+                               uint32_t c, uint32_t n, uint32_t m);
+
+/* Persistent sequence state. n is the NEXT index, from 0 through 9. */
+static uint32_t previous = 1u;
+static uint32_t n = 0u;
+
+/* 1 accepts one answer; 0 ignores answers until the next round. */
+static volatile uint32_t waiting_for_move = 0u;
+static volatile uint32_t expected_direction = 0u;
+volatile uint32_t num_correct = 0u;
+volatile uint32_t num_wrong = 0u;
+
+/* Used to distinguish a new press from a direction being held. */
+static uint32_t old_joystick = 0u;
+
+/* remainder 0/1/2/3 -&gt; LED 11/10/9/8 -&gt; UP/LEFT/RIGHT/DOWN. */
+static const uint32_t directions[4] = {
+    EXAM_JOY_UP, EXAM_JOY_LEFT, EXAM_JOY_RIGHT, EXAM_JOY_DOWN
+};
+
+/* Called every three seconds by Timer0. */
+void game_next_round(void)
+{
+    uint32_t value;
+    uint32_t remainder;
+
+    waiting_for_move = 0u;                /* Close the old response window. */
+    exam_led_clear();                     /* Also clear an unanswered LED. */
+
+    /* The tenth LED has already had its FULL three-second window.
+     * This is timer interrupt 11, but it does NOT call the LCG.
+     */
+    if (n == 10u) {
+        exam_timer_stop(EXAM_TIMER0);
+        exam_rit_stop();
+        if (num_correct &gt; num_wrong) {
+            exam_led_on(4u);              /* Victory. */
+        } else {
+            exam_led_on(5u);              /* Defeat, including a tie. */
+        }
+        return;
+    }
+
+    value = nextElementLCG(previous, 131u, 7u, n, 255u);
+    previous = value;                     /* Input for the next generation. */
+    remainder = value % 4u;
+    expected_direction = directions[remainder];
+    exam_led_on((uint8_t)(11u - remainder));
+    waiting_for_move = 1u;                /* Allow precisely one response. */
+    n++;
+}
+
+/* Called every 10 ms by RIT; this is input sampling, not a new round. */
+void game_poll_joystick(void)
+{
+    uint32_t current;
+    uint32_t pressed;
+
+    /* Ignore centre/select; retain only the four directional inputs. */
+    current = exam_joystick_read()
+            &amp; (EXAM_JOY_UP | EXAM_JOY_LEFT | EXAM_JOY_RIGHT | EXAM_JOY_DOWN);
+    pressed = exam_joystick_pressed_edges(old_joystick, current);
+
+    /* Update even when answers are disabled. A held direction must not
+     * become a new answer just because the next round has started.
+     */
+    old_joystick = current;
+    if (waiting_for_move == 0u || pressed == 0u) {
+        return;
+    }
+
+    waiting_for_move = 0u;                /* First movement consumes answer. */
+    if (pressed == expected_direction) {
+        num_correct++;
+    } else {
+        num_wrong++;
+    }
+    exam_led_clear();                     /* Correct OR wrong: LED goes off. */
+}
+
+void TIMER0_IRQHandler(void)
+{
+    uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+    if ((pending &amp; 1u) != 0u) {            /* MR0 is our 3-second interval. */
+        game_next_round();
+    }
+}
+
+void RIT_IRQHandler(void)
+{
+    exam_rit_ack();                       /* Acknowledge before sampling. */
+    game_poll_joystick();
+}
+
+int main(void)
+{
+    exam_init();
+    exam_led_clear();
+    exam_joystick_init();
+    old_joystick = exam_joystick_read()
+                 &amp; (EXAM_JOY_UP | EXAM_JOY_LEFT
+                    | EXAM_JOY_RIGHT | EXAM_JOY_DOWN);
+
+    if (exam_timer_config_ms(EXAM_TIMER0, 3000u,
+                             EXAM_TIMER_PERIODIC) != EXAM_OK) {
+        while (1) { }
+    }
+    if (exam_rit_config_ms(10u) != EXAM_OK) {
+        while (1) { }
+    }
+
+    /* Equal priorities serialize the two handlers&#x27; shared-state updates.
+     * volatile alone would NOT prevent one handler preempting the other.
+     */
+    NVIC_SetPriority(TIMER0_IRQn, 0u);
+    NVIC_SetPriority(RIT_IRQn, 0u);
+    exam_rit_start();
+    exam_timer_start(EXAM_TIMER0);
+    while (1) {
+        __WFI();
+    }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Show whole historical assembly answer</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../../../03_ADDITIONAL_STUDY_MATERIAL/03%20-%20Solved%20Exams/2025-07-01_ARM1_LCG_Rhythm/Answer%20Source/assembly.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 2">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                PRESERVE8
+                THUMB
+
+                AREA    asm_functions, CODE, READONLY
+                EXPORT  nextElementLCG
+
+; Inputs: R0=previous, R1=a, R2=c, R3=n, [SP]=m.
+; Output: R0=((a * previous + c) XOR n) mod m.
+; Parameters in this paper are unsigned and m=255 is nonzero.
+nextElementLCG  PROC
+                ; Preserve the caller&#x27;s R4 and the return address: 8 bytes.
+                PUSH    {R4, LR}
+
+                ; The fifth argument was at [SP] on entry.
+                ; The push moved SP down 8 bytes, so now read [SP + 8].
+                LDR     R4, [SP, #8]
+
+                MUL     R0, R1, R0      ; a * previous
+                ADD     R0, R0, R2      ; Add c
+                EOR     R0, R0, R3      ; XOR with iteration n
+
+                ; Modulo = value - (integer quotient * modulus).
+                ; R1&#x27;s original multiplier is no longer needed.
+                UDIV    R1, R0, R4
+                MUL     R1, R1, R4
+                SUB     R0, R0, R1      ; Leave the remainder in R0
+
+                ; Restore R4 and return by loading the saved LR into PC.
+                ; Do not restore R0: that would overwrite our answer.
+                POP     {R4, PC}
+                ENDP
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-related-study-material">Related study material</h2><p>Use the section links above to browse related methods.</p></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

@@ -44,11 +44,7 @@ SDIV64S         PROC
                 MOV     R6, R2
                 CMP     R4, #0
                 BGE     divs_abs_d
-                MVN     R5, R5
-                MVN     R4, R4
-                ADDS    R5, R5, #1
-                MOVS    R8, #0
-                ADCS    R4, R4, R8
+                RSB     R4, R4, #0      ; paper test uses absolute upper word
 divs_abs_d      CMP     R6, #0
                 IT      LT
                 RSBLT   R6, R6, #0

@@ -1,0 +1,441 @@
+{"exam_id": "E2025-01-29-A1", "date": "2025-01-29", "project": "2025-01-29_ARM1_Affine_Two_Timers", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM1.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 29/01/2025 
+ 
+ 
+A2 
+Question 1 (10 points) 
+An affine transformation on a vector b is an operation with the following form: 
+d = 𝑐 + Ab 
+where A is a 𝑛× 𝑛 matrix and b, c, d are vectors of 𝑛 elements. 
+This kind of transformation can also be applied to matrix and vectors of bits by substituting 
+multiplications with a bitwise AND and additions with a bitwise XOR, i.e.: 
+𝑑𝑖 = 𝑐𝑖 XOR ∑(𝑎𝑖𝑘 AND 𝑏𝑘)
+𝑛−1
+𝑘=0
+  
+Note: the sum of the (𝑎𝑖𝑘 AND 𝑏𝑘) products is performed using XORs as well. 
+Write a routine in ARM assembly called bitwiseAffineTransformation that receives in input:  
+• the address of the matrix A 
+• the 8-bit value of b 
+• the 8-bit value of c 
+The routine computes the following affine transformation: 
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+𝑎77 𝑎76 𝑎75 𝑎74 𝑎73 𝑎72 𝑎71 𝑎70
+𝑎67 𝑎66 𝑎65 𝑎64 𝑎63 𝑎62 𝑎61 𝑎60
+𝑎57 𝑎56 𝑎55 𝑎54 𝑎53 𝑎52 𝑎51 𝑎50
+𝑎47 𝑎46 𝑎45 𝑎44 𝑎43 𝑎42 𝑎41 𝑎40
+𝑎37 𝑎36 𝑎57 𝑎34 𝑎33 𝑎32 𝑎31 𝑎30
+𝑎27 𝑎26 𝑎25 𝑎24 𝑎23 𝑎22 𝑎21 𝑎20
+𝑎17 𝑎16 𝑎15 𝑎14 𝑎13 𝑎12 𝑎11 𝑎10
+𝑎07 𝑎06 𝑎05 𝑎04 𝑎03 𝑎02 𝑎01 𝑎00]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+×
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 𝑏7
+𝑏6
+𝑏5
+𝑏4
+𝑏3
+𝑏2
+𝑏1
+𝑏0]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
++
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+𝑐7
+𝑐6
+𝑐5
+𝑐4
+𝑐3
+𝑐2
+𝑐1
+𝑐0]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 𝑑7
+𝑑6
+𝑑5
+𝑑4
+𝑑3
+𝑑2
+𝑑1
+𝑑0]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Keep in mind the following information: 
+• Each row of the matrix is stored in a single byte 
+• The bits in each row of the matrix are ordered left-to-right from most to least significant bit 
+• The vectors are ordered top-to-bottom from most to least significant bit 
+Example 
+The bit matrix 𝐴 is stored as a vector of 8 bytes in a variable called transformationMatrix: 
+    transformationMatrix    DCB 0xF8, 0x7C, 0x3E, 0x1F, 0x8F, 0xC7, 0xE3, 0xF1 
+ 
+With b = 0xAA and c = 0x63, the routine computes the following transformation: 
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 0
+0 0 1 1 1 1 1 0
+0 0 0 1 1 1 1 1
+1 0 0 0 1 1 1 1
+1 1 0 0 0 1 1 1
+1 1 1 0 0 0 1 1
+1 1 1 1 0 0 0 1]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+×
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 1
+0
+1
+0
+1
+0
+1
+0]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
++
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 0
+1
+1
+0
+0
+0
+1
+1]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+=
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 𝑑7
+𝑑6
+𝑑5
+𝑑4
+𝑑3
+𝑑2
+𝑑1
+𝑑0]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 29/01/2025 
+ 
+ 
+A2 
+a7 AND b = 11111000 AND 10101010 = 10101000 
+∑ (𝑎7𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 1 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 XOR 0 XOR 0 = 1 
+d7 = 0 XOR 1 = 1 
+ 
+a6 AND b = 01111100 AND 10101010 = 00101000 
+∑ (𝑎6𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 0 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 XOR 0 XOR 0 = 0 
+d6 = 1 XOR 0 = 1 
+ 
+a5 AND b = 00111110 AND 10101010 = 00101010 
+∑ (𝑎5𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 0 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 = 1 
+d5 = 1 XOR 1 = 0 
+ 
+a4 AND b = 00011111 AND 10101010 = 00001010 
+∑ (𝑎4𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 0 XOR 0 XOR 0 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 = 0 
+d4 = 0 XOR 0 = 0 
+ 
+a3 AND b = 10001111 AND 10101010 = 10001010 
+∑ (𝑎3𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 1 XOR 0 XOR 0 XOR 0 XOR 1 XOR 0 XOR 1 XOR 0 = 1 
+d3 = 0 XOR 1 = 1 
+ 
+a2 AND b = 11000111 AND 10101010 = 10000010 
+∑ (𝑎2𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 1 XOR 0 XOR 0 XOR 0 XOR 0 XOR 0 XOR 1 XOR 0 = 0 
+d2 = 0 XOR 0 = 0 
+ 
+a1 AND b = 11100011 AND 10101010 = 10100010 
+∑ (𝑎1𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 1 XOR 0 XOR 1 XOR 0 XOR 0 XOR 0 XOR 1 XOR 0 = 1 
+d1 = 1 XOR 1 = 0 
+ 
+a0 AND b = 11110001 AND 10101010 = 10100000 
+∑ (𝑎1𝑘 AND 𝑏𝑘)𝑛−1
+𝑘=0 = 1 XOR 0 XOR 1 XOR 0 XOR 0 XOR 0 XOR 0 XOR 0 = 0 
+d1 = 1 XOR 0 = 1 
+ 
+The result of the transformation is d = 110010012 
+ 
+The assembly subroutine must comply with the ARM Architecture Procedure Call Standard 
+(AAPCS) standard (in terms of parameter passing, returned value, callee-saved registers). 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 29/01/2025 
+ 
+ 
+A2 
+Question 2 (8 points) 
+Extend the previous exercise as follows. 
+ 
+Initialize TIMER1 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no 
+interrupt is generated. 
+ 
+When INT0 is pressed: 
+1. Read the value of the timer counter of TIMER1. 
+2. Perform the XOR of the most and least significant byte of the value. 
+Remember that the timer counter is 32 bits long: you have to take into account only on the 
+least significant 16 bits! If the value you read from the timer counter is 0x000042AA, the 
+most significant byte is 0x42 and the least significant is 0xAA. 
+3. Show the value you obtained on the LEDs. 
+ 
+When KEY1 is pressed: 
+1. Call bitwiseAffineTransformation passing: 
+a. The constant array [0x8F, 0xC7, 0xE3, 0xF1, 0xF8, 0x7C, 0x3E, 0x1F] as matrix A 
+b. the value that is being showed on the LEDs as B 
+c. the value 0x63 as C 
+2. Show the transformed value on the LEDs, using TIMER0 to blink the LEDs with a period of 
+0.5 seconds (meaning that they have to stay on for 0.25 seconds and off for 0.25 seconds) 
+ 
+
+--- QUESTION ---
+{"question_id": "2025-01-29_ARM1-Q1", "date": "2025-01-29", "question": "Q1", "requirement_summary": "Apply the specified 8-bit affine transformation using a bit matrix and XOR vector.", "keywords": "affine transformation GF2 bit matrix XOR", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q1/assembly.s", "function_or_handler": "bitwiseAffineTransformation", "argument_mapping": "R0 input byte; R1 matrix; R2 vector; R0 transformed byte", "architecture": "assembly bit algorithm", "constants": "8x8 GF(2)", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Bits|Matrix", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  bitwiseAffineTransformation
+
+; uint32_t bitwiseAffineTransformation(const uint8_t *A, uint32_t b,
+;                                       uint32_t c)
+bitwiseAffineTransformation PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0          ; Matrix address.
+                UXTB    R5, R1          ; Eight-bit vector b.
+                UXTB    R6, R2          ; Result starts with vector c.
+                MOVS    R7, #0          ; Matrix row.
+
+affine_row
+                CMP     R7, #8
+                BHS     affine_done
+
+                LDRB    R8, [R4, R7]
+                ANDS    R8, R8, R5
+                MOVS    R9, #0          ; Parity.
+                MOVS    R10, #8
+
+affine_parity
+                AND     R12, R8, #1
+                EORS    R9, R9, R12
+                LSRS    R8, R8, #1
+                SUBS    R10, R10, #1
+                BNE     affine_parity
+
+                CMP     R9, #0
+                BEQ     affine_next_row
+                MOVS    R8, #1
+                MOVS    R10, #7
+                SUBS    R10, R10, R7
+                LSL     R8, R8, R10
+                EORS    R6, R6, R8
+
+affine_next_row
+                ADDS    R7, R7, #1
+                B       affine_row
+
+affine_done
+                UXTB    R0, R6
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2025-01-29_ARM1-Q2", "date": "2025-01-29", "question": "Q2", "requirement_summary": "Capture two bytes from Timer1 with INT0, transform their XOR on KEY1, and blink the result with Timer0.", "keywords": "Timer1 INT0 KEY1 XOR affine Timer0 blink LED", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q2/main.c", "function_or_handler": "main; answer_timer0", "argument_mapping": "debounced events capture and transform; Timer0 toggles display", "architecture": "C peripherals + IRQ", "constants": "500 ms blink", "peripheral_tags": "LED|Buttons|Debounce|Timer0|Timer1", "interrupt_tags": "EINT|Timer IRQ|Acknowledgement|Event Flags", "timing_tags": "Capture|Delays|Multi-timer", "architecture_tags": "", "algorithm_tags": "Bits", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/main.c ---
+/* Exam of 29 January 2025, ARM1, questions 1 and 2. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+extern uint32_t bitwiseAffineTransformation(const uint8_t *matrix,
+                                             uint32_t b,
+                                             uint32_t c);
+
+static const uint8_t transformation_matrix[8] = {
+  0xF8u, 0x7Cu, 0x3Eu, 0x1Fu, 0x8Fu, 0xC7u, 0xE3u, 0xF1u
+};
+
+static uint8_t displayed_value;
+static uint8_t blink_is_on;
+
+void EINT0_IRQHandler(void)
+{
+  uint32_t timer_value;
+  uint32_t high_byte;
+  uint32_t low_byte;
+
+  exam_button_ack(EXAM_BUTTON_INT0);
+  timer_value = exam_timer_read(EXAM_TIMER1) & 0xFFFFu;
+  high_byte = (timer_value >> 8) & 0xFFu;
+  low_byte = timer_value & 0xFFu;
+  displayed_value = (uint8_t)(high_byte ^ low_byte);
+  (void)exam_led_write(displayed_value);
+}
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+
+  displayed_value = (uint8_t)bitwiseAffineTransformation(
+      transformation_matrix, displayed_value, 0x63u);
+
+  blink_is_on = 1u;
+  (void)exam_led_write(displayed_value);
+
+  /* Toggle every 0.25 s, producing a complete 0.5 s blink period. */
+  exam_timer_stop(EXAM_TIMER0);
+  exam_timer_reset(EXAM_TIMER0);
+  if (exam_timer_config_ms(EXAM_TIMER0,250u,EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER0);
+}
+
+void TIMER0_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  blink_is_on ^= 1u;
+  if (blink_is_on) {
+    (void)exam_led_write(displayed_value);
+  } else {
+    exam_led_clear();
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  /* Timer1 counts from 0 to 0xFFFF and resets without an interrupt. */
+  if (exam_timer_config_ticks(EXAM_TIMER1,0xFFFFu,
+                              EXAM_TIMER_MODULO_NO_IRQ)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}

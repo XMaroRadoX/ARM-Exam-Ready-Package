@@ -1,0 +1,2184 @@
+{
+  "status": "PASS",
+  "scenarios": 317,
+  "combinations": 247,
+  "checks": 6515,
+  "results": [
+    {
+      "project": "mix-led-buttons",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "61ea5aafeecda2122e034888a9de9fe93c4ffec8fa1ba9d2cd4cd29023cd4962",
+      "imageHash": "39d9d8d47e8c4329f843b08733048b70a53ea2a7cbe60f83167ebbdc14f042cd"
+    },
+    {
+      "project": "mix-led-joystick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1c8ebef667177d4ad8cfbd83c6c530dfcf7e6a364db4a3903b2d0d831d9c79a4",
+      "imageHash": "5b8b405394a809cddde91aedfc5f637292e09b575be66ee59a6a1575a08d86a8"
+    },
+    {
+      "project": "mix-led-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a02ded446db375368b09b41489877d952a1c4cb6eefacceac6cb8d2165112c7e",
+      "imageHash": "8e304ac10e97b93f92bf93f9d32d5b88aa3c454daff16fe4e471329f9803c04d"
+    },
+    {
+      "project": "mix-led-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b48b08589f6dfd3d60d5831c16f95a556c739fa1efa0ae0eb81e5645a5cc9936",
+      "imageHash": "cbf04767e81260cb85d383830c2e6411d7665127f1eb28a436f982fb92378441"
+    },
+    {
+      "project": "mix-led-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7267094c8ada90ad41687419cab2bb409932b92892db8434cf8432cd7cb52896",
+      "imageHash": "6b3802109e425b0854814856f65abdeeda79a1be3d602ecc2c016c3bd423a0d1"
+    },
+    {
+      "project": "mix-led-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "05d106f492ec979b2d79e8b263101406c08cfce6d21c419386781ea6df0ba97f",
+      "imageHash": "257286f2b68b8e799929c577f60614666cf5dc37d7ba8d1070337f98cb13055b"
+    },
+    {
+      "project": "mix-led-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "45b8f9ca08fa92b05b8d3bcba6cdd0874562b07c4bd471d2fe65f0d72168a0ee",
+      "imageHash": "2b1e8ec4e73bfa25bc400264abb304a0fc30fddb5a500b1b553d6a7036439954"
+    },
+    {
+      "project": "mix-buttons-joystick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b7fc0e9cccb3b04232ee1e25411680779dcee529767e052ad05ae68d47539a65",
+      "imageHash": "9dbd1f6b29dd5214fe588ed530548e31da945df1b2763d2cedd43448f804ade7"
+    },
+    {
+      "project": "mix-buttons-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "74795bfbc2acdeb050c292a3f0a2272bb35db1cfb0430df423f85b791160e37a",
+      "imageHash": "72289d15844741a3e1ea24908eec6fb120030a4364729dd5a478c831ab470e4c"
+    },
+    {
+      "project": "mix-buttons-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b881720bd205199365b11b1ca2fd80322383a366491cb9f4d930a597d2067e05",
+      "imageHash": "7cf6680c0fea5487d84eee56497461abbc1cb747a34e76c50772f67508c4050b"
+    },
+    {
+      "project": "mix-buttons-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "748eb1f5583b94c46f520e736b99494bdbf9c037a0b452aa82bd0c9079e4c39e",
+      "imageHash": "b7c5d133d42556d2a18e1732abebd86fab1df55e9d03dbf8f126d85c4e321a0e"
+    },
+    {
+      "project": "mix-buttons-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c5bf89c0a42cd28f80722b1be853ed41f10720196cf7fa0d5e01ffab60efeac8",
+      "imageHash": "5a051421cfb5b402c4e1f9813635b7bc9d7b11170e867ff05660d1c29566b168"
+    },
+    {
+      "project": "mix-buttons-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "09e9ca235bbb6ab3b72106c1c8f572806f2e07296140574af461d18fdd887141",
+      "imageHash": "95a54fb3d5629bf54e9b4a1e20cb050af0fb880005117368c5952ba5cb066bdb"
+    },
+    {
+      "project": "mix-joystick-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e1498df42a3301f41820af39d1cd84b73f0746e2292b071cf4651254a01b2ac4",
+      "imageHash": "e10d57ba185f06fb73ee440d38a3ce8a3d19bbda6f34bf6970765271aa2624b1"
+    },
+    {
+      "project": "mix-joystick-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c222c2a5451ca9764fbdde60690ae12acf5f1378400023e7652a9d1d3e0696cc",
+      "imageHash": "8c7e06511705521adb1341a761110d3f94a682aa1311cf920a78fdf0d9150cb8"
+    },
+    {
+      "project": "mix-joystick-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6b7dc158dab16e2f9eacf7fcff296e88496a9086bb02d03d35cc81c2cf35cdc5",
+      "imageHash": "ec58fe5ff7bc882cce33d8cc399c3c10e2fd9bfa1f17ef378d5671c3b704a539"
+    },
+    {
+      "project": "mix-joystick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b662987ae3861e63819772a9240ea5791b536f3f60cd2b18fe0080742f51822e",
+      "imageHash": "df91b3224db944d5f72ce9cb56e910930e24dc8b9a1f57aecdf6165f5cf4d3d1"
+    },
+    {
+      "project": "mix-joystick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e9ccd94f86042608462d28f5bb07df65bd4bbd7434b4680bba37ac04264582da",
+      "imageHash": "1eaf8801f30ef1ac9a962ed711c63b27b09a1ab74423a10d1f254bb36930914b"
+    },
+    {
+      "project": "mix-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f51573c05989008cb829da2677bd41963de2bd2fb440b7889c1ce6fa063b61cc",
+      "imageHash": "f07c654163c235b395a79bb0d5824604a3ad758e38f80800973808d689094f7d"
+    },
+    {
+      "project": "mix-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f7bd88d20c487e3211b69971348c5a5aab42015e80f29e1d7dfc65ec81e91e1e",
+      "imageHash": "f5f6e46838aec837bff3e790816b344e942746745eaadd415ae9f44ccfad3cf2"
+    },
+    {
+      "project": "mix-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "da8739ec2196380068c244569b731f91acdf1ec4fc1cc5948a167b39d0c72fac",
+      "imageHash": "3e7914d1f7c73eee2ceb339fb722062a9d084ffbb60f2c557b9904fef84d9e8c"
+    },
+    {
+      "project": "mix-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f52da75a321c691cd5664c9fb37956587fca9a8f26adb62bcd2ed840cfc31463",
+      "imageHash": "7b47fc0f65b78de96791ab89bb02e433a864b59671459175bda136d033b366b8"
+    },
+    {
+      "project": "mix-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2ac442e4223d2062442d82c5f698fac30f5d8555d514c98074d560ce29b65be1",
+      "imageHash": "7c7bb5a9f17b2abd16ad0382262dc36ae26b9c62f89029a5e5dc518ad455f603"
+    },
+    {
+      "project": "mix-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "880bde3701cbf5290bf5a765c3bef957df7730017655a42a87a477a8e9245c12",
+      "imageHash": "d5e37a71780b8552dcb40c9a46e1fc798763091b003342bb1fd280ab67c787c5"
+    },
+    {
+      "project": "mix-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "76e0e77769b73fa73416be3e86d22727ac8289f8accd3f5e14cc431672cf8ac1",
+      "imageHash": "9f16330a956d3b595286c05cf344794e8c8489ed8d46612acdfe4e14f2ac304a"
+    },
+    {
+      "project": "mix-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d9121e81a9da329fd4de62d9d04df2c9ffa465573e82d6188a949ed5e3dafa98",
+      "imageHash": "b9f60276c30b06f0552e2e1afb9c8358240369657a1f1e9884881be73c7289e5"
+    },
+    {
+      "project": "mix-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e3539536d4fa830ff9fd853204fce90cc8adb154f08476479265bfb0b8e31d12",
+      "imageHash": "fd0e8f4a35c91066a5a63774be66b3ad1808aa77a088b9a7b2760714f656ff7f"
+    },
+    {
+      "project": "mix-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0a3eaeed3e89d7cbd05217af257cc77168ecbb8c6843cb496b86a1f42548a50d",
+      "imageHash": "aff953182ef3a05bf1343cd3bbe62addc1f46bc4a78c432be4f36ae7743b76f2"
+    },
+    {
+      "project": "mix-led-buttons-joystick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0c5abde9353c1d465bd09e81b8fa41e45266185d1f4e25e3102d12d99384a406",
+      "imageHash": "838c62d502a8f9bd458220a171e02574ec0df57714ed6d8cf059988911d20e09"
+    },
+    {
+      "project": "mix-led-buttons-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1ec2b79a3ef994b74912d03c17171926e6f27e1495e979dd7a1c1edc979bdc54",
+      "imageHash": "d361ccbf3d6b1ee02a8c49ddd0cef03421889c980948f50a79956842d7793376"
+    },
+    {
+      "project": "mix-led-buttons-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "ddcce5157374fedca6c40c909b8c168deef7705e898e9c6dba8fbbdeaff5e45f",
+      "imageHash": "6a4e56130bbd70e6e82092fa875b682598559c8b45df1b350aeebc02b4b2ab79"
+    },
+    {
+      "project": "mix-led-buttons-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3332ca3609b7be207083bbbd790a330dc068ec7bf0c91a549bb8db544a93a25a",
+      "imageHash": "1c7edf547cb75c5e9a89b70dee204078e9ff8d8b93059148dfefa194ba865a99"
+    },
+    {
+      "project": "mix-led-buttons-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e289a8b44a5750eecae8a9a0b35d863fa973a21c676050a02494092ee6e734f9",
+      "imageHash": "d60129ba1f2bb279b4b6aa8684239ae361be0f1f5066b20b9ff5ff600c270480"
+    },
+    {
+      "project": "mix-led-buttons-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7c0aaae5b6201f5931dfba4393a7338f50da6ee315ebf25512938b4d0de3bfc6",
+      "imageHash": "9b3ff0758cb83f62275f67e5b2a839f42fa2c24b3c4cbbd92618c456ed09a29f"
+    },
+    {
+      "project": "mix-led-joystick-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b3493f8f1ba1dc67c48154f4afe7eab09386c7f3a484c07bb2da4b508d279c19",
+      "imageHash": "d69437e999b7323568bb1f9ce6bdd33f228ee9a313e265a41da912ddf24a4964"
+    },
+    {
+      "project": "mix-led-joystick-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "04517836f114f5e5665585476ea2c8c104a61836a9610896cc22616d15a78e8b",
+      "imageHash": "785afce2bbcf3262a631af7f0604206743fb2e2da4d2ab16cdb1df6243f37be9"
+    },
+    {
+      "project": "mix-led-joystick-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "01ac6da6252df9bcd447b772811bfd355a3ab8ec7d398c8f394adc77d66dc836",
+      "imageHash": "fcb82a34ed1886c42aeda162b67fbf7cde97a9d8aff102dee0cb2e58dac58c2c"
+    },
+    {
+      "project": "mix-led-joystick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d395f5e2ab1ef0aadc81b101aed90ed85c391a6b4f64403e55e9dc41eea8f226",
+      "imageHash": "06663707a598cda87d2d9bb83bdb04afece8975681bfca47273828c350505044"
+    },
+    {
+      "project": "mix-led-joystick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "94e623667dcbf583558d2da719342650c12a70af1aee5a6be9e548fee935f25e",
+      "imageHash": "37d3e7333c53c47ca50a7ebabfa91f79ffcf03e2f89bd952cfd2ad3a04af481d"
+    },
+    {
+      "project": "mix-led-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8c9a8547b627d1d955d59f0b7235c9e225e5180932401d1f7d452a8d3da858fd",
+      "imageHash": "2117f3c2c55478ae5cbf0d4db59fea53d73d4779692ab8040cfe4629aa1db85c"
+    },
+    {
+      "project": "mix-led-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1fdae0cb2b6462e000de9b5c30cac28d5642f51ae8df4c1ad3d4112e9db08021",
+      "imageHash": "4c62c651a234dbac4a92ac90adeaa3bc492f141711cbf266a9856b43b7f9d9f4"
+    },
+    {
+      "project": "mix-led-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7f6db9b12900974009135718c7b9342ee053733af5c598ff6585f75cbd1d7e7e",
+      "imageHash": "386171ac1bc0a3a269a5248970aad614f9fcf94070b116f6a95bcfa0f59a2fa2"
+    },
+    {
+      "project": "mix-led-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5bbf9452c1a219a24ec712ce7a25e1bb255b5ece9f6ed94d65554c71499d2103",
+      "imageHash": "611d3dd030f5c29b5bc2362ff0268e27bee4a78f420e5bae46d3fc6a11f61eba"
+    },
+    {
+      "project": "mix-led-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0ae10aee628f4b9e73c53e5839a4be1fddd2b8566438b27b85232cc58dc7e9c6",
+      "imageHash": "421b93fe648ffed21dc8e9cb5b2b65b189cf99ce496953c40ef603e0043dad7f"
+    },
+    {
+      "project": "mix-led-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d33829bf38d455535d84c1d2903ea7c8ef93595dc5be557299e029d1bddcc9dc",
+      "imageHash": "3d4a5fb37628733e865eb68dd7d00384b93099f62f8494f5300f9f6c93ee7dfe"
+    },
+    {
+      "project": "mix-led-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6504e91ae0fc4054a20f76fa8e0d80b5b2f614f2c663a509a7ac40b9369cdce6",
+      "imageHash": "5ea6dd52c4c455de8b9c75ebdcd2dfc52a63b447dbeaf7b512eff7755465c65d"
+    },
+    {
+      "project": "mix-led-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d4dc38479c9d2ba31c5bac0a720f491be3b308753f8e4250d26006299c57a5f1",
+      "imageHash": "f2917e49f3a11990f210d69d7d0dbaedfe67dcd1a8a59abed98428ae208695a2"
+    },
+    {
+      "project": "mix-led-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "efca6e90970f7ae0e0e4d54f0a736b9f4333de866854896b30ba6e532db7de0d",
+      "imageHash": "5fe02e7a231c9e8bad884748a9e5e1e5762979ed4fd4c2dc57eb6a37df4032c8"
+    },
+    {
+      "project": "mix-led-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c68d8e8e5a3ca64b7e2afef47c15e91df3052d7381400c36b1a2f0d01067237d",
+      "imageHash": "d7cc09f3811c332a65199f62643aae1d8b0a0d0f6e8689395dd2497e4ffa3775"
+    },
+    {
+      "project": "mix-buttons-joystick-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1b59cfa4368211e0519c87b00e5ffff9bbd831535d6e480583472b53fb1b0ca6",
+      "imageHash": "96062e6b8dc15d9f9ee911f7f12436e993a2848237b629c25074dcbbffb47e6c"
+    },
+    {
+      "project": "mix-buttons-joystick-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "99f624ccf699f62da7719f2403bbb1401500f55acabe0939497fa86a8ad103ea",
+      "imageHash": "9c7a7b5d06e65966cbb88ea938de47e6f6b4b69384b6dde27439de222ca8abf5"
+    },
+    {
+      "project": "mix-buttons-joystick-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "72bf383a2900900af2209ae46b2e84ca6954abf0b75ea28510d7792b09176c56",
+      "imageHash": "6ad944b6faa15903e2e91b82d205c7131f34e39b09d36590f266ea751ab865dc"
+    },
+    {
+      "project": "mix-buttons-joystick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "be445028597827986164f720ffb8677a0bbf16ce76e9dfbdd8d81312847bd226",
+      "imageHash": "bb2a3e7d1a8592dd0f7ae212e4c9d415d8a303395a678d2dd552630c190e5731"
+    },
+    {
+      "project": "mix-buttons-joystick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9ce2e349b021353fafd698c52b22a32e835305ec4516b68ea63826c082baa785",
+      "imageHash": "c2bb20f17a2168f80d001eb57fed647078e8c330989c19dfc873a784aa717c35"
+    },
+    {
+      "project": "mix-buttons-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3b26d0e8204c8dc52af12e9a592909aa5569e05b635b99421e17af5c77612a1f",
+      "imageHash": "00ddf0dde29357b4b439fb8f34a84d56eb430c0c48f4d07c2dc0fabfa725b2f3"
+    },
+    {
+      "project": "mix-buttons-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c94e8b10efad8d1bb7ce3cba0d61be96df68c231d28a73797d382da63369d289",
+      "imageHash": "5d0f7e877ee7e37c41b11e70eb7134bab077a7775a810a30bc23dbdeefff23f4"
+    },
+    {
+      "project": "mix-buttons-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1b63fe6e36e3235ce094de65f0dd43ce9ccf89b0392cf5ce50b7dbcb94ce8571",
+      "imageHash": "0be9749e0189440333268681cc8f84e8e15e3105d9b94c0e673d30d4a073d58e"
+    },
+    {
+      "project": "mix-buttons-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4a02f2460081798e915691e44adb90cfec1b59747debc7ee8cb1cdaba1d2b7bc",
+      "imageHash": "c231ce06f39bf80b40abe463490966ee334742dbd85379f9d7ab0e9e494d600d"
+    },
+    {
+      "project": "mix-buttons-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "42cad1219d64d45272bcace9808611a28aba53547db88a24911918c238863560",
+      "imageHash": "a348b39ac931d566473d87a3efd4b238ff008e0c3557f2cb4706ff6f986a7db4"
+    },
+    {
+      "project": "mix-buttons-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5013bf2f85101da7ca2cfe1d923c9d2144916552fab42ae61bf21b2a27ee782c",
+      "imageHash": "165ca67ed6ef60af4d3a5dfcfbe81916013c0bcf9d8c2c84612d2a48d02d4d01"
+    },
+    {
+      "project": "mix-buttons-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d0a7dad8762150ec12fd0a5ba45a115418460088aeca6b9ec7a4151b37408ccc",
+      "imageHash": "74e36b4cba17e7adaeb8dfab41c3f767ef33a29dc7a19c8e68cf9ca0cd9e239e"
+    },
+    {
+      "project": "mix-buttons-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "831141ec1856375c0042082064fbef00b3b1dd8635d5ef855a1b5c3483d931fd",
+      "imageHash": "1032e3c4b4681b93af993f3b1bed43bfbd5e7579e9d0f8687b376eb09ce22f4f"
+    },
+    {
+      "project": "mix-buttons-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4c69d586223c8924eb64632afcf6d9b4128239438aaced3d5cc5c5ea52caaf20",
+      "imageHash": "fc2ef51b622276aadd349a2b8512cec6682fdd69a74b02108b1a89594da451cc"
+    },
+    {
+      "project": "mix-buttons-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "85d2b7f672abe6c2f905c4b3281c1ee6110a19cafca9047f0aa2451be47e8438",
+      "imageHash": "23dfe3e63981977227a9d514066c778f9e95babd395992395e9646f2e2fc7878"
+    },
+    {
+      "project": "mix-joystick-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7303958ebd828995ddff9e76b897787d8d2d2365a1c55919e2b01f3e6474e2ba",
+      "imageHash": "6373ae50c5a913d9f30ea95c7e062633a7558e1409c651acf3bb280bdb1788e7"
+    },
+    {
+      "project": "mix-joystick-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3cccae7f015b564ecd4bf435e943ad55c149b56ca82c395be2561bc97e4e9069",
+      "imageHash": "e8587e21ec72687249418709f5bd45264a83f772208f4fbd3f21c4e7ff4eadb4"
+    },
+    {
+      "project": "mix-joystick-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9828030f665a70cffa97447fc9e8e512b79176b8961cca67d3ef7b39fde34702",
+      "imageHash": "0669e9b153d9bc3bb157900fa45820a5462dfad7fbe9520f5e38f65eaeeb07b3"
+    },
+    {
+      "project": "mix-joystick-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b181e1fc672c20980e04a6f29d5e66d72bbd8c7b7703aa5bc80689775c6f9d88",
+      "imageHash": "83e73a62160a9cd3799b10c026aa9d96440e364b717d4b9f127d8ff03524c574"
+    },
+    {
+      "project": "mix-joystick-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "88699ba7201a416a8929be928ec47f07e570358f516f5214ac50c64351957c72",
+      "imageHash": "1d6e7846edeab293e4d9a67d47c8312b96584643ba7c5d9ec90966549afeca16"
+    },
+    {
+      "project": "mix-joystick-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7017c1f0e6c1398d6c8a82c38997ca88380812286ef108f470e513c451f6cfd8",
+      "imageHash": "f4aa43a89d40905e108e297eeb03de465f58004d4d575e900d29841adbe8bc55"
+    },
+    {
+      "project": "mix-joystick-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b483b0088b82c626f5a2c13401bbbba79b992e0593526aa28a457200f8f5b13f",
+      "imageHash": "fc0b4aa1b2f531f700332ccd5ef567f9423ef2c791995a10497e79d4be51520a"
+    },
+    {
+      "project": "mix-joystick-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b6642c374c36a1756368fb47c0093d6c85350ed9ea0c5a8f0048521f74481df2",
+      "imageHash": "87181f97040ee94a3bb9fe2b5f15c418214f6581852f6cd7f47c0d69c6f4956e"
+    },
+    {
+      "project": "mix-joystick-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "ec4b7f9b3e04680366a33bfbdcad9a07789654c326227b1a61cabd3f1913a4e2",
+      "imageHash": "d6940354a67c5195182a57b4d3bf4fc4a6b389f51cb88395b65ed1c717730d56"
+    },
+    {
+      "project": "mix-joystick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c42657941a4a7e9ffacd413594d710855d6c226560f7ea1cb25fa7ac246c37bf",
+      "imageHash": "54981e3189a1854154ef5705ce243b90b931e66739b92f8d37f5544253cbb6f9"
+    },
+    {
+      "project": "mix-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c1d2a8951aaf4f30b3e2bd05f5af0c3e60107e6ea9e2227222292a952b423554",
+      "imageHash": "23ec32583baf02776edc3f50c7cc96d807f8a90e3c1204400dfdc5a06357a7ff"
+    },
+    {
+      "project": "mix-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "77d6a0dd718dbef0a4b87babda8ce4d9bbdf9a285623bb1c6e9d7daad38ebd24",
+      "imageHash": "926f3dc37b458e8804e607f79cbf350a0effba9daf5b38ee1edeeef25c3b42b0"
+    },
+    {
+      "project": "mix-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "81985b1a0bd874389403b84ed719bd7ec6e85351855235b30f5b215201b45dca",
+      "imageHash": "23f4bf644eb561094f03e44d728475ef3bc698be40f5ea6f4b95d639202558e2"
+    },
+    {
+      "project": "mix-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "76dd40d3a9a322a5727ed6eb9ecce42587c7ffc7579c775bf5dcf34c0917d750",
+      "imageHash": "3792ca8cd5211c4cd4fbbfa04efeb3299aa907234c22ee9dd7d920215c185923"
+    },
+    {
+      "project": "mix-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6b24f540a9e0d3ab868e1dcf2bc8d29d2363578ff30b689ff57827e599515719",
+      "imageHash": "e52d876d460ede07da6952418f97be6413376c6211143c3d3a919f9d404630da"
+    },
+    {
+      "project": "mix-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "637432d9fe279d65946a586eacb9ffd9e6e920c170f74722f1a74ad92b471663",
+      "imageHash": "bd58a9f5d76ed8a7f56b29e76e9ecfed8525c8069210ea74f0db69c5beb78fdc"
+    },
+    {
+      "project": "mix-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "82085d892dea42d64020b00eedca66f1f428cc4d8a5c4c671ff561a001ba0597",
+      "imageHash": "be3cea4d210605000790d72cec13411cfb5472c7b3a73a72854017ce6a2a0861"
+    },
+    {
+      "project": "mix-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "601d5709762beb21d1c265f294dfbd11adcd08e9c53f6627a61fcc04ae0df40c",
+      "imageHash": "fa4405b7eb72e103dbd1985e6d19a4adfa5f25cadd771bcae90a553d43f1c19e"
+    },
+    {
+      "project": "mix-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "cdbc2d899a9ae9cf713dbae6c099770886ca13451066b9acdc608d779644c412",
+      "imageHash": "2177db10c05fc8103e627c6a4eee578c85c5ecc453068d8e06dbe920c772d030"
+    },
+    {
+      "project": "mix-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6956768fce2396327cb5dedd7d34e992e354627707b7bfca8c82a1f2b32803b0",
+      "imageHash": "6dfe034e940e3fab8ac9fe415998e3a8d5dcc22de72204c21cee69232c4edaba"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f0e10fe8a649a908b20711b2a3ab4cc353ecc570171979e13314e33d2b6d9f7c",
+      "imageHash": "c5cc7c61c009e7b94641df2a65400f075c446c248cd4c2e7b127ef8f7f8bcbd6"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9febe2b2d8e2bd617f99b0aafa2fa27ee7c4d22c1218b94ef06526218d8209d8",
+      "imageHash": "4c64d2d8133f9512727361c88fc40a3d880fa8ab77c8e80fbab068327b058903"
+    },
+    {
+      "project": "mix-led-buttons-joystick-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c99c26ce1a7e92e710165023d6e465894ae214e1405d71d5effab58aa1855435",
+      "imageHash": "bb25c5a1bf66191b1c3ebe398380c67c210fc76c5903e4feda293dd813a28897"
+    },
+    {
+      "project": "mix-led-buttons-joystick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8bfcb6d02a4455cc6fdc1db1e8b12694dfd6d09f994d55322eb4ed81bc9c63e1",
+      "imageHash": "3da5e244e14da99cba4cbb5a8413eb93f53855945d3c29b4317bcd09423cf0ff"
+    },
+    {
+      "project": "mix-led-buttons-joystick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1b92866516e6ce045288425291a8c51a81b13be603681c98c3cca8ab713f2980",
+      "imageHash": "670e02dd98a29deeda2f6d42fb822dcd51c9f068203dd7a0c4c45be3e2adbd00"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e87f27d0a36228a133962b6b6015418dd3045bdb67f332979fb2ba794b0ed942",
+      "imageHash": "f912dcc88cad95bd7f6475a35cb3f76f232c08b39a33a848e80c8c17ef100a8c"
+    },
+    {
+      "project": "mix-led-buttons-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "11193881a2bcd978f0a52651bf7f1fe7176f81674ce53b99dd63b9c796d2e978",
+      "imageHash": "9b953c689ac945003415200471db7bbe15be9fb48fdd09a22e8a7709810e1168"
+    },
+    {
+      "project": "mix-led-buttons-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7c5c85c79fe91a8a61fec605166859d1171d3240b345a408d65cb0781cfb6ef1",
+      "imageHash": "3c5a26e7a557b544ef09aa169daff0e55be9b7b5b2d478546704313dccb2738d"
+    },
+    {
+      "project": "mix-led-buttons-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "963f0f7651d200be0db39752a0d44bb4b3e78ec00640e0ec3e629d05e2b3f5fd",
+      "imageHash": "229541ee72c4fa02daee9ff95d932939d707e4a519ff830f080297ecfaaeeaba"
+    },
+    {
+      "project": "mix-led-buttons-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "93cacb265d03af7b8b763696ef7ed40014b5f541d8e2b273763bb2ad384e11f2",
+      "imageHash": "36d6b2b6a4e70b3829a268b429247d6712ab2a8dc08efdc466375cfc23a2e38c"
+    },
+    {
+      "project": "mix-led-buttons-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f70b4cd16e469740aa77a73e762ce21217500a14d651246ef9d8120d699c7497",
+      "imageHash": "9517d45553a5b1dd26152955bf43ec966b816dca51d4defc5779481602f4bded"
+    },
+    {
+      "project": "mix-led-buttons-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "57ec4626024d37b31ed1aa4dcca285250bc0eef4a8e1322f63b5c5837b3d31c8",
+      "imageHash": "b3550c75b8e00cc6b9ddeb20d3882454abcf2a196042fb707a1cf1d3708b638e"
+    },
+    {
+      "project": "mix-led-buttons-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f304addec5182ae434c3ba5dafcee64efc2eedbdd3ece7deebc082403d751830",
+      "imageHash": "e3b0c5b37abef5ebff3d93a0fba9a1b1b3c341729d0dd1043d25dd9e328aab29"
+    },
+    {
+      "project": "mix-led-buttons-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "63ff2619bfd0e52f955123450a6830a26418f9be7c0ce2a1799b6a05fa00d201",
+      "imageHash": "dab2135631d404e247d786ebc9cb4ea1a80cba4693724888f41529abb1f6fc5f"
+    },
+    {
+      "project": "mix-led-buttons-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "660fed6854bd0f9cbb05ea8abe7a2bc04b766efd4bb3f05ee4ca9d9f35904c8f",
+      "imageHash": "41fa34293701b3e22e98940c509f487bef45f645d3ff443bad3405cb5fb94e70"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d9427401df1d3f5001c6d1fc6500996c2c84a025531a54bd6027113f85d628af",
+      "imageHash": "550c9b6b7c5c097a119df7b0d21e8419748ac80fae6bdba4257c7696d9d17da4"
+    },
+    {
+      "project": "mix-led-joystick-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "98967024b5ab55d12e144b3d1e6a1183cb6a666dedb6556fd51265915cbd6e52",
+      "imageHash": "bc0067a6ae9f11b57a9373139215a499387047b9d7f8f5b9a84728e29ffc501d"
+    },
+    {
+      "project": "mix-led-joystick-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "359c9205ec947fb064c9cd633df295a3a9669e1c3148b01198b2290e6409a7c9",
+      "imageHash": "a46aaf1d23469b350168ffab19076d1a2dabdc4503ff0baf98317090fc98f1f1"
+    },
+    {
+      "project": "mix-led-joystick-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "051044bca42b7392bd3309b1c0ed000d3b4026f9dbc932b9ff0148620cb41f1f",
+      "imageHash": "a343fe7a1d4981d5ad74936c0f15f8546918ae568f86978d00f293c3702b1942"
+    },
+    {
+      "project": "mix-led-joystick-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "98e4c104c7c2fbdb9ee735b63d13f84bc0db281ed23be053445d39018716fb0e",
+      "imageHash": "73ba1769d5e11e56fc6c51001eeb482345b68a335c93bc5a0eea2f38399e480b"
+    },
+    {
+      "project": "mix-led-joystick-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9fd84541d3993f7b5ec4a72e5a2e14274f30d0e1ffc83f99bfda6ebe3f33fd2e",
+      "imageHash": "5f9b6acf2409788ad4e61e59f596a7ed24a4eb64e82b76f2f7083da21b4df088"
+    },
+    {
+      "project": "mix-led-joystick-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "31aac7470a1395e9485238995fb015bbd0739a5bb671ff78f496561ce59cef69",
+      "imageHash": "ce5207643ab14224f79f00449d46c043cf7bf4c5853df4d7e156cb6da40528fe"
+    },
+    {
+      "project": "mix-led-joystick-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "684de8de2a864c3fe5bb07606d7b6627265ba73e56e9926667763eeae15f1d40",
+      "imageHash": "c95e1fe6608e4839727346b4c8b90a0ced7a3585bc394a9309c6ae2365065664"
+    },
+    {
+      "project": "mix-led-joystick-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "bf3272f3b4422ea002853a1d09bc76793d2dbcc9301e323588653ae46700173d",
+      "imageHash": "f5a6f7a1b89a12375fb28e552d7cd3d1800518693b77aa8c6d8c3cdf48b3e00e"
+    },
+    {
+      "project": "mix-led-joystick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "75f11fc48beff0aeef862bcdde35323d21a1e9dcf6a65f3b997b7ab857682dcd",
+      "imageHash": "a907a7c28221777379096a7a983b4f9ab4dded94bbcef38c87d433bf178a4e97"
+    },
+    {
+      "project": "mix-led-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "664187dab405020da970aa4335c43095e110a36075c5135b6d2e532c2b2202b8",
+      "imageHash": "67c862eb2df2b14ab96f75b96ce4c2beaa06789de27270312c889235c04fb206"
+    },
+    {
+      "project": "mix-led-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2f06efb029fa5230b686257219c5d76dd8ba05f1c4cf28d2db6577399c31a56c",
+      "imageHash": "8fa6da37546ba1504c579d73f4dc554a422acc3e936f4a7e08f4e32185ee2846"
+    },
+    {
+      "project": "mix-led-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7ea2306f7afc0a9c5f55f6410d6490015f80886a47d4405f94e49f7984d32380",
+      "imageHash": "5f5146997cccadb6aac3295ec391d6ddd96ea9f303d2aedaed90b9ac4c2f2639"
+    },
+    {
+      "project": "mix-led-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f5d4c7601962b81542dc14bbe79a9b11f0141fe3bd1d8689530e3fd86aed669a",
+      "imageHash": "a930956e83a7f024f3776e0a072cf1e86f6deebc1863436d1cbd91daca5d0e7e"
+    },
+    {
+      "project": "mix-led-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f4fe32c8ec2e1cbaaee776cf33f9bc2e6a54473cf004ba2880eac67260e0c4f1",
+      "imageHash": "5c93c3b248d1db751db4996ff2d8e39a37f903d24e58927780683106c7e60719"
+    },
+    {
+      "project": "mix-led-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c52adb570dc75a399a76dafdb3c5f954d81aa4dd3cf6331ccf3792f9132cca9b",
+      "imageHash": "7ec3f7e69e0649db8c2d78470a81a80d93d3ac0d4de18d369be724691484b296"
+    },
+    {
+      "project": "mix-led-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8a50ebe9ac9ad698036ea09e9382648b1abf71d58fcb48399054ad364c2a662d",
+      "imageHash": "4c15fa3e9ee760176baf17b62bf5aab75409fb737920398d8b9bc1c90504df78"
+    },
+    {
+      "project": "mix-led-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f45b26b8e4990219cf1aad863ceafc0713390f3fb1fc89cae60298d650cac8be",
+      "imageHash": "34fad3bcc3803e2a8a715100d0a79304e34d17225c4fed4300e14e2e35bf5150"
+    },
+    {
+      "project": "mix-led-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b1eaccf0603e07056e36bd73eba0c72312a17c95ff048792073fd20c9bf78c26",
+      "imageHash": "ac8bb2e046c36edef1332988be02c5ee3a0777bb5424f1bff480c60c827ada7d"
+    },
+    {
+      "project": "mix-led-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "413c8133ac50e5aa293b7fa9162c4c23048084b2f018fbfbe3ccbdefaa605a0e",
+      "imageHash": "cdc4cb47d264986d67943f6e2f8a2fa0605cf266adf8911886474fd14402aefb"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9f45e54f74f81d07ddfaf2f4e768f078b85fe5005099195cc2face137502a069",
+      "imageHash": "cac7e4b5c796e3360536e9ae7bd4ba4179201b21e84771493c9ab0b03082a7dc"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "914a51b637bfd2b8bc4fd69b6040491d62884ab2d539ddc57966311b7f8886ef",
+      "imageHash": "d595cc6928f6111b6f0ff57679cf86df2887afa0b2dc27c4ceb7e36e1e19811c"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2f3e7c6ab3973b52d921f63bb86a20cb7a51112afeb897ecd7a5bd57ac114573",
+      "imageHash": "adced3cf8ae722b2de14886c65d01e2d971aecfa4dfaedda75999bae0f8876d2"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "98d11f1f9dc5bb46f71ced6c8f9a2645af2dad664c6ae6ef5a70b4f20d661916",
+      "imageHash": "be04e6552923691cded6c1fc32ee4091fbf88bfa20fff088600c84ff4c06b11f"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e2eb8001e08c6fde7eb46a86f3d5befeaf9ed812d23ab3d82dcb23cfe82803e5",
+      "imageHash": "d0bd7bb55e42667a72edc1f9c6faee8ae70cf469db6484a5fad8b53f2ca87f6e"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3326351e46b5b0b006b4144fb2d07e3b28cff7ab57c1c367b39c47a40ee91664",
+      "imageHash": "652038d6b77251c3b18998be918ee2bc05faa7f673d5204009d01d5455b8eb25"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2c390b59553f11da43a6718704a983f1115567cfb0f6becdebd1c4a4d24a7947",
+      "imageHash": "41f2e46a945b1ff729ff2f168a3c47efc118308ea3d693b59732827753f93ddb"
+    },
+    {
+      "project": "mix-buttons-joystick-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a9ade7dcd0fd6de51dc9bae1718283256b9b4c55fb054623f99e276219f6b25b",
+      "imageHash": "a4c76ec9ac97c1494ef3841d0c52451d25e2a9817291437e9b0642a79345bea3"
+    },
+    {
+      "project": "mix-buttons-joystick-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e5b45bce47634022a57ec0d10fedad92a01e4dee66fcd087a7561c03337f81d9",
+      "imageHash": "77c3366795c7f4836870e2a90f3fc451ef03641894c4ad7c21d470ab174a38af"
+    },
+    {
+      "project": "mix-buttons-joystick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d4de11bb92912912a81711d0d45aed8f45eb8fa4daa9d3e88441e368ded8a073",
+      "imageHash": "803ab9dd5da725dc3b7596d62b9d7c7bf393393e1cc4a111bf4e799e34fe9099"
+    },
+    {
+      "project": "mix-buttons-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e588e5c6fc6d775c74cbcceefcd4edcf39952c2bc8753eed416b6f2f00fe20b7",
+      "imageHash": "5c922bba980bd3deb5c4b069ecf7cf2ed10d7a15b1687a72c116417594b3f2bb"
+    },
+    {
+      "project": "mix-buttons-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1e2600b520f0abd4e9cfc83f80ef582627c8a1bcae4f5d18be88f859fcdbebc5",
+      "imageHash": "2a3f88ea97e552035fe62340f8a74d16e2cb9496c7e34a9137dde31aaee969ca"
+    },
+    {
+      "project": "mix-buttons-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8724dc1594fd5d2093a38fe2a2abcc54532d7da74b1232d40bf23f83ba5d65ad",
+      "imageHash": "4c76f6dd99d24ed707939a76f5f2d93252118f31c158cfa2c479cd451d5e0daf"
+    },
+    {
+      "project": "mix-buttons-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b1079a4ac4ca83ddac712c8b0619fcbb4ceb4315d438569740b2f3c17d2aca51",
+      "imageHash": "6fd122d22b0102de00aacfab4e3bf907c25714911d3505b3c7533e718198dc7a"
+    },
+    {
+      "project": "mix-buttons-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d56c7310c2983fbf7c95119c98da3d61478ba9342b037e897642e9dd9164beed",
+      "imageHash": "395c66fa9e475369d2b9463b7cdac518fc9d6ae86c6d6fb44ecb55bd92381f1a"
+    },
+    {
+      "project": "mix-buttons-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "09ab22a2de7f2ac314fd224287b5485b823be0c113c3118ba39eec680e502ac9",
+      "imageHash": "21bfc10eb1796e7cff47d35a4379cbbbe2948e41165d691ce116ac63c9a1d098"
+    },
+    {
+      "project": "mix-buttons-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "67c26015455897f903d2668849d03e1fe9f31b446aebb664167e9458eb91eac8",
+      "imageHash": "ae3c51aeee52027c91195fab7ebd91d7b9dcc31ff2104fd048783be36710133e"
+    },
+    {
+      "project": "mix-buttons-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5575e0de178732cbee3804219e32217f52a2839bda174847b343d6bed2ecac02",
+      "imageHash": "2ed73d62ca01bafeafbf1e22df9c5c91b1998cf2127552e71e982e8584ec9791"
+    },
+    {
+      "project": "mix-buttons-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "629bafe26320eff0265a9a5edda7ce48e5d1ac7cf15e2743d63b28f91e2bd151",
+      "imageHash": "8d614e9e01b8abd16e84e65b62ebe62dc993ddcd9ae125ea83644cf197e89d71"
+    },
+    {
+      "project": "mix-buttons-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "483a2b3e5b06004344267ad79ff84116a01347e9f3371e5f8fcb6ff8603335e7",
+      "imageHash": "a1f2899f21b3941c8c73c8431128a88be05d4e18763fb6972b12dc06121fc042"
+    },
+    {
+      "project": "mix-joystick-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5e778ebeaa650bdf7492f424ef7006b67a0c6492cfa1d48fec127ed6cb9a1404",
+      "imageHash": "50245d14fbcaab3b22074b4e6f29d502f7360bc0c7906935e6e58f5f32126d81"
+    },
+    {
+      "project": "mix-joystick-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7c2f2db469fccfd40c8405a0e9c2fdb1ff0731007587068e149760c4551a21b5",
+      "imageHash": "08c552711c47c241ec0b181136797dd30e27ac3b86502250c5b7d83da2c4bfe0"
+    },
+    {
+      "project": "mix-joystick-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "bb0db4421e9215f1cb252bd8b7f16d6134132012f2c0788e9e18238a1d792e20",
+      "imageHash": "61b7135aa6401a7a9e00d3f96c8859de209ca65f1ef6d80028905b0091d68905"
+    },
+    {
+      "project": "mix-joystick-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "87dedefc80b63a41c929625ac7c73d3a986ba843d155048b9ec513b37eeec03c",
+      "imageHash": "2a3eba0c706eac666182e840c392eeaf5dec84aa8758560f1fc6d8bc02aefdbc"
+    },
+    {
+      "project": "mix-joystick-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "013a44a8ef9b4c8fd9de3b4fdb26cd33afc6c1fc86a0b8e5e9ef9a0d692f96df",
+      "imageHash": "28cffc973e840859cf893a317098050a5c24450988395f6a384d79389dc1c593"
+    },
+    {
+      "project": "mix-joystick-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0f7b939761370696c2717c2bed8a89114aa9db360c34ae6d715d328de1c7ef86",
+      "imageHash": "271c67ca062fa1d54bc7d471fc2fbec82a02eebbebf41929fb13b2f5d48fa817"
+    },
+    {
+      "project": "mix-joystick-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "041264768b300eed6d4109f9e7e71c8ee0b86bcc66429fd35074d5db670df1d9",
+      "imageHash": "c75d33f63ede79b3b0f31e715428ccbe77187dd5850aafc042634639fee1ba51"
+    },
+    {
+      "project": "mix-joystick-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c76e87ae817154a786c28eb3c4c4b74bb2e421ce8683471adb1db473ee4dd128",
+      "imageHash": "51d4f6f4794aaa886e8317e66faa2fc486831125790225536e508e120dc65b2f"
+    },
+    {
+      "project": "mix-joystick-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "92e1867f8afa16969e3044641fe8740e2c75982684c860d03665e5176286f00c",
+      "imageHash": "52780fbd44cfceecdc4a6cbc40b94b5fedb25a5d7459c20f78161ec80193fb8f"
+    },
+    {
+      "project": "mix-joystick-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4ca45a5f146371a7c4c896701d03565636f526ea05c0e9e9fedcf88f684841e6",
+      "imageHash": "42633fe02495a3e406cd71776092aae38ca7e8a26c292901707d477f8b4d3495"
+    },
+    {
+      "project": "mix-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3dc59acafe267619e7ae45cadb05f1a39e3484662cbbcecb265ac0f5009a5744",
+      "imageHash": "4be61258c67d6c3b66bca73f8e4e8c5ba73cbb4a0958e6ef385c914e119f1db7"
+    },
+    {
+      "project": "mix-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e2bc0f7e7323e9d0f268600e56ddf9f3737cfe149e4159eb0168a5c36a6dc746",
+      "imageHash": "8fb524f3c3749f8c72517f83d30d372297fbcab6ab8726582e595276683cc456"
+    },
+    {
+      "project": "mix-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "11f4f152f4903d4e3b6213654d2b3000c1b610d085e5b6f7bf9a39e38afa24ef",
+      "imageHash": "88e444cec8e0c4c02d0ee361554543a454643e091ff6c0675af55dd73390b091"
+    },
+    {
+      "project": "mix-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "426846f740c6a351c86b3e6423e3e153ed529e340a5672e31f0e802d84bd844e",
+      "imageHash": "8600d5f02e4338e5f9c479862e9b0cd03382f1deb6ac3076cd43ea067fcb2289"
+    },
+    {
+      "project": "mix-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b880b33fe479b5d00bdea21fa4993c11db6fe51c978ea5abb424b5bdeac00f26",
+      "imageHash": "cde2b7b7725cc43692c2ad7a591a5a164f3f784a3dfe075902ff79816d3c3a35"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5e7ea06af8b60770f83280c9c76e58fb42b7ec86f6bae9b7aa0389128c3df252",
+      "imageHash": "df202eaae53b3479bdd90977c4ef2cc0226196cdd4897bb713e4aa20ae85ea6a"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0ccd177b66fd1b8e8619101bb75135e9164bc4415429a89f65cea66a8302ecd5",
+      "imageHash": "c0f444a692d7ef20ce173d3203feffe60aef7a683bd386205ece6f72544e1f5b"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4fdd38bd8b010417cc79fc1f3b0353f89fc4d8df4bfc79b579fab35937b172d2",
+      "imageHash": "768379b5e438e3dc59d833aef838446e665f240fdd1708038a7837117cb7ac64"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7671c78dd2ee20c7fc374190869fdf5d789e024a4f2077949920eeb5f8890bb3",
+      "imageHash": "e81ed9549cc42b59afae75dc038f6b1732334eab571181beacdcdeab37b427a9"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0acdb88b2b8a8167b1fb27318f5389059ea193ff36e0a392ef2fd06d7909acb5",
+      "imageHash": "8ffa28ab0d448a36c54ce2bff7212cf6673225f60c2a8c6eb16661a9ef45fbed"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6c7c23ee8f0132a3d9066889670339aa15fa56456222b1465157b6022bf735e2",
+      "imageHash": "535f960726f02924df8bd4a8a8b6b2d1659dfb2ffadb2f8de4a19055ddcc1592"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "51fc94a30e8c0fbf8f7b8faac03ee4ed7b6bd69cd7f20c2488b7e95ce2463960",
+      "imageHash": "64b338b22c8b2a3e364cf87a1e07c656374e20dcb8ef509147b8971a9ba4184e"
+    },
+    {
+      "project": "mix-led-buttons-joystick-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5298c6cef833f6051b54b293e4dada0980d1e390ce1571b794b7ceeed7d9744b",
+      "imageHash": "44515b3c3c400cb4c176f6214ef8d561dfd815dbf4e4918e00becf88e34b336c"
+    },
+    {
+      "project": "mix-led-buttons-joystick-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b9b5d74ad2f8ab35b4c9321273634e9595c51dc3b39f338f95f63122d3f25cfd",
+      "imageHash": "4d473c07c705379c0f3c11cfc2fd3454ff2e13173e7cc2456e923126e85f98d3"
+    },
+    {
+      "project": "mix-led-buttons-joystick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "411ad29caeff93ffc985558bc8de2f40bdec7e37c531b1cf88a0e48f2f889b7b",
+      "imageHash": "a2523626b6bd85c1088eb07ece45eb867a26e4929cf942dd31647c99d9fd645e"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f57c7c30d9e74af8b3b5384a38d4505f94ca061442fae9668783a671689db0aa",
+      "imageHash": "defa622541de035873f806e9955d80423f52e6a80f460f5c88fc6111cc9a3e73"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c2b7d28704ff06b2a5ccf3ddfd36e9e6898cd39ab3c8c24d9f52bc8427650151",
+      "imageHash": "c7c92d8297662b6540086c53fab8a7f59dda545420159ba9b5c093151bb3811f"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3fdfa80423a9abca627b62d5e4eac7009d2bad55b97297d83d3d6473d2dac4e7",
+      "imageHash": "ad2f70111488641fbda4ffe9c57e2084172b018ff1ba5b4f853bb004b1e2ff9a"
+    },
+    {
+      "project": "mix-led-buttons-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "57c1bf58c67e83c155eaee11e403498715f28a100c48ac7c5d4e72762033ce14",
+      "imageHash": "e4dbe2ce2849bd5979a3c4ac1ba839fe74de61e4a4cf7939b09cce7bc85e1d22"
+    },
+    {
+      "project": "mix-led-buttons-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0851eef779b5905e03668d299e4ff6e66a732a76cd6b83779aeca0e8c952764a",
+      "imageHash": "e50d8adbaea53077b64d4b50e9297dca263e9666ef7b70c50a3241a2e4307e4d"
+    },
+    {
+      "project": "mix-led-buttons-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5388dca419b86eb73fb5048f6a34120adfc1226e5caf13540d324e3aee2e688c",
+      "imageHash": "0ffcf3fd9348fdb45c0f892c7a9bdfc5b19581d97cf29bc99c750f80ecc221e4"
+    },
+    {
+      "project": "mix-led-buttons-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3f459ebe3e6667a7bc019d53a9fb1af8c4e25803f7e85c4d9fc2c872371ef579",
+      "imageHash": "6515f4d19fa45f473ee61fa2fadd43a6e337eda921ee459e39a7f4cb588854b2"
+    },
+    {
+      "project": "mix-led-buttons-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f45cf704ca0ab5aa5806538af80a2341e748ec5f0cdd137c7ad4fd49d1cf895c",
+      "imageHash": "473b27b2820c09fcabf09eeb986c401f987238c95d04f355fe73a3f78afce0d6"
+    },
+    {
+      "project": "mix-led-buttons-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5edf1a631951698122e75acf1a1b0a5fcd46cf6c957f1f08b370828964bd1643",
+      "imageHash": "4f72a858aa1127cd7047e783799ccee34d9c00e12e41b26689cc34ad8c30580f"
+    },
+    {
+      "project": "mix-led-buttons-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "f389904e98e64996d5aa9acb72ead6404ed1e42e338e733d1ed5c03267457b5a",
+      "imageHash": "35070d1041be76090e8e5989b3046e56cf7adb0e365e5e98a2eb8eed8b17e134"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "680da0b6c25f575167ddfa63879f54c3ccb142dc9b29a2c319047ab606873a99",
+      "imageHash": "4d72c578855ecf4f0717282b3970ac837a31a482cc90e418c227ae36cd8d6278"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "dcb7140cfdb0de7dfb971ea561117ca664659a9d7a65e155548c09a60c360c71",
+      "imageHash": "51cc4deb8c7c888aabefc03830a412e57bac644f5b83a312af19de7256141f27"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e10dea232d27e581324ba9a4d8369548ffbf4794f7747c9a10505586b0d510da",
+      "imageHash": "eacc6148d4fb9ab047a12ab7b821a8c11d940ed2afc4e74e76c18a2dbf973d68"
+    },
+    {
+      "project": "mix-led-joystick-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9a1e799fd0834cb9975973abea2534c272507b5cea86bc5178f565a999d37051",
+      "imageHash": "57d4da89a4082e4180b95870f2f733e5f564bf7835975fdde3380822fa898810"
+    },
+    {
+      "project": "mix-led-joystick-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2497c9ba41d1eaf36cdb4e95bf5e9a6fa351e2edc5d8cf722779d2e4d2e63126",
+      "imageHash": "f97a6d679ea74801a4906a2f4890796c8b494bc082b2788b32be324e116dad74"
+    },
+    {
+      "project": "mix-led-joystick-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "87cc0a3225facd02365abdb06cebd04ad348283634b82b25bc92c93d5755b7a9",
+      "imageHash": "a3e4c1b0771341a3557190158d52b3fc750a70203c02e69d0dfd5cd94dbfbffb"
+    },
+    {
+      "project": "mix-led-joystick-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c71dc3ca5c8548c9c139ced6da05b16157e1565345523e3e6115aedc13792fdf",
+      "imageHash": "5cb8c1d024ed8411c121c1085a793a02a1fe8fd4aeabdb2f2575705697e37e48"
+    },
+    {
+      "project": "mix-led-joystick-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "069c9b30d2a086ff4b6c67ffd900746604fdc06588282962a64bb1cae3a9aadf",
+      "imageHash": "605c27c6574f15f41357d260405bec2baf7b967a2fa8d8f0a9b960a075dd08f5"
+    },
+    {
+      "project": "mix-led-joystick-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d43b2191d378290ab6f7c5bdc21d49771ea1821adf94f5ea728afcdb576e1f97",
+      "imageHash": "32b466b8bfa6d2c9a2af7bd6fead61fca473a7d698d9e6532715d7836eed222c"
+    },
+    {
+      "project": "mix-led-joystick-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1ae8e929be5bcebdceb16bdbfab52649ad8bd6bba1099b990b8c32ef00a96f6a",
+      "imageHash": "43e703220c11739f49b526b2286441549e56ea50dbf4a8ec0c9a86d5c2d8f26d"
+    },
+    {
+      "project": "mix-led-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1c376d9367301cb2f03a4d8d32ebcda113bc7ec114a2e0f6594633bd07dabfb7",
+      "imageHash": "987b2b3b3a111b442601286e15df14f64f455c36e1440af180a8d919084db3e5"
+    },
+    {
+      "project": "mix-led-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7cc3c79c6b1e532b3e87f1672c37311362512a27711d1dc46c1bbb00d5790935",
+      "imageHash": "904c0d56e3f7abc78dac065bfca3fa93d1f3e2f91369ec7c98a2b813ffeb43c9"
+    },
+    {
+      "project": "mix-led-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "bb4e01c159377303df5e224f36ac751f94c02b1c8516ff6aaddf28f2ff1cde4d",
+      "imageHash": "49511c746433c54131a6863a575786f05d2edb24291866329319e23613eb27b3"
+    },
+    {
+      "project": "mix-led-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "841490f8fba873d5f965fdb9cbc969e5ed29b378c5c30373f429523459f207ca",
+      "imageHash": "22799deb1a6c00ba5469c5efe73c7e4cd5e875012369e7b7b6d442a6b65e7eb8"
+    },
+    {
+      "project": "mix-led-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "741640f18f7fb772612ce4ccf79d343158abdc7a4c9e75bfc9b83f6f55aae24a",
+      "imageHash": "2632630ea20a3bf060f8048cb50f391e8294bbc63c9f22f3341028aafa67ba5a"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "eb351b978a5349379d2b5084f35c06fe427a8ab76011080d767bc7b07f6ae03d",
+      "imageHash": "9b9722fabe93181827bd3a8b8e3798a1621f7c802879b4760bcf32658f804e77"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d90045a58139e444a0c264e3f6cc88b03a44298fc560d4ad734401d15406f5bd",
+      "imageHash": "33ef233aa13ab152e7a63d953662086d5f182f6bbad8152994000e99895a9c3e"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "52ad649bdb4fd646b645554608aab981c769081035f92afbf8a8a274e7f7f3fb",
+      "imageHash": "8b365f3bb372adf4596d2e4cc539204c1845be8342654d2c42b37170b2796166"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c9f0e62dd0e43081311f5c509b9405dcf72dead34a0d53f3a4cdd5a7fedcc098",
+      "imageHash": "159a5e8c3d349b2662954a816e2da07d30f69f6ce678543687c22fc153e253e0"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "709e2139db6e0005c6c09b7e4c257c09716268b277fe741d8016b0c1231649ce",
+      "imageHash": "7a24aded6c4aa545d201b9954890e53a8c7655bbe709dbaa75c8f86692b17aa3"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "600885c4eee1582458fa9c69afc6c6140fdb4275b68031a75715c3ba86930a75",
+      "imageHash": "40998293e27bc85be5c0a8b011579f55afa14d00a0fddb0f6b57a17f500d3783"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8bef583216c1a547f168c73410b9ac108692b38517ccdcda271ef85ad936b92f",
+      "imageHash": "e4dc7cfcbce45c452c23d659725507c248daa7b98665426bce8b275be65dda23"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4e7a0c7f95a6f58c5222b9f8f934e5a6943ecda3a04a6bf95e36fee1703d770b",
+      "imageHash": "912e6f7e8cf08c4e772235d402a9c384b9af077e277b4b6a4212a30d1370505c"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8eeb8fe828888c4880f5c9049c991e1bc31fee20382a7a577514377d71448e5c",
+      "imageHash": "431283c09bf26ecaa80216cd25ebfc0106619058baafaf02c54c6c10c6c616ec"
+    },
+    {
+      "project": "mix-buttons-joystick-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "51760abb5b150b5a518eacf8160352e37c75299987001f7a459ebf585543138c",
+      "imageHash": "578cef9015fa31d61860666e8d858737e67d8332ada72e84745390f9429a022c"
+    },
+    {
+      "project": "mix-buttons-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d52475ac302fc311520a9aab2d5cb92919a69c6dd8e6d2a69019dc6a6d7da6a4",
+      "imageHash": "3f3e5ab57b473faa42884550b5e439b05b511c7848a2a5188e600672f921e209"
+    },
+    {
+      "project": "mix-buttons-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "90bca6331bb9683fe0b0297212a25736d84fe8ac8da5d533dc8de40b547243f9",
+      "imageHash": "b1392d7beb32647f43a3df3205c09ceee1f260b22bc8ab7e1eb71351b1b6676d"
+    },
+    {
+      "project": "mix-buttons-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c60195b6a637333a68c76138b248389c31c756d460d306b039ce834689fe26dd",
+      "imageHash": "92b5f0d6a4c6486ba457db962b3e29a17f4eb8066e394a20b471245523e30a9e"
+    },
+    {
+      "project": "mix-buttons-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "81df85ae3e8460bac57bb875b0f78f553646acec0a429ca02bcf24969d4be9e8",
+      "imageHash": "5bc0c74edb5b679e6f1afe7c60c7cc531375d2b5695b3fd35d8f717f92115618"
+    },
+    {
+      "project": "mix-buttons-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2f1d6b0e3faaf71b0cd0e9f9d55f38c480ec6cab6dff18ecb044b1316c408bfc",
+      "imageHash": "0b3ff20275366c262d24663982ed7550e956383253dd9dfb6e46f2e433aa132a"
+    },
+    {
+      "project": "mix-joystick-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "03e031c4dc1b730842fe0520d717df34571db4f38355c479c45cdca6e200f505",
+      "imageHash": "e3a0a328f2c4ab298e8ab8efbc8e1d38ceb7a621d4073f6096be5cd180b00b03"
+    },
+    {
+      "project": "mix-joystick-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d82a8173b0f16a4391d4d8394472bb7fbbc38072d6731004c5d4f11a3433ee69",
+      "imageHash": "ec92bee8ac4f40a58711e3441ec555b6169976be2618705281a0783d86c566b9"
+    },
+    {
+      "project": "mix-joystick-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "00a090603ecc3871e5ace32948b23964b826c9387f7f67767a3257f13b86bfdd",
+      "imageHash": "50b10b27db8e50f918022b758094bab21251c39bb39086bc18fd5fc75d746484"
+    },
+    {
+      "project": "mix-joystick-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3b78f921a7999f0ed8067c35137a05d5f75d89f2477c39dcded5b5e74e2ff5ef",
+      "imageHash": "e59467825e4140421241fdaf4d2d35c262b9b977e8a9582df3a685930e668e5d"
+    },
+    {
+      "project": "mix-joystick-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "348bc292d121d57b842542fa731a737a2494b7a26f09e65b407d17f465e3aba3",
+      "imageHash": "d0eb35300917ae48e7704d885c73aa7b934229c53607595dc3805a38755c29a8"
+    },
+    {
+      "project": "mix-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c936284ed64594d259d2bf0280a2f472f599e735ccc8a0f3962c0ffd094c6d47",
+      "imageHash": "a6456c0b4e4e7983357c7f82eafae4a8da64d661616622d95d77aa8ba2d2f114"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "cc514e5f317a849f043936ea1052b458ad121de6ca5b766be090896698dec09d",
+      "imageHash": "e6c769cb9473bad7bf66960528c030f4163cdf5c1ebae54fed62181744210caa"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a9333835e5bffc724dc46eb6b8d26023240b247e1adf85dbb89bee1559f9bb15",
+      "imageHash": "9d9b42de7d7ff5aa3a08f9c6f6a22332975d1b0b151c14a7bb4246ba80a79f56"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "567d36501b3e2db591d6c920d875c568feb8a84f74c31899ad441f77503a81c2",
+      "imageHash": "19dcc635344f4a4d3165d3e0d5ca88bce77d492d0c9d5dc6775d5a6799067403"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0f34af580a1378568e38a700668d0f3d9a4d1f8f0b21769e0684431637ed5ba7",
+      "imageHash": "ae00fd8ae47c856c6bf892e8f554dd61a3e01fa911d1f83c56946d56b5437aef"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "27aeb2a06673e037e3b490f028086629ff9c016ba37eb7a95d7f8f20d534e3c0",
+      "imageHash": "8d728ef00349101d2737e9049f2a4c05eddfdf1d428af8ccd1f5c05aa1c035cb"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "3d285440659586ce7f93e6e56fece3a8a5c4fb7e13dbb57976b8738e3d3a8d93",
+      "imageHash": "3920d055347d4d39b6d425af5c16bfd3cf492861d7b9f9321af1b4c85c9c6585"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "edba6899d0b0e8c54347288129b9747b2a71a2e212cb8d5fdd43660093911e10",
+      "imageHash": "6644e77d838e1afd78029555041c5d0db10554054332c9829c3de5cd9255c422"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "43fbbe0e7d854318d15ab3588e1fa9dc4f54ad42ad208cc49f3bf8e79eafee25",
+      "imageHash": "efa2f4b1d51c026b1e1992acfc2db87e6ae3e86cdac3cd335db5d12b74ad4313"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0c8c757ce908e404a2379aef448488eaab128537975649eaa88e596f8b496739",
+      "imageHash": "7c7fe7061f930db953a7bf932bf4a6aaaa74f70191a3020a0905d3c9cc0c336e"
+    },
+    {
+      "project": "mix-led-buttons-joystick-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e9780f2c8158589c3d0a9b1da0e70a93dfe711f625161cf1dd172701ba282c40",
+      "imageHash": "a40c8c29e9ed466acd1a0e06706c8d5adecfcd4bae61370267e8936e03255b1a"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c02da0033d65ac8a496081dba08173b595eebf30577e46d73fdd11a0583985fe",
+      "imageHash": "47f66a984ffdee46dd7632adb1d624753dd803edb12ba31189dd8890e472143e"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4b81dbb3b19694b237d2e9ed11cfcceeeb2f5af676aed1b9446ae03d5e108b0d",
+      "imageHash": "3a1ee4d5a3de55e2aaece34879cf994778fb21bc3d34002cb8bc4304b3ee80d2"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "2575ac9382f53414af948f221fc45736c8e0db70dfc417e6399828f8a664b1df",
+      "imageHash": "e9f97fc2b2e039fc39d73969095d27e6f3c45b4082a8b0299b89e05e52e7661a"
+    },
+    {
+      "project": "mix-led-buttons-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "fa950693ba8a803ad82c92df95455a38a9e0670e9bdeba47041351cea689c7cb",
+      "imageHash": "d0140cbcf4d1f8c0393b925cc91bc8b10419b16524efd2d7cea4765e56a95331"
+    },
+    {
+      "project": "mix-led-buttons-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "029dbad3a6b0459335df9f36cc4f3de95514f970fc8ab31ed5cc880af25e32fd",
+      "imageHash": "cbfd6e94563d58d0b7f7a52c9894afdd223c143d9c3ec9f32d86312e66a2f94d"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "52316698e19306ee8483649cd010c6fd8787a080b66be02d3b428a52b2f0ec22",
+      "imageHash": "cd1a2293f0dd4d79468c288a4d8dd76cba80a1006822dd8f9734e22357d4a294"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "634a41e3db974678b108b8e2c722d576d83514de24567f3a29035eb39dbfd980",
+      "imageHash": "76650720c2ddc2d41d2e24a80ee41a787b273373b205a586c06f74f441a1dbae"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "133e16d3e275c11d9cfd614df0f4a47314041b18c10162de725f1462ff2a798d",
+      "imageHash": "040f150b3d7e3f029f17d48a97416fdf68a988692c960645f2e80abe25c107f5"
+    },
+    {
+      "project": "mix-led-joystick-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "018ae81225c7ef33839c1b0a91af067aa468d85cb10ec516b3345aaa07156bfb",
+      "imageHash": "08bfe507e71f5fee19ac8409f7d961520d3d9d7cf216475e00880b8e9aff1c19"
+    },
+    {
+      "project": "mix-led-joystick-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "57289b78bed1b8d5639736914b4e2b1378f653ab9ffdd05b3089f5bb3d18c12e",
+      "imageHash": "fb883ee5315346ace8d12b929b4396ca191426c0220819bd223230b72a93c201"
+    },
+    {
+      "project": "mix-led-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "53016fb8af734d00e476cc94938816eebc156b4e6915c1a8d8fa0bd68fadd383",
+      "imageHash": "39adf150a5573bab335d336e9d8fd9515b302260be8e5f914a04e3518668c39a"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c1bd158eda309c7de53d79809a7e56d7790e71ca55bf898e53c085a7c5bd1097",
+      "imageHash": "04d66e33d9553c512f7e5c25e445498a38403a1a44520adfd14b8331e4b6cdc3"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5dc79119cc729b6835f681b45ad8a81da5c287b07fc061ae8f4db9570344d24f",
+      "imageHash": "7f25bc6b4dec7adb60322a5635501b7f669e7da99eaa428f088664febadf0681"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e15c4045144087eee8eb9ce7946831b92750277de40bd05e244f2428710df379",
+      "imageHash": "e456c0ea9ed0bfec1939af9cb18e3419eebdbb88adeb90362c8ec046227875aa"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "00f6e643f6c3783771d472cff18fcb63fee34cad0cfa4fd14409a5a931da60f5",
+      "imageHash": "5d41a328b98eedc2e2f96808f2e590ce0f486730185e759ffcf1c42c5c938a86"
+    },
+    {
+      "project": "mix-buttons-joystick-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "79369f8e2efdf98c3b299864ce74007c7f30966febd4d6b75706aa3d78b8b0c9",
+      "imageHash": "47771e12fd3c237dad8578a4803d09d45c456a810860c14c6c06b672fb6e79e4"
+    },
+    {
+      "project": "mix-buttons-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "ae40cdbce5ff8167e637888e72b6159c7f628b2190d0fa0c62d52cc74c2e1b2f",
+      "imageHash": "4ade1d6519748eaf242d77ca6c83fa29dc3ecaf36d998252d51fa239dee88f82"
+    },
+    {
+      "project": "mix-joystick-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "5ddc950aa60b4c06c38e15437ea09472ea66f8f3ddf4fbd3fdeffd589c78921b",
+      "imageHash": "b5f6fd252b8d8125a39b3ae9f3d31efc09a47b697156e47fa9027ba79e173630"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-systick-adc",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d2345c3c18f44a73d68aff0870cecc71c37a401ff2a56525097d9aada1e7f678",
+      "imageHash": "0c5d6c940a9a0226bb51cad9f3db43cc06ae69353dd54872e0a012e3d5528529"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-systick-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c90bc6afa7b70da146a78188e5d325f3ce3ec9b1251ab90736e5bb866c1b9e60",
+      "imageHash": "a2932df26fb9bed1368a071a1c105b284d9b77501d087aaea59ad5dff6bd4b58"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8ac708bb2a7755fe1dcefb2f8421d61e1fa9351ff5e1eb7b87087b891b0e89c4",
+      "imageHash": "55c79f4c778c4cff78acabe7e16de3495d83cde3205aac82a5406f9bf1d5ead2"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4a9b2d769195050a72188c65d1752b3ada3c6f917ab88e1e45224ec85e2db059",
+      "imageHash": "588f849bd023baa7616c8106cd3ce12620bb1884fc9de84fffaee579a0e5219c"
+    },
+    {
+      "project": "mix-led-buttons-joystick-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e3a5f0cc2fb07450bd13bff24a3c89f199d71a6c29cfd5bcfcb65eb18b1c0c54",
+      "imageHash": "b6c1185f68a34c9c9dbd0a22fde7514c88fa80906d3f892d332bacb5b1c0be11"
+    },
+    {
+      "project": "mix-led-buttons-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b1eb65dd256a9756c7b15312e8d3e3a067e3e3451538d7c64bff822f6e0e3592",
+      "imageHash": "7dadf9f2fa7bacf320655c39b7e7f1b301e8813b79d8e262053290b663aa25f4"
+    },
+    {
+      "project": "mix-led-joystick-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b0fa9deb259f94bcbc2af189be4c2e41ba66543541fc2f787b141e6b2624b1b2",
+      "imageHash": "11dda647ef3f27a3c302dbd46e786756d2258679a508c3beb53528ba0508f719"
+    },
+    {
+      "project": "mix-buttons-joystick-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b33c301d1b9dfc0ea914ced4cbddda73da30a3b223a78036cd850f1bb16cebc3",
+      "imageHash": "7dd08ed6ff063af7795836d69ba3b308eeb92b2471d10c204dbb8d400b10286c"
+    },
+    {
+      "project": "mix-led-buttons-joystick-timer-rit-systick-adc-dac",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e4bc56ec0661a444390667b65bca791b0b5306df66ff02e4d635e60bffc1d363",
+      "imageHash": "93b3e7ca6db0e1ed19343cd38b0243f798e31b18d6a69da752dcd1188c95d621"
+    },
+    {
+      "project": "task-counter-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "d0fee0f062ce146f499ca4f2a819950e418188c12ecd3952de027c1b093c69d4",
+      "imageHash": "6a8e61fe5e0826ab3fd5a88c0dff457d0da1565568ee63f82cf76c210ba7b5e5"
+    },
+    {
+      "project": "task-counter-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a9fc06f21eb626f595df880bec8ccb5d860bc8ea10d06017e7f4d513b832cfd1",
+      "imageHash": "ddf5bfd079a249e34c34804b115ba1743614a6115e15ab112aca14ceb358d653"
+    },
+    {
+      "project": "task-counter-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a1f7d336ba16638c18e2723f64f57f1ac192d07b3f9acb21b2abbb8589c65677",
+      "imageHash": "e94b59419a6af12fb522c5fb98aa8ed049ac5ca1a5ec52ffc3a1f9dd91490626"
+    },
+    {
+      "project": "task-binary-entry-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c13d2bc22ec74199cb94101833eea7ccf9624ef44ced385d68e8feb9f31cb54c",
+      "imageHash": "986eed1e73501e6a60717e7d1553d080699cc47035629651663232306c385d50"
+    },
+    {
+      "project": "task-binary-entry-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "720a3afb6e30391a22a796924e70f6059b3bc01b7ad7dba454c725a48962b048",
+      "imageHash": "0474832823484ee4e14160fc5f00321d3ac8909c33482a876884cc828897ad4e"
+    },
+    {
+      "project": "task-binary-entry-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7b89b9d9ed6e407075262f15983fc5e776d3bdafb1ab5395087fbc72062e4f59",
+      "imageHash": "8a2d8b83f75353e6d5eec616441ec34ea690028cc6d14d946416dd8f3dcbe6d7"
+    },
+    {
+      "project": "task-press-release-long-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1ace0842686a965ee9b6467b75f137ff7b36ebc42bd7de3b02728dbbfa12afc2",
+      "imageHash": "9a71025c0949c575ed28de05a998dd491ee6a85e4e626c0070604ce0da672204"
+    },
+    {
+      "project": "task-press-release-long-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a832a67738eada7dee1569999354d4b12f61505ad3adebdb1915854ce8df8f74",
+      "imageHash": "60bb1a925a02d545cb7fca23c172768401f4b4f1cba39ca52ac8e43e688509e7"
+    },
+    {
+      "project": "task-press-release-long-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "bcbb1117daf89696c71bc209d5c5e5d2e60906733f6f04237ba6d6654d113dbc",
+      "imageHash": "57609e45c9ad43825f31db5e641aa426f3cb4e5dcd42769ef5a1e044449c7627"
+    },
+    {
+      "project": "task-stopwatch-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "734dd85adee0b70910e966598bccc713d8717887ed36419164e30dbaffc3fe57",
+      "imageHash": "98410db45623cd1ddc277c8b75406bbd552cff8ecbe7d226b4a717b19c78413d"
+    },
+    {
+      "project": "task-stopwatch-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "dc67ef429a5a5beb64301c6607db3da4521f7ae4224d5efb994ba5cf419260c5",
+      "imageHash": "9dc8dc128d786a817d4ecedd7d5621a6a5f180cd14bb4f16bb4d9cba21ce4f11"
+    },
+    {
+      "project": "task-stopwatch-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e8ec2e7b943d30bb77f335254c0dc82e6bafec4d7330e870c7cb4c22ed5a671c",
+      "imageHash": "94a89041f42d61a2afa07437c9ce2874f6f3a15b04483944cdbf7c42a4ca6cc0"
+    },
+    {
+      "project": "task-countdown-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "916e0e1dde7afdcb037065ce454dc6bc01fecd571084d9bf62b8f19924f2f075",
+      "imageHash": "499fcff42cbf7e6b35026eb1ed9f9ba3c7e6f5992f55c02f534031dfbc639e8a"
+    },
+    {
+      "project": "task-countdown-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1365e57732cdcd868426dbd292ce86648c8d321d80d3280f62f8f91118009def",
+      "imageHash": "7e9e36dac8e01338b462b56a26cd4e25c1e976e504e683a7dd1c140e14827306"
+    },
+    {
+      "project": "task-countdown-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c4d2f59f8c603371c3e2453a59fd96310fcef1243f805558d2eeaa3dcfac4920",
+      "imageHash": "8fe14e1a22ba7be995e9bce799b136fa9dbb543713940c90b69a45334017bf4c"
+    },
+    {
+      "project": "task-reaction-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e7cac81ad91e7fdab8e6735a20a60bba9da447388435ec55060f873cb65b49b8",
+      "imageHash": "2591773360ce73f7d5c1549f421ea24c404a60043f2c9333a02053c1c7af8e1b"
+    },
+    {
+      "project": "task-reaction-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8ef367354464b0898a47f9a84e7865a7e8b9a4234a558ef99c0301f3b8ce8fd2",
+      "imageHash": "ac93600456bca866f079f322b85c34a4bee923e9ad6ea5d1cf3a539b1ff05ef7"
+    },
+    {
+      "project": "task-reaction-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "6f7f9d12a20283badf1cdce3aa66500a2b78947da536ce8f19844edbff1f88c2",
+      "imageHash": "3ec0c3cc143bc3c980fd3e8a620abb0dc9a5456faef02f9d99931d040e0c1725"
+    },
+    {
+      "project": "task-movement-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e60d44260270d4138fb79c8a08a16006ccea0c04bc53b0e620db052a4dd1b7f1",
+      "imageHash": "b2424372a92291c62fbe760afdb9de90e16543c184bfc99a08501f0faa20491b"
+    },
+    {
+      "project": "task-movement-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "ceb11a97ba87464fcd7e323d2e21003d43df4cb56fd08b60c9dd6d2f9cef7892",
+      "imageHash": "c27ad68ae5c9623b9790b9bb8878eb86bc490e49fe52a01261c1ac961588ad35"
+    },
+    {
+      "project": "task-code-entry-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "cd9ff66deae6c972b0d9d496285f0c75507e0389a99bf69b728c814d5aff8a32",
+      "imageHash": "29478cd1f589879e17ecc6b3851e644f50caaf57a83c0e1363984191f350c741"
+    },
+    {
+      "project": "task-code-entry-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "625c8a7db64c2e56fd197729975dc52d79ef802a9c3a56cd9a9faafc8394c132",
+      "imageHash": "2a4f12a64b83290a73c7a13cb308740cef5fcfe3790340b549aca0f6c7c0d97e"
+    },
+    {
+      "project": "task-adc-percent-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "1d299b4c019a574426f734217a08faa5e5b27340e170ab1d1bc0a3ccfd45253d",
+      "imageHash": "2cc843c7610196dba504cd81bf8d9f8f4780b6846cbad601de0542eb312046a4"
+    },
+    {
+      "project": "task-adc-percent-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "dee12b47b3331a070eda52ac9ca23202c550709615b49565668c805a2c51aa7c",
+      "imageHash": "a3f9aae4ece3de722daf8e8ef900936f37b3341d122a48134971725ada3fe9b4"
+    },
+    {
+      "project": "task-adc-hysteresis-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "7ea5c98ab2c5a61ed1d8356300f82574396b46c9ecfce4878751bfc3229764b2",
+      "imageHash": "9f23bddec9bcb46a8569b56436ab590ae07809d347c87946f694f844eab53cf9"
+    },
+    {
+      "project": "task-adc-hysteresis-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "e1daf4da7d27abc55d1a2e4f133b4af224747f4edd81158ace6709e9ffd48afe",
+      "imageHash": "0b5145fb99e24d87bd8d80803064abecae138163fac7a4e402c641399940abc2"
+    },
+    {
+      "project": "task-adc-average-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "9b3831f39d20a386654b4993b324d601eaa82902558b6140676f2c919c777544",
+      "imageHash": "6d02bea63d85376882030b1d049e8b083248b742cb0b15d178e479ffdf69dd01"
+    },
+    {
+      "project": "task-adc-average-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "0a5b55be39b1036365956e21631bee5c12bafb3e0d8c222a77232286c709382b",
+      "imageHash": "bb28232e779b4fd8d01bbde7a418dd9ccca2dba87a37fcd60e67a59c4740ff0f"
+    },
+    {
+      "project": "task-adc-capture-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "c5b163c86bcd67a5e649bb1da740ebd043c5fe804250c05820f7f8ce746de8f1",
+      "imageHash": "e80992ee9b3dbfc6e8e6d19c6a05b8b27a2f5f1254115fdd4566c96e8960224a"
+    },
+    {
+      "project": "task-adc-capture-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "874720118d026d5657a4cc611a323e48cda6d66279e049ca46bd2a7fc2bfa322",
+      "imageHash": "d59c25b2d9d20d4a22285f4372e58ca20b1b42a9d2853749c246383bcbc499a8"
+    },
+    {
+      "project": "task-adc-capture-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8a976ac0a4f69fc5af9b4cec29196c162ebdb811be6e46877967d870bd448105",
+      "imageHash": "02fe8a158ec31bf5653ec9b05999619e10a8fa42904f6c2b60d4ccb054e4d66c"
+    },
+    {
+      "project": "task-adc-rate-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "24572434a614306c5e60c4a2bd89b5898b5f071216fa084e722637e3b6946ae8",
+      "imageHash": "27e37e387c0a480631321cf70ea39fbdd62153abf622d165fe4e15f6bbb9727a"
+    },
+    {
+      "project": "task-adc-rate-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "b85078fc00d4e861e85342d70da62f12cf310a4cd874c1af1c80507518226f86",
+      "imageHash": "78a2558bb46b4adc682dca82738c7f8f3f2983e794e958e109b878f73d084f42"
+    },
+    {
+      "project": "task-audio-burst-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a22f89cfa63f9c39531d0b2727093c305ad3cc1432437a382b74dfa272fa8466",
+      "imageHash": "31baa88be806aab9116c36bb6322fab87ee33c3e8f8ffd4cba98bde0057f343f"
+    },
+    {
+      "project": "task-audio-burst-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "381d3143aba555a8a2fd09c77c4369f0fcf28247e7629903a5e273c8888a7f95",
+      "imageHash": "9206f86888148f7f8aff677d23a54645c2522d2aa0806100e589dfdfff4fee9f"
+    },
+    {
+      "project": "task-audio-burst-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "bff163bf05621cbccb1611127d8e7a23b0bd1b7ee6d669d2dd9ff6debbbd0f71",
+      "imageHash": "61b1fea456a5c1040fb04fea7e332a897048d0cc9d1c24468271b0493b40e675"
+    },
+    {
+      "project": "task-audio-controls-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "645000d3d2908a7b0d422a5b576c733e15dc14c3669f34297cfbf85a2d187d36",
+      "imageHash": "a5fed61ed386611162704d21c82fd0b7be8574e31fae5e9ba8305ce53d2b9988"
+    },
+    {
+      "project": "task-audio-controls-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "56c862c2a90b6ba46c203535c16a5db4662ef8308eb57b95ff8dd6005fed0bee",
+      "imageHash": "a66000c085dbc14a4a9c71b743a0caef06509b59998372ca9fd7d94b4df48263"
+    },
+    {
+      "project": "task-audio-controls-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "ea247db9fb5e1e1731d29217cb5da58973afea7dc4b5dc61fcce1031d2b9418e",
+      "imageHash": "f66c38c7d3851cad9b1881f907be3e46d8e7d6e11ac1da8a6da4c5523c523f71"
+    },
+    {
+      "project": "task-audio-sequence-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "a4f0a0d5641a940bdbc44097f9122ebc0db831dd3d8cdcd0b1d862f66aed6611",
+      "imageHash": "6e100c7640889429a29aef62a94e173c1e986b2e7a4c917ecf3a25fdda57d63c"
+    },
+    {
+      "project": "task-audio-sequence-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "459cc68b2069f1ed38772685ca87c432a85995ff7e46b69a14ceefc88e13a291",
+      "imageHash": "a62e26d21afbda6a8ff9b7ca99c03a79a28d3db1d22d3052d1b4869189f8fb0e"
+    },
+    {
+      "project": "task-adc-minmax-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "826398b3aabc672a486b1cb2eba32b17e90a492dba8f18228342adb392cd23c7",
+      "imageHash": "2d78e3742160a2f86df2023fd831695cd843c03ac1688ab75d3c63e5ee6aacb8"
+    },
+    {
+      "project": "task-adc-minmax-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "befdad5c329b058421e1fb0a634ef667576f91d1374f5318c06b5264b4457ae5",
+      "imageHash": "2a2a0b95f7051758c8bad8aa26404f3564b17e6ea484e390c13d1ebf2fc22fdc"
+    },
+    {
+      "project": "task-adc-minmax-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8be189989e13922d7a1b0675d86f77d15f087d19eb59275d27a054d0ec382a3e",
+      "imageHash": "5841278c9373a3a6afd43e3798ffd1d4f62539660e773bfc650ce3dd164213b9"
+    },
+    {
+      "project": "task-adjustable-waveform-rit",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "8ac708bb2a7755fe1dcefb2f8421d61e1fa9351ff5e1eb7b87087b891b0e89c4",
+      "imageHash": "14a4e017b16c704dfde9b912e1cb4391f2338f05f1357e2cf3b35565a2e4dac1"
+    },
+    {
+      "project": "task-adjustable-waveform-systick",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "4a9b2d769195050a72188c65d1752b3ada3c6f917ab88e1e45224ec85e2db059",
+      "imageHash": "6c33f74a99964e68ef466b492bcbc18e3a5d19f72032ede3db9cd9bf995b6731"
+    },
+    {
+      "project": "task-adjustable-waveform-polling",
+      "status": "PASS",
+      "method": "Actual native Thumb controller instructions executed with explicit input sequences",
+      "sourceHash": "18f6baaf025beb9081fdd462a3744fda938ac8f97067b97e40517b0e3e0c52d8",
+      "imageHash": "0cf75eb2b4e3047897612fd8d04cf18d763f596e9b949830bfd41095a6b8b201"
+    },
+    {
+      "project": "paper-e2023-02-07",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2023-02-24",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2023-07-04",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2023-09-18",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2024-02-12",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2024-02-28",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2024-07-09",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2024-09-16",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-01-29-a1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-01-29-a2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-01-29-a3",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-02-12-a1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-02-12-a2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-07-01-a1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2025-07-01-a2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-02-03-a1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-02-03-a2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-02-03-a3",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-02-18-a1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-02-18-a2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-06-25-b1",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-e2026-06-25-b2",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    },
+    {
+      "project": "paper-lcd-maze",
+      "status": "SOURCE_AGREEMENT_PASS",
+      "method": "Exact maintained historical answer sources; enabled unused-vector return/acknowledgement executed; full hardware-flow evidence reported separately"
+    }
+  ],
+  "issues": [],
+  "physicalBoard": "Not tested",
+  "limits": "Controller tests do not model analog signals, NVIC arbitration or electrical bounce. Native build results are separate."
+}

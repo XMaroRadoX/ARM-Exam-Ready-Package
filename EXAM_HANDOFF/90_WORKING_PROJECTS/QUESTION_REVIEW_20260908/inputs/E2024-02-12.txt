@@ -1,0 +1,263 @@
+{"exam_id": "E2024-02-12", "date": "2024-02-12", "project": "2024-02-12_Maze_LCG_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240212 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 12.02.2024 – part II 
+ 
+Question 1 
+ 
+Write the mazeSolver subroutine in ARM assembly language to find the exits of a maze. 
+The maze is saved as a NUM_ROW * NUM_COL matrix of bytes. The character ‘*’ indicates a 
+wall, and the space indicates a passage. The exits of the maze are in the outer border only. In 
+particular, the exits in the top border are indicated with ‘n’, in the right border with ‘e’, in the 
+bottom border with ‘s’, and in the left border with ‘w’. Note that a border may have no exits or it 
+may have more than one exit. It is guaranteed that the cells in the borders are either exits or walls. 
+Example: a maze matrix with NUM_ROW = 9, NUM_COL = 9, and two exits is shown below 
+ 
+* n * * * * * * * 
+*    *  *  * 
+*  * * * * *  * 
+*  *  *    * 
+*  *  * * *  * 
+*    *    * 
+* * * * *  *  * 
+*      *  * 
+* * * * * * * s * 
+ 
+The mazeSolver subroutine receives the following parameters (in the order indicated): 
+- number of rows 
+- number of columns 
+- address of the maze matrix 
+For each cell of the maze, the subroutine finds the shortest path to reach an exit, giving the 
+directions 'n' (North), 'e' (East), 's' (South), 'w' (West). The algorithm followed by the procedure 
+consists of two phases. 
+Phase 1) For each cell x containing a space: 
+- if the neighboring cell at the top is a lowercase letter, then the new content of x is 'N' 
+- else if the neighboring cell at the right is a lowercase letter, then the new content of x is 'E' 
+- else if the neighboring cell at the bottom is a lowercase letter, then the new content of x is 'S' 
+- else if the neighboring cell at the left is a lowercase letter, then the new content of x is 'W' 
+Phase 2) For each cell with an uppercase letter, the content of the cell is replaced with the 
+corresponding lowercase letter. 
+The two phases are repeated as long as the content of the maze matrix changes. 
+Example: Iteration 1   Iteration 2    Iteration 3 
+* n * * * * * * *    * n * * * * * * *    * n * * * * * * * 
+* n   *  *  *    * n w  *  *  *    * n w w *  *  * 
+*  * * * * *  *    * n * * * * *  *    * n * * * * *  * 
+*  *  *    *    *  *  *    *    * n *  *    * 
+*  *  * * *  *    *  *  * * *  *    *  *  * * *  * 
+*    *    *    *    *    *    *    *   s * 
+* * * * *  *  *    * * * * *  * s *    * * * * *  * s * 
+*      * s *    *      * s *    *      * s * 
+* * * * * * * s *    * * * * * * * s *    * * * * * * * s * 
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 12.02.2024 – part II 
+ 
+Iteration 4    Iteration 5    Iteration 11 
+* n * * * * * * *    * n * * * * * * *    * n * * * * * * * 
+* n w w *  *  *    * n w w *  *  *    * n w w *  * s * 
+* n * * * * *  *    * n * * * * *  *    * n * * * * * s * 
+* n *  *    *    * n *  *   s *    * n * s * e e s * 
+* n *  * * * s *    * n *  * * * s * … * n * s * * * s * 
+*    *  e s *    * n   * e e s *    * n w w * e e s * 
+* * * * *  * s *    * * * * *  * s *    * * * * * n * s * 
+*      * s *    *      * s *    * e e e e n * s * 
+* * * * * * * s *    * * * * * * * s *    * * * * * * * s * 
+ 
+The procedure returns the length of the longest path, i.e., the number of iterations executed. In the 
+example, the return value is 11. 
+ 
+  
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 12.02.2024 – part II 
+ 
+Question 2 
+We want to generate a maze randomly and then call the subroutine developed in the previous 
+exercise to find the shortest path towards the exits.  
+A NUM_ROWS * NUM_COLUMNS matrix of chars is declared in C. NUM_ROWS and 
+NUM_COLUMNS are defined as constants, for example NUM_ROWS = 10 and 
+NUM_COLUMNS = 8. 
+The value '*' is assigned to the four cells in the corners. For each remaining cell, a pseudo-random 
+value in the range [0, 100] is generated:  
+- for every cell in the upper border, if the pseudo-random value is lower than 90, the cell is 
+initialized with '*', otherwise with 'n'. 
+- for every cell in the right border, if the pseudo-random value is lower than 90, the cell is 
+initialized with '*', otherwise with 'e'. 
+- for every cell in the lower border, if the pseudo-random value is lower than 90, the cell is 
+initialized with '*', otherwise with 's'. 
+- for every cell in the left border, if the pseudo-random value is lower than 90, the cell is 
+initialized with '*', otherwise with 'w'. 
+- for each other cell, if the pseudo-random value is lower than 60, the cell is initialized with ' ', 
+otherwise with '*'. 
+The sequence of pseudo-random numbers is obtained by means of the following linear 
+congruential generator: value_new = (value_old * 18) % 101, where % indicates the modulo 
+operation. 
+Add the following functionalities to the project created in the previous exercise: 
+1) In the main function, start timer 0, without generating interrupts and stopping the timer. 
+2) When the user presses the button Key2, we read the current value of timer 0. This is a truly 
+random number and we use it as a seed to compute the first pseudo-random number. Then, 
+each subsequent pseudo-random number is obtained using the previous pseudo-random 
+number. 
+Example: if timer 0 is 300 and NUM_COLUMNS = 8, then 6 pseudo-random numbers are 
+needed for generating the first row of the matrix (because the corners are fixed). The 
+sequence of pseudo-random numbers is: 
+- value1 =  (300 * 18) % 101 = 47 
+- value2 =  (47 * 18) % 101 = 38 
+- value3 =  (38 * 18) % 101 = 78 
+- value4 =  (78 * 18) % 101 = 91 
+- value5 =  (91 * 18) % 101 = 22 
+- value6 =  (22 * 18) % 101 = 93 
+The first row of the matrix is ****n*n* 
+3) Finally, call the mazeSolver subroutine. 
+Steps 2 and 3 have to be implemented inside the handler of button Key2. 
+ 
+
+--- QUESTION ---
+{"question_id": "2024-02-12-Q1", "date": "2024-02-12", "question": "Q1", "requirement_summary": "Propagate maze direction letters from the exit until no additional cells can be labelled.", "keywords": "maze flood-fill propagation N E S W fixed-point", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q1/assembly.s", "function_or_handler": "mazeSolver", "argument_mapping": "R0 rows, R1 columns, R2 flat maze address", "architecture": "assembly maze algorithm", "constants": "walls # and exit E", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Maze", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  mazeSolver
+
+; uint32_t mazeSolver(uint32_t rows, uint32_t columns, uint8_t *maze)
+mazeSolver      PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MUL     R7, R4, R5      ; number of cells
+                MOVS    R8, #0          ; completed propagation iterations
+ms_iteration    MOVS    R9, #0          ; changed
+                MOVS    R10, #0         ; linear index
+ms_phase1       CMP     R10, R7
+                BHS     ms_phase2_begin
+                LDRB    R0, [R6, R10]
+                CMP     R0, #' '
+                BNE     ms_p1_next
+                SUB     R1, R10, R5
+                LDRB    R0, [R6, R1]
+                CMP     R0, #'a'
+                BLO     ms_right
+                CMP     R0, #'z'
+                BHI     ms_right
+                MOVS    R0, #'N'
+                B       ms_mark
+ms_right        ADD     R1, R10, #1
+                LDRB    R0, [R6, R1]
+                CMP     R0, #'a'
+                BLO     ms_bottom
+                CMP     R0, #'z'
+                BHI     ms_bottom
+                MOVS    R0, #'E'
+                B       ms_mark
+ms_bottom       ADD     R1, R10, R5
+                LDRB    R0, [R6, R1]
+                CMP     R0, #'a'
+                BLO     ms_left
+                CMP     R0, #'z'
+                BHI     ms_left
+                MOVS    R0, #'S'
+                B       ms_mark
+ms_left         SUB     R1, R10, #1
+                LDRB    R0, [R6, R1]
+                CMP     R0, #'a'
+                BLO     ms_p1_next
+                CMP     R0, #'z'
+                BHI     ms_p1_next
+                MOVS    R0, #'W'
+ms_mark         STRB    R0, [R6, R10]
+                MOVS    R9, #1
+ms_p1_next      ADDS    R10, R10, #1
+                B       ms_phase1
+
+ms_phase2_begin MOVS    R10, #0
+ms_phase2       CMP     R10, R7
+                BHS     ms_phase_done
+                LDRB    R0, [R6, R10]
+                CMP     R0, #'N'
+                BEQ     ms_lower
+                CMP     R0, #'E'
+                BEQ     ms_lower
+                CMP     R0, #'S'
+                BEQ     ms_lower
+                CMP     R0, #'W'
+                BNE     ms_p2_next
+ms_lower        ADDS    R0, R0, #32
+                STRB    R0, [R6, R10]
+ms_p2_next      ADDS    R10, R10, #1
+                B       ms_phase2
+ms_phase_done   CMP     R9, #0
+                BEQ     ms_done
+                ADDS    R8, R8, #1
+                B       ms_iteration
+ms_done         MOV     R0, R8
+                POP     {R4-R11, R12, PC}
+                ENDP
+                END
+
+
+
+--- QUESTION ---
+{"question_id": "2024-02-12-Q2", "date": "2024-02-12", "question": "Q2", "requirement_summary": "Seed an LCG from Timer0, generate the maze on KEY2, then call the assembly solver.", "keywords": "LCG Timer0 KEY2 debounce random maze", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q2/main.c", "function_or_handler": "main; next_random; EINT2_IRQHandler", "argument_mapping": "Timer0 TC seeds LCG; KEY2 event starts generation", "architecture": "C peripherals + algorithm", "constants": "modulus 101; threshold 18", "peripheral_tags": "Buttons|Debounce|Timer0", "interrupt_tags": "EINT|Timer IRQ|Acknowledgement", "timing_tags": "", "architecture_tags": "C-to-assembly", "algorithm_tags": "Recurrence|Maze", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/main.c ---
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+static void leds_fill(void)
+{
+  (void)exam_led_write(0xFFu);
+}
+#define NUM_ROWS 10u
+#define NUM_COLUMNS 8u
+extern uint32_t mazeSolver(uint32_t rows, uint32_t columns, uint8_t *maze);
+static uint8_t maze[NUM_ROWS][NUM_COLUMNS];
+static volatile uint32_t longest_path;
+
+static uint32_t lcg_next(uint32_t value) { return (value * 18u) % 101u; }
+
+static void generate_maze(uint32_t seed)
+{
+  uint32_t r, c, value = seed;
+  for (r=0u; r<NUM_ROWS; ++r) for (c=0u; c<NUM_COLUMNS; ++c) {
+    if ((r==0u||r==NUM_ROWS-1u) && (c==0u||c==NUM_COLUMNS-1u)) maze[r][c]='*';
+    else {
+      value=lcg_next(value);
+      if (r==0u) maze[r][c]=value<90u?'*':'n';
+      else if (c==NUM_COLUMNS-1u) maze[r][c]=value<90u?'*':'e';
+      else if (r==NUM_ROWS-1u) maze[r][c]=value<90u?'*':'s';
+      else if (c==0u) maze[r][c]=value<90u?'*':'w';
+      else maze[r][c]=value<60u?' ':'*';
+    }
+  }
+}
+
+void EINT2_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY2);
+  generate_maze(exam_timer_read(EXAM_TIMER0));
+  longest_path=mazeSolver(NUM_ROWS,NUM_COLUMNS,&maze[0][0]);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_led_clear();
+  exam_buttons_init();
+  if (exam_timer_config_ticks(EXAM_TIMER0, UINT32_MAX,
+                              EXAM_TIMER_MODULO_NO_IRQ) != EXAM_OK) {
+    leds_fill();
+  } else {
+    exam_timer_start(EXAM_TIMER0);
+  }
+
+  for (;;) {
+    __WFI();
+  }
+}

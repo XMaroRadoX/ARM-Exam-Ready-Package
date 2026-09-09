@@ -1,0 +1,376 @@
+{"exam_id": "E2026-06-25-B1", "date": "2026-06-25", "project": "2026-06-25_ARM1_BullsAndCows", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 25.06.2206/20260625_ARM_1.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 25/06/2026 
+ 
+B1 
+Please read the following notes before proceeding 
+1) It is recommended to save the project on the C drive during development. Once you have 
+completed your work, you must save the project inside the exam folder on the Z drive (the 
+same folder where you found this document). Projects saved elsewhere will not be 
+collected and will be permanently lost. 
+2) The assembly subroutine developed in the first exercise must comply with the ARM 
+Architecture Procedure Call Standard (AAPCS) standard (in terms of parameter passing, 
+returned value, callee-saved registers). 
+3) If you prefer, you can begin with the second exercise. Since it requires calling the assembly 
+subroutine from the first exercise, you can create a stub in the assembly file to proceed. For 
+example: 
+ 
+subroutineName PROC 
+ ; to do: add code 
+ MOV r0, #10  ; example of a return value 
+ BX LR 
+ ENDP 
+ 
+4) To earn points on all exercises, it is recommended that you write at least some code for 
+each. 
+5) The final project must run on the actual board (e.g., button debouncing is required). 
+ 
+ 
+Special characters with Italian keyboards 
+- Square brackets [ ] 
+  Left bracket: ATL GR + [ 
+  Right bracket: ALT GR + ] 
+- Curly brackets { }  
+  Left bracket: LSHIFT + ALT GR + [ 
+  Right bracket: LSHIFT + ALT GR + ] 
+- Hash # : ALT GR + à  
+ 
+ 
+Bitwise operations in C 
+Left shift by N bits  =  A<<N      
+Right shift by N bits  =  A>>N 
+ 
+A XOR B  =  A^B 
+A AND B  =  A&B   (&& is the logical AND) 
+A OR B  =  A|B  (|| is the logical OR) 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 25/06/2026 
+ 
+B1 
+Question 1 (10 points) 
+In the bulls and cows game, a player tries to discover a secret code by trial and error. 
+In our implementation, the secret code consists of 4 digits. Each digit is in the range [0-3]. 
+  
+Write the BullsAndCows subroutine in ARM assembly language. You must follow this 
+prototype: 
+ 
+int BullsAndCows(int guess[4], int secret[4], int guessFrequency[4], int secretFrequency[4]); 
+ 
+ 
+The four parameters are addresses of arrays containing four integers. 
+In the Reset_Handler, before calling the subroutine, you can initialize the elements of guess 
+(the player’s try) and secret (the code to be discovered) with values of your choice. Instead, all the 
+elements of guessFrequency and secretFrequency must be initialized to zero. 
+The BullsAndCows subroutine computes: 
+- the bulls: the number of digits that appear in both arrays (guess and secret) in the same 
+position; 
+- the cows: the number of digits in guess that are not bulls, but match the elements in secret in 
+another position; 
+ 
+Example: guess = [0, 1, 2, 3]; secret = [1, 2, 2, 0]. 
+There is one bull (digit 2 in the third position) and two cows (digits 0 and 1). 
+ 
+The subroutine implements the following pseudocode: 
+bulls = 0; 
+cows = 0; 
+for (i = 0; i < 4; i ++) { 
+ if (guess[i] == secret[i]) 
+  bulls ++; 
+ else { 
+  guessFrequency[guess[i]] ++; 
+  secretFrequency[secret[i]] ++; 
+ } 
+} 
+for (i = 0; i < 4; i ++) 
+ cows += min(guessFrequency[i], secretFrequency[i]); 
+return (2bulls -1) << 4 + (2cows -1) 
+ 
+In the example above, at the end of the procedure we have: 
+guessFrequency = [1, 1, 0, 1] 
+secretFrequency = [1, 1, 1, 0] 
+bulls = 1 
+cows = 2 
+(2bulls – 1) = 1 
+(2bulls – 1) << 4 = 16 
+(2cows – 1) = 3 
+The subroutine returns 19. 
+ 
+ 
+ 
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 25/06/2026 
+ 
+B1 
+Question 2 (8 points) 
+In this part, you implement a game of bulls and cows with the LPC1768 board. 
+In the main function, start a timer of your choice. 
+ 
+The player presses the joystick (i.e., select function) to start the game. In this first moment: 
+- all LEDs are turned off 
+- the player’s guess is initialized to 0000 
+- the timer counter is used to generate the secret code. 
+In detail, the secret code is generated from the four least significant hexadecimal digits of the timer 
+counter. Each hexadecimal digit is masked with 0x3 in order to obtain a value in the range [0-3]. 
+Example: timerCounter = 0x00121AB6 
+secretCode[0] = 0x6 AND 0x3 = 01102 AND 00112 = 00102 = 0x2 
+secretCode[1] = 0xB AND 0x3 = 10112 AND 00112 = 00112 = 0x3 
+secretCode[2] = 0xA AND 0x3 = 10102 AND 00112 = 10102 = 0x2 
+secretCode[3] = 0x1 AND 0x3 = 00012 AND 00112 = 00012 = 0x1 
+ 
+The player moves the joystick to choose the four digits of their guess: 
+- when the joystick moves down, the first digit of the guess is incremented. If the value 
+becomes 4, then it is reset to 0. The binary representation of guess[0] is displayed on LEDs 
+10 and 11. For example, if guess[0] = 2, then LED 10 is turned on and LED 11 is turned off. 
+- when the joystick moves left, the second digit of the guess is incremented. If the value 
+becomes 4, then it is reset to 0. The binary representation of guess[1] is displayed on LEDs 
+8 and 9. 
+- when the joystick moves right, the third digit of the guess is incremented. If the value 
+becomes 4, then it is reset to 0. The binary representation of guess[2] is displayed on LEDs 
+6 and 7. 
+- when the joystick moves up, the fourth digit of the guess is incremented. If the value 
+becomes 4, then it is reset to 0. The binary representation of guess[3] is displayed on LEDs 
+4 and 5. 
+ 
+When the player is satisfied with their guess, they press the joystick. The BullsAndCows 
+subroutine is then called passing guess, secret and two arrays initialized to zero. The value returned 
+by the subroutine is shown on the LEDs, assuming LED4 represents the most significant digit and 
+LED 11 the least significant one. 
+ 
+The player can press the joystick again to compose another guess. At this moment: 
+- all LEDs are turned off 
+- the player’s guess is initialized to 0000 
+Note that the secret code must not be changed. 
+ 
+Then, the game continues alternating between joystick movements to set the guess and subroutine 
+calls to compute the number of bulls and cows. The game ends when the number of bulls is 4, i.e., 
+LEDs 4-7 are turned on and LEDs 8-11 are turned off. No specific action is required when the game 
+ends. 
+
+--- QUESTION ---
+{"question_id": "2026-06-25_ARM1-Q1", "date": "2026-06-25", "question": "Q1", "requirement_summary": "Compute bulls and cows using per-digit frequency arrays and pack the score.", "keywords": "Bulls and Cows frequency exact partial packed score", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q1/assembly.s", "function_or_handler": "BullsAndCows", "argument_mapping": "R0 guess, R1 secret, R2 guessFrequency, R3 secretFrequency", "architecture": "assembly game algorithm", "constants": "(2*bulls-1)<<4 plus (2*cows-1)", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Arrays|Decimal|Games", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  BullsAndCows
+
+; int BullsAndCows(int guess[4], int secret[4],
+;                  int guessFrequency[4], int secretFrequency[4]);
+; R0=guess, R1=secret, R2=guessFrequency, R3=secretFrequency.
+BullsAndCows    PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+                MOV     R6, R2
+                MOV     R7, R3
+                MOVS    R8, #0
+                MOVS    R9, #0
+                MOVS    R10, #0
+
+bac_exact_loop  CMP     R10, #4
+                BHS     bac_exact_done
+                LDR     R0, [R4, R10, LSL #2]
+                LDR     R1, [R5, R10, LSL #2]
+                CMP     R0, R1
+                BNE     bac_unmatched
+                ADDS    R8, R8, #1
+                B       bac_exact_next
+
+bac_unmatched   LDR     R2, [R6, R0, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R6, R0, LSL #2]
+                LDR     R2, [R7, R1, LSL #2]
+                ADDS    R2, R2, #1
+                STR     R2, [R7, R1, LSL #2]
+
+bac_exact_next  ADDS    R10, R10, #1
+                B       bac_exact_loop
+
+bac_exact_done  MOVS    R10, #0
+bac_cow_loop    CMP     R10, #4
+                BHS     bac_return
+                LDR     R0, [R6, R10, LSL #2]
+                LDR     R1, [R7, R10, LSL #2]
+                CMP     R0, R1
+                BLS     bac_use_min
+                MOV     R0, R1
+bac_use_min     ADDS    R9, R9, R0
+                ADDS    R10, R10, #1
+                B       bac_cow_loop
+
+bac_return      MOVS    R0, #1
+                LSL     R0, R0, R8
+                SUBS    R0, R0, #1
+                LSLS    R0, R0, #4
+                MOVS    R1, #1
+                LSL     R1, R1, R9
+                SUBS    R1, R1, #1
+                ADDS    R0, R0, R1
+                POP     {R4-R11, R12, PC}
+                ENDP
+
+                END
+
+
+--- QUESTION ---
+{"question_id": "2026-06-25_ARM1-Q2", "date": "2026-06-25", "question": "Q2", "requirement_summary": "Implement the full joystick Bulls-and-Cows game, preserving one timer-derived secret across guesses.", "keywords": "joystick game Timer0 secret debounce edges LED", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q2/main.c", "function_or_handler": "main; answer_joystick_sample", "argument_mapping": "Timer0 TC creates secret; RIT polls joystick edges", "architecture": "C game state machine", "constants": "four digits 0..3", "peripheral_tags": "LED|Debounce|Timer0|RIT|Joystick", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Decimal|Games", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/main.c ---
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+enum {
+  EXAM_EVENT_JOYSTICK = 1u << 1
+};
+
+extern int BullsAndCows(int guess[4], int secret[4],
+                        int guessFrequency[4], int secretFrequency[4]);
+
+typedef enum {
+  WAIT_START = 0,
+  EDIT_GUESS,
+  SHOW_RESULT,
+  FINISHED
+} game_state_t;
+
+static int guess[4];
+static int secret[4];
+static int guessFrequency[4];
+static int secretFrequency[4];
+static volatile uint32_t joystick_press_edges;
+static uint32_t previous_joystick;
+static game_state_t game_state;
+
+static void clear_words(int values[4])
+{
+  uint32_t i;
+  for (i = 0u; i < 4u; ++i) values[i] = 0;
+}
+
+static void display_guess(void)
+{
+  uint8_t packed = (uint8_t)(((uint32_t)guess[0] << 0) |
+                             ((uint32_t)guess[1] << 2) |
+                             ((uint32_t)guess[2] << 4) |
+                             ((uint32_t)guess[3] << 6));
+  (void)exam_led_write(packed);
+}
+
+static void capture_secret(void)
+{
+  uint32_t timer_value = exam_timer_read(EXAM_TIMER1);
+  uint32_t i;
+  for (i = 0u; i < 4u; ++i) {
+    secret[i] = (int)((timer_value >> (i * 4u)) & 0x3u);
+  }
+}
+
+static void begin_guess(void)
+{
+  clear_words(guess);
+  exam_led_clear();
+  display_guess();
+  game_state = EDIT_GUESS;
+}
+
+static void increment_digit(uint32_t index)
+{
+  guess[index] = (guess[index] + 1) & 0x3;
+  display_guess();
+}
+
+static void evaluate_guess(void)
+{
+  int result;
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  result = BullsAndCows(guess, secret, guessFrequency, secretFrequency);
+  (void)exam_led_write((uint8_t)result);
+  game_state = ((((uint32_t)result >> 4) & 0xFu) == 0xFu) ? FINISHED : SHOW_RESULT;
+}
+
+void RIT_IRQHandler(void)
+{
+  uint32_t current;
+  uint32_t pressed;
+  exam_rit_ack();
+  current=exam_joystick_read();
+  pressed=exam_joystick_pressed_edges(previous_joystick,current);
+  previous_joystick=current;
+  if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
+}
+
+int main(void)
+{
+  exam_status_t timer_status;
+  exam_status_t joystick_status;
+  exam_init();
+
+  clear_words(guess);
+  clear_words(secret);
+  clear_words(guessFrequency);
+  clear_words(secretFrequency);
+  joystick_press_edges = 0u;
+  game_state = WAIT_START;
+  exam_led_clear();
+
+  timer_status=exam_timer_config_ticks(EXAM_TIMER1,UINT32_MAX,
+                                       EXAM_TIMER_MODULO_NO_IRQ);
+  if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
+  exam_joystick_init();
+  previous_joystick=exam_joystick_read();
+  joystick_status=exam_rit_config_ms(10u);
+  if(joystick_status==EXAM_OK)exam_rit_start();
+
+  if (timer_status != EXAM_OK || joystick_status != EXAM_OK) {
+    (void)exam_led_write(0xFFu);
+    game_state = FINISHED;
+  }
+
+  for (;;) {
+    uint32_t edges;
+    uint32_t saved;
+
+    if ((exam_events_take(EXAM_EVENT_JOYSTICK) & EXAM_EVENT_JOYSTICK) == 0u) {
+      __WFI();
+      continue;
+    }
+
+    saved = exam_critical_enter();
+    edges = joystick_press_edges;
+    joystick_press_edges = 0u;
+    exam_critical_exit(saved);
+
+    if ((edges & EXAM_JOY_SELECT) != 0u) {
+      if (game_state == WAIT_START) {
+        capture_secret();
+        begin_guess();
+      } else if (game_state == EDIT_GUESS) {
+        evaluate_guess();
+      } else if (game_state == SHOW_RESULT) {
+        begin_guess();
+      }
+      __WFI();
+      continue;
+    }
+
+    if (game_state != EDIT_GUESS) {
+      __WFI();
+      continue;
+    }
+    if ((edges & EXAM_JOY_DOWN) != 0u) increment_digit(0u);
+    if ((edges & EXAM_JOY_LEFT) != 0u) increment_digit(1u);
+    if ((edges & EXAM_JOY_RIGHT) != 0u) increment_digit(2u);
+    if ((edges & EXAM_JOY_UP) != 0u) increment_digit(3u);
+    __WFI();
+  }
+}

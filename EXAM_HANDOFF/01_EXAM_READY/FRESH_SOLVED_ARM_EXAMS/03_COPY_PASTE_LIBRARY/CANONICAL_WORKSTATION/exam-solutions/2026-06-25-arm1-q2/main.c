@@ -21,6 +21,8 @@ static int guessFrequency[4];
 static int secretFrequency[4];
 static volatile uint32_t joystick_press_edges;
 static uint32_t previous_joystick;
+static uint32_t candidate_joystick;
+static uint32_t stable_samples;
 static game_state_t game_state;
 
 static void clear_words(int values[4])
@@ -77,6 +79,11 @@ void RIT_IRQHandler(void)
   uint32_t pressed;
   exam_rit_ack();
   current=exam_joystick_read();
+  if (current != candidate_joystick) {
+    candidate_joystick = current; stable_samples = 1u; return;
+  }
+  if (stable_samples < 3u) ++stable_samples;
+  if (stable_samples < 3u) return;
   pressed=exam_joystick_pressed_edges(previous_joystick,current);
   previous_joystick=current;
   if(pressed!=0u){joystick_press_edges|=pressed;exam_events_set(EXAM_EVENT_JOYSTICK);}
@@ -101,6 +108,8 @@ int main(void)
   if(timer_status==EXAM_OK)exam_timer_start(EXAM_TIMER1);
   exam_joystick_init();
   previous_joystick=exam_joystick_read();
+  candidate_joystick=previous_joystick;
+  stable_samples=3u;
   joystick_status=exam_rit_config_ms(10u);
   if(joystick_status==EXAM_OK)exam_rit_start();
 

@@ -1,0 +1,101 @@
+{
+  "method": "Native Arm Compiler O0 C plus native assembly objects; SystemInit substituted at100MHz; normal Keil project builds reported separately",
+  "projects": {
+    "timer-periodic": {
+      "main": "1afad15a3295dcb16e5673fb7df09ba51e33b1b51122f8db44c0a8039322e3ae",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "buttons-rit-timer": {
+      "main": "adbd470c0940aeaf8ee11475519f42c04b80151ac4e86477a269911227cad0ab",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "raw-capture-ff": {
+      "main": "3195b293597d778650a8875336262e7b3489161eaa0d3744a28924cb90af66b9",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "ordered-binary": {
+      "main": "7ba8a86237a92f511f228066b825be2bd37f358115f1c581692f3b98b6d5f2be",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "ordered-parameters": {
+      "main": "4650827d9ff36cb64bc43bfb4e106ffcd861819d3480764cdc25cd7f67bf90f8",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "adc-button-sequence": {
+      "main": "1b8d740fcf338b65dd8a5baf0d1bb663b667861025d2559900d2a2293df370dd",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "joystick-release": {
+      "main": "9f895ef1b480feadd09356e9810ee0bdaabf3d93329fe66c806985d25985a18e",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "dac-stream": {
+      "main": "51cfc12ea50e331e5e47267a21bfbf28b37bcba2e4f52b362483eec38349dc68",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "timer-capture-pin": {
+      "main": "c5d939a7c8209918711dc2a40815666bce8e90e7a6aec2dc1562ba4ee1cf2dd2",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "timer-one-shot": {
+      "main": "12e795feb74905c42bf38310a3d3653381b4f690f4433e9fc79fd07ef1e52295",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "timer-exact-ticks": {
+      "main": "4ec55f54763364ff938309d7cc44dae42229568503e6e42978e464f0873229dc",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "timer-pause-resume": {
+      "main": "794c37f663e1a919e3577fd6073206b3c27679681f5dc0ff53f40f63e0f5df36",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "buttons-systick-timer": {
+      "main": "f96aa9a9babfc5407c1226c2577f29aca86248d1f1d337a9e106d86a63e3352f",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "raw-capture-ffff": {
+      "main": "09944f66d608ebc2f7c4137ba047e1a05ffd6ac42e6bd7cd071d6dfb2f665446",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "adc-percentage": {
+      "main": "2f757de92908ba117027fdb5c05390fef4480cdbf1da117f3c4a4cfeb1480c8b",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "dac-duration": {
+      "main": "cfa5144555980c0e1793384d956b4ff13cc68c5b95abf9dd33f1962b16121506",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "dac-button-once": {
+      "main": "3fbc14e17c4ce1ff8584900d0cfc83cae32f43a201ed0da48a75a166a6489d74",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "timer-multiple-matches": {
+      "main": "4fd65f00ffc249c038466bd8ac18e9ddfaeab07dc4e38f191f676ee91bd940c3",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "svc-frame": {
+      "main": "cf74c9849577c1239491538bf72b167b108cdcfabb4ca990e01eb9f8d16f1075",
+      "assembly": "623560084e1cce3070911ba22df3e5ecf0ae40dfb69647e54d1b2dae30af538e"
+    },
+    "event-handoff": {
+      "main": "d3c61adbf817e8dda91893a3ba8c4443bf3873d4350f7a05b106ced5a8498268",
+      "assembly": "e5e0c8bd7931a4f707715464ba52358c682b38bd0d5d4a5e55c88a840f300a4d"
+    },
+    "game-bulls-cows": {
+      "main": "545fe9f616f2c92adbeaba92e34e5213d03e73f42ea9e35cf7874dedf2e4c0b8",
+      "assembly": "ee464608e764eaea92abac3f4e97a6c7efa54d30d2ee0ea19d70f78e53c93383"
+    },
+    "game-mastermind": {
+      "main": "f39b1eabb4aa09f15c3f480701534d2706e4424bb3dfab43630f263e059104fb",
+      "assembly": "72c83f0c13ba48544312bdc33894d275187c7dcbd816aecfa1ce61d2f9e047f4"
+    },
+    "rhythm-first-movement": {
+      "main": "a414acb0c6e07a2ffc4e62a3a218b249a591ec2f07108b3e1b292986f97ec9dd",
+      "assembly": "0ad448703b70f4c4000eb25a1d62eb8c46157c004a3b1ea18a8e9bdcf56b7f94"
+    },
+    "dac-three-timer-notes": {
+      "main": "4c275f2897c5c62dbb989fe13eed964bc3bc09d6044ec8e52474f2e9564812b8",
+      "assembly": "aa382ce5651af1ff5774412cfda320c8594a13380b4aac860827a24be4c65c9f"
+    }
+  }
+}

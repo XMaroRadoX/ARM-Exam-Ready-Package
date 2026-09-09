@@ -778,6 +778,14 @@
     "untested_exports": []
   },
   {
+    "slug": "array-length-contract",
+    "status": "PASS",
+    "executed_exports": [
+      "bounded_word_length"
+    ],
+    "untested_exports": []
+  },
+  {
     "slug": "second-largest",
     "status": "PASS",
     "executed_exports": [
@@ -1062,6 +1070,646 @@
     "status": "PASS",
     "executed_exports": [
       "recursive_binary_search"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-array-sum",
+    "status": "PASS",
+    "executed_exports": [
+      "checked_array_sum"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-array-product",
+    "status": "PASS",
+    "executed_exports": [
+      "checked_array_product"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "integer-array-mean",
+    "status": "PASS",
+    "executed_exports": [
+      "integer_array_mean"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-minimum-array-value",
+    "status": "PASS",
+    "executed_exports": [
+      "array_minimum"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-maximum-array-value",
+    "status": "PASS",
+    "executed_exports": [
+      "array_maximum"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-target-occurrences",
+    "status": "PASS",
+    "executed_exports": [
+      "count_array_target"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-negative-array-values",
+    "status": "PASS",
+    "executed_exports": [
+      "count_array_negative"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-zero-array-values",
+    "status": "PASS",
+    "executed_exports": [
+      "count_array_zero"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-positive-array-values",
+    "status": "PASS",
+    "executed_exports": [
+      "count_array_positive"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "compare-arrays-for-equality",
+    "status": "PASS",
+    "executed_exports": [
+      "arrays_equal"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "lexicographic-signed-array-comparison",
+    "status": "PASS",
+    "executed_exports": [
+      "arrays_compare_lexicographic"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "copy-array-safely-with-overlap",
+    "status": "PASS",
+    "executed_exports": [
+      "array_copy_overlap"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "fill-array-with-one-value",
+    "status": "PASS",
+    "executed_exports": [
+      "array_fill"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "swap-two-indexed-elements",
+    "status": "PASS",
+    "executed_exports": [
+      "array_swap_indexes"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "concatenate-arrays-within-capacity",
+    "status": "PASS",
+    "executed_exports": [
+      "array_concatenate"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "insert-array-element-at-index",
+    "status": "PASS",
+    "executed_exports": [
+      "array_insert_at"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "delete-array-element-at-index",
+    "status": "PASS",
+    "executed_exports": [
+      "array_delete_at"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "shift-array-left-with-fill",
+    "status": "PASS",
+    "executed_exports": [
+      "array_shift_left"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "shift-array-right-with-fill",
+    "status": "PASS",
+    "executed_exports": [
+      "array_shift_right"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "move-zeros-to-end-stably",
+    "status": "PASS",
+    "executed_exports": [
+      "array_move_zeros_to_end"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "stable-even-before-odd-partition",
+    "status": "PASS",
+    "executed_exports": [
+      "array_stable_even_first"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-array-ascending",
+    "status": "PASS",
+    "executed_exports": [
+      "array_is_ascending"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "classify-array-monotonic-direction",
+    "status": "PASS",
+    "executed_exports": [
+      "array_monotonic_direction"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "produce-adjacent-differences",
+    "status": "PASS",
+    "executed_exports": [
+      "array_adjacent_differences"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-target-sum-pair-in-unsorted-array",
+    "status": "PASS",
+    "executed_exports": [
+      "array_pair_sum_unsorted"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-target-sum-pair-in-sorted-array",
+    "status": "PASS",
+    "executed_exports": [
+      "array_pair_sum_sorted"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-bounded-string-length",
+    "status": "PASS",
+    "executed_exports": [
+      "string_length_bounded"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "compare-bounded-strings-for-equality",
+    "status": "PASS",
+    "executed_exports": [
+      "strings_equal_bounded"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "concatenate-bounded-strings",
+    "status": "PASS",
+    "executed_exports": [
+      "string_concatenate_bounded"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "append-one-string-character",
+    "status": "PASS",
+    "executed_exports": [
+      "string_append_character"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "insert-one-string-character",
+    "status": "PASS",
+    "executed_exports": [
+      "string_insert_character"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "delete-one-string-character",
+    "status": "PASS",
+    "executed_exports": [
+      "string_delete_character"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-first-character-occurrence",
+    "status": "PASS",
+    "executed_exports": [
+      "string_first_occurrence"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-last-character-occurrence",
+    "status": "PASS",
+    "executed_exports": [
+      "string_last_occurrence"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "replace-every-character-occurrence",
+    "status": "PASS",
+    "executed_exports": [
+      "string_replace_character"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "convert-ascii-text-to-lowercase",
+    "status": "PASS",
+    "executed_exports": [
+      "string_to_ascii_lowercase"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "convert-ascii-text-to-uppercase",
+    "status": "PASS",
+    "executed_exports": [
+      "string_to_ascii_uppercase"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "compare-ascii-strings-case-insensitively",
+    "status": "PASS",
+    "executed_exports": [
+      "strings_compare_ascii_casefold"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-string-prefix",
+    "status": "PASS",
+    "executed_exports": [
+      "string_starts_with"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-string-suffix",
+    "status": "PASS",
+    "executed_exports": [
+      "string_ends_with"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-ascii-words",
+    "status": "PASS",
+    "executed_exports": [
+      "string_count_ascii_words"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-signed-add",
+    "status": "PASS",
+    "executed_exports": [
+      "checked_add_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-signed-subtract",
+    "status": "PASS",
+    "executed_exports": [
+      "checked_subtract_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "checked-signed-multiply",
+    "status": "PASS",
+    "executed_exports": [
+      "checked_multiply_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "average-two-signed-integers-without-overflow",
+    "status": "PASS",
+    "executed_exports": [
+      "average_two_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "normalize-signed-modulo",
+    "status": "PASS",
+    "executed_exports": [
+      "normalized_modulo_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "classify-integer-even-or-odd",
+    "status": "PASS",
+    "executed_exports": [
+      "integer_is_odd"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-integer-power-of-two",
+    "status": "PASS",
+    "executed_exports": [
+      "is_power_of_two_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-next-power-of-two-with-overflow",
+    "status": "PASS",
+    "executed_exports": [
+      "next_power_of_two_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "build-decimal-digit-frequency-table",
+    "status": "PASS",
+    "executed_exports": [
+      "decimal_digit_frequency_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "scale-integer-between-ranges",
+    "status": "PASS",
+    "executed_exports": [
+      "scale_i32_between_ranges"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-one-bit",
+    "status": "PASS",
+    "executed_exports": [
+      "test_bit_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "set-one-bit",
+    "status": "PASS",
+    "executed_exports": [
+      "set_bit_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "clear-one-bit",
+    "status": "PASS",
+    "executed_exports": [
+      "clear_bit_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "toggle-one-bit",
+    "status": "PASS",
+    "executed_exports": [
+      "toggle_bit_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "rotate-word-left",
+    "status": "PASS",
+    "executed_exports": [
+      "rotate_left_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "rotate-word-right",
+    "status": "PASS",
+    "executed_exports": [
+      "rotate_right_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "reverse-byte-order-u32",
+    "status": "PASS",
+    "executed_exports": [
+      "reverse_byte_order_u32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "swap-byte-nibbles",
+    "status": "PASS",
+    "executed_exports": [
+      "swap_byte_nibbles"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "pack-four-bytes-into-word",
+    "status": "PASS",
+    "executed_exports": [
+      "pack_four_bytes_be"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "unpack-word-into-four-bytes",
+    "status": "PASS",
+    "executed_exports": [
+      "unpack_four_bytes_be"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "sum-all-matrix-elements",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_total_sum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "calculate-square-matrix-trace",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_trace_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-minimum-matrix-value",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_minimum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-maximum-matrix-value",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_maximum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-first-matching-matrix-coordinate",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_find_first_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "count-matching-matrix-elements",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_count_matches_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-minimum-selected-row",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_row_minimum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-maximum-selected-row",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_row_maximum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-minimum-selected-column",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_column_minimum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "find-maximum-selected-column",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_column_maximum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "add-two-matrices-with-overflow",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_add_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "subtract-two-matrices-with-overflow",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_subtract_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "multiply-matrix-by-scalar-with-overflow",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_scalar_multiply_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-identity-matrix",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_is_identity_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-upper-triangular-matrix",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_is_upper_triangular_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "test-lower-triangular-matrix",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_is_lower_triangular_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "calculate-matrix-border-sum",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_border_sum_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "swap-two-matrix-rows",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_swap_rows_i32"
+    ],
+    "untested_exports": []
+  },
+  {
+    "slug": "swap-two-matrix-columns",
+    "status": "PASS",
+    "executed_exports": [
+      "matrix_swap_columns_i32"
     ],
     "untested_exports": []
   }

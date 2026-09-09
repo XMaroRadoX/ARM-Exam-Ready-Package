@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Repeated table samples form a timed waveform">
+  <title>DAC table streaming · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Solution Patterns" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="../exams/index.html"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Solution Patterns</a><span aria-hidden="true">/</span><span aria-current="page">DAC table streaming</span></nav><header class="page-heading"><p class="eyebrow">Solution Patterns</p><h1>DAC table streaming</h1><p>Repeated table samples form a timed waveform</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-how-to-recognize-it">How to recognize it</a><a href="#section-when-not-to-use-it">When not to use it</a><a href="#section-inputs-and-outputs">Inputs and outputs</a><a href="#section-solving-method">Solving method</a><a href="#section-worked-trace">Worked trace</a><a href="#section-c-approach">C approach</a><a href="#section-assembly-considerations">Assembly considerations</a><a href="#section-adaptation-checklist">Adaptation checklist</a><a href="#section-boundary-tests">Boundary tests</a><a href="#section-common-mistakes">Common mistakes</a><a href="#section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</a><a href="#section-timer-call-effects">Timer call effects</a><a href="#section-exams-where-it-appeared">Exams where it appeared</a></nav><div class="page-body"><section class="section-block"><h2 id="section-how-to-recognize-it">How to recognize it</h2><p>Repeated table samples form a timed waveform.</p><h2 id="section-when-not-to-use-it">When not to use it</h2><p>Coalescing flags can lose required sample ticks.</p><h2 id="section-inputs-and-outputs">Inputs and outputs</h2><p>Distinguish sample rate from waveform frequency.</p><h2 id="section-solving-method">Solving method</h2><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>TEXT</span><button type="button" class="copy-code js-only" aria-label="Copy TEXT listing 1">Copy code</button></div><pre tabindex="0"><code class="language-text">1. Initialize DAC
+2. choose sample frequency
+3. write one sample per tick
+4. wrap index
+5. silence on stop</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div><h2 id="section-worked-trace">Worked trace</h2><p>4 samples at4kHz -&gt; waveform1kHz.</p><h2 id="section-c-approach">C approach</h2><p>Make the contract explicit in types and parameters. Distinguish sample rate from waveform frequency.</p><h2 id="section-assembly-considerations">Assembly considerations</h2><p>Map this contract to registers, memory widths, and the frame before translating the steps. Coalescing flags can lose required sample ticks.</p><h2 id="section-adaptation-checklist">Adaptation checklist</h2><p>Distinguish sample rate from waveform frequency.</p><h2 id="section-boundary-tests">Boundary tests</h2><p>last index; restart; bounds0..1023; stop level.</p><h2 id="section-common-mistakes">Common mistakes</h2><p>Coalescing flags can lose required sample ticks. Use the trace above to locate the first differing step.</p></section><section class="section-block" data-runnable-pattern><h2 id="section-complete-runnable-baseline-and-variants">Complete runnable baseline and variants</h2><nav class="contents" aria-label="Runnable variants"><a href="#variant-0">dac stream</a><a href="#variant-1">dac button once</a><a href="#variant-2">dac duration</a><a href="#variant-3">dac three timer notes</a></nav><h3 id="variant-0">Baseline: dac stream</h3><p>Explicit table playback with eight samples per waveform cycle.</p><p>Each Timer0 match writes the next table value; after8 matches index wraps and completed=1. Sample frequency=PCLK/1263; waveform frequency=sample frequency/8.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0: exact1263 ticks; TIMER0_IRQHandler writes one sample</td></tr></tbody></table><p>Entry: main. Relevant functions: require, TIMER0_IRQHandler, begin_wave, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-2"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 2">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+static const uint16_t waveform[8]={512u,768u,1023u,768u,512u,256u,0u,256u};
+volatile uint32_t sample_index, completed;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags,0u)) {
+    (void)exam_dac_write(waveform[sample_index]);
+    if (++sample_index == 8u) { sample_index=0u; ++completed; }
+  }
+}
+void begin_wave(void) {
+  sample_index=0u;completed=0u;
+  exam_timer_reset(EXAM_TIMER0);(void)exam_timer_ack(EXAM_TIMER0);exam_timer_start(EXAM_TIMER0);
+}
+int main(void) {
+  exam_init();exam_dac_init();
+  require(exam_timer_config_ticks(EXAM_TIMER0,1263u,EXAM_TIMER_PERIODIC));
+  begin_wave();
+  for (;;) {}
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-3"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 3">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-4"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 4">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-5"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 5">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-6"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 6">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-7"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 7">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-stream/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-8"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 8">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-1">Variant: dac button once</h3><p>A raw press starts one complete table traversal; busy presses are ignored.</p><p>INT0 then8 sample matches gives completed=1 and stopped Timer0. A later INT0 restarts at index0.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>EINT0: trigger</td></tr><tr><td>Timer0:1263 ticks/sample, stops after8 samples</td></tr></tbody></table><p>Entry: main. Relevant functions: require, TIMER0_IRQHandler, begin_wave, EINT0_IRQHandler, main, EINT1_IRQHandler, EINT2_IRQHandler. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-9"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 9">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+static const uint16_t waveform[8]={512u,768u,1023u,768u,512u,256u,0u,256u};
+volatile uint32_t sample_index, completed;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags,0u)) {
+    (void)exam_dac_write(waveform[sample_index]);
+    if (++sample_index == 8u) { sample_index=0u; ++completed; exam_timer_stop(EXAM_TIMER0); }
+  }
+}
+void begin_wave(void) {
+  sample_index=0u;completed=0u;
+  exam_timer_reset(EXAM_TIMER0);(void)exam_timer_ack(EXAM_TIMER0);exam_timer_start(EXAM_TIMER0);
+}
+void EINT0_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_INT0);if (!exam_timer_is_running(EXAM_TIMER0)) begin_wave(); }
+int main(void) {
+  exam_init();exam_dac_init();exam_buttons_init();
+  require(exam_timer_config_ticks(EXAM_TIMER0,1263u,EXAM_TIMER_PERIODIC));
+  /* Wait for an INT0 trigger; busy triggers are ignored. */
+  for (;;) {}
+}
+
+void EINT1_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_KEY1); }
+
+void EINT2_IRQHandler(void) { exam_button_ack(EXAM_BUTTON_KEY2); }
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-10"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 10">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-11"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 11">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-12"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 12">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-13"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 13">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-14"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 14">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-button-once/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-15"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 15">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-2">Variant: dac duration</h3><p>Waveform timer plus independent duration timer.</p><p>Timer0 streams; after100ms Timer1 stops Timer0 and writes midpoint512. No queued playback resumes afterward.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0:1263 ticks/sample</td></tr><tr><td>Timer1:100ms one-shot stops Timer0</td></tr></tbody></table><p>Entry: main. Relevant functions: require, TIMER0_IRQHandler, begin_wave, TIMER1_IRQHandler, main. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-16"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 16">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+static void require(exam_status_t status) {
+  if (status != EXAM_OK) { exam_led_write(0xFFu); for (;;) {} }
+}
+static const uint16_t waveform[8]={512u,768u,1023u,768u,512u,256u,0u,256u};
+volatile uint32_t sample_index, completed;
+void TIMER0_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER0);
+  if (exam_timer_match_happened(flags,0u)) {
+    (void)exam_dac_write(waveform[sample_index]);
+    if (++sample_index == 8u) { sample_index=0u; ++completed; }
+  }
+}
+void begin_wave(void) {
+  sample_index=0u;completed=0u;
+  exam_timer_reset(EXAM_TIMER0);(void)exam_timer_ack(EXAM_TIMER0);exam_timer_start(EXAM_TIMER0);
+}
+void TIMER1_IRQHandler(void) {
+  uint32_t flags=exam_timer_ack(EXAM_TIMER1);
+  if (exam_timer_match_happened(flags,0u)) { exam_timer_stop(EXAM_TIMER0);(void)exam_dac_write(512); }
+}
+int main(void) {
+  exam_init();exam_dac_init();
+  require(exam_timer_config_ticks(EXAM_TIMER0,1263u,EXAM_TIMER_PERIODIC));
+  require(exam_timer_config_ms(EXAM_TIMER1,100u,EXAM_TIMER_ONE_SHOT));
+  begin_wave();exam_timer_start(EXAM_TIMER1);
+  for (;;) {}
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-17"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 17">Copy code</button></div><pre tabindex="0"><code class="language-assembly">        END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-18"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 18">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-19"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 19">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-20"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 20">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-21"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 21">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-duration/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-22"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 22">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h3 id="variant-3">Variant: dac three timer notes</h3><p>Three-timer note sequencing with exact paper thresholds.</p><p>Timer A skips its tick while B or C runs; B writes one DAC sample; C stops B. Source constants and argument order are retained.</p><a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/sample.uvprojx">Open complete Keil project</a> · <a href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/README.md">Exact replacement instructions</a><table><thead><tr><th>Resource and owner</th></tr></thead><tbody><tr><td>Timer0 A:50ms; TIMER0_IRQHandler starts a note only when B and C stopped</td></tr><tr><td>Timer1 B:periodic waveform threshold from5351..1062; TIMER1_IRQHandler advances45-sample table</td></tr><tr><td>Timer2 C:one-shot duration threshold from(40000000..625000)/5; TIMER2_IRQHandler stops B</td></tr></tbody></table><p>Entry: main. Relevant functions: note_threshold, TIMER0_IRQHandler, TIMER1_IRQHandler, TIMER2_IRQHandler, main, HofstadterQ. All final files follow; keep a single definition of each IRQ.</p><details class="code-panel" open><summary>Source/sample.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/sample.c">Open raw C file</a></div><div class="code-frame" id="listing-23"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 23">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Exam of 18 February 2026, ARM1, questions 1 and 2. */
+#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+#define SEQUENCE_LENGTH 1000u
+#define SAMPLE_COUNT      45u
+
+extern uint32_t HofstadterQ(uint32_t *values, int dimension);
+
+static uint32_t sequence[SEQUENCE_LENGTH];
+static uint32_t sequence_maximum;
+static uint32_t sequence_index;
+static uint32_t sample_index = SAMPLE_COUNT - 1u;
+
+static const uint16_t SinTable[SAMPLE_COUNT] = {
+  410, 467, 523, 576, 627, 673, 714, 749, 778,
+  799, 813, 819, 817, 807, 789, 764, 732, 694,
+  650, 602, 550, 495, 438, 381, 324, 270, 217,
+  169, 125, 87, 55, 30, 12, 2, 0, 6, 20, 41,
+  70, 105, 146, 193, 243, 297, 353
+};
+
+/* Evaluate the paper&#x27;s formula in floating point, then cast the result. */
+static uint32_t note_threshold(uint32_t value,
+                               uint32_t maximum_period,
+                               uint32_t minimum_period,
+                               uint32_t k)
+{
+  float range_per_step;
+  float threshold;
+
+  range_per_step = (float)(maximum_period - minimum_period) /
+                   (float)sequence_maximum;
+  threshold = ((float)maximum_period - range_per_step * (float)value) /
+              (float)k;
+
+  if (threshold &lt; 1.0f) {
+    threshold = 1.0f;
+  }
+
+  return (uint32_t)threshold;
+}
+
+/* Timer A: choose and start the next note when B and C are both stopped. */
+void TIMER0_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+  uint32_t value;
+  uint32_t waveform_threshold;
+  uint32_t duration_threshold;
+
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  if (exam_timer_is_running(EXAM_TIMER1) ||
+      exam_timer_is_running(EXAM_TIMER2)) {
+    return;
+  }
+
+  value = sequence[sequence_index];
+  waveform_threshold = note_threshold(value, 5351u, 1062u, 1u);
+  duration_threshold = note_threshold(value, 40000000u, 625000u, 5u);
+
+  sequence_index++;
+  if (sequence_index == SEQUENCE_LENGTH) {
+    (void)exam_timer_stop(EXAM_TIMER0);
+  }
+
+  /* Timer B resets on every match and therefore remains periodic. */
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_config_ticks(EXAM_TIMER1, waveform_threshold,
+                                EXAM_TIMER_PERIODIC);
+
+  /* Timer C is a one-shot: interrupt, reset and stop at the match. */
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_timer_config_ticks(EXAM_TIMER2, duration_threshold,
+                                EXAM_TIMER_ONE_SHOT);
+
+  (void)exam_timer_start(EXAM_TIMER1);
+  (void)exam_timer_start(EXAM_TIMER2);
+}
+
+/* Timer B: send the next sinusoidal sample to the DAC. */
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  sample_index++;
+  if (sample_index == SAMPLE_COUNT) {
+    sample_index = 0u;
+  }
+
+  (void)exam_dac_write(SinTable[sample_index]);
+}
+
+/* Timer C: terminate the note by stopping Timer B. */
+void TIMER2_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER2);
+  if ((pending &amp; 1u) == 0u) {
+    return;
+  }
+
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_dac_write(0);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_dac_init();
+  sequence_maximum = HofstadterQ(sequence, (int)SEQUENCE_LENGTH);
+  (void)exam_dac_write(0);
+
+  /* The Combined API derives 50 ms from Timer0&#x27;s actual peripheral clock. */
+  (void)exam_timer_config_ms(EXAM_TIMER0, 50u, EXAM_TIMER_PERIODIC);
+  (void)exam_timer_start(EXAM_TIMER0);
+
+  for (;;) {
+    /* This paper places the required work in the three timer handlers. */
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/ASM_funct.s</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/ASM_funct.s">Open raw Assembly file</a></div><div class="code-frame" id="listing-24"><div class="code-toolbar"><span>ASSEMBLY</span><button type="button" class="copy-code js-only" aria-label="Copy ASSEMBLY listing 24">Copy code</button></div><pre tabindex="0"><code class="language-assembly">                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  HofstadterQ
+
+; uint32_t HofstadterQ(uint32_t *v, int dim)
+; R0 = v, R1 = dim, return maximum in R0.
+HofstadterQ     PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+
+                CMP     R5, #0
+                BLE     q_empty
+
+                MOVS    R7, #1
+                STR     R7, [R4]
+                CMP     R5, #1
+                BEQ     q_done
+
+                STR     R7, [R4, #4]
+                MOVS    R6, #2
+
+q_loop
+                CMP     R6, R5
+                BHS     q_done
+
+                SUBS    R10, R6, #1
+                LDR     R8, [R4, R10, LSL #2]
+                SUBS    R10, R6, #2
+                LDR     R9, [R4, R10, LSL #2]
+
+                SUBS    R10, R6, R8
+                LDR     R10, [R4, R10, LSL #2]
+                SUBS    R8, R6, R9
+                LDR     R8, [R4, R8, LSL #2]
+                ADDS    R10, R10, R8
+
+                STR     R10, [R4, R6, LSL #2]
+                CMP     R10, R7
+                BLS     q_keep_maximum
+                MOV     R7, R10
+q_keep_maximum
+                ADDS    R6, R6, #1
+                B       q_loop
+
+q_done
+                MOV     R0, R7
+                POP     {R4-R10, PC}
+
+q_empty
+                MOVS    R0, #0
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/button_EXINT/IRQ_button.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/button_EXINT/IRQ_button.c">Open raw C file</a></div><div class="code-frame" id="listing-25"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 25">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/timer/IRQ_timer.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/timer/IRQ_timer.c">Open raw C file</a></div><div class="code-frame" id="listing-26"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 26">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/RIT/IRQ_RIT.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/RIT/IRQ_RIT.c">Open raw C file</a></div><div class="code-frame" id="listing-27"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 27">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/systick/IRQ_systick.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/systick/IRQ_systick.c">Open raw C file</a></div><div class="code-frame" id="listing-28"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 28">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><details class="code-panel" open><summary>Source/adc/IRQ_adc.c</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/pattern-projects/dac-three-timer-notes/Source/adc/IRQ_adc.c">Open raw C file</a></div><div class="code-frame" id="listing-29"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 29">Copy code</button></div><pre tabindex="0"><code class="language-c">/* Handlers owned by Source/sample.c or Source/ASM_funct.s. */
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details><h2 id="section-timer-call-effects">Timer call effects</h2><table><thead><tr><th>Call</th><th>Counter</th><th>Configuration and interrupts</th></tr></thead><tbody><tr><td>General timer config_ticks/ms/hz</td><td>TC=PC=0; PR=0; stopped</td><td>Owns MR0, preserves MR1..3 and capture/output setup; clears IR and NVIC pending. Interrupt modes enable NVIC and assign priority equal to timer number.</td></tr><tr><td>General timer start</td><td>Count from current TC/PC</td><td>Retains configuration and pending flags; does not reset.</td></tr><tr><td>General timer stop</td><td>Pause TC/PC</td><td>Retains configuration and pending flags; does not disable NVIC.</td></tr><tr><td>General timer reset</td><td>TC=PC=0; stopped</td><td>Retains configuration; does not acknowledge IR or disable NVIC.</td></tr><tr><td>General timer ack</td><td>No counter change</td><td>Read IR once, clear those hardware flags, return saved bits 0..5. Does not explicitly clear NVIC pending.</td></tr><tr><td>RIT config</td><td>Counter=0; stopped</td><td>Select core clock, clear mask and hardware/controller pending, enable interrupt.</td></tr><tr><td>RIT reset</td><td>Counter=0; retains running state</td><td>Does not acknowledge the interrupt or change the interval.</td></tr><tr><td>SysTick config</td><td>Clear current count; starts immediately</td><td>Set reload and enable core-clock counting and its interrupt.</td></tr></tbody></table></section><section class="section-block"><h2 id="section-exams-where-it-appeared">Exams where it appeared</h2><ul><li><a href="../exams/e2025-02-12-a1.html">E2025-02-12-A1</a></li><li><a href="../exams/e2025-02-12-a2.html">E2025-02-12-A2</a></li><li><a href="../exams/e2026-02-18-a1.html">E2026-02-18-A1</a></li><li><a href="../exams/e2026-02-18-a2.html">E2026-02-18-A2</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

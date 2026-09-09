@@ -1,0 +1,489 @@
+{
+  "2023-02-07-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Signed byte copy/sort: paper vector, empty, one, duplicates, -128/127; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/assembly.s",
+    "sourceSha256": "b39b06a0cdb844f3992ff50ce325a4975e86d5374737edbb7e55fea7925fd2f1"
+  },
+  "2023-02-24-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Kaprekar single transform: paper3075->7173, zero digits, equal digits,291 sampled four-digit inputs",
+      "SVC50 handler body: constructed MSP frame, five calls, liveR6=5, savedR7 restored; other service ignored (not hardware exception entry)"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s",
+    "sourceSha256": "96f8e371affea10fc472a3ac9fae1d942770b861ab8cc10a417eb15a63345862"
+  },
+  "2023-02-24-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Kaprekar single transform: paper3075->7173, zero digits, equal digits,291 sampled four-digit inputs",
+      "SVC50 handler body: constructed MSP frame, five calls, liveR6=5, savedR7 restored; other service ignored (not hardware exception entry)"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s",
+    "sourceSha256": "96f8e371affea10fc472a3ac9fae1d942770b861ab8cc10a417eb15a63345862"
+  },
+  "2023-05-17-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Signed64/32: signs, low-word carry, zero, INT32 boundary,300 deterministic cases; NZCV follows explicit paper rule and Q is preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-05-17_Signed_64_Division/Answer Source/assembly.s",
+    "sourceSha256": "9bd7753617abf01e1e895d5a683a7fac6841719fb829520408df5036c6533bde"
+  },
+  "2023-05-17-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Signed64/32: signs, low-word carry, zero, INT32 boundary,300 deterministic cases; NZCV follows explicit paper rule and Q is preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-05-17_Signed_64_Division/Answer Source/assembly.s",
+    "sourceSha256": "9bd7753617abf01e1e895d5a683a7fac6841719fb829520408df5036c6533bde"
+  },
+  "2023-07-04-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Sociable:1 termination, prime2, perfect28/8128, amicable220, five-cycle12496, terminating100"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s",
+    "sourceSha256": "ea21b768459e8b47873d8327aa187e5cf305c63267f120b1f520935cc4041aa8"
+  },
+  "2023-09-18-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Digit addition:47/5 returns62, one/empty,50 terms, zero, overflow does not store invalid term; guards intact",
+      "Standalone Reset_Handler executed to its inspection loop: expected result/data and balanced stack; game scratch starts dirty and is cleared before scoring (not hardware reset-vector entry)."
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/Q1/assembly.s",
+    "sourceSha256": "7ecab259498b33e2ca08f856704d2ee0f3a56c69fa1d7e91d1482b5c05cd6d2b"
+  },
+  "2024-02-12-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Directional maze: one wave, no exit, multiple exits; independent simultaneous-wave model"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/assembly.s",
+    "sourceSha256": "d5b487478b7096cbab902850efef8ffcaf6a867f833602a466a42fd766fda5a6"
+  },
+  "2024-02-28-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Shortest path: original9x8 returns8 and nine specified LED moves; disconnected entrance returnsUINT32_MAX"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s",
+    "sourceSha256": "fdb7126f41c8db32302e5a31243cac0b608fdaa0627521614227f2ff609ce6c1"
+  },
+  "2024-07-09-Q1": {
+    "status": "PASS",
+    "cases": [
+      "DFS: paper6x5 final matrix; all16 visited-flag combinations; five SysTick values per random choice and exact stack-push order"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/assembly.s",
+    "sourceSha256": "055fb26cc9d0cfba105fb24b38897df21fdf3cf1f63d573b4d691d0d0e9d4e01"
+  },
+  "2024-07-09-Q2": {
+    "status": "PASS",
+    "cases": [
+      "DFS: paper6x5 final matrix; all16 visited-flag combinations; five SysTick values per random choice and exact stack-push order"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/Q2/assembly.s",
+    "sourceSha256": "b5eabf90cd2116cc83c1d410c945c6564948a9448bbf1e0531d0430c66cc1455"
+  },
+  "2024-09-16-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Kruskal: all nine3x4 button pairs: five complete and four explicit partial-maze exits when x>=N,y>=N; arrays match the paper model up to its nonconverging state"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s",
+    "sourceSha256": "db7d25570906c4881ac551614e8508a2855c346b08dff0c26b00d04da8fa95e7"
+  },
+  "2025-01-29_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Affine: all256 input bytes across five matrices including both paper matrices; original exampleC9; input unchanged"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/assembly.s",
+    "sourceSha256": "5bbd9f5e58f3c536bd24565bd2da45ca83eeee76008714ecd00dc8f4c6ab1c56"
+  },
+  "2025-01-29_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "GF2 product: original example, identity/zero and64 deterministic matrix pairs; input and output guards preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/assembly.s",
+    "sourceSha256": "e0fd7256bc719af509033b4067d948dd8f1cee7194b3b5f78ee6d668d76df325"
+  },
+  "2025-01-29_ARM3-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Transpose: exact paper export, zero/all-one/identity and64 random matrices; guards and source preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s",
+    "sourceSha256": "e7c4094804d1d3ad42a156859654c65c1de9bf6915ca5d6e1149e3657492fc03"
+  },
+  "2025-02-12_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Maclaurin: signed truncated recurrence, paper example, y=-31..31 at orders0..4"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/assembly.s",
+    "sourceSha256": "2c904cf324e70239bd00cc185dd7987a68e026c5d19ea57ddcf760c23b031331"
+  },
+  "2025-02-12_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Maclaurin: signed truncated recurrence, paper example, y=-31..31 at orders0..4"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/assembly.s",
+    "sourceSha256": "2c26461c6b9f7c6d850f8a3b762cec8cff85214d170ce8c6584ee6013efb70e8"
+  },
+  "2025-07-01_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument",
+      "Standalone Reset_Handler executed to its inspection loop: expected result/data and balanced stack; game scratch starts dirty and is cleared before scoring (not hardware reset-vector entry)."
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q1/assembly.s",
+    "sourceSha256": "a3235309d71f6d631e5ef7220bbfb7f8f3a790e0e73377fc1558b4b326d214a5"
+  },
+  "2025-07-01_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/assembly.s",
+    "sourceSha256": "a94b70a3b8b85f1ee2988289af1e2beceef9b1f9cfbaac7d18ff4471c7740285"
+  },
+  "2025-07-01_ARM1-Q3": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/assembly.s",
+    "sourceSha256": "a94b70a3b8b85f1ee2988289af1e2beceef9b1f9cfbaac7d18ff4471c7740285"
+  },
+  "2025-07-01_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument",
+      "Standalone Reset_Handler executed to its inspection loop: expected result/data and balanced stack; game scratch starts dirty and is cleared before scoring (not hardware reset-vector entry)."
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q1/assembly.s",
+    "sourceSha256": "660b45072711bbe3c0b28647d3fd1a9e57eb663e38401dcb07aae2cd2f5db9a2"
+  },
+  "2025-07-01_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/assembly.s",
+    "sourceSha256": "220cadfb90fdb6de2b945ddfec629ab3c70a2150729f1ab91ad73e61402c72a4"
+  },
+  "2026-02-03_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Decimal runs: paper examples,0, trailing/internal zeros, repeated run and all256 ADC inputs"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM1_LookAndSay_ADC/Answer Source/assembly.s",
+    "sourceSha256": "0a650a40ed05cb075dc838630f0a7d6300b2b38c72c9210d70526b09f55ef9bb"
+  },
+  "2026-02-03_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Decimal runs: paper examples,0, trailing/internal zeros, repeated run and all256 ADC inputs"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/assembly.s",
+    "sourceSha256": "7f833152d7eb8fd8b159cbdc5e08c9832156edb03ab71ab5a4097b35849d6567"
+  },
+  "2026-02-03_ARM3-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Recaman: lengths0,1,2,8,25,255; independent sequence including repeated addition values; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/assembly.s",
+    "sourceSha256": "f0af649d61da3737bb4d39a173e00388e6cbcd1e67547fd482223966a9bde6cb"
+  },
+  "2026-02-18_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Hofstadter: signed dimensions-1,0,1,2,8,1000; independent one-based recurrence and prefix maximum; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/assembly.s",
+    "sourceSha256": "1098895ccc6295114404195d5379db1e64b1836409431beaaa738a45f90a4554"
+  },
+  "2026-02-18_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Hofstadter: signed dimensions-1,0,1,2,8,1000; independent one-based recurrence and prefix maximum; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/assembly.s",
+    "sourceSha256": "b5ea711b86f61645600fcac0b823816f3c799ca3686747e43d77c5348cd4c724"
+  },
+  "2026-06-25_ARM1-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Game scoring: paper example, all256 exact codes,2048 deterministic duplicate-heavy pairs; scratch effects and unchanged inputs checked",
+      "Standalone Reset_Handler executed to its inspection loop: expected result/data and balanced stack; game scratch starts dirty and is cleared before scoring (not hardware reset-vector entry)."
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/Q1/assembly.s",
+    "sourceSha256": "6e454a79e597285ec5c67a3e736943f3f9b9847e71cefc648b03514c7ac865b2"
+  },
+  "2026-06-25_ARM2-Q1": {
+    "status": "PASS",
+    "cases": [
+      "Game scoring: paper example, all256 exact codes,2048 deterministic duplicate-heavy pairs; scratch effects and unchanged inputs checked",
+      "Standalone Reset_Handler executed to its inspection loop: expected result/data and balanced stack; game scratch starts dirty and is cleared before scoring (not hardware reset-vector entry)."
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/Q1/assembly.s",
+    "sourceSha256": "5064be5ab6df4ccdc36732de08f241634a6c79777c233a5abbebb57bf320f26d"
+  },
+  "2023-09-18-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Digit addition:47/5 returns62, one/empty,50 terms, zero, overflow does not store invalid term; guards intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/assembly.s",
+    "sourceSha256": "4225de2ae484c149c433001bffc8c1f1ef606df25cb3df7be7af2f0990252b00"
+  },
+  "2025-07-01_ARM2-Q3": {
+    "status": "PASS",
+    "cases": [
+      "LCG: all ten paper sequence values and fifth stack argument"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/assembly.s",
+    "sourceSha256": "220cadfb90fdb6de2b945ddfec629ab3c70a2150729f1ab91ad73e61402c72a4"
+  },
+  "2026-06-25_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Game scoring: paper example, all256 exact codes,2048 deterministic duplicate-heavy pairs; scratch effects and unchanged inputs checked"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/assembly.s",
+    "sourceSha256": "1c72a07a33336c3764e987162263c01dfc97d6e62d34b11caaa9fa2f7232ded3"
+  },
+  "2026-06-25_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Game scoring: paper example, all256 exact codes,2048 deterministic duplicate-heavy pairs; scratch effects and unchanged inputs checked"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/assembly.s",
+    "sourceSha256": "a11d5b501cbc92bb224a930d8a852a13eb062b280608ba15b6c85004e6130020"
+  },
+  "2023-02-07-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Signed byte copy/sort: paper vector, empty, one, duplicates, -128/127; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/assembly.s",
+    "sourceSha256": "b39b06a0cdb844f3992ff50ce325a4975e86d5374737edbb7e55fea7925fd2f1"
+  },
+  "2023-07-04-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Sociable:1 termination, prime2, perfect28/8128, amicable220, five-cycle12496, terminating100"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s",
+    "sourceSha256": "ea21b768459e8b47873d8327aa187e5cf305c63267f120b1f520935cc4041aa8"
+  },
+  "2024-02-12-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Directional maze: one wave, no exit, multiple exits; independent simultaneous-wave model"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/assembly.s",
+    "sourceSha256": "d5b487478b7096cbab902850efef8ffcaf6a867f833602a466a42fd766fda5a6"
+  },
+  "2024-02-28-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Shortest path: original9x8 returns8 and nine specified LED moves; disconnected entrance returnsUINT32_MAX"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s",
+    "sourceSha256": "fdb7126f41c8db32302e5a31243cac0b608fdaa0627521614227f2ff609ce6c1"
+  },
+  "2024-09-16-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Kruskal: all nine3x4 button pairs: five complete and four explicit partial-maze exits when x>=N,y>=N; arrays match the paper model up to its nonconverging state"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s",
+    "sourceSha256": "db7d25570906c4881ac551614e8508a2855c346b08dff0c26b00d04da8fa95e7"
+  },
+  "2025-01-29_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Affine: all256 input bytes across five matrices including both paper matrices; original exampleC9; input unchanged"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/assembly.s",
+    "sourceSha256": "5bbd9f5e58f3c536bd24565bd2da45ca83eeee76008714ecd00dc8f4c6ab1c56"
+  },
+  "2025-01-29_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "GF2 product: original example, identity/zero and64 deterministic matrix pairs; input and output guards preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/assembly.s",
+    "sourceSha256": "e0fd7256bc719af509033b4067d948dd8f1cee7194b3b5f78ee6d668d76df325"
+  },
+  "2025-01-29_ARM3-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Transpose: exact paper export, zero/all-one/identity and64 random matrices; guards and source preserved"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s",
+    "sourceSha256": "e7c4094804d1d3ad42a156859654c65c1de9bf6915ca5d6e1149e3657492fc03"
+  },
+  "2025-02-12_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Maclaurin: signed truncated recurrence, paper example, y=-31..31 at orders0..4"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/assembly.s",
+    "sourceSha256": "2c904cf324e70239bd00cc185dd7987a68e026c5d19ea57ddcf760c23b031331"
+  },
+  "2025-02-12_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Maclaurin: signed truncated recurrence, paper example, y=-31..31 at orders0..4"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/assembly.s",
+    "sourceSha256": "2c26461c6b9f7c6d850f8a3b762cec8cff85214d170ce8c6584ee6013efb70e8"
+  },
+  "2026-02-03_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Decimal runs: paper examples,0, trailing/internal zeros, repeated run and all256 ADC inputs"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM1_LookAndSay_ADC/Answer Source/assembly.s",
+    "sourceSha256": "0a650a40ed05cb075dc838630f0a7d6300b2b38c72c9210d70526b09f55ef9bb"
+  },
+  "2026-02-03_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Decimal runs: paper examples,0, trailing/internal zeros, repeated run and all256 ADC inputs"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/assembly.s",
+    "sourceSha256": "7f833152d7eb8fd8b159cbdc5e08c9832156edb03ab71ab5a4097b35849d6567"
+  },
+  "2026-02-03_ARM3-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Recaman: lengths0,1,2,8,25,255; independent sequence including repeated addition values; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/assembly.s",
+    "sourceSha256": "f0af649d61da3737bb4d39a173e00388e6cbcd1e67547fd482223966a9bde6cb"
+  },
+  "2026-02-18_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Hofstadter: signed dimensions-1,0,1,2,8,1000; independent one-based recurrence and prefix maximum; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/assembly.s",
+    "sourceSha256": "1098895ccc6295114404195d5379db1e64b1836409431beaaa738a45f90a4554"
+  },
+  "2026-02-18_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Hofstadter: signed dimensions-1,0,1,2,8,1000; independent one-based recurrence and prefix maximum; output guard intact"
+    ],
+    "nativeAssembly": "Native ARMASM syntax accepted separately; LLVM directive translation executes the delivered instruction stream",
+    "limits": "Does not simulate hardware exception entry, IRQ timing, peripherals, or the physical board.",
+    "source": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/assembly.s",
+    "sourceSha256": "b5ea711b86f61645600fcac0b823816f3c799ca3686747e43d77c5348cd4c724"
+  }
+}

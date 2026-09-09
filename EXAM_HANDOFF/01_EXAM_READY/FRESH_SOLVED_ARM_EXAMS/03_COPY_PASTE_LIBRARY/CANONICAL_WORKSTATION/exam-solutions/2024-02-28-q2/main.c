@@ -39,7 +39,7 @@ int main(void)
   exam_init();
   step_value=(int32_t)shortestPath(ROWS,COLS,&maze[0][0]);
   showing=0u; exam_led_clear();
-  if(!find_entrance() ||
+  if(step_value < 0 || !find_entrance() ||
      exam_timer_config_ms(EXAM_TIMER0,500u,EXAM_TIMER_PERIODIC)!=EXAM_OK) {
     leds_fill();
   } else {

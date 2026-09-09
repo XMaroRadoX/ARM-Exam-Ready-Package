@@ -1,0 +1,12 @@
+{
+  "title": "Tamer Ashour - Wlad ElHalal | تامر عاشور -  ولاد الحلال",
+  "url": "https://www.youtube.com/watch?v=tcZgr2oM6kg",
+  "start_seconds": 45,
+  "duration_seconds": 6,
+  "sample_rate": 8000,
+  "encoding": "IMA ADPCM mono, 256-byte blocks",
+  "sample_count": 48000,
+  "processing": "Half gain, 20 ms fades; decoded signed 16-bit PCM mapped to 10-bit DAC.",
+  "compressed_bytes": 24576,
+  "decoder_validation": "All 48000 output samples match FFmpeg decoding exactly."
+}

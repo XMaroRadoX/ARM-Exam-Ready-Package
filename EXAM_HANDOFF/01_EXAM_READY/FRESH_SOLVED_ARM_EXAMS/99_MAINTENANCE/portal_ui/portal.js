@@ -2,11 +2,23 @@
 (() => {
   'use strict';
   const {norm, words, languageMatches, componentMatches, score} = window.ARM_PORTAL_LOGIC;
-  let sharedEngine;
-  function getEngine() {
-    if (!window.ARM_PORTAL_DATA || !window.ARM_PORTAL_LOGIC.prepare) return null;
+  let sharedEngine, loading;
+  async function getEngine() {
+    if (!window.ARM_PORTAL_DATA) {
+      if (!loading) loading = new Promise((resolve, reject) => {
+        const source = document.querySelector('[data-search-corpus]');
+        if (!source) { reject(new Error('Search index unavailable')); return; }
+        const script = document.createElement('script');
+        script.src = source.dataset.src;
+        script.onload = resolve;
+        script.onerror = () => { script.remove(); reject(new Error('Search index unavailable')); };
+        document.head.append(script);
+      }).catch(error => { loading = null; throw error; });
+      await loading;
+    }
     return sharedEngine || (sharedEngine = window.ARM_PORTAL_LOGIC.prepare(window.ARM_PORTAL_DATA.items));
   }
+  window.ARM_PORTAL_ENGINE = getEngine;
   function searchUrl() { return new URL(document.querySelector('[data-search-shortcut]').href, location.href); }
   function absoluteRoute(route) { return new URL(route, searchUrl()).href; }
   function wholePackageLink(container) {
@@ -69,13 +81,22 @@
       const controls = [...scope.querySelectorAll('[data-filter]')], cards = [...scope.querySelectorAll('[data-filter-item]')];
       const note = scope.querySelector('[data-results-note]') || scope.appendChild(document.createElement('p'));
       note.setAttribute('role', 'status'); note.setAttribute('aria-live', 'polite');
-      const engine = getEngine(), updateLink = engine ? wholePackageLink(scope) : () => {};
+      const updateLink = wholePackageLink(scope);
+      let revision = 0;
       const active = document.createElement('p'); active.className = 'active-filters';
       const empty = document.createElement('p'); empty.className = 'empty-state'; empty.textContent = 'No matching items. Clear a filter or try fewer words.'; empty.hidden = true;
       const keys = controls.map(c => 'f-' + c.dataset.filter);
       const restore = () => { const params = new URLSearchParams(location.search); controls.forEach(c => { c.value = params.get('f-' + c.dataset.filter) || ''; }); };
-      const apply = () => {
+      const apply = async () => {
+        const current = ++revision;
         const query = controls.filter(c => c.tagName === 'INPUT').map(c => c.value).join(' ').trim();
+        let engine;
+        if (query) {
+          note.textContent = 'Searching…';
+          try { engine = await getEngine(); }
+          catch (_) { if (current === revision) note.textContent = 'Search index could not be loaded. Try again.'; return; }
+          if (current !== revision) return;
+        }
         const filters = {};
         for (const control of controls.filter(c => c.tagName === 'SELECT')) {
           const key = ({language:'languages', component:'components', history:'examHistory', year:'year', variant:'variant'})[control.dataset.filter];
@@ -121,14 +142,10 @@
     if(!root)return;
     const form=root.querySelector('form'),input=root.querySelector('[name=q]'),results=root.querySelector('[data-search-results]');
     const count=root.querySelector('[data-search-count]'),controls=[...root.querySelectorAll('[data-search-filter]')];
-    if(!window.ARM_PORTAL_DATA||!Array.isArray(window.ARM_PORTAL_DATA.items)){
-      count.textContent='The search index could not be loaded. Browse the sections in the navigation.';return;
-    }
-    const engine=getEngine();
     const scope=root.querySelector('[data-search-scope]'),advanced=root.querySelector('[data-search-advanced]');
     const keys=['q','scope',...controls.map(c=>c.dataset.searchFilter)];
     const active=document.createElement('p');active.className='active-filters';count.after(active);
-    let limit=10,timer,allSources=false;
+    let limit=10,timer,allSources=false,revision=0,cachedKey,cachedMatches;
     const more=button('Show more results',()=>{limit+=10;render();});more.classList.add('load-more');results.after(more);
     const showAll=button('Show all',()=>{clearTimeout(timer);limit=Infinity;render();});showAll.classList.add('load-more');more.after(showAll);
     function sourceFilters(){return controls.some(c=>c.value&&((c.dataset.searchFilter==='sourceClass'&&c.value!=='Maintained')||(c.dataset.searchFilter==='kind'&&['Source references','Original material'].includes(c.value))||(c.dataset.searchFilter==='materialType'&&['Attachment (name only)','Historical solution','Original paper','Solution code','Source reference'].includes(c.value))));}
@@ -184,7 +201,8 @@
       }
       return article;
     }
-    function render(){
+    async function render(){
+      const current=++revision;
       const started=performance.now(),filters=Object.fromEntries(controls.map(c=>[c.dataset.searchFilter,c.value]));
       results.replaceChildren();
       active.textContent=controls.filter(c=>c.value).map(c=>c.options[c.selectedIndex].text).join(' · ');
@@ -194,6 +212,13 @@
         count.textContent='';more.hidden=true;showAll.hidden=true;
         const prompt=document.createElement('p');prompt.className='search-prompt';prompt.textContent='Search your study pages and exam questions.';results.append(prompt);return;
       }
+      count.textContent='Searching…';more.hidden=true;showAll.hidden=true;
+      let engine;
+      try { engine=await getEngine(); }
+      catch (_) { if(current===revision)count.textContent='Search index could not be loaded. Try again or browse the sections.';return; }
+      if(current!==revision)return;
+      const cacheKey=JSON.stringify([input.value,filters,allSources]);
+      if(cacheKey!==cachedKey){
       const raw=allSources?engine.search(input.value,filters):engine.study(input.value,filters),byPage=new Map();
       for(const result of raw){
         const item=result.item;
@@ -201,7 +226,9 @@
         if(!byPage.has(route))byPage.set(route,{...result,sections:[]});
         else if(item.route!==byPage.get(route).item.route)byPage.get(route).sections.push(item);
       }
-      const matches=[...byPage.values()];
+      cachedMatches=[...byPage.values()];cachedKey=cacheKey;
+      }
+      const matches=cachedMatches;
       count.textContent=matches.length+(allSources?' source result':' study result')+(matches.length===1?'':'s')+(matches.length>limit?' · showing '+limit:'');
       more.hidden=matches.length<=limit;
       showAll.hidden=more.hidden;
@@ -230,9 +257,18 @@
     document.querySelectorAll('[data-api-nav-search]').forEach(input => {
       const sidebar = input.closest('.api-sidebar'), entries = [...sidebar.querySelectorAll('[data-api-entry]')], groups = [...sidebar.querySelectorAll('[data-api-group]')];
       const count = sidebar.querySelector('[data-api-nav-count]'); count.setAttribute('role', 'status'); count.setAttribute('aria-live', 'polite');
-      const engine = getEngine(), updateLink = engine ? wholePackageLink(sidebar) : () => {};
+      const updateLink = wholePackageLink(sidebar);
+      let revision = 0;
       const restore = () => { input.value = new URLSearchParams(location.search).get('api-q') || ''; };
-      const apply = () => {
+      const apply = async () => {
+        const current = ++revision;
+        let engine;
+        if (input.value.trim()) {
+          count.textContent = 'Searching…';
+          try { engine = await getEngine(); }
+          catch (_) { if (current === revision) count.textContent = 'Search index could not be loaded. Try again.'; return; }
+          if (current !== revision) return;
+        }
         const query = words(input.value), matches = engine && input.value.trim() ? engine.scoped(input.value,{kind:'API'}) : null;
         const urls = matches ? new Set([...matches.keys()].map(absoluteRoute)) : null;
         let shown = 0;

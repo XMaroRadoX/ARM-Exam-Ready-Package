@@ -1,0 +1,268 @@
+{"exam_id": "E2025-02-12-A2", "date": "2025-02-12", "project": "2025-02-12_ARM2_Cosine_DAC", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_02_12/20250212_ARM2.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 12/02/2025 
+ 
+ 
+B2 
+Please read the following notes before proceeding 
+1) It is recommended to save the project on the C drive during development. Once you have 
+completed your work, you must save the project inside the exam folder on the Z drive (the 
+same folder where you found this document). Projects saved elsewhere will not be collected 
+and will be permanently lost. 
+2) The assembly subroutine developed in the first exercise must comply with the ARM 
+Architecture Procedure Call Standard (AAPCS) standard (in terms of parameter passing, 
+returned value, callee-saved registers). 
+3) If you prefer, you can begin with the second exercise. Since it requires calling the assembly 
+subroutine from the first exercise, you can create a stub in the assembly file to proceed. For 
+example: 
+ 
+subroutineName PROC 
+ EXPORT subroutineName 
+ MOV r0, #10  ; example of a return value 
+ BX LR 
+ ENDP 
+ 
+4) To earn points on both exercises, it is recommended that you write at least some code for 
+each. 
+5) The final project must run on the actual board. 
+ 
+ 
+Special characters with Italian keyboards 
+- Square brackets [ ] 
+  Left bracket: ATL GR + [ 
+  Right bracket: ALT GR + ] 
+- Curly brackets { }  
+  Left bracket: LSHIFT + ALT GR + [ 
+  Right bracket: LSHIFT + ALT GR + ] 
+- Hash # : ALT GR + à  
+ 
+ 
+Bitwise operations in C 
+Left shift by N bits  =  A<<N      
+Right shift by N bits  =  A>>N 
+ 
+A XOR B  =  A^B 
+A AND B  =  A&B   (&& is the logical AND) 
+A OR B  =  A|B  (|| is the logical OR) 
+ 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 12/02/2025 
+ 
+ 
+B2 
+Question 1 (10 points) 
+Introduction 
+A Maclaurin series represents a function as an infinite sum of terms, which are computed from the 
+values of the function's derivatives at zero. The Maclaurin series of the cosine is: 
+cos 𝑥 ≅  ∑
+(−1)𝑛 𝑥2𝑛
+(2𝑛)! = 1 −  𝑥2
+2!
+∞
+𝑛=0
++  𝑥4
+4! −  𝑥6
+6! +  ⋯ (1) 
+In equation (1), both x and sin x are real numbers. They can be expressed as integer numbers to the 
+detriment of precision. In particular, the argument of cosine is multiplied by 10 (i.e., with 
+substitution y = 10x) and then cast to an integer; the result is multiplied by 100 and cast to an 
+integer. We obtain 
+100 ∙ cos 𝑦 ≅  ∑ 100 ∙ (−1)𝑛 (𝑦)2𝑛
+(2𝑛)! ∙  102𝑛 = 100 −  𝑦2
+2!  ∙ 102
+∞
+𝑛=0
++  𝑦4
+4!  ∙ 104 −  𝑦6
+6! ∙ 106 + ⋯ (2) 
+ 
+Assignment 
+Write a Maclaurin_cos subroutine that computes the value of the Maclaurin series of the cosine 
+at a point x, up to order n. The subroutine receives in input the integer values y and n; the returned 
+value is 100 times the value of the Maclaurin series of cos y. 
+ 
+Suggestion: according to equation (2), the element of order n = 0 is t0 = 100. Then, any new element 
+ti can be computed based on the previous element ti-1 as follows: 
+𝑡𝑖 = −𝑡𝑖−1 ∙  𝑦2
+(2𝑖 − 1) ∙ (2𝑖) ∙  100 (3) 
+ 
+Example: the input parameters are y = 25 and n = 4. 
+t0 = 100 
+t1 = (-100  252) / (1  2  100) = -62500 / 200 = -312 
+t2 = (312  252) / (3  4  100) = 195000 / 1200 = 162 
+t3 = (-162  252) / (5  6  100) = -101250 / 3000 = -33 
+t4 = (169  252) / (7  8  100) = 20625 / 2000 = 3 
+ 
+The returned value is t0 + t1 + t2 + t3 + t4 = 100 – 312 + 162 – 33 + 3 = -80. 
+ 
+Important: since the operation of division introduces an approximation, you can do it only after 
+computing an element of the series. In other words, you have to compute the numerator and 
+denominator of equation (3) first, then you divide the numerator by the denominator. 
+The suggested method guarantees the absence of overflow during computation (this is not true for 
+other implementations). 
+  
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 12/02/2025 
+ 
+ 
+B2 
+Question 2 (8 points) 
+Extend the previous exercise to play the F note when the user presses the button KEY1. 
+In details: 
+- add proper initializations in main() 
+- in the handler of KEY1, start timer 1 in order to generate an interrupt every k = 1592 clock 
+cycles 
+- in IRQ_timer.c, define the global variable int cosineValues[45]; 
+- in the handler of timer 1, implement the following pseudocode: 
+ 
+static int repeat = 0; 
+static int ticks = 0; 
+int input, output; 
+ 
+if (repeat < 200) 
+{ 
+input = cast_to_int(1.428 * ticks); // see Note 1 below 
+output = 500 + Maclaurin_cos(input, 3) / 2;  
+cosineValues[ticks + 22] = output;  // see Note 2 below 
+write output to proper bits of D/A converter register 
+ticks ++; 
+if (ticks > 22) 
+{ 
+  ticks = -22; 
+  repeat += 1; 
+ } 
+else 
+ write zero to proper bits of D/A converter register 
+ 
+Note 1: for a better accuracy, before casting a float value to an integer value you should add 0.5 to 
+the float value if it is positive. Instead, if the float value is negative, you should subtract 0.5. 
+Note 2: The values stored in the array cosineValues are not used, but they must be present. 
+They will be checked during the evaluation of the exam. 
+ 
+You do not need to handle consecutive presses of KEY1: pressing it a second time has no effect. 
+Therefore, button debouncing is not required for this project. 
+
+--- QUESTION ---
+{"question_id": "2025-02-12_ARM2-Q1", "date": "2025-02-12", "question": "Q1", "requirement_summary": "Approximate cosine with the requested Maclaurin terms and fixed-point scaling.", "keywords": "Maclaurin cosine fixed point factorial powers", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q1/assembly.s", "function_or_handler": "Maclaurin", "argument_mapping": "R0 angle/fixed input; R0 approximation", "architecture": "assembly arithmetic", "constants": "cosine series", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Arithmetic", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  Maclaurin_cos
+
+; int32_t Maclaurin_cos(int32_t y, uint32_t order)
+Maclaurin_cos   PROC
+                PUSH    {R4-R9, LR}
+                SUB     SP, SP, #4      ; Keep the public stack 8-byte aligned.
+                MOV     R4, R0          ; y.
+                MOV     R5, R1          ; Maximum order.
+                MOVS    R6, #100        ; t0 = 100.
+                MOV     R7, R6          ; Sum.
+                MOVS    R8, #1          ; i = 1.
+
+sin_term_loop
+                CMP     R8, R5
+                BHI     sin_done
+
+                MUL     R0, R4, R4      ; y^2.
+                MUL     R0, R6, R0      ; previous term * y^2.
+                RSBS    R0, R0, #0      ; Negate numerator.
+
+                LSLS    R2, R8, #1      ; 2*i.
+                SUBS    R1, R2, #1      ; 2*i-1.
+                MUL     R1, R1, R2
+                MOVS    R2, #100
+                MUL     R1, R1, R2      ; Denominator.
+                SDIV    R6, R0, R1
+                ADDS    R7, R7, R6
+                ADDS    R8, R8, #1
+                B       sin_term_loop
+
+sin_done
+                MOV     R0, R7
+                ADD     SP, SP, #4
+                POP     {R4-R9, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2025-02-12_ARM2-Q2", "date": "2025-02-12", "question": "Q2", "requirement_summary": "Generate a 45-sample cosine waveform through the DAC at the required Timer1 threshold.", "keywords": "DAC speaker cosine table Timer1 45 wrap", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/main.c", "function_or_handler": "main; answer_timer1", "argument_mapping": "Timer1 IRQ writes one DAC sample and wraps index", "architecture": "C DAC + timer IRQ", "constants": "45 samples; k=1592", "peripheral_tags": "Timer1|DAC|Speaker", "interrupt_tags": "Timer IRQ|Acknowledgement", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/main.c ---
+/* Exam of 12 February 2025, ARM2, questions 1 and 2. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+extern int32_t Maclaurin_cos(int32_t y, uint32_t order);
+
+int cosineValues[45];
+static int repeat_count;
+static int ticks;
+static uint32_t started;
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+  if (started) {
+    return;
+  }
+  started = 1u;
+
+  if (exam_timer_config_ticks(EXAM_TIMER1,1592u,
+                              EXAM_TIMER_PERIODIC)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER1);
+}
+
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  float scaled_input;
+  int input;
+  int output;
+
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  if (repeat_count < 200) {
+    scaled_input = 1.428f * (float)ticks;
+    input = (int)(scaled_input + ((scaled_input >= 0.0f) ? 0.5f : -0.5f));
+    output = 500 + Maclaurin_cos(input, 3u) / 2;
+    cosineValues[ticks + 22] = output;
+    (void)exam_dac_write(output);
+
+    ticks++;
+    if (ticks > 22) {
+      ticks = -22;
+      repeat_count++;
+    }
+  } else {
+    (void)exam_dac_write(0);
+    exam_timer_stop(EXAM_TIMER1);
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  exam_dac_init();
+
+  for (;;) {
+    __WFI();
+  }
+}

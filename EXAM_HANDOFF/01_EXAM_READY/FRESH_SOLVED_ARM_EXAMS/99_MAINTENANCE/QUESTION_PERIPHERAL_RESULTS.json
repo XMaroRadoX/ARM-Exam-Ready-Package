@@ -1,0 +1,243 @@
+{
+  "2023-02-07-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Capture signed bytes, LED6/7 alternation, initialized-prefix sort, full buffer ignored"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-07_Sort_FreeRunning_Timer/Answer Source/main.c": "1c65b0019b196c754ab903b8043b49ef4ffafb09fa125b32c616194eb3f88f13"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2023-07-04-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Seven-value wrap, result1/0 LED mapping, unrelated IRQ ignored; computation stubbed"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/main.c": "c2edd9d1fa5eb17d75e0ac108eb2b67aec5f2ae363f39f3904bdab142bdd5fc6"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2023-09-18-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Binary input 100110, identity success including zero seed, generation failure displays LED5 without using unfinished tail"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/main.c": "2f11daf42455385c07698f0e16bd225f9c53c5a4943dfbc0aafce032db630dd1"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2024-02-12-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Original seed300 first row and UINT32_MAX seed modulo regression; solver stubbed",
+      "Timer seed UINT32_MAX produces border row *nn***** using the paper recurrence without intermediate 32-bit overflow."
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/main.c": "27c37a7c0634f471a91070c1148e95227745b6708ea4b84ab794965f77e08c4b"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2024-02-28-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Exact nine-direction LED playback with a blank phase between moves; distance labeling supplied by mock"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c": "c43dead81a0a683cc30f98e9aea01c0beea036829aca0cab908799d1f9b654e0"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2024-07-09-Q2": {
+    "status": "PASS",
+    "cases": [
+      "C initializes6x5 borders and calls random DFS from7; SysTick startup verified separately in assembly"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/main.c": "03a054f13ce554d7359c6d6dfe9949efdb95de87039a06243c16bbd77dc2b885"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2024-09-16-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Two-button argument order, border markers, distinct starting labels; Kruskal stubbed"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/main.c": "1d828534d4e4f92c46e6942d76dd3d6a8ffd63775d89a433fea09bbef788014a"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-01-29_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Low16-bit capture, Q2-specific matrix, expected0x56 and250 ms blink phases"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/main.c": "befb5e57090a2803b65f10eb3c50addc8e08d0ef0d2300515326128a37da2a28"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-01-29_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Early KEY1, exactly eight captures, rows0..7 once, final blank and stop; product stubbed"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM2_Matrix_Two_Timers/Answer Source/main.c": "d26b3131eff61b0195c2755e40530e034bfaec3bfa5529f93c898d21a1f14fb0"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-01-29_ARM3-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Independent capture counts, three transposition calls, XOR identity, full-buffer guards"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c": "8c02b1d98ab2ae4c9ad89755550350f5b699fbeb3b36ea7411674a4e57ceadaa"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-02-12_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "8978 samples from initial half-cycle, order3, output array populated, completion silence, repeated button ignored; recurrence stubbed"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/Q2/main.c": "bb7174e602e2ddff2c1e99b969579a47bd421fc7d14bff59286f218b453f5af9",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/Q2/IRQ_timer.c": "9c00c19fd022f0d426941f3d53288b0edaaaff553bdcd694dc7ba91cbadc1911"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-02-12_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "8978 samples from initial half-cycle, order3, output array populated, completion silence, repeated button ignored; recurrence stubbed"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/Q2/main.c": "0f0bb0c06f2eea7130598ca96a8bfe8a25673b32ac369cb47f604aa60ccc60a9",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/Q2/IRQ_timer.c": "91d213adaa0fd45c8ec6d7b19b1e27603e2d11faa8a210cde6681ca1298a3c0c"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-07-01_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "All ten paper LED values, correct timer period, exact call count and stop"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/main.c": "a30b25f9fa9732fdfee5e41b1c92c4c922ec16632864e180bce3a7d847a1871f",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q2/IRQ_timer.c": "7f6df2635814b38c4bd4bec620bf441e0db239b41aa40b985389a58a98a95402"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-07-01_ARM1-Q3": {
+    "status": "PASS",
+    "cases": [
+      "First response only, nine wrong rounds, tenth full window, final score and post-game input ignored"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/main.c": "3498f30860342b785a5f3a15a4629eed53610452d258a38dfa43c08f31a75eb4",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/IRQ_RIT.c": "339089c34d5cef6645032b0a7530fe212cb20b1e0a99401bd9ba9f6c79e0e146",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/Q3/IRQ_timer.c": "7f6df2635814b38c4bd4bec620bf441e0db239b41aa40b985389a58a98a95402"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-07-01_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "All ten paper LED values, correct timer period, exact call count and stop"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/main.c": "2eabe2c0941ea31e952468d44f3b96e622e520379befc3ffbddb6afab45b3994",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/IRQ_timer.c": "6784084efa4d0f71e42d45c536fe5689138d3b277cd1af92710b1b9ad57a74a8"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2025-07-01_ARM2-Q3": {
+    "status": "PASS",
+    "cases": [
+      "First response only, nine wrong rounds, tenth full window, final score and post-game input ignored"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/main.c": "97c75ecfef16c71b4231eaf5bb9b50b2bdd2d8182e7d86920858f95e793f4e4d",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/IRQ_RIT.c": "628d6f1ef4923a6f164087c3b7504d4a8d8f6f417923d3c9a1aeffaa98f844a1",
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/IRQ_timer.c": "6784084efa4d0f71e42d45c536fe5689138d3b277cd1af92710b1b9ad57a74a8"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-02-03_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Fresh ADC high8, no pre-sample call, confirmed-button routing, low-byte result and hold-until-change; debounce API mocked"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM1_LookAndSay_ADC/Answer Source/main.c": "e970fa94365a76f59ee20e3d33a231d13edc4a77f66ed048ab37e9fa113f73e1"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-02-03_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Fresh ADC high8, no pre-sample call, confirmed-button routing, low-byte result and hold-until-change; debounce API mocked"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM2_RLE_ADC/Answer Source/main.c": "08a1291a65fd60f474a96d862ee5ebb40c078d58e90087dc6eda68f5e3122d7f"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-02-03_ARM3-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Immediate a0,2-second playback through final element, zero-length no read; sequence mocked"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-03_ARM3_Recaman_ADC_Timer/Answer Source/main.c": "a201f1b25d92ec6a8be19c3885e75a8e7552214b64c48010b80fe938f6cb11a9"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-02-18_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Threshold endpoints, B/C active guard, sine sample order, stop/silence, stale B and final A interrupts; sequence mocked"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/main.c": "b09e7c0cf7bb665bc3ef96b31fe0d6208865893bf8884abcd2015710f5448163"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-02-18_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Threshold endpoints, B/C active guard, sine sample order, stop/silence, stale B and final A interrupts; sequence mocked"
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/main.c": "222db27fa26425373e7a84656162dab606cd8fbbf8f0b186af4038affa479e56"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-06-25_ARM1-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Debounce/held select, nibble secret extraction, variant direction mapping, scratch cleared, next guess retains secret; scorer mocked",
+      "Exact-result 0xF0 enters FINISHED; simultaneous SELECT/direction gives SELECT priority; later joystick input leaves the final display unchanged."
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/main.c": "59f7df495494f789c992268267667ddb5997275cd666632ac6ac69edc235a6f4"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  },
+  "2026-06-25_ARM2-Q2": {
+    "status": "PASS",
+    "cases": [
+      "Debounce/held select, nibble secret extraction, variant direction mapping, scratch cleared, next guess retains secret; scorer mocked",
+      "Exact-result 0xF0 enters FINISHED; simultaneous SELECT/direction gives SELECT priority; later joystick input leaves the final display unchanged."
+    ],
+    "sourceHashes": {
+      "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/main.c": "89be79fc854e50c33f57ce7c525197a63487cd9ecb2189849587de850c5c8db2"
+    },
+    "limits": "Actual C logic with mocked peripherals and separate algorithm implementations; no physical timing claim."
+  }
+}

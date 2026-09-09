@@ -166,6 +166,11 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--match',default=''); ap.add_argument('--legacy',action='store_true'); ap.add_argument('--existing',action='store_true'); ap.add_argument('--published',action='store_true'); ap.add_argument('--reuse-build',action='store_true'); args=ap.parse_args()
     from algorithm_catalog import ENTRIES
     import exam_algorithms_numeric, exam_algorithms_arrays, exam_algorithms_strings, exam_algorithms_matrices
+    import exam_algorithms_fundamentals_arrays
+    import exam_algorithms_fundamentals_strings
+    import exam_algorithms_fundamentals_arithmetic
+    import exam_algorithms_fundamentals_bits
+    import exam_algorithms_fundamentals_matrices
     selected=ENTRIES
     if args.legacy:
         from legacy_algorithm_tests import entries

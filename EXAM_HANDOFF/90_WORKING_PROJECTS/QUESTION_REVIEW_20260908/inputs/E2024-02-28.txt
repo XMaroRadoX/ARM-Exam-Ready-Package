@@ -1,0 +1,214 @@
+{"exam_id": "E2024-02-28", "date": "2024-02-28", "project": "2024-02-28_ShortestPath_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/23-24/20240228 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 28.02.2024 – part II 
+ 
+Question 1 
+A maze is saved in a NUM_ROW * NUM_COL matrix of bytes. The character ‘X’ indicates a wall, 
+and the space indicates a passage. It is guaranteed that all the borders of the maze are walls. The 
+entrance is represented with ‘e’ and the exit with the integer number 0. 
+Example: a maze matrix with NUM_ROW = 9 and NUM_COL = 8 is shown below: 
+X X X X X X X X 
+X 0      X 
+X  X X X X  X 
+X       X 
+X X  X  X X X 
+X   X   e X 
+X  X X  X X X 
+X       X 
+X X X X X X X X 
+Write the shortestPath subroutine in ARM assembly language to find the shortest path from 
+the entrance to the exit. The subroutine receives the following parameters (in the order indicated): 
+- number of rows 
+- number of columns 
+- address of the maze matrix 
+The subroutine scans all the cells of the maze: if a passage is connected to the exit (i.e, it is at its 
+right, left, top or bottom), then the content of the cell becomes the integer value 1. The loop is 
+repeated: this time all neighbors of a cell with the value 1 assume the value 2. The loop is repeated 
+again: it stops when the entrance becomes connected to a cell with an integer value. 
+Example: Iteration 1   Iteration 2    Iteration 3 
+X X X X X X X X     X X X X X X X X     X X X X X X X X 
+X 0 1     X     X 0 1 2    X     X 0 1 2 3   X 
+X 1 X X X X  X     X 1 X X X X  X     X 1 X X X X  X 
+X       X     X 2      X     X 2 3     X 
+X X  X  X X X     X X  X  X X X     X X  X  X X X 
+X   X   e X     X   X   e X     X   X   e X 
+X  X X  X X X     X  X X  X X X     X  X X  X X X 
+X       X     X       X     X       X 
+X X X X X X X X     X X X X X X X X     X X X X X X X X 
+ 
+Iteration 4    Iteration 5    Iteration 8 
+X X X X X X X X     X X X X X X X X     X X X X X X X X 
+X 0 1 2 3 4  X     X 0 1 2 3 4 5 X     X 0 1 2 3 4 5 X 
+X 1 X X X X  X     X 1 X X X X  X     X 1 X X X X 6 X 
+X 2 3 4    X     X 2 3 4 5   X     X 2 3 4 5 6 7 X 
+X X 4 X  X X X     X X 4 X  X X X … X X 4 X 6 X X X 
+X   X   e X     X  5 X   e X     X 6 5 X 7 8 e X 
+X  X X  X X X     X  X X  X X X     X 7 X X 8 X X X 
+X       X     X       X     X 8      X 
+X X X X X X X X     X X X X X X X X     X X X X X X X X 
+The procedure returns the length of the shortest path, i.e., the number of iterations executed. In the 
+example, the return value is 8. 
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 28.02.2024 – part II 
+ 
+Question 2 
+The following matrix of chars is declared in C: 
+char maze[9][8] = {"XXXXXXXX", 
+   {'X', 0, ' ', ' ', ' ', ' ', ' ', 'X'}, 
+   "X XXXX X", 
+   "X      X", 
+   "XX X XXX", 
+   "X  X  eX", 
+   "X XX XXX", 
+   "X      X", 
+   "XXXXXXXX"}; 
+Pass this matrix to the shortestPath subroutine to find the shortest path in the maze. 
+Then, show the sequence of movements to arrive to the exit using the leds. In details, you start from 
+the entrance (represented with ‘e’) and look for the cell x containing the value k returned by the 
+shortestPath subroutine: 
+- if x is at the right of the entrance, switch on led 4 
+- if x is at the bottom of the entrance, switch on led 5 
+- if x is at the left of the entrance, switch on led 6 
+- if x is at the top of the entrance, switch on led 7 
+Then, you look for the cell containing the value k – 1 and switch on the corresponding led. The loop 
+continues as long as k >= 0. 
+In the example, the sequence of leds are: led 6, led 6, led 7, led 7, led 6, led 6, led 6, led 7, led 7. 
+Each led remains lit for 0.5 s. Then, you have to wait 0.5 s before switching on the next led. 
+(Suggestion: you need a timer generate interrupts every 0.5 s.) 
+ 
+
+--- QUESTION ---
+{"question_id": "2024-02-28-Q1", "date": "2024-02-28", "question": "Q1", "requirement_summary": "Compute shortest-path distances from the exit through an encoded maze.", "keywords": "maze shortest path distance propagation breadth fixed-point", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q1/assembly.s", "function_or_handler": "shortestPath", "argument_mapping": "R0 rows, R1 columns, R2 maze address; R0 start distance", "architecture": "assembly maze algorithm", "constants": "0 wall, 1 start, 2 exit", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Searching|Maze", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+                EXPORT  shortestPath
+
+; uint32_t shortestPath(uint32_t rows, uint32_t columns, uint8_t *maze)
+shortestPath    PROC
+                PUSH    {R4-R11, R12, LR}
+                MOV     R4, R1          ; columns
+                MOV     R5, R2          ; maze
+                MUL     R6, R0, R1      ; cells
+                MOVS    R7, #0          ; current wave value
+sp_wave        MOVS    R8, #0
+sp_scan        CMP     R8, R6
+                BHS     sp_next_wave
+                LDRB    R9, [R5, R8]
+                CMP     R9, #' '
+                BNE     sp_check_entry
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_mark
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BNE     sp_scan_next
+sp_mark         ADDS    R9, R7, #1
+                STRB    R9, [R5, R8]
+                B       sp_scan_next
+sp_check_entry  CMP     R9, #'e'
+                BNE     sp_scan_next
+                SUB     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                ADD     R10, R8, R4
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+                SUB     R10, R8, #1
+                LDRB    R11, [R5, R10]
+                CMP     R11, R7
+                BEQ     sp_found
+sp_scan_next    ADDS    R8, R8, #1
+                B       sp_scan
+sp_next_wave    ADDS    R7, R7, #1
+                B       sp_wave
+sp_found        MOV     R0, R7
+                POP     {R4-R11, R12, PC}
+                ENDP
+                END
+
+
+
+--- QUESTION ---
+{"question_id": "2024-02-28-Q2", "date": "2024-02-28", "question": "Q2", "requirement_summary": "Use Timer0 to display each path direction for 0.5 s followed by 0.5 s off.", "keywords": "Timer0 500ms LED route directions state machine", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q2/main.c", "function_or_handler": "main; answer_timer0", "argument_mapping": "Timer0 IRQ alternates direction and blank phases", "architecture": "C timer state machine", "constants": "500 ms phases", "peripheral_tags": "LED|Timer0", "interrupt_tags": "Timer IRQ|Acknowledgement", "timing_tags": "Delays", "architecture_tags": "", "algorithm_tags": "", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c ---
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+static void leds_fill(void)
+{
+  (void)exam_led_write(0xFFu);
+}
+#define ROWS 9u
+#define COLS 8u
+#define EVENT_HALF_SECOND (1u<<0)
+extern uint32_t shortestPath(uint32_t rows,uint32_t columns,uint8_t *maze);
+static uint8_t maze[ROWS][COLS]={"XXXXXXXX",{'X',0,' ',' ',' ',' ',' ','X'},"X XXXX X","X      X","XX X XXX","X  X  eX","X XX XXX","X      X","XXXXXXXX"};
+static uint32_t position;
+static int32_t step_value;
+static uint8_t showing;
+
+void TIMER0_IRQHandler(void)
+{ if ((exam_timer_ack(EXAM_TIMER0) & 1u) != 0u) exam_events_set(EVENT_HALF_SECOND); }
+
+static uint8_t find_entrance(void)
+{ uint32_t i; uint8_t *cells=&maze[0][0]; for(i=0u;i<ROWS*COLS;++i)if(cells[i]=='e'){position=i;return 1u;} return 0u; }
+
+static void show_next_move(void)
+{
+  uint32_t next=position; uint8_t board_label=4u;
+  if(step_value<0){exam_led_clear();return;}
+  uint8_t *cells=&maze[0][0];
+  if(cells[position+1u]==(uint8_t)step_value){next=position+1u;board_label=4u;}
+  else if(cells[position+COLS]==(uint8_t)step_value){next=position+COLS;board_label=5u;}
+  else if(cells[position-1u]==(uint8_t)step_value){next=position-1u;board_label=6u;}
+  else if(cells[position-COLS]==(uint8_t)step_value){next=position-COLS;board_label=7u;}
+  else { step_value=-1; return; }
+  position=next; (void)exam_led_on(board_label); showing=1u;
+}
+
+int main(void)
+{
+  exam_init();
+  step_value=(int32_t)shortestPath(ROWS,COLS,&maze[0][0]);
+  showing=0u; exam_led_clear();
+  if(!find_entrance() ||
+     exam_timer_config_ms(EXAM_TIMER0,500u,EXAM_TIMER_PERIODIC)!=EXAM_OK) {
+    leds_fill();
+  } else {
+    exam_timer_start(EXAM_TIMER0);
+  }
+
+  for (;;) {
+    if((exam_events_take(EVENT_HALF_SECOND)&EVENT_HALF_SECOND)==0u) {
+      __WFI();
+      continue;
+    }
+    if(showing){exam_led_clear();showing=0u;--step_value;} else show_next_move();
+    __WFI();
+  }
+}

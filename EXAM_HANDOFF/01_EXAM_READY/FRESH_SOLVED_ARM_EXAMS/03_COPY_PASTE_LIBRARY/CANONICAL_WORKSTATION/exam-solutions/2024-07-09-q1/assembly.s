@@ -60,6 +60,8 @@ crn_choose      CMP     R5, #0
                 LDR     R6, [R6]
                 UDIV    R7, R6, R5
                 MLS     R6, R7, R5, R6
+                SUB     R7, R5, #1
+                SUB     R6, R7, R6
                 LDR     R0, [R4, R6, LSL #2]
 crn_return      ADD     SP, SP, #20
                 POP     {R4-R7, PC}

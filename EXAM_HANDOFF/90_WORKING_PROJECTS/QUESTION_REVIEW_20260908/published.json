@@ -1,0 +1,1458 @@
+{
+  "files": [
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/QUESTION_INDEX.csv",
+      "before": "0ada2c34ef81d16a700ec8812f0ffb1198cd3456586d12583e73e82e3d16ba31",
+      "after": "0c3c7e4b36a287116a01148068a0bee97bc1fb7d07d3d505e7d2b585c884ad4c",
+      "bytes": 33390
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/QUESTION_REVIEW_REPORT.md",
+      "before": null,
+      "after": "079869e36da10d51604f0ec1a5911234af2916aa85c32b9fb48090a111b03b2b",
+      "bytes": 138521
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/BROWSER_QUESTION_REVIEW_QA.cjs",
+      "before": null,
+      "after": "7d425a524fe54c3330c6fa1b5861e09b47de3a57d1420c74eb929da47e01698e",
+      "bytes": 5774
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/BUILD_EXAM_REVIEW_PROJECTS.py",
+      "before": null,
+      "after": "c5fa528189c50b1081ba8aa4f10bc713a09debaa486b8bef05afe5bae75bb9ce",
+      "bytes": 3603
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/BUILD_STUDENT_PORTAL.py",
+      "before": "d3478cd17795ccf984f0c77b269b1b25ca231009cb353943238c909d06498e71",
+      "after": "b2e1063fdabea443d700ec2427b8a08b7dae81cb72b8ca01dd27f900f1c0ab9d",
+      "bytes": 114778
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_EXECUTION_RESULTS.json",
+      "before": null,
+      "after": "8ca5839723c727a9fad9926dd25f09709cfcbfd8fedda5df2b0865c9f013069f",
+      "bytes": 32247
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_NATIVE_BUILDS.json",
+      "before": null,
+      "after": "aea30a5684196ac213e127a4eab90a75207c37f3070d9dbdee644e396f42bdb9",
+      "bytes": 254993
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_PERIPHERAL_RESULTS.json",
+      "before": null,
+      "after": "9ff34a37e186361050b3033a4383441c1c5d0db2453b132a8f75178540a5d5fa",
+      "bytes": 13799
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_PORTAL_RESULTS.json",
+      "before": null,
+      "after": "1fb4f407cb82eb6ea15a64d725db80fddd7fbb7020dd26ed1bf19d1319291e2c",
+      "bytes": 173
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_REVIEWS.json",
+      "before": null,
+      "after": "0032d19a8d8f322937a6094417271a1ad74392b81708cdab404558c9f62c46b5",
+      "bytes": 248583
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/QUESTION_REVIEW_SCOPE_NOTES.json",
+      "before": null,
+      "after": "7952b63c9143628176bc8cffa91dc0487b10ba004ea18e185e6564d48da6b388",
+      "bytes": 5685
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/REFRESH_QUESTION_REVIEWS.py",
+      "before": null,
+      "after": "8d758ec4d9c88ccebf54a397e67ab0fe922f3c1ed911ef96b8dd2509bdb856a1",
+      "bytes": 3139
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_COVERAGE.json",
+      "before": "2b725096f113f0c1b3417aa54303223c703c01e18284ea37ee96d9f85ad00112",
+      "after": "7431d2e72a4436013c75021770e5a92923fb56711463c6a2cde9310138ebcf7c",
+      "bytes": 8235003
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_INTEGRITY_RESULTS.json",
+      "before": "6ec8bc937c409653638fbd9d5062d0760453effc2ec6880b35afe6aa62120837",
+      "after": "baccf89ba6c39403e73680e891132a615722c8bc56ddf8fbf50e08be8a318af8",
+      "bytes": 231
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/SEARCH_REGRESSION_RESULTS.json",
+      "before": "f0553b91f7ba6f92c6085798a8af74ea9f5c3a63d98015b77d4712a056476a34",
+      "after": "22450dde40e5feec6bdbb39efaf106a51818f453dfa03ed5084ab96d59cea6b6",
+      "bytes": 1487
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_COMBINED_SOLUTIONS.py",
+      "before": "ced99406bf936f60e704512004a3a282bcd2ae03a4821f7c0e66426d810c45de",
+      "after": "8a3546044ca0695099200fe274e9f2d5ffb9a5b6d2aa8756d43f4a593d9fd887",
+      "bytes": 5943
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_EXAM_ANSWERS.py",
+      "before": null,
+      "after": "983b01cdc7b6a16583b7431055178933916f82772b94e1665174e381de2393c2",
+      "bytes": 21143
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_EXAM_PERIPHERALS.py",
+      "before": null,
+      "after": "aa894d0e1b8db34d1e93681c954c0f9d9cb26480d2d3518898ecd7619af6a9cb",
+      "bytes": 19634
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_QUESTION_REVIEWS.py",
+      "before": null,
+      "after": "0ba41f8fd646ad60afe3388dd955090871d69962388fdfb148b9140ecda5c1d4",
+      "bytes": 3577
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/VERIFY_STUDENT_PORTAL.py",
+      "before": "74ac036bad4863571604d745386e213274f1a436ea5a6cf75d53d84f66030f16",
+      "after": "3191462c706a71ba90bad827fa06d02f364ca2df5bf0adb646061552f9570cb4",
+      "bytes": 21951
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/question_review.py",
+      "before": null,
+      "after": "d68bad407e93f5db6d1ec4da39c0553c83dba5666ebe43c1502a21c0fb92702c",
+      "bytes": 12720
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-02-07-Q1.log",
+      "before": null,
+      "after": "a846259d7fe58f2f32e5c23d7542ec38dd42fee07bb7054799293b60ddf80357",
+      "bytes": 87
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-02-07-Q2.log",
+      "before": null,
+      "after": "6f4d1d2341d6a2f979b42804af6e628040bcaed24c6f3dc9508dc6570de5a7fd",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-02-24-Q1.log",
+      "before": null,
+      "after": "c3bbf88d4a5edfb6deb51982a203d3a49426cfd139155faf3a0e2d8e581800ee",
+      "bytes": 71
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-02-24-Q2.log",
+      "before": null,
+      "after": "fb6311269693a597dd808f659a401be458d699f27658e37dfc467cad238151f5",
+      "bytes": 61
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-05-17-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-05-17-Q2.log",
+      "before": null,
+      "after": "11c1f7202f6ba99294a2b839818e7ea63527a7b3cc21e555db8b098a890cd1dc",
+      "bytes": 61
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-07-04-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-07-04-Q2.log",
+      "before": null,
+      "after": "9147da9d4943ce0cb7a3d44ef754d5f3a018e06b39672d6712f1425613632f86",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-09-18-Q1.log",
+      "before": null,
+      "after": "73cc1a393aa515ac14f0b3d5987ea1262aa0269a0d696f2b74e68d2113d54dd8",
+      "bytes": 390
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2023-09-18-Q2.log",
+      "before": null,
+      "after": "ae1c08bcc55604fc07230ff7636898023d190a4694ba5d7a5ed349ba61e67698",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-02-12-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-02-12-Q2.log",
+      "before": null,
+      "after": "aab6a7a2fa42eff73b91223bb998544c93915ee8403eab8d4db682ed8b2640de",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-02-28-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-02-28-Q2.log",
+      "before": null,
+      "after": "d85ad15648470610519da005c3b91a6c2861a9242b5db2af10be63cd075dd232",
+      "bytes": 66
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-07-09-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-07-09-Q2.log",
+      "before": null,
+      "after": "5fa551b3bf012cb17b4b33b6424ec55d4d4e3bd22074bb72543c4e5af54a070e",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-09-16-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2024-09-16-Q2.log",
+      "before": null,
+      "after": "53083e62a4aca9bfc3b6b79d6c3a9f56ab41d824d1eba1121a5299c5878b313a",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM1-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM1-Q2.log",
+      "before": null,
+      "after": "2c259e8f66c4e39125aabce0e8ac358064de07903c5adb030e54e387322039e7",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM2-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM2-Q2.log",
+      "before": null,
+      "after": "d45354158bec035b2cf3169981383d507f6b652838e100d6f68e4f53a437d898",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM3-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-01-29_ARM3-Q2.log",
+      "before": null,
+      "after": "0096ed11344a4f3511c975c2c851bc54e87b59299ba3e0eaf76369efa4c790c5",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-02-12_ARM1-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-02-12_ARM1-Q2.log",
+      "before": null,
+      "after": "2caa0503e6ad42e94f469a06af44a070922a949855dc9cb24b6cc7bdcae543f2",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-02-12_ARM2-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-02-12_ARM2-Q2.log",
+      "before": null,
+      "after": "d359f40c3ce2d3debc880ae657ad299cacd87e70483d8d132c1934c208bc0c59",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM1-Q1.log",
+      "before": null,
+      "after": "40544660ef1698a79a8824890a05ad8d98d0feafe69b41b6a35010af507e2f46",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM1-Q2.log",
+      "before": null,
+      "after": "7646fa45857ed83d1e8a00640b472aaab2d55cbd4072544763c86b1352fda92e",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM1-Q3.log",
+      "before": null,
+      "after": "346948a04198b73b54fd23b094e170cb812290696a0ed79bd12d8688a1fc247f",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM2-Q1.log",
+      "before": null,
+      "after": "f47d1a49f3cd097546a6c6d4b778c488edbfc3be5134fc7e3a0833e1c8e22728",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM2-Q2.log",
+      "before": null,
+      "after": "9b382d54f612cd49183b6118e176b931618ea88c91b46dc9101ee4ca8c62f6e0",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2025-07-01_ARM2-Q3.log",
+      "before": null,
+      "after": "7eda37da184a2101f628c704f82cad6c0e0ed6c6631a9ee8a6d4e9493abc8c4e",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM1-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM1-Q2.log",
+      "before": null,
+      "after": "980653ada1718f40a6ae83ef46eade5f13166c25c90da108f3563b6dc8830709",
+      "bytes": 67
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM2-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM2-Q2.log",
+      "before": null,
+      "after": "f22dff973072e37b2fdc01307ed222000590144df896469b2e3947d84cd321c6",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM3-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-03_ARM3-Q2.log",
+      "before": null,
+      "after": "1f7ec577a4544e2eec48095186ff0e1d7ee91c02d7be3c28436d5ae6c996ca5b",
+      "bytes": 64
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-18_ARM1-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-18_ARM1-Q2.log",
+      "before": null,
+      "after": "cd74993dfb8583678c8895a342fb6647319902587471b72ee8fd9f3e34147d55",
+      "bytes": 66
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-18_ARM2-Q1.log",
+      "before": null,
+      "after": "a2c4591be25c48c53bf4ff241b756d38704bfbc0ba07c3d367c6303094f5c8ff",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-02-18_ARM2-Q2.log",
+      "before": null,
+      "after": "1a6940dda9f73382342fe2ac4c6a40f1c74e0f839d3d9cbbd2e51601dd3f801b",
+      "bytes": 64
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-06-25_ARM1-Q1.log",
+      "before": null,
+      "after": "1c290804d7477c803bda6b12b30c9417da0331a7f6dbf85bf4235107c827fdbf",
+      "bytes": 63
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-06-25_ARM1-Q2.log",
+      "before": null,
+      "after": "38c72f26045951171d7a55f07c3a7063366e63fa5247729dc7a61363c4141771",
+      "bytes": 65
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-06-25_ARM2-Q1.log",
+      "before": null,
+      "after": "b7aaf90135c82558ff5979b0e76ab8fb58969961155e1142731c3124e85b0bd4",
+      "bytes": 395
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/99_MAINTENANCE/scenario-native-logs/question-2026-06-25_ARM2-Q2.log",
+      "before": null,
+      "after": "cd8cb0f3798e6cc6b33788f2b4bec29739b20e3af4843e74dad7e5c8fed60bfb",
+      "bytes": 65
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-02-24_Kaprekar_SVC/Answer Source/assembly.s",
+      "before": "6f6312b77d961ec6c9a541e63c3c66adac8c3b2515b3e3b010211e9b5589eef6",
+      "after": "96f8e371affea10fc472a3ac9fae1d942770b861ab8cc10a417eb15a63345862",
+      "bytes": 3150
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-05-17_Signed_64_Division/Answer Source/assembly.s",
+      "before": "28c5aeae9e47e25627d39b88e819c53b0bb0470553877a1d781a72d19739d2bf",
+      "after": "9bd7753617abf01e1e895d5a683a7fac6841719fb829520408df5036c6533bde",
+      "bytes": 2488
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s",
+      "before": "f9f021fa7ced0abd37d498b855b4d84a2bf292b4a7def59aebb1a730e75a3191",
+      "after": "ea21b768459e8b47873d8327aa187e5cf305c63267f120b1f520935cc4041aa8",
+      "bytes": 2191
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/Q1/assembly.s",
+      "before": null,
+      "after": "7ecab259498b33e2ca08f856704d2ee0f3a56c69fa1d7e91d1482b5c05cd6d2b",
+      "bytes": 2278
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/assembly.s",
+      "before": "5f621baa0daab19b892a368d20de509b6790e2831dcd1036f155d7d064ea4a4f",
+      "after": "4225de2ae484c149c433001bffc8c1f1ef606df25cb3df7be7af2f0990252b00",
+      "bytes": 1768
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-09-18_DigitAddition_Buttons/Answer Source/main.c",
+      "before": "e461685b75dadf0dcadb108187594809626d60e9030303330666084e742566c7",
+      "after": "2f11daf42455385c07698f0e16bd225f9c53c5a4943dfbc0aafce032db630dd1",
+      "bytes": 1628
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-12_Maze_LCG_Timer/Answer Source/main.c",
+      "before": "979b392b40f1afeef6f6da65928e7fc0a2217a16cfcae6756c797590b7c9887e",
+      "after": "27c37a7c0634f471a91070c1148e95227745b6708ea4b84ab794965f77e08c4b",
+      "bytes": 1482
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/assembly.s",
+      "before": "cef8bf4dc6af6ba953a4c554797cac7c9703859275527545f85020d1859ccc56",
+      "after": "fdb7126f41c8db32302e5a31243cac0b608fdaa0627521614227f2ff609ce6c1",
+      "bytes": 2685
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-02-28_ShortestPath_Timer/Answer Source/main.c",
+      "before": "aec77d5efe1107d89221db8d64d694ebff53eb62773e96308484d4b58afa20c6",
+      "after": "c43dead81a0a683cc30f98e9aea01c0beea036829aca0cab908799d1f9b654e0",
+      "bytes": 1964
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/Q2/assembly.s",
+      "before": null,
+      "after": "b5eabf90cd2116cc83c1d410c945c6564948a9448bbf1e0531d0430c66cc1455",
+      "bytes": 6314
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/assembly.s",
+      "before": "e7c590f4ed09f15580db6968abb5705319d127245124b3ac3c25b6f8e314a3ff",
+      "after": "055fb26cc9d0cfba105fb24b38897df21fdf3cf1f63d573b4d691d0d0e9d4e01",
+      "bytes": 5708
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-07-09_DFS_SysTick/Answer Source/main.c",
+      "before": "9cd9d86c4a6ce4ab683aea0bac0928ec72135d6930c1a0c9e4c96e891631603d",
+      "after": "03a054f13ce554d7359c6d6dfe9949efdb95de87039a06243c16bbd77dc2b885",
+      "bytes": 685
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/assembly.s",
+      "before": "934a0dc4ec824e7c79ee4fed94053d3f7dda47576d3cba3407854aec2c701e01",
+      "after": "db7d25570906c4881ac551614e8508a2855c346b08dff0c26b00d04da8fa95e7",
+      "bytes": 3270
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2024-09-16_Kruskal_Buttons/Answer Source/main.c",
+      "before": "2bfb899887cd7fad6ff61403ac82b957fb0ca1eb5e06ce016ba88f86fb2cc075",
+      "after": "1d828534d4e4f92c46e6942d76dd3d6a8ffd63775d89a433fea09bbef788014a",
+      "bytes": 1798
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM1_Affine_Two_Timers/Answer Source/main.c",
+      "before": "2ca6611744433df35c7ee3804cfc10a5f90d5a65c3f7159918f30315e41f801b",
+      "after": "befb5e57090a2803b65f10eb3c50addc8e08d0ef0d2300515326128a37da2a28",
+      "bytes": 1970
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s",
+      "before": "e4a72473b7ca950251ebd85cf661fbb9cfc25a5c7f0d3d04e6f6b28ea0119bfc",
+      "after": "e7c4094804d1d3ad42a156859654c65c1de9bf6915ca5d6e1149e3657492fc03",
+      "bytes": 1680
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c",
+      "before": "63e93123fa536bb3894d1055b5157b0783432a64fe27c4e29e33c5481d7efb8c",
+      "after": "8c02b1d98ab2ae4c9ad89755550350f5b699fbeb3b36ea7411674a4e57ceadaa",
+      "bytes": 1836
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/IRQ_timer.c",
+      "before": null,
+      "after": "9c00c19fd022f0d426941f3d53288b0edaaaff553bdcd694dc7ba91cbadc1911",
+      "bytes": 1377
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/Q2/IRQ_timer.c",
+      "before": null,
+      "after": "9c00c19fd022f0d426941f3d53288b0edaaaff553bdcd694dc7ba91cbadc1911",
+      "bytes": 1377
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/Q2/main.c",
+      "before": null,
+      "after": "bb7174e602e2ddff2c1e99b969579a47bd421fc7d14bff59286f218b453f5af9",
+      "bytes": 299
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM1_Sine_DAC/Answer Source/main.c",
+      "before": "6db0db4d74eb6906d4a91445eb2dc8a37e7f85955eea927543407cc18a96d5dd",
+      "after": "bb7174e602e2ddff2c1e99b969579a47bd421fc7d14bff59286f218b453f5af9",
+      "bytes": 299
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/IRQ_timer.c",
+      "before": null,
+      "after": "91d213adaa0fd45c8ec6d7b19b1e27603e2d11faa8a210cde6681ca1298a3c0c",
+      "bytes": 1389
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/Q2/IRQ_timer.c",
+      "before": null,
+      "after": "91d213adaa0fd45c8ec6d7b19b1e27603e2d11faa8a210cde6681ca1298a3c0c",
+      "bytes": 1389
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/Q2/main.c",
+      "before": null,
+      "after": "0f0bb0c06f2eea7130598ca96a8bfe8a25673b32ac369cb47f604aa60ccc60a9",
+      "bytes": 303
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-02-12_ARM2_Cosine_DAC/Answer Source/main.c",
+      "before": "bfaf992b2ef98a3f3b0e67361773802908825f9ba16136ec5d2effbe29923f06",
+      "after": "0f0bb0c06f2eea7130598ca96a8bfe8a25673b32ac369cb47f604aa60ccc60a9",
+      "bytes": 303
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM1_LCG_Rhythm/Answer Source/README.md",
+      "before": "c3211a0689832afe1ba3557f8d1bb049bd581f12d60609450effaacbb8d00e38",
+      "after": "0347ee70e83ad3ddebc200c1253608f47bd31b3c1a86695bf62a825f527779b0",
+      "bytes": 928
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q1/assembly.s",
+      "before": null,
+      "after": "660b45072711bbe3c0b28647d3fd1a9e57eb663e38401dcb07aae2cd2f5db9a2",
+      "bytes": 1631
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/IRQ_timer.c",
+      "before": null,
+      "after": "6784084efa4d0f71e42d45c536fe5689138d3b277cd1af92710b1b9ad57a74a8",
+      "bytes": 428
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/assembly.s",
+      "before": null,
+      "after": "220cadfb90fdb6de2b945ddfec629ab3c70a2150729f1ab91ad73e61402c72a4",
+      "bytes": 657
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q2/main.c",
+      "before": null,
+      "after": "2eabe2c0941ea31e952468d44f3b96e622e520379befc3ffbddb6afab45b3994",
+      "bytes": 1881
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/IRQ_RIT.c",
+      "before": null,
+      "after": "628d6f1ef4923a6f164087c3b7504d4a8d8f6f417923d3c9a1aeffaa98f844a1",
+      "bytes": 231
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/IRQ_timer.c",
+      "before": null,
+      "after": "6784084efa4d0f71e42d45c536fe5689138d3b277cd1af92710b1b9ad57a74a8",
+      "bytes": 428
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/assembly.s",
+      "before": null,
+      "after": "220cadfb90fdb6de2b945ddfec629ab3c70a2150729f1ab91ad73e61402c72a4",
+      "bytes": 657
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/Q3/main.c",
+      "before": null,
+      "after": "97c75ecfef16c71b4231eaf5bb9b50b2bdd2d8182e7d86920858f95e793f4e4d",
+      "bytes": 4237
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/assembly.s",
+      "before": "c148b89d065a24b2bf2ca42c0836ab5ad3338d96b8f16dd84e67e364e60e50f2",
+      "after": "220cadfb90fdb6de2b945ddfec629ab3c70a2150729f1ab91ad73e61402c72a4",
+      "bytes": 657
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-07-01_ARM2_LCG_Rhythm/Answer Source/main.c",
+      "before": "4a2a9ac21df1b0d53c8b3b08f10da0a3b9d949ec1c91da79063bc0f66808a662",
+      "after": "97c75ecfef16c71b4231eaf5bb9b50b2bdd2d8182e7d86920858f95e793f4e4d",
+      "bytes": 4237
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM1_Three_Timers/Answer Source/main.c",
+      "before": "813e38fe3ccbf92185b5b2b1419bc601dba9e7475d63a72e6ea7140e0032a0f5",
+      "after": "b09e7c0cf7bb665bc3ef96b31fe0d6208865893bf8884abcd2015710f5448163",
+      "bytes": 3935
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/main.c",
+      "before": "a956f1cdf63978d35fb857a196d96c10416fb5136f8dc16135b13c632a4220d5",
+      "after": "222db27fa26425373e7a84656162dab606cd8fbbf8f0b186af4038affa479e56",
+      "bytes": 3945
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/Q1/assembly.s",
+      "before": null,
+      "after": "6e454a79e597285ec5c67a3e736943f3f9b9847e71cefc648b03514c7ac865b2",
+      "bytes": 2900
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM1_BullsAndCows/Answer Source/main.c",
+      "before": "12ba200a9c1110661fa34140bf35f0cb6f5706cac6649b2345f3ceecf3f42e64",
+      "after": "59f7df495494f789c992268267667ddb5997275cd666632ac6ac69edc235a6f4",
+      "bytes": 4164
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/Q1/assembly.s",
+      "before": null,
+      "after": "5064be5ab6df4ccdc36732de08f241634a6c79777c233a5abbebb57bf320f26d",
+      "bytes": 3253
+    },
+    {
+      "path": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-06-25_ARM2_Mastermind/Answer Source/main.c",
+      "before": "465e2bc8e25b6c10d71977219111dbc22669b7227bad57e37c7473530f78f36e",
+      "after": "89be79fc854e50c33f57ce7c525197a63487cd9ecb2189849587de850c5c8db2",
+      "bytes": 4108
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-07-q2/assembly.s",
+      "before": null,
+      "after": "b39b06a0cdb844f3992ff50ce325a4975e86d5374737edbb7e55fea7925fd2f1",
+      "bytes": 1738
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q1/assembly.s",
+      "before": "6f6312b77d961ec6c9a541e63c3c66adac8c3b2515b3e3b010211e9b5589eef6",
+      "after": "fa24f5ec1e6850469db3dc981b39ea1d8437d187f8f01ae46dcf6d6994ea8505",
+      "bytes": 3065
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-02-24-q2/assembly.s",
+      "before": "6f6312b77d961ec6c9a541e63c3c66adac8c3b2515b3e3b010211e9b5589eef6",
+      "after": "fa24f5ec1e6850469db3dc981b39ea1d8437d187f8f01ae46dcf6d6994ea8505",
+      "bytes": 3065
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q1/assembly.s",
+      "before": "28c5aeae9e47e25627d39b88e819c53b0bb0470553877a1d781a72d19739d2bf",
+      "after": "406dd58f4fe7910235dfd4bcf73dfae336397181c62230fa10b47665b79033c8",
+      "bytes": 2418
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-05-17-q2/assembly.s",
+      "before": "28c5aeae9e47e25627d39b88e819c53b0bb0470553877a1d781a72d19739d2bf",
+      "after": "406dd58f4fe7910235dfd4bcf73dfae336397181c62230fa10b47665b79033c8",
+      "bytes": 2418
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q1/assembly.s",
+      "before": "f9f021fa7ced0abd37d498b855b4d84a2bf292b4a7def59aebb1a730e75a3191",
+      "after": "319ff49c12f5cfac6a553639b3f2b2798f33f354111716ba7b38a4cac5be1897",
+      "bytes": 2113
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q2/assembly.s",
+      "before": null,
+      "after": "319ff49c12f5cfac6a553639b3f2b2798f33f354111716ba7b38a4cac5be1897",
+      "bytes": 2113
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q1/assembly.s",
+      "before": "5f621baa0daab19b892a368d20de509b6790e2831dcd1036f155d7d064ea4a4f",
+      "after": "ed6d1cb57b92d5b297ca2f78b2ea7f3d6cd906e85c804362f736c81979771a46",
+      "bytes": 2212
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q2/assembly.s",
+      "before": null,
+      "after": "7fe3b37950aad335cfb7c2490206ca2a82257aa34939f241c7de6dedb37a0b2b",
+      "bytes": 1716
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-09-18-q2/main.c",
+      "before": "e461685b75dadf0dcadb108187594809626d60e9030303330666084e742566c7",
+      "after": "4411d0d0e1b5c0dfab6610a930ad536b529a52e98448a23db0058eb19a562fe4",
+      "bytes": 1577
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q2/assembly.s",
+      "before": null,
+      "after": "d5b487478b7096cbab902850efef8ffcaf6a867f833602a466a42fd766fda5a6",
+      "bytes": 2768
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-12-q2/main.c",
+      "before": "979b392b40f1afeef6f6da65928e7fc0a2217a16cfcae6756c797590b7c9887e",
+      "after": "d71335af3f4e415f58bcdce16d133bd0f0a9b8c445728ae63dedec801284f524",
+      "bytes": 1427
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q1/assembly.s",
+      "before": "cef8bf4dc6af6ba953a4c554797cac7c9703859275527545f85020d1859ccc56",
+      "after": "b0c911eff1d5e351f7c5a0b66ca76e6a9d29a38df65765653ccb359ea5477c67",
+      "bytes": 2614
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q2/assembly.s",
+      "before": null,
+      "after": "b0c911eff1d5e351f7c5a0b66ca76e6a9d29a38df65765653ccb359ea5477c67",
+      "bytes": 2614
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-02-28-q2/main.c",
+      "before": "aec77d5efe1107d89221db8d64d694ebff53eb62773e96308484d4b58afa20c6",
+      "after": "468458471ec4885213d2b82acb40d0af0d96149a9f8b7aed31dfe29b3da07b62",
+      "bytes": 1907
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q1/assembly.s",
+      "before": "e7c590f4ed09f15580db6968abb5705319d127245124b3ac3c25b6f8e314a3ff",
+      "after": "a5b1b094e30f02f3fac0164cd599ba58b8a844be4f1e26b1c4a8f814d9cf8fef",
+      "bytes": 5548
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/assembly.s",
+      "before": "e7c590f4ed09f15580db6968abb5705319d127245124b3ac3c25b6f8e314a3ff",
+      "after": "5ce466eb6d047c3265a37c7f598ba213dffbd884c6df9ce7cd0bd28c034416a3",
+      "bytes": 6136
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-07-09-q2/main.c",
+      "before": "9cd9d86c4a6ce4ab683aea0bac0928ec72135d6930c1a0c9e4c96e891631603d",
+      "after": "d2cff4257175eeba3ca8553acb0bbaeb6e70c8abbe71e34b09928f6f014529a6",
+      "bytes": 654
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q1/assembly.s",
+      "before": "934a0dc4ec824e7c79ee4fed94053d3f7dda47576d3cba3407854aec2c701e01",
+      "after": "3694eb128450661a9c186900c5fc421913539f266b2d754d70a2ef643ad1a91b",
+      "bytes": 3184
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/assembly.s",
+      "before": null,
+      "after": "3694eb128450661a9c186900c5fc421913539f266b2d754d70a2ef643ad1a91b",
+      "bytes": 3184
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/main.c",
+      "before": "2bfb899887cd7fad6ff61403ac82b957fb0ca1eb5e06ce016ba88f86fb2cc075",
+      "after": "a117cd8639d5d3e8f924aebb5bdf90814f4a7a50e1a4fc8a7f6915b1e84871ee",
+      "bytes": 1737
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q2/assembly.s",
+      "before": null,
+      "after": "5bbd9f5e58f3c536bd24565bd2da45ca83eeee76008714ecd00dc8f4c6ab1c56",
+      "bytes": 1518
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm1-q2/main.c",
+      "before": "2ca6611744433df35c7ee3804cfc10a5f90d5a65c3f7159918f30315e41f801b",
+      "after": "ba8dbd1a5011c2dd0390c1d73dabe88cb4916c213ff81fabc4d78c115e9a7517",
+      "bytes": 1895
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm2-q2/assembly.s",
+      "before": null,
+      "after": "e0fd7256bc719af509033b4067d948dd8f1cee7194b3b5f78ee6d668d76df325",
+      "bytes": 2058
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q1/assembly.s",
+      "before": "e4a72473b7ca950251ebd85cf661fbb9cfc25a5c7f0d3d04e6f6b28ea0119bfc",
+      "after": "65912e8e2ff74f4500fe4f3ed0068401218efd65b00a98c0ded6b6337907d55b",
+      "bytes": 1619
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q2/assembly.s",
+      "before": null,
+      "after": "65912e8e2ff74f4500fe4f3ed0068401218efd65b00a98c0ded6b6337907d55b",
+      "bytes": 1619
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q2/main.c",
+      "before": "63e93123fa536bb3894d1055b5157b0783432a64fe27c4e29e33c5481d7efb8c",
+      "after": "a6c62bd368bf10d21d09d575644c340d329f242d87f85642a84c74afc5480fa4",
+      "bytes": 1754
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q2/IRQ_timer.c",
+      "before": null,
+      "after": "cbabdd583eebd785ea94cb2cc227f41c583939450929902108729fde0dd071a2",
+      "bytes": 1319
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q2/assembly.s",
+      "before": null,
+      "after": "2c904cf324e70239bd00cc185dd7987a68e026c5d19ea57ddcf760c23b031331",
+      "bytes": 1414
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm1-q2/main.c",
+      "before": "6db0db4d74eb6906d4a91445eb2dc8a37e7f85955eea927543407cc18a96d5dd",
+      "after": "545889690a8632882a89ace506a1f0177dc258ac64dcfdb3bb1419eda3fd2d28",
+      "bytes": 282
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/IRQ_timer.c",
+      "before": null,
+      "after": "b26653b1ba3f471589c4d49777965fad7753dd710c3c289c39d57576d10fc4c9",
+      "bytes": 1331
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/assembly.s",
+      "before": null,
+      "after": "2c26461c6b9f7c6d850f8a3b762cec8cff85214d170ce8c6584ee6013efb70e8",
+      "bytes": 1389
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-02-12-arm2-q2/main.c",
+      "before": "bfaf992b2ef98a3f3b0e67361773802908825f9ba16136ec5d2effbe29923f06",
+      "after": "ea6dfff17c910f2b5c497b93a9034c500f32dea30335e4f7e1788b96467d6a14",
+      "bytes": 286
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q1/assembly.s",
+      "before": "c148b89d065a24b2bf2ca42c0836ab5ad3338d96b8f16dd84e67e364e60e50f2",
+      "after": "4e7db4bd29921c77604d114f13ac6829aa3ed1c2f26548070af5758fb3145538",
+      "bytes": 1578
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q2/IRQ_timer.c",
+      "before": null,
+      "after": "009a0a5b4ee21986e207ebb2242503c5f273cea08fa5ed282e547fb7292bf658",
+      "bytes": 418
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q2/assembly.s",
+      "before": "c148b89d065a24b2bf2ca42c0836ab5ad3338d96b8f16dd84e67e364e60e50f2",
+      "after": "8336dbefe2e2353bc59753f364c832c4a96c5603f7a763052784f70c17981212",
+      "bytes": 636
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q2/main.c",
+      "before": null,
+      "after": "09c4180334c4c87a58c5cc21c9f3a13e9b92fa6131eb8b10ddabc056e83e5621",
+      "bytes": 1825
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/IRQ_RIT.c",
+      "before": null,
+      "after": "339089c34d5cef6645032b0a7530fe212cb20b1e0a99401bd9ba9f6c79e0e146",
+      "bytes": 225
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/IRQ_timer.c",
+      "before": null,
+      "after": "009a0a5b4ee21986e207ebb2242503c5f273cea08fa5ed282e547fb7292bf658",
+      "bytes": 418
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/assembly.s",
+      "before": null,
+      "after": "8336dbefe2e2353bc59753f364c832c4a96c5603f7a763052784f70c17981212",
+      "bytes": 636
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm2-q3/main.c",
+      "before": "4a2a9ac21df1b0d53c8b3b08f10da0a3b9d949ec1c91da79063bc0f66808a662",
+      "after": "865ecc419ee9bc10d33fb2f01c8e1ba7971774dd55bb9c1cc3860af7d313881a",
+      "bytes": 4106
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm1-q2/assembly.s",
+      "before": null,
+      "after": "0a650a40ed05cb075dc838630f0a7d6300b2b38c72c9210d70526b09f55ef9bb",
+      "bytes": 1830
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm2-q2/assembly.s",
+      "before": null,
+      "after": "7f833152d7eb8fd8b159cbdc5e08c9832156edb03ab71ab5a4097b35849d6567",
+      "bytes": 1848
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-03-arm3-q2/assembly.s",
+      "before": null,
+      "after": "f0af649d61da3737bb4d39a173e00388e6cbcd1e67547fd482223966a9bde6cb",
+      "bytes": 1526
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q2/assembly.s",
+      "before": null,
+      "after": "1098895ccc6295114404195d5379db1e64b1836409431beaaa738a45f90a4554",
+      "bytes": 1511
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm1-q2/main.c",
+      "before": "813e38fe3ccbf92185b5b2b1419bc601dba9e7475d63a72e6ea7140e0032a0f5",
+      "after": "df514f896c9384649660c7b1b1a174ffb58c3b6c77b2bd2d26f6f93a687b0796",
+      "bytes": 3800
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q2/assembly.s",
+      "before": null,
+      "after": "b5ea711b86f61645600fcac0b823816f3c799ca3686747e43d77c5348cd4c724",
+      "bytes": 1452
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q2/main.c",
+      "before": "a956f1cdf63978d35fb857a196d96c10416fb5136f8dc16135b13c632a4220d5",
+      "after": "e3952b7b416dbc451090e0ee00cd186d7c1ab192d5a42f8c3d6937dc125b6238",
+      "bytes": 3810
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q1/assembly.s",
+      "before": "1c72a07a33336c3764e987162263c01dfc97d6e62d34b11caaa9fa2f7232ded3",
+      "after": "6fd2eb48cf175b7c8de8b3ea583eb0f067f94d3dc01fd60c50a678ca4dab9828",
+      "bytes": 2815
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q2/assembly.s",
+      "before": null,
+      "after": "1c72a07a33336c3764e987162263c01dfc97d6e62d34b11caaa9fa2f7232ded3",
+      "bytes": 1984
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm1-q2/main.c",
+      "before": "12ba200a9c1110661fa34140bf35f0cb6f5706cac6649b2345f3ceecf3f42e64",
+      "after": "4c3ba02bee4dd727351c8b24e9dd13dad6882c20f1cbd6d1c724a9074af33c86",
+      "bytes": 4006
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q1/assembly.s",
+      "before": "a11d5b501cbc92bb224a930d8a852a13eb062b280608ba15b6c85004e6130020",
+      "after": "9e916659a88936e65e85c650f8a994160394f7a35974ffe1b95fef71c84a789e",
+      "bytes": 3158
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q2/assembly.s",
+      "before": null,
+      "after": "a11d5b501cbc92bb224a930d8a852a13eb062b280608ba15b6c85004e6130020",
+      "bytes": 2329
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-06-25-arm2-q2/main.c",
+      "before": "465e2bc8e25b6c10d71977219111dbc22669b7227bad57e37c7473530f78f36e",
+      "after": "35d01c568a08a185e7a31890389e7afbbed7156aa0076c6286d014d7abb9db50",
+      "bytes": 3950
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/manifest.json",
+      "before": "d332a2ac142b79d505a9f5bbc6e024ed5fae8016d3e2bb1aa3ca8214ee480ad5",
+      "after": "9bb4f555ca56bfd7a25f6b84fc4bec653b23e6efe314189d8451b4105d480b4c",
+      "bytes": 83691
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-07-q1.html",
+      "before": "581feab4fbab72ab2538571c7d1784b75f37a3ca1b4506db3e353624ab5c0240",
+      "after": "c662142e07e719aac0d122d8218184b78075bce32ddc59a7d69d6b07892761f5",
+      "bytes": 12666
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-07-q2.html",
+      "before": "f171bd0bcfaf4affa970242ed7d827fb125b1b78cf5b8c8fde072f36daaeff78",
+      "after": "03c133e1360fbae9c41569f0e804900dda879a3d9e22bd7856043d1d94685103",
+      "bytes": 15431
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-24-q1.html",
+      "before": "684a2342581f6e9a4610a34ef14ad2be4637b7a4cc909b44c2f9333bd500782f",
+      "after": "bc157911db0c25bd3f9ca1f5b3fdbd5b255f4eecdf675c5bbb40d020d3becfaa",
+      "bytes": 13685
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-02-24-q2.html",
+      "before": "c54dfad5c38613e3e197cdf9ae7cbcffb4e8f4caf05408d184414b12b4a36c5f",
+      "after": "246265ae508512b0337af9dcf31b5063e78e70abdde0e407a52ebebaef7f5e63",
+      "bytes": 14269
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-05-17-q1.html",
+      "before": "2ceffd777db3b85d65671be0e1c5f9c92547add6ae605483f39210cc48f0b11e",
+      "after": "985c9ca35331f66313ba84eb91740cd3321b3cd42f2d883ff566ce69d4903feb",
+      "bytes": 12921
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-05-17-q2.html",
+      "before": "d103d267b741d0c268dc19f6863b67d43cff68aa0572923a45657d8de9b40c64",
+      "after": "45d3deb16b23a1a9f380afd8348bf97067049989fdb8aec679680419dc08138f",
+      "bytes": 13155
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-07-04-q1.html",
+      "before": "b35a05590a8813acdfc1f2219d716e93a1fac55e4bb01f2db97ecc017708dbff",
+      "after": "7da453179d85df6dcea622c1dd092a93e0a5d155562dfd13ddcf13513124f3d8",
+      "bytes": 12951
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-07-04-q2.html",
+      "before": "57de49ccf1fc0cd565c4d2285d71d20b511e9741a73209c383449bbbe6bfb47f",
+      "after": "af148503a439ddb20aeaca9ac71db949a0f487a23243a1c8da6329c3a1798248",
+      "bytes": 15548
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-09-18-q1.html",
+      "before": "153a721d3787d07acb946113a8c663265b5904c777a6e985fb939666f88f59b8",
+      "after": "1375a4910fe47ea3487a34c48cf5a2604aacd658522e92f43d3ae63ce639e9d7",
+      "bytes": 13564
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2023-09-18-q2.html",
+      "before": "7e306e87e50c23ddb1afdd145e629dfa481b22c60c2dd205d3fa5a9ba4d39522",
+      "after": "f8d98cfc9969edef102fd42f3d493a952ea9eb1e9fafa9f641f941386bed66c6",
+      "bytes": 15946
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-12-q1.html",
+      "before": "7d946fa1776e1dad31cacf903ae844364a5937a38bcfb40bbed057dc8c457ac6",
+      "after": "c17652e650c0dc94e6a463163cfa4f82d2fc6c00631bf09b9a96ccbe11be8426",
+      "bytes": 13281
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-12-q2.html",
+      "before": "e94a78f8dfa0e806c64749fe332a2cca35869fbd632c346e80c16023b1ccd461",
+      "after": "4bba56cdc0a5c0a81657af37df6ce091e9c69f172134f3b69d866e45e1ce73e3",
+      "bytes": 17415
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-28-q1.html",
+      "before": "08ea365d0fdce52887926ea40d7ae64c9bb676da72d9e4012b535127593bcbc2",
+      "after": "0648c13f80138514a78c365d174da40025f11512c1d7973564b8915f8f544c12",
+      "bytes": 13153
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-02-28-q2.html",
+      "before": "b6301a29d7aeac4bbf8626ae4b6d777cfdabafdf3c97c61414fede3a56b59f95",
+      "after": "f091ba472148131290d1dcf10651ef065876d3e91c3cadf4cc59d39b58c3b644",
+      "bytes": 16575
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-07-09-q1.html",
+      "before": "78d36cbfbd7ffdfe42b1bde77290d1ba337bdc9192ef263e4d3e361ad0b7df4d",
+      "after": "136aaa61ee68a3d4c6c2e27dd7ad6f9bc855e405541a9981d921c3d6b37ce36f",
+      "bytes": 16316
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-07-09-q2.html",
+      "before": "a78b3448e954d08f49655217456a78a9831f9f182a28bf04334bff5ff014aaa6",
+      "after": "900a02d76d61be9b67454f1f204952060ec23457220e6e5a0ee17dc880c3baba",
+      "bytes": 19424
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-09-16-q1.html",
+      "before": "e5786388100943db0895bf306f9f7d035848e2d4bcdbd60504cf97383e9efb69",
+      "after": "e5b4900e3521ecab6bb96b1d59c66561980632bdb184827a4d81f658e5398df8",
+      "bytes": 16581
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2024-09-16-q2.html",
+      "before": "6bc8fd3c912ea292c7b323a962451f0152dd16e166e5a36054ca45e01bdc465d",
+      "after": "3f79229f8c4ed8028d1fc6d35caf837a84ac6cf098eb70d4019d3a223ac594ab",
+      "bytes": 18771
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm1-q1.html",
+      "before": "025f9c32f6ac7ad3e2858ed719b976773944bd4d7cb9a623a4f950dc5aa0e8f9",
+      "after": "7e9d333a159ea63eedacf7332e2deaeacc39c988fbdf29067c2064dc45f6ae2e",
+      "bytes": 12441
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm1-q2.html",
+      "before": "e642159f40963160cd5ef57465382cc964437db76de8946153b576e2a4019715",
+      "after": "ce0c91280e4e6aaf6abb20d1d1288a741822bccab4c39a45278e3123a7a3fb2f",
+      "bytes": 16289
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm2-q1.html",
+      "before": "957dba0402545d0c10772d5870351c4aed224492939d8fbf2bfaf43e44cc8402",
+      "after": "8002dd90078efff8c671cfd522be25aef766d2e9ce7281de0905ad7b51225ce2",
+      "bytes": 13074
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm2-q2.html",
+      "before": "db2a60c76afff9bbd2b614e2e65c1ad7b88359d3275a789fcb5471fbad1929e1",
+      "after": "9e07f21779d213ec3c849ac111021ec43153dae451c2e4c28be621142ff2651a",
+      "bytes": 17072
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm3-q1.html",
+      "before": "af8cfd1686b4450174f36666f75274dfef2bb1b12e73583189251d81058a1966",
+      "after": "eb75a6a76edb3bc5f10a8cfc7f4c0f5835857458cea33631867ce2580b244227",
+      "bytes": 12134
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-01-29-arm3-q2.html",
+      "before": "d4d5ddb5edf183d4e3f9b509f7ee7124056f58b8dc4227de2db0e34509808a32",
+      "after": "9471e36ffeac2c7b6fdb4caa6dcccba083fc55e2c970ed15e9de7159b172cfb4",
+      "bytes": 16255
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm1-q1.html",
+      "before": "b72bba988e1fcd4d5ed8a1572b54dea0e948dc1980b91219d8cf5bfdd52dafcc",
+      "after": "e9d8555e1412fafbac3df5144cf747eab0f2f20432ce98ba786f86834373c173",
+      "bytes": 11655
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm1-q2.html",
+      "before": "718b26b2e62f3899d9da9c1066617edf78b4745abddffb174d8c06eedd06732c",
+      "after": "4d8dc42af6670b0f7fd676fcc15d782ef804de304729d3678d874ced5a3be938",
+      "bytes": 16156
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm2-q1.html",
+      "before": "75f22690c11fea41ed71558ded9bfd85f36c29a7ef7a964db5009ac5d6a4db71",
+      "after": "960eef2406db97c81643b51c3dd33059764fc10edd654868da08f5bda53ee632",
+      "bytes": 11694
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-02-12-arm2-q2.html",
+      "before": "0850ead798ed5713bdc49183d7e6f38b4180b451a6cdd88cce56d20d36f533fe",
+      "after": "9b1f51c1e71de6d16e93720be59fdb5f776e84ff391d833de325e7997080c8ba",
+      "bytes": 16301
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q1.html",
+      "before": "02b1b499dec3b17fafb1cdfbcec049d266f6bf24a9157afa4709a1a12853c109",
+      "after": "5a40180a451d3aa546e4e9239fa3af8a4b8057a79bc736c2429b1232187e317b",
+      "bytes": 14027
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q2.html",
+      "before": "8e3e8e9d0777bddc34797f6534da38cc01303115a79dd6347d2d31cef1557f2e",
+      "after": "5e9acfeac507cf6cb85d25f951f4be5d7052525b95ea9b41400c94e9d2d61016",
+      "bytes": 16880
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm1-q3.html",
+      "before": "3fa05ccfb2b9cb2df76684170046f72f9aab8d6ee0bf71756a650f4c50585ee8",
+      "after": "a24aabd329d53426003657c5eb0802af08b960474f5c78d0e171848bb1f5dc9a",
+      "bytes": 20134
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q1.html",
+      "before": "4211cadf00babbe5e59408ee9bcf373e6317e1306e62d2b615c28f220e0bacbf",
+      "after": "3997a92ed209e81147bf14c85dc38599c8a84436714e7a3d7b73996af1c779e2",
+      "bytes": 12880
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q2.html",
+      "before": "3cbb45484ad5b64a377253fb6ac269e3227c3df31f451d8dd6121c61b3d8a2ad",
+      "after": "a13829442d142be2c302d043c4ab461c2ce18fb5d65c4d9c001d72c15e473b1e",
+      "bytes": 15406
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2025-07-01-arm2-q3.html",
+      "before": "a4773bb4ba310066a34b56cbaae51d0e316a99a17010b653cb337781edd3b634",
+      "after": "976472fa28e9003017f2575f119e10b5b90b1924d64a034db62fec950594e316",
+      "bytes": 19265
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm1-q1.html",
+      "before": "a478646fa22fba638d534e4557bd9f5f459fda8f404cfcbc0333f0942bc1b8be",
+      "after": "46c5acb023178e1d19451964f258ae88f3214f4b44682a8cddba84f73e674c7e",
+      "bytes": 12636
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm1-q2.html",
+      "before": "880f35e8f5613667d0a14edbc702e273f3323a4687ba2d3948d2e122e8ee24ae",
+      "after": "d217184a9bffdf956e1dbde71c5473b4af8d6a080574e1e40ee5e673bd48ab6b",
+      "bytes": 16243
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm2-q1.html",
+      "before": "9b1cd326a4793d1cb36aca23b7402a1081c3545c3d0527cac20a77d349d5e4c8",
+      "after": "4dc5e86d1f889f8be9d32df08e966f7dbdb79321281e330eb1e2ba9e01c32fcb",
+      "bytes": 12625
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm2-q2.html",
+      "before": "afdcab76f55eb8c29cdd11481ca0c06bb8e6ba79774b566f8c461e8af020ec85",
+      "after": "c788e640f42968c99a74d0a0d851488e6d9a1c8a83b80f6b5ffb685d46396194",
+      "bytes": 16204
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm3-q1.html",
+      "before": "c37d2855d150309d5ef051cf9d1d7e6c79c778664ae6340999a5fa40b9c854e7",
+      "after": "668a86ce472e5414c329217857d5fe3ebd9f50ed8d697157608ee7f34593427b",
+      "bytes": 12207
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-03-arm3-q2.html",
+      "before": "5537bccb2201dcb847f9addf08b2ad549ca15bad3c8ba44746199abf759b20b2",
+      "after": "3d8496c8dfec25392a2be828562e6d333012ea1bc8011df348029edc3121d0a9",
+      "bytes": 17802
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm1-q1.html",
+      "before": "c2bfdd9b13b1552bc814bba32460e736d7e5063efbe0d59d837b7adf6b7dd100",
+      "after": "7a5aa33b55adcf0df91fcbe6cbc5e7a119809e36f85205d673fb7e50c6220222",
+      "bytes": 12324
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm1-q2.html",
+      "before": "93324ca9d406e19fbb90935b84052dca5986775ec14a2a078e6f98edad6b72e8",
+      "after": "93d4e130ce010bea20f2d0d0e0cee361d65c4295d53021d47825dd5e6dddd2b8",
+      "bytes": 19091
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm2-q1.html",
+      "before": "0bd39c4e92e0e9fd10cd8af88b569078c95de32249f8cc8928269cb4e87e337d",
+      "after": "393d5ee5bc62e6f3cd0506db1352b35f7fb1d507f18b8bee91cfd08c08894fb9",
+      "bytes": 12278
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-02-18-arm2-q2.html",
+      "before": "13a7bae9c2ec1811f60c48bf6f2ac0fdcece560a87827303bbee7241bc996497",
+      "after": "c614c0eb8b6cce1af33f4a50e04431ce5414562f2ea6c7c03825658c730f9db8",
+      "bytes": 19019
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm1-q1.html",
+      "before": "e4801264024877a01f8b6c2d4efd4463e67240493aa53d24501a01841cbd65ff",
+      "after": "8c7600ee96d169128f7c8bf930d18bdb9b293937580a2c2f0679db6b3888dc74",
+      "bytes": 14245
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm1-q2.html",
+      "before": "afe72ef84e4ac7a0fe1b63ec21750269aafc4a28fb00c52ee4f94ffa278f1ed6",
+      "after": "832df06aea91815bbee842dadd21821d7930a785dc553ead320b97c21c8d4a00",
+      "bytes": 19378
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm2-q1.html",
+      "before": "7fa2570243703140756684eb6ce887537a42df79ebd6747a5c345f88eb6cab46",
+      "after": "c9892d545e71337b1421270b16ba343c581937de11a041c737177535dd9bdf4c",
+      "bytes": 14673
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/2026-06-25-arm2-q2.html",
+      "before": "930fc987ed327e0e787365af35eccefd937d1aa40374c8f093056d4dd9f7bb5a",
+      "after": "3f7d92d912cc6054e0d5e58154818c1145437b011292d421f378ca7ca3ecb5ce",
+      "bytes": 19557
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-02-07.html",
+      "before": "781d4572db28da7b58ff1b2c8bf31295dbbe40f55ce8faaf7768a6bb1d7bb214",
+      "after": "811a05167308ee445c6e441b7f731a6266cb0610e6fc5d5997869b4c8db6c9c6",
+      "bytes": 12907
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-02-24.html",
+      "before": "0847277371fc991fc8c88b9bebd59c00d376b42634a6cfc6202e3236ad3d31c4",
+      "after": "dccd0978c7b11b3885da7e74add3430e1c6aeb3a0fdacba74e14baa91d26e8c1",
+      "bytes": 11865
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-05-17.html",
+      "before": "7c6954f9c6ee140308ce732fcb523dbe575bf4d8730b7ca4feee8771c640a855",
+      "after": "236a343ed81fbbec2a1d1508773eef764e5e6b734d57ed313fde8342f843aca3",
+      "bytes": 10377
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-07-04.html",
+      "before": "1d4f6aadea050a614e6a4fb5145fc73e595919c3eee6eda3de47960ee2e11517",
+      "after": "318c6cbd63e56ce6fa7340f991555315c9c9bbb232e1fbae00d466e6a42c5dda",
+      "bytes": 12880
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2023-09-18.html",
+      "before": "fae793ffcf8402f70a0ff329dfa8524755379b696e3888db3326477e0960f16b",
+      "after": "dfad58c2e83c7fbeb3718241dff119d690bfd43e0fb2a340b27be88a35172be0",
+      "bytes": 13002
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-02-12.html",
+      "before": "54691e0fd8460e3dac6ee5eb8a8e7a2d8aa9160496e6ea89b6dc8aee34312679",
+      "after": "bf5a02fa9c403ee68e7deb601d3a4a27c2395683b878475f6333bd82ca3d1b1e",
+      "bytes": 13998
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-02-28.html",
+      "before": "5dee1d96d311a52e71cfd39840a083b32028556c72acc29d2bbc66c08404afb2",
+      "after": "da5ddb770734191b165e71636292a723f914581eedac1b9d47e900868f9fe83e",
+      "bytes": 13409
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-07-09.html",
+      "before": "9c636229c793f12458e85acf1203a1ce3bd456d1278c51ff17966807d1435867",
+      "after": "799d94f1cbb9c1704503775ad69307318d6477f5b7a498b2b0ddcd6d09485e69",
+      "bytes": 15883
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2024-09-16.html",
+      "before": "c6102919052df210f3c3ca3162df17efed3b56be66aba813c27e9a8033bad468",
+      "after": "283f8def2a1c3fbaa697c09e877168dca9920be4c610e3b2717ef5682c8fa4d9",
+      "bytes": 15201
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a1.html",
+      "before": "a7620146500d96c4a9e746ad48bd78c4c3590af589116639d3528072492ea4e6",
+      "after": "878e7dfdce2979f874fba8b49924218f03c88642b39feb8d959ed37adcfacf80",
+      "bytes": 13785
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a2.html",
+      "before": "701b7dc2fa69c5520bf7879992bcfdd137e4f0f83bb3f595c19444e67b74183d",
+      "after": "5b36ca4e4afa66836378b733ccff6bca038f36e6c6a7657fd9b620059d1aa955",
+      "bytes": 14054
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-01-29-a3.html",
+      "before": "112ba18f6e3373f4905f9e1bd9e19f6ad00c5310fbe7acaba30c51e49351a423",
+      "after": "63b0dd4545ce9ee123271e9cdb89ed7e6ae720245bc9cd8c8f3a04b44984fdf8",
+      "bytes": 12971
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-02-12-a1.html",
+      "before": "2b83d787e60b818f8de9bd5bf2990f450f6118dfdcc0e2fd5bfd134fb6231e35",
+      "after": "561aaa587947642d2ab33fd91ccf5f1cd39d8b6259488bcd12f89ff22ad766d7",
+      "bytes": 12360
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-02-12-a2.html",
+      "before": "8b099dd1887a2dc73a6c1fdc9dab283e726396dcce9d0452c5d16cf717ed1af1",
+      "after": "f04880b2000673b2dd2e693908e7c305e02c847631e79d9aac4e93e3109027a7",
+      "bytes": 12379
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-07-01-a1.html",
+      "before": "3782f874f693317c5c22c49a611af0884973dd58d724383e7552ab1b08248dc2",
+      "after": "9962367063fc1579b7e08455eb96f754633f19fa46657f4c510046e83fa4c1ce",
+      "bytes": 19671
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2025-07-01-a2.html",
+      "before": "12f5e91be611811208470555dd9fce43d1d9da0e8aff855c75c05e8fd3a1d05f",
+      "after": "5377205f2581e8bc26936825b48ed099f504d9da4a6ef93bfed13f8b288676ba",
+      "bytes": 15421
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a1.html",
+      "before": "7c498e140deaa074824c0c0b1592b8271a88a001eb516e643c50b73f39157dba",
+      "after": "30b7ee05ac1151a7f19a504f297a046f52761488a56c86558e3db73aead99687",
+      "bytes": 12940
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a2.html",
+      "before": "16d6ad714e79858d2aacc51cb95b393c6f8b47c4289fd1aca5e9043cd1f70870",
+      "after": "c5dbd2f489c1475da7c72ed0e0747247af09a99f862e29e46c08a507e957d333",
+      "bytes": 12836
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-03-a3.html",
+      "before": "bd27b6a1043ef2ff0f2bf432816c655b7b84dde6e627a2bd49e2d1a30d530b77",
+      "after": "7d83622adad18fe2860b892cfcf75f10765bf6c6c07f6586ce473ce06f9d2bf2",
+      "bytes": 14485
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-18-a1.html",
+      "before": "aa6a4a95c79229e46801870db71eb4d3ddcced6928d53e1f420529aa71208192",
+      "after": "f88af61a06854d6fa06a810e7155bd028298cb9b837c6e6015c681f75ff1b47b",
+      "bytes": 15595
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-02-18-a2.html",
+      "before": "5a050de205d7ad52845c7a63d5f38e5f87a574e5bf26cb4cb87e96355eac3503",
+      "after": "7a2ff4e55b52d11ead81ed1644e47070c4f4ea08bf4a8990d036c3988c0ab5cc",
+      "bytes": 15519
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-06-25-b1.html",
+      "before": "1520f3ed93aab0d9d50c21d94126e03c0f7c7f35a8df0d99b1671f75b6147358",
+      "after": "45843162e27be5c21e4932205a69a84bb4ba4103931a1d7cfb015afdd6050d22",
+      "bytes": 15769
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/e2026-06-25-b2.html",
+      "before": "43f933527d0f8c4950a9b7aa7c5647ce91e9f16c23977d70b9e1133a642f411e",
+      "after": "c7be9146d00542971ee4a301412020bc4f99ca8069c9a4a46dbf031f5f89bf44",
+      "bytes": 15799
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/exams/index.html",
+      "before": "0bf89095d31913e04da83b110135b4bbce928c649ba652cd9a5c0ab62d2d5e6d",
+      "after": "739d43b13920068d6642367a74436dfb3cb0ee98d2421107c5c3ea07358bca6f",
+      "bytes": 28101
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/search-coverage.html",
+      "before": "fa027dd70c2d925fa9745aec4978cddc72fb6ecb6e085b62b113f4eec770ad07",
+      "after": "bf4bac1a27c4823a4a37a5b92e0abb77cc0c79cd3fa0bb69e779d9fb878959fc",
+      "bytes": 147395
+    },
+    {
+      "path": "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/01_GUIDES_AND_INDEXES/PORTAL/assets/portal-data.js",
+      "before": "59e221c4f47c2e6d94ec655e2294f8edb9953f13fefbd636679e8291b86f75ba",
+      "after": "b8f543142445dabbc8533ac32415bed4bed53aecd47841a06129ab5f5fb91f09",
+      "bytes": 63125051
+    }
+  ],
+  "protectedFilesVerified": 314,
+  "preservedNewlineBytes": [
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q1/README.md",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q1/assembly.s",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/IRQ_timer.c",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/README.md",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/assembly.s",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q2/main.c",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/IRQ_RIT.c",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/IRQ_timer.c",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/README.md",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/assembly.s",
+    "01_EXAM_READY/FRESH_SOLVED_ARM_EXAMS/03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-07-01-arm1-q3/main.c"
+  ]
+}

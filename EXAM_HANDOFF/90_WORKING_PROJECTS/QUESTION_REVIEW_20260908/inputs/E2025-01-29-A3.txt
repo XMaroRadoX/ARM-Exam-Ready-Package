@@ -1,0 +1,259 @@
+{"exam_id": "E2025-01-29-A3", "date": "2025-01-29", "project": "2025-01-29_ARM3_Transpose_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/24-25/2025_01_29/20250129_ARM3.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 29/01/2025 
+ 
+C2 
+Question 1 (10 points) 
+The transpose AT of a matrix A is a new matrix obtained by swapping the rows and columns of A. 
+A bit matrix A is stored as an array of 8 bytes in a READONLY area of memory, for example: 
+matrix DCB 0xF8, 0x7C, 0x3E, 0x1F, 0x8F, 0xC7, 0xE3, 0xF1 
+Another uninitialized bit matrix AT is allocated as an array of 8 bytes in a READWRITE area of 
+memory. 
+Write the transposition routine in ARM assembly which receives in input: 
+1. the address of the bit matrix A 
+2. the address of the bit matrix AT 
+The subroutine saves in the second matrix the transpose of the first matrix A. 
+Considering the matrix A in the example, the transpose AT will contain the values 0x8F, 0xC7, 
+0xE3, 0xF1, 0xF8, 0x7C, 0x3E, 0x1F. The binary representation of the matrices is: 
+𝐴 = 
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 0
+0 0 1 1 1 1 1 0
+0 0 0 1 1 1 1 1
+1 0 0 0 1 1 1 1
+1 1 0 0 0 1 1 1
+1 1 1 0 0 0 1 1
+1 1 1 1 0 0 0 1]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                              𝐴𝑇 = 
+[
+ 
+ 
+ 
+ 
+ 
+ 
+ 1 0 0 0 1 1 1 1
+1 1 0 0 0 1 1 1
+1 1 1 0 0 0 1 1
+1 1 1 1 0 0 0 1
+1 1 1 1 1 0 0 0
+0 1 1 1 1 1 0 0
+0 0 1 1 1 1 1 0
+0 0 0 1 1 1 1 1]
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+You can use the following algorithm to compute the transpose of A: 
+for (i = 0; i < 8; i ++) 
+ x = i-th row of A 
+ for (j = 0; j < 8; j ++) 
+  b = j-th bit of x (note: bit 0 is the most significant bit, bit 7 is the least significant bit) 
+  store b to the i-th bit of the j-th row of AT 
+ 
+The assembly subroutine must comply with the ARM Architecture Procedure Call Standard 
+(AAPCS) standard (in terms of parameter passing, returned value, callee-saved registers). 
+ 
+ 
+ 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 29/01/2025 
+ 
+C2 
+Question 2 (8 points) 
+Extend the previous exercise as follows. 
+ 
+Declare two uninitialized arrays of 8 bytes A and B. 
+Initialize TIMER2 to count to 0xFFFF. When the counter reaches 0xFFFF, the timer is reset and no 
+interrupt is generated. 
+ 
+When KEY1 is pressed the first time, set the first element of the array A equal to the value of 
+TIMER2. When KEY1 is pressed the second time, set the second element of the array A equal to the 
+value of TIMER2, and so on until KEY1 is pressed eight times. Subsequent pressures of KEY1 are 
+ignored. 
+ 
+When KEY2 is pressed the first time, set the first element of the array B equal to the value of 
+TIMER2. When KEY2 is pressed the second time, set the second element of the array B equal to the 
+value of TIMER2, and so on until KEY2 is pressed eight times. Subsequent pressures of KEY2 are 
+ignored. 
+ 
+When INT0 is pressed, you have to verify the following equivalence: (A XOR B)T = AT XOR BT 
+In detail, you need to call the transposition routine three times (after defining new 
+uninitialized arrays to hold the results). If the equivalence is confirmed, switch on led 4. Otherwise, 
+switch on led 5. 
+
+--- QUESTION ---
+{"question_id": "2025-01-29_ARM3-Q1", "date": "2025-01-29", "question": "Q1", "requirement_summary": "Transpose an 8x8 bit matrix stored as eight bytes.", "keywords": "bit matrix transpose 8x8 masks", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q1/assembly.s", "function_or_handler": "transposition", "argument_mapping": "R0 input address, R1 output address", "architecture": "assembly bit algorithm", "constants": "8 bytes", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Bits|Matrix", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  transpose
+
+; void transpose(const uint8_t *source, uint8_t *destination)
+transpose       PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+
+                MOVS    R6, #0
+transpose_clear
+                CMP     R6, #8
+                BHS     transpose_rows
+                MOVS    R7, #0
+                STRB    R7, [R5, R6]
+                ADDS    R6, R6, #1
+                B       transpose_clear
+
+transpose_rows
+                MOVS    R6, #0          ; i.
+transpose_row_loop
+                CMP     R6, #8
+                BHS     transpose_done
+                LDRB    R7, [R4, R6]
+                MOVS    R8, #0          ; j.
+
+transpose_bit_loop
+                CMP     R8, #8
+                BHS     transpose_next_row
+
+                MOVS    R9, #0x80
+                LSR     R9, R9, R8
+                TST     R7, R9
+                BEQ     transpose_next_bit
+
+                LDRB    R10, [R5, R8]
+                MOVS    R9, #0x80
+                LSR     R9, R9, R6
+                ORRS    R10, R10, R9
+                STRB    R10, [R5, R8]
+
+transpose_next_bit
+                ADDS    R8, R8, #1
+                B       transpose_bit_loop
+
+transpose_next_row
+                ADDS    R6, R6, #1
+                B       transpose_row_loop
+
+transpose_done
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2025-01-29_ARM3-Q2", "date": "2025-01-29", "question": "Q2", "requirement_summary": "Capture A and B with Timer2 and verify transpose distributes over XOR.", "keywords": "Timer2 buttons transpose XOR identity LED", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2025-01-29-arm3-q2/main.c", "function_or_handler": "main", "argument_mapping": "events fill matrices then compare both sides of identity", "architecture": "C peripherals + verification", "constants": "(A xor B)^T", "peripheral_tags": "LED|Buttons|Timer2", "interrupt_tags": "Event Flags", "timing_tags": "Capture", "architecture_tags": "", "algorithm_tags": "Bits|Matrix", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2025-01-29_ARM3_Transpose_Timer/Answer Source/main.c ---
+/* Exam of 29 January 2025, ARM3, questions 1 and 2. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+/* Single-LED API arguments are physical board labels LD4 through LD11. */
+
+extern void transpose(const uint8_t *source, uint8_t *destination);
+
+static uint8_t matrix_a[8];
+static uint8_t matrix_b[8];
+static uint8_t matrix_a_xor_b[8];
+static uint8_t left_side[8];
+static uint8_t transpose_a[8];
+static uint8_t transpose_b[8];
+static uint8_t right_side[8];
+static uint32_t count_a;
+static uint32_t count_b;
+
+void EINT1_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY1);
+  if (count_a < 8u) {
+    matrix_a[count_a] = (uint8_t)exam_timer_read(EXAM_TIMER2);
+    count_a++;
+  }
+}
+
+void EINT2_IRQHandler(void)
+{
+  exam_button_ack(EXAM_BUTTON_KEY2);
+  if (count_b < 8u) {
+    matrix_b[count_b] = (uint8_t)exam_timer_read(EXAM_TIMER2);
+    count_b++;
+  }
+}
+
+void EINT0_IRQHandler(void)
+{
+  uint32_t i;
+  uint32_t equal = 1u;
+
+  exam_button_ack(EXAM_BUTTON_INT0);
+  if ((count_a < 8u) || (count_b < 8u)) {
+    return;
+  }
+
+  for (i = 0u; i < 8u; i++) {
+    matrix_a_xor_b[i] = matrix_a[i] ^ matrix_b[i];
+  }
+
+  transpose(matrix_a_xor_b, left_side);
+  transpose(matrix_a, transpose_a);
+  transpose(matrix_b, transpose_b);
+
+  for (i = 0u; i < 8u; i++) {
+    right_side[i] = transpose_a[i] ^ transpose_b[i];
+    if (left_side[i] != right_side[i]) {
+      equal = 0u;
+    }
+  }
+
+  exam_led_clear();
+  if (equal) {
+    (void)exam_led_on(4u);
+  } else {
+    (void)exam_led_on(5u);
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  exam_buttons_init();
+  if (exam_timer_config_ticks(EXAM_TIMER2,0xFFFFu,
+                              EXAM_TIMER_MODULO_NO_IRQ)==EXAM_OK)
+    exam_timer_start(EXAM_TIMER2);
+
+  for (;;) {
+    __WFI();
+  }
+}

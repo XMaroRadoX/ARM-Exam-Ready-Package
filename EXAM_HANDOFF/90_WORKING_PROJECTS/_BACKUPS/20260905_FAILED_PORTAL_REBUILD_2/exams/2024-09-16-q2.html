@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.">
+  <title>2024-09-16 Kruskal Buttons — Q2 · ARM Exam Workstation</title>
+  <script src="../assets/theme.js"></script>
+  <link rel="stylesheet" href="../assets/portal.css">
+  
+<link rel="stylesheet" href="../assets/workstation.css">
+</head>
+<body data-section="Past Exams" class="workstation">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="../../../../../START_HERE.html"><span class="brand-mark" aria-hidden="true">ARM</span><span>Exam <br>Workstation</span></a>
+    <p class="rail-label">YOUR STUDY DESK</p>
+    <nav class="primary-nav" aria-label="Primary navigation"><a href="../../../../../START_HERE.html"><span class="nav-number" aria-hidden="true" data-number="00"></span>Home</a><a href="../courses/index.html"><span class="nav-number" aria-hidden="true" data-number="01"></span>Courses</a><a href="../in-exam/index.html"><span class="nav-number" aria-hidden="true" data-number="02"></span>In the Exam</a><a href="index.html" aria-current="page"><span class="nav-number" aria-hidden="true" data-number="03"></span>Past Exams</a><a href="../patterns/index.html"><span class="nav-number" aria-hidden="true" data-number="04"></span>Solution Patterns</a><a href="../api/index.html"><span class="nav-number" aria-hidden="true" data-number="05"></span>API</a><a href="../asm/index.html"><span class="nav-number" aria-hidden="true" data-number="06"></span>ASM Reference</a><a href="../algorithms/index.html"><span class="nav-number" aria-hidden="true" data-number="07"></span>Algorithms</a><a href="../guides/index.html"><span class="nav-number" aria-hidden="true" data-number="08"></span>Guides</a></nav>
+    <div class="rail-bottom"><a href="../guides/start-a-working-project.html">Start a practice project <span aria-hidden="true">↗</span></a><p>ARM · C · LPC1768<br>Available offline</p></div>
+  </header>
+  <div class="workspace-bar"><span class="workspace-label">STUDY / REFERENCE</span>
+    <a class="search-shortcut" data-search-shortcut href="../search.html">Search the package <kbd aria-hidden="true">/</kbd></a>
+    <button class="theme-toggle js-only" type="button" aria-label="Switch color theme">Theme</button>
+  </div>
+  <main id="main-content" tabindex="-1"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../../../../../START_HERE.html">Home</a><span aria-hidden="true">/</span><a href="index.html">Past Exams</a><span aria-hidden="true">/</span><a href="e2024-09-16.html">2024-09-16 Kruskal Buttons</a><span aria-hidden="true">/</span><span aria-current="page">Q2</span></nav><header class="page-heading"><p class="eyebrow">Past Exams</p><h1>2024-09-16 Kruskal Buttons — Q2</h1><p>Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.</p><a class="text-action" href="#listing-1">Jump to code <span aria-hidden="true">↓</span></a></header><nav class="page-contents" aria-label="On this page"><span>On this page</span><a href="#section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</a><a href="#section-bounded-solution-method">Bounded solution method</a><a href="#section-complete-c-answer">Complete C answer</a><a href="#section-why-the-important-lines-are-there">Why the important lines are there</a><a href="#section-complexity-and-memory">Complexity and memory</a><a href="#section-common-wrong-answers">Common wrong answers</a><a href="#section-source-status">Source status</a><a href="#section-related-handbook-pages">Related handbook pages</a></nav><div class="page-body"><section class="section-block"><dl class="fact-grid"><div class="fact"><dt>What it tests</dt><dd>Two successive raw button interrupts select increment and offset, then call Kruskal immediately on the second choice.</dd></div><div class="fact"><dt>Required answer</dt><dd>C</dd></div><div class="fact"><dt>Functions or handlers</dt><dd>main; EINT1_IRQHandler; EINT2_IRQHandler</dd></div><div class="fact"><dt>Architecture</dt><dd>C state machine + IRQ</dd></div></dl><p><a class="button" href="../../../../../02_ORIGINAL_MATERIALS/Exams/23-24/20240916%20arm.pdf">View original exam PDF</a></p></section><section class="section-block"><h2 id="section-inputs-outputs-constraints-and-ownership">Inputs, outputs, constraints, and ownership</h2><p>First raw IRQ selects increment; second selects offset and calls the algorithm</p><p><strong>Constants:</strong> choices 2,3,4</p><p><strong>Components:</strong> Recurrence, Graph, LED, Buttons, C-to-assembly</p><h2 id="section-bounded-solution-method">Bounded solution method</h2><ol><li>Write the exact prototype, handler names, constants, and ownership required by the paper.</li><li>Use the exact paper interface, keep hardware ownership in C unless the question assigns it elsewhere, and keep the tested computation bounded.</li><li>Trace the smallest valid input, the upper bound, duplicate or overflow behavior, and counter wraparound where applicable.</li><li>Verify the C/assembly boundary: R0-R3, later stack words, preserved registers, stack alignment, and the return location.</li></ol></section><section class="section-block"><h2 id="section-complete-c-answer">Complete C answer</h2><details class="code-panel" open><summary>Show complete C solution</summary>
+      <div class="code-actions"><a class="raw-link" href="../../../03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2024-09-16-q2/main.c">Open raw C file</a></div><div class="code-frame" id="listing-1"><div class="code-toolbar"><span>C</span><button type="button" class="copy-code js-only" aria-label="Copy C listing 1">Copy code</button></div><pre tabindex="0"><code class="language-c">#include &lt;stdint.h&gt;
+#include &quot;exam_api.h&quot;
+#include &quot;LPC17xx.h&quot;
+
+#define ROWS 3u
+#define COLS 4u
+extern void kruskal(uint8_t *maze,uint8_t *horizontal,uint8_t *vertical,
+                    uint32_t rows,uint32_t columns,uint32_t increment,uint32_t offset);
+static uint8_t maze[ROWS*COLS];
+static uint8_t horizontal[ROWS*COLS];
+static uint8_t vertical[ROWS*COLS];
+static uint32_t increment;
+static uint8_t selection_count;
+
+static uint32_t button_value(exam_button_t b)
+{ return b==EXAM_BUTTON_INT0?2u:(b==EXAM_BUTTON_KEY1?3u:4u); }
+
+static void initialize_arrays(void)
+{
+  uint32_t r,c,k;
+  for(r=0u;r&lt;ROWS;++r)for(c=0u;c&lt;COLS;++c){
+    k=r*COLS+c; maze[k]=(uint8_t)k;
+    horizontal[k]=(c==COLS-1u)?2u:1u;
+    vertical[k]=(r==ROWS-1u)?2u:1u;
+  }
+}
+
+static void handle_button(exam_button_t button)
+{
+  uint32_t value;
+  value=button_value(button);
+  if(selection_count==0u){increment=value;selection_count=1u;}
+  else {selection_count=0u;kruskal(maze,horizontal,vertical,ROWS,COLS,increment,value);}
+}
+
+void EINT0_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_INT0); handle_button(EXAM_BUTTON_INT0); }
+void EINT1_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY1); handle_button(EXAM_BUTTON_KEY1); }
+void EINT2_IRQHandler(void)
+{ exam_button_ack(EXAM_BUTTON_KEY2); handle_button(EXAM_BUTTON_KEY2); }
+
+int main(void)
+{
+  exam_init();
+  initialize_arrays(); selection_count=0u; exam_led_clear();
+  exam_buttons_init();
+
+  for (;;) {
+    __WFI();
+  }
+}
+</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
+    </details></section><section class="section-block"><h2 id="section-why-the-important-lines-are-there">Why the important lines are there</h2><p>Initialization establishes one owner for every peripheral. Callback or IRQ code acknowledges and records only the event. Foreground code performs longer computation and output. Assembly code keeps its public ABI contract and never assumes hidden array lengths.</p><h2 id="section-complexity-and-memory">Complexity and memory</h2><p>The algorithm tags are Recurrence, Graph. Loop bounds and storage are fixed by the paper; no dynamic allocation is introduced.</p><h2 id="section-common-wrong-answers">Common wrong answers</h2><ul><li>Changing the required interface to an easier API call.</li><li>Using a Timer0-Timer2 API helper while that timer is student-owned.</li><li>Forgetting active-low input logic or write-one-to-clear interrupt acknowledgement.</li><li>Doing delays, sorting, filtering, or table generation inside an IRQ.</li><li>Reading the fifth argument at the wrong stack offset after pushing registers.</li></ul><h2 id="section-source-status">Source status</h2><p>The canonical raw answer below passed the package's API-symbol audit. Deterministic algorithm vectors and compile checks are recorded by the verifier; hardware execution is not claimed.</p></section><section class="section-block"><h2 id="section-related-handbook-pages">Related handbook pages</h2><ul><li><a href="../algorithms/indirect-index-recurrence.html">Study Indirect-index recurrence</a></li><li><a href="../algorithms/explicit-stack-graph-traversal.html">Study Explicit-stack graph traversal</a></li><li><a href="../algorithms/indirect-index-recurrence-safety.html">Study Indirect-index recurrence safety</a></li><li><a href="../algorithms/lexicographic-byte-comparison.html">Study Lexicographic byte comparison</a></li><li><a href="../algorithms/bipartite-test.html">Study Bipartite graph test</a></li><li><a href="../algorithms/lexicographic-signed-array-comparison.html">Study Lexicographically compare two signed arrays</a></li></ul></section></div></main>
+  <footer><span>ARM Exam Workstation</span><a href="../../../../../START_HERE.html">Back to home</a><span>Local study material · Keep the folder together</span></footer>
+  <script src="../assets/portal_logic.js" defer></script>
+  <script src="../assets/portal.js" defer></script>
+<script src="../assets/workstation_state.js" defer></script>
+<script src="../assets/workstation.js" defer></script>
+</body>
+</html>

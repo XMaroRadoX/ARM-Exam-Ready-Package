@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "reportedIssuesBefore": 211,
+  "portalIssuesAfter": 0,
+  "validatedStudentPages": 881,
+  "restoredAlgorithmPages": 81,
+  "restoredBasicIndex": true,
+  "referenceLinksRepaired": 75,
+  "referencePagesRepaired": 74,
+  "navigationPagesRepaired": 49,
+  "unchangedCodeAndTestFiles": 750,
+  "searchRecords": 10618,
+  "coverageChecks": 175970,
+  "searchRegressionChecks": 4118,
+  "maximumWarmQueryMs": 52.31239999999889,
+  "offlineBrowserChecks": "PASS",
+  "backup": "90_WORKING_PROJECTS/_BACKUPS/PORTAL_REPAIR_20260906_170148.zip",
+  "details": [
+    "PORTAL_REPAIR_VERIFICATION.txt",
+    "PORTAL_BROWSER_REPAIR.txt",
+    "SEARCH_INTEGRITY_RESULTS.json",
+    "SEARCH_REGRESSION_RESULTS.json"
+  ]
+}

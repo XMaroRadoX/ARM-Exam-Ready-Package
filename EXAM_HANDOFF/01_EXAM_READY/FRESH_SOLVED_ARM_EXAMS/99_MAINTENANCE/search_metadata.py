@@ -198,7 +198,7 @@ def finish(context, items, report):
             return block
         raw = re.sub(r'<article\b[^>]*data-filter-item[^>]*>.*?</article>', card, raw, flags=re.S)
         if 'data-search-corpus' not in raw:
-            raw = raw.replace('</head>', '<script data-search-corpus src="' + rel(assets / "portal-data.js", path) + '" defer></script>\n</head>')
+            raw = raw.replace('</head>', '<script data-search-corpus data-src="' + rel(assets / "portal-data.js", path) + '" defer></script>\n</head>')
         write(path, raw)
     body = '<section class="section-block"><h2>Search coverage</h2><p>' + str(report["indexedFiles"]) + ' files indexed; ' + str(report["pdfPages"]) + ' PDF pages with text; ' + str(report["sectionRecords"]) + ' content records. ' + str(report["duplicates"]) + ' duplicate contents share storage while retaining their source metadata.</p>'
     body += '<p>Search includes the maintained package and original/historical references. Personal working projects, backups, caches, and build output are excluded. Images, audio, and archives have searchable filenames and labels only; their contents are not transcribed or extracted.</p><p>Exam tags on an original PDF describe the whole paper, unless a question mapping is explicitly available. Original papers without a maintained answer remain labeled as such.</p>'

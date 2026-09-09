@@ -1,0 +1,215 @@
+{"exam_id": "E2023-07-04", "date": "2023-07-04", "project": "2023-07-04_Sociable_Timer", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/22-23/20230704 arm.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures  
+Exam of 04.07.2023 - part II 
+ 
+ 
+1 
+Question 1 
+The aliquot sum s(n) of a natural numbers n is the sum of all proper divisors of n, that is, all divisors of 
+n other than n itself. For example, the aliquot sum of 28 is: s(28) = 1 + 2 + 4 + 7 + 14 = 28. 
+A natural number equal to its aliquot sum is called a perfect number. For example, 28 is a perfect 
+number. 
+Two different natural numbers related in such a way that the aliquot sum of each is equal to the other 
+number are called amicable numbers. For example, 220 and 284 are amicable numbers: 
+s(220) = 1 + 2 + 4 + 5 + 10 + 11 + 20 + 22 + 44 + 55 + 110 = 284 
+s(284) = 1 + 2 + 4 + 71 + 142 = 220 
+Numbers whose aliquot sums form a periodic sequence are called sociable numbers. They are 
+generalizations of the concepts of perfect numbers and amicable numbers. For example: 
+s(12496) = 1 + 2 + 4 + 8 + 11 + 16 + 22 + 44 + 71 + 88 + 142 + 176 + 284 + 568 + 781 + 1136 + 1562 
++ 3124 + 6248 = 14288 
+s(14288) = 1 + 2 + 4 + 8 + 16 + 19 + 38 + 47 + 76 + 94 + 152 + 188 + 304 + 376 + 752 + 893 + 1786 + 
+3572 + 7144 = 15472 
+s(15472) = 1 + 2 + 4 + 8 + 16 + 967 + 1934 + 3868 + 7736 = 14536  
+s(14536) = 1 + 2 + 4 + 8 + 23 + 46 + 79 + 92 + 158 + 184 + 316 + 632 + 1817 + 3634 + 7268 = 14264 
+s(14264) = 1 + 2 + 4 + 8 + 1783 + 3566 + 7132 = 12496. 
+ 
+You have to write the isSociable subroutine in ARM assembly language, which receives a natural 
+number n in input, and repetitively computes the sequence of aliquot sums, until one of the following 
+conditions occurs: 
+a) the last computed aliquot sum is equal to the input parameter (i.e., the number is perfect, 
+amicable, or sociable) 
+b) the last computed aliquot sum is equal to 1 (i.e., the number is neither perfect, amicable, or 
+sociable) 
+c) 8 terms in the sequence have been computed (i.e., the number is neither perfect or amicable 
+and probably is not sociable). 
+In the first case, the subroutine returns the length of the sequence. In the last two cases, it returns 0. For 
+example: 
+- with n = 28, the subroutine computes s(28) = 28 and immediately stops returning 1 
+- with n = 220, the subroutine computes s(220) = 284, then s(284) = 220 and returns 2 
+- with n = 12496, the subroutine computes 5 aliquot sums and finally it returns 5 
+- with n = 100, it computes s(100) = 117, s(117) = 65, s(65) = 19, s(19) = 1. It stops returning 0. 
+ 
+In order to compute the aliquot sum of n, you have to use the following algorithm: 
+1) initialize sum = 1, a = 2 
+2) while(true): 
+3)         if n is divisible by a: 
+4)                 b = n / a 
+5)                 if a < b: 
+6)                         sum = sum + a + b 
+7)                 else: 
+8)                         if a == b: 
+9)                                 sum = sum + a 
+10)                         exit while and stop 
+11)         a = a + 1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PDF PAGE 2 ---
+Computer Architectures  
+Exam of 04.07.2023 - part II 
+ 
+ 
+2 
+Question 2 
+Extend the project developed in the previous question as follows. 
+ 
+Declare an array of unsigned integers with the following values: {8128, 5564, 5400, 14264, 1305184, 
+1598470, 4938136}. 
+ 
+Initialize timer 1 to raise an interrupt every 2 seconds. In the interrupt handler, each time, a new value 
+of the array is read (i.e., the first time the value 8128 is read; then 5564 and so on. After 7 interrupt 
+calls, the 8th value is 8128 again). Then, the isSociable subroutine is called passing the current 
+value of the array. The output of the subroutine is used to switch on the corresponding led (all other 
+leds are switched off):value 1 -> led4; value 2 -> led 5; value 3 -> led6; … ; value 8 -> led 11. 
+If the subroutine returns 0, all leds are switched off. 
+ 
+ 
+
+--- QUESTION ---
+{"question_id": "2023-07-04-Q1", "date": "2023-07-04", "question": "Q1", "requirement_summary": "Generate and validate a sociable-number chain, stopping within eight elements.", "keywords": "sociable aliquot proper-divisor sum cycle array", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q1/assembly.s", "function_or_handler": "isSociable", "argument_mapping": "R0 start, R1 output area; R0 chain length or zero", "architecture": "assembly algorithm", "constants": "maximum 8 elements", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Arrays|Recurrence", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  isSociable
+
+; uint32_t isSociable(uint32_t number)
+isSociable      PROC
+                PUSH    {R4-R6, LR}
+                MOV     R4, R0          ; Original number.
+                MOV     R5, R0          ; Current sequence value.
+                MOVS    R6, #0          ; Number of computed terms.
+
+sociable_loop
+                MOV     R0, R5
+                BL      aliquotSum
+                ADDS    R6, R6, #1
+
+                CMP     R0, R4
+                BEQ     sociable_found
+                CMP     R0, #1
+                BEQ     sociable_not_found
+                CMP     R6, #8
+                BEQ     sociable_not_found
+
+                MOV     R5, R0
+                B       sociable_loop
+
+sociable_found
+                MOV     R0, R6
+                POP     {R4-R6, PC}
+
+sociable_not_found
+                MOVS    R0, #0
+                POP     {R4-R6, PC}
+                ENDP
+
+; R0 = n. Return the aliquot sum in R0.
+aliquotSum      PROC
+                MOVS    R1, #1          ; sum = 1.
+                MOVS    R2, #2          ; a = 2.
+
+divisor_loop
+                UDIV    R3, R0, R2      ; b = n / a.
+                MLS     R12, R3, R2, R0 ; remainder = n - b*a.
+                CMP     R12, #0
+                BNE     next_divisor
+
+                CMP     R2, R3
+                BLO     add_divisor_pair
+                BEQ     add_square_root
+
+                MOV     R0, R1
+                BX      LR
+
+add_divisor_pair
+                ADDS    R1, R1, R2
+                ADDS    R1, R1, R3
+                B       next_divisor
+
+add_square_root
+                ADDS    R1, R1, R2
+                MOV     R0, R1
+                BX      LR
+
+next_divisor
+                ADDS    R2, R2, #1
+                B       divisor_loop
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2023-07-04-Q2", "date": "2023-07-04", "question": "Q2", "requirement_summary": "Every two seconds test the next source value and display the result as a one-hot LED value.", "keywords": "Timer1 periodic 2s LED one-hot sociable", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2023-07-04-q2/main.c", "function_or_handler": "main; answer_timer1", "argument_mapping": "Timer1 IRQ advances the source array", "architecture": "C timer + IRQ", "constants": "2000 ms", "peripheral_tags": "LED|Timer1", "interrupt_tags": "Timer IRQ|Acknowledgement", "timing_tags": "Periodic|Delays", "architecture_tags": "", "algorithm_tags": "Arrays|Recurrence", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2023-07-04_Sociable_Timer/Answer Source/main.c ---
+/* Exam of 4 July 2023, questions 1 and 2. */
+#include <stdint.h>
+#include "LPC17xx.h"
+#include "exam_api.h"
+
+extern uint32_t isSociable(uint32_t number);
+
+static const uint32_t numbers[7] = {
+  8128u, 5564u, 5400u, 14264u, 1305184u, 1598470u, 4938136u
+};
+
+static uint32_t current_number;
+
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  uint32_t result;
+
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  result = isSociable(numbers[current_number]);
+  current_number++;
+  if (current_number == 7u) {
+    current_number = 0u;
+  }
+
+  exam_led_clear();
+  if ((result >= 1u) && (result <= 8u)) {
+    /* result 1 -> physical LD4; result 8 -> LD11. */
+    (void)exam_led_on((uint8_t)(result + 3u));
+  }
+}
+
+int main(void)
+{
+  exam_init();
+  (void)exam_timer_config_ms(EXAM_TIMER1, 2000u, EXAM_TIMER_PERIODIC);
+  exam_timer_start(EXAM_TIMER1);
+
+  for (;;) {
+    __WFI();
+  }
+}

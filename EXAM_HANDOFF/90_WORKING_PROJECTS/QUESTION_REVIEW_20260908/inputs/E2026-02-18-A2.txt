@@ -1,0 +1,343 @@
+{"exam_id": "E2026-02-18-A2", "date": "2026-02-18", "project": "2026-02-18_ARM2_Three_Timers", "source_pdf": "02_ORIGINAL_MATERIALS/Exams/Exam 18.02.2026/20260218_ARM_2.pdf", "main_c": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/main.c", "assembly_s": "03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/assembly.s"}
+
+--- PDF PAGE 1 ---
+Computer Architectures 
+Exam of 18/02/2026 
+ 
+B2 
+Please read the following notes before proceeding 
+1) It is recommended to save the project on the C drive during development. Once you have 
+completed your work, you must save the project inside the exam folder on the Z drive (the 
+same folder where you found this document). Projects saved elsewhere will not be 
+collected and will be permanently lost. 
+2) The assembly subroutine developed in the first exercise must comply with the ARM 
+Architecture Procedure Call Standard (AAPCS) standard (in terms of parameter passing, 
+returned value, callee-saved registers). 
+3) If you prefer, you can begin with the second exercise. Since it requires calling the assembly 
+subroutine from the first exercise, you can create a stub in the assembly file to proceed. For 
+example: 
+ 
+subroutineName PROC 
+ ; to do: add code 
+ MOV r0, #10  ; example of a return value 
+ BX LR 
+ ENDP 
+ 
+4) To earn points on all exercises, it is recommended that you write at least some code for 
+each. 
+5) The final project must run on the actual board (e.g., button debouncing is required). 
+ 
+ 
+Special characters with Italian keyboards 
+- Square brackets [ ] 
+  Left bracket: ATL GR + [ 
+  Right bracket: ALT GR + ] 
+- Curly brackets { }  
+  Left bracket: LSHIFT + ALT GR + [ 
+  Right bracket: LSHIFT + ALT GR + ] 
+- Hash # : ALT GR + à  
+ 
+ 
+Bitwise operations in C 
+Left shift by N bits  =  A<<N      
+Right shift by N bits  =  A>>N 
+ 
+A XOR B  =  A^B 
+A AND B  =  A&B   (&& is the logical AND) 
+A OR B  =  A|B  (|| is the logical OR) 
+  
+
+--- PDF PAGE 2 ---
+Computer Architectures 
+Exam of 18/02/2026 
+ 
+B2 
+Question 1 (8 points) 
+The Hofstadter–Conway $10,000 sequence is defined as follows: 
+a(1) = a(2) = 1 
+a(n) = a(a(n - 1)) + a(n - a(n - 1)), for n > 2 
+ 
+The first terms of the sequence are: 
+1, 1, 2, 2, 3, 4, 4, 4, 5, 6, 7, 7, 8, 8, 8, 8, 9, 10, 11, 12, 12, 13, 14, 14, 15, 15, 15, 16, 16, 16, 16, 16, 
+17, 18, 19, 20, 21, 21, 22, 23, 24, 24, 25, 26, 26, 27, 27, 27, 28, 29, 29, 30, 30, 30, 31, 31, 31, 31, 
+32, 32, 32, 32, 32, 32, 33, 34, 35, 36, 37, 38, 38, 39, 40, 41, 42 
+ 
+Write the HofstadterConway subroutine in ARM assembly language. You must follow this 
+prototype: 
+ 
+unsigned int HofstadterConway(unsigned int* v, int dim); 
+ 
+ 
+The subroutine receives: 
+- the address of an uninitialized read-write data area 
+- the number of elements dim. 
+The subroutine must fill the data area with the first dim elements of the Hofstadter–Conway 
+$10,000 sequence. Each element must be stored as a word (you must reserve sufficient space when 
+allocating the read-write data area). 
+The subroutine must return the maximum value among the first dim elements of the Hofstadter–
+Conway $10,000 sequence. 
+ 
+Suggestion. Avoid a recursive implementation of the sequence. Instead, store each term in the data 
+area, starting with a(1) and a(2). When computing a(n), access the data area to retrieve the 
+previously computed elements a(n-1), a(n-2), etc. 
+ 
+ 
+Question 2 (10 points) 
+In this part, you need 3 timers, referred to in the text as timer A, timer B, and timer C. You are free 
+to choose which timer to use as timer A. For timer B and C, it is suggested to use two standard 
+Capture/Compare timers. 
+Some actions depend on whether a timer is running. You can use a flag or check the appropriate 
+timer register to determine whether a timer is active. 
+Add the following functionalities to your project. The goal of this exercise is to generate a musical 
+representation of the Hofstadter–Conway $10,000 sequence by mapping its values to sound 
+frequency and duration. 
+ 
+1) In the main function, call the HofstadterConway subroutine passing an uninitialized integer 
+array v of size 1000. As specified in the first question, the subroutine fills the array and returns amax.  
+Initialize the D/A Converter so that its output is connected to the input of the external speaker (pin 
+P0.26). 
+Finally, start timer A with a period of 50 ms. 
+ 
+2) When timer A generates an interrupt, check whether timer B and timer C are running. If either of 
+them is running, the interrupt handler of timer A must terminate immediately. 
+Otherwise increment an index i. This index is used to access the i-th element of the Hofstadter–
+Conway $10,000 sequence. For example, at the first interrupt, you access the value a(1), since timer 
+
+--- PDF PAGE 3 ---
+Computer Architectures 
+Exam of 18/02/2026 
+ 
+B2 
+B and timer C are initially stopped. Note that a(1) is stored in v[0], a(2) in v[1], and in general a(n) 
+is stored in v[n−1]. When i reaches 1000, you access the value a(1000) and then stop the timer A. 
+ 
+Each time you increment the index i, compute two thresholds according to the following formula: 
+𝑡ℎ𝑟𝑒𝑠ℎ𝑜𝑙𝑑 =  1
+𝑘 (𝑃𝑚𝑎𝑥 − 𝑎(𝑖)∗ (𝑃𝑚𝑎𝑥 −  𝑃𝑚𝑖𝑛)
+𝑎𝑚𝑎𝑥
+) 
+ 
+The formula computes a floating-point value, but each threshold must be cast to an unsigned 
+integer. 
+For the first threshold, use Pmax = 5351, Pmin = 1062, k = 1. 
+For the second threshold, use Pmax = 40,000,000, Pmin = 625,000, k = 5. Here, to avoid overflow 
+due to intermediate multiplications, carefully choose the order of evaluation: it is recommended to 
+compute ((Pmax - Pmin) / amax) ∙ a(i). 
+Then, start timer B with the first threshold, so that when its timer counter reaches the threshold, an 
+interrupt is generated and the timer counter is reset. 
+Start timer C with the second threshold, so that when its timer counter reaches the threshold, an 
+interrupt is generated and the timer counter is stopped and reset. 
+ 
+3) Define the following array, which contains samples of a sinusoidal waveform: 
+uint16_t SinTable[45] = {410, 467, 523, 576, 627, 673, 714, 749, 778, 799, 813, 819, 817, 807, 789, 
+764, 732, 694, 650, 602, 550, 495, 438, 381, 324, 270, 217, 169, 125, 87, 55, 30, 12, 2, 0, 6, 20, 41, 
+70, 105, 146, 193, 243, 297, 353}; 
+ 
+When timer B generates an interrupt, increment an index j. This index is used to access the j-th 
+element of SinTable. Use that element to feed the DAC. 
+If the index j reaches 45, you must reset it (without stopping the timer B). 
+ 
+4) When timer C generates an interrupt, stop timer B. In other words, timer C determines the 
+duration of the note played by timer B. 
+
+--- QUESTION ---
+{"question_id": "2026-02-18_ARM2-Q1", "date": "2026-02-18", "question": "Q1", "requirement_summary": "Fill 1000 Hofstadter-Conway terms iteratively and return the maximum.", "keywords": "Hofstadter Conway sequence iterative maximum array", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q1/assembly.s", "function_or_handler": "HofstadterConway", "argument_mapping": "R0 area, R1 dimension; R0 maximum", "architecture": "assembly sequence algorithm", "constants": "1000 terms in board part", "peripheral_tags": "", "interrupt_tags": "", "timing_tags": "", "architecture_tags": "", "algorithm_tags": "Arrays|Recurrence", "usage_tags": "Complete recipe"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/assembly.s ---
+                AREA    |.text|, CODE, READONLY
+                PRESERVE8
+                THUMB
+
+                EXPORT  HofstadterConway
+
+; uint32_t HofstadterConway(uint32_t *v, int dim)
+; R0 = v, R1 = dim, return maximum in R0.
+HofstadterConway PROC
+                PUSH    {R4-R10, LR}
+                MOV     R4, R0
+                MOV     R5, R1
+
+                CMP     R5, #0
+                BLE     hc_empty
+
+                MOVS    R7, #1
+                STR     R7, [R4]
+                CMP     R5, #1
+                BEQ     hc_done
+
+                STR     R7, [R4, #4]
+                MOVS    R6, #2
+
+hc_loop
+                CMP     R6, R5
+                BHS     hc_done
+
+                SUBS    R10, R6, #1
+                LDR     R8, [R4, R10, LSL #2]
+
+                SUBS    R10, R8, #1
+                LDR     R9, [R4, R10, LSL #2]
+
+                SUBS    R10, R6, R8
+                LDR     R10, [R4, R10, LSL #2]
+                ADDS    R10, R9, R10
+
+                STR     R10, [R4, R6, LSL #2]
+                CMP     R10, R7
+                BLS     hc_keep_maximum
+                MOV     R7, R10
+hc_keep_maximum
+                ADDS    R6, R6, #1
+                B       hc_loop
+
+hc_done
+                MOV     R0, R7
+                POP     {R4-R10, PC}
+
+hc_empty
+                MOVS    R0, #0
+                POP     {R4-R10, PC}
+                ENDP
+
+                LTORG
+                ALIGN   4
+                END
+
+
+--- QUESTION ---
+{"question_id": "2026-02-18_ARM2-Q2", "date": "2026-02-18", "question": "Q2", "requirement_summary": "Map Hofstadter-Conway values to note pitch and duration with three timers and the DAC.", "keywords": "three timers audio DAC SinTable pitch duration one-shot", "answer_file": "03_COPY_PASTE_LIBRARY/CANONICAL_WORKSTATION/exam-solutions/2026-02-18-arm2-q2/main.c", "function_or_handler": "answer_timer0; answer_timer1; answer_timer2", "argument_mapping": "Timer0=A 50ms, Timer1=B pitch, Timer2=C duration", "architecture": "C timers + DAC IRQ", "constants": "same two threshold formulas", "peripheral_tags": "Timer0|Timer1|Timer2|DAC|Speaker", "interrupt_tags": "Timer IRQ|Acknowledgement", "timing_tags": "One-shot|Delays|Multi-timer", "architecture_tags": "", "algorithm_tags": "Recurrence", "usage_tags": "Complete recipe|Professor interface|Exam API"}
+
+--- SOURCE 03_ADDITIONAL_STUDY_MATERIAL/03 - Solved Exams/2026-02-18_ARM2_Three_Timers/Answer Source/main.c ---
+/* Exam of 18 February 2026, ARM2, questions 1 and 2. */
+#include <stdint.h>
+#include "exam_api.h"
+#include "LPC17xx.h"
+
+#define SEQUENCE_LENGTH 1000u
+#define SAMPLE_COUNT      45u
+
+extern uint32_t HofstadterConway(uint32_t *values, int dimension);
+
+static uint32_t sequence[SEQUENCE_LENGTH];
+static uint32_t sequence_maximum;
+static uint32_t sequence_index;
+static uint32_t sample_index = SAMPLE_COUNT - 1u;
+
+static const uint16_t SinTable[SAMPLE_COUNT] = {
+  410, 467, 523, 576, 627, 673, 714, 749, 778,
+  799, 813, 819, 817, 807, 789, 764, 732, 694,
+  650, 602, 550, 495, 438, 381, 324, 270, 217,
+  169, 125, 87, 55, 30, 12, 2, 0, 6, 20, 41,
+  70, 105, 146, 193, 243, 297, 353
+};
+
+/* Evaluate the paper's formula in floating point, then cast the result. */
+static uint32_t note_threshold(uint32_t value,
+                               uint32_t maximum_period,
+                               uint32_t minimum_period,
+                               uint32_t k)
+{
+  float range_per_step;
+  float threshold;
+
+  range_per_step = (float)(maximum_period - minimum_period) /
+                   (float)sequence_maximum;
+  threshold = ((float)maximum_period - range_per_step * (float)value) /
+              (float)k;
+
+  if (threshold < 1.0f) {
+    threshold = 1.0f;
+  }
+
+  return (uint32_t)threshold;
+}
+
+/* Timer A: choose and start the next note when B and C are both stopped. */
+void TIMER0_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER0);
+  uint32_t value;
+  uint32_t waveform_threshold;
+  uint32_t duration_threshold;
+
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  if (exam_timer_is_running(EXAM_TIMER1) ||
+      exam_timer_is_running(EXAM_TIMER2)) {
+    return;
+  }
+
+  value = sequence[sequence_index];
+  waveform_threshold = note_threshold(value, 5351u, 1062u, 1u);
+  duration_threshold = note_threshold(value, 40000000u, 625000u, 5u);
+
+  sequence_index++;
+  if (sequence_index == SEQUENCE_LENGTH) {
+    (void)exam_timer_stop(EXAM_TIMER0);
+  }
+
+  /* Timer B resets on every match and therefore remains periodic. */
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_config_ticks(EXAM_TIMER1, waveform_threshold,
+                                EXAM_TIMER_PERIODIC);
+
+  /* Timer C is a one-shot: interrupt, reset and stop at the match. */
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_timer_config_ticks(EXAM_TIMER2, duration_threshold,
+                                EXAM_TIMER_ONE_SHOT);
+
+  (void)exam_timer_start(EXAM_TIMER1);
+  (void)exam_timer_start(EXAM_TIMER2);
+}
+
+/* Timer B: send the next sinusoidal sample to the DAC. */
+void TIMER1_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER1);
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  sample_index++;
+  if (sample_index == SAMPLE_COUNT) {
+    sample_index = 0u;
+  }
+
+  (void)exam_dac_write(SinTable[sample_index]);
+}
+
+/* Timer C: terminate the note by stopping Timer B. */
+void TIMER2_IRQHandler(void)
+{
+  uint32_t pending = exam_timer_ack(EXAM_TIMER2);
+  if ((pending & 1u) == 0u) {
+    return;
+  }
+
+  (void)exam_timer_stop(EXAM_TIMER1);
+  (void)exam_timer_reset(EXAM_TIMER1);
+  (void)exam_timer_stop(EXAM_TIMER2);
+  (void)exam_timer_reset(EXAM_TIMER2);
+  (void)exam_dac_write(0);
+}
+
+int main(void)
+{
+  exam_init();
+  exam_dac_init();
+  sequence_maximum = HofstadterConway(sequence, (int)SEQUENCE_LENGTH);
+  (void)exam_dac_write(0);
+
+  /* The Combined API derives 50 ms from Timer0's actual peripheral clock. */
+  (void)exam_timer_config_ms(EXAM_TIMER0, 50u, EXAM_TIMER_PERIODIC);
+  (void)exam_timer_start(EXAM_TIMER0);
+
+  for (;;) {
+    /* This paper places the required work in the three timer handlers. */
+    __WFI();
+  }
+}

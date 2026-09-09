@@ -64,8 +64,9 @@ kap_asc_next    ADDS    R5, R5, #1
 ; Supervisor service 50 repeatedly applies KaprekarRoutine and leaves the
 ; iteration count in R6 as required by the paper. The caller uses MSP.
 SVC_Handler     PROC
-                MRS     R7, MSP         ; original hardware frame before software saves
+                MRS     R12, MSP        ; frame address before software saves
                 PUSH    {R4, R5, R7, LR}
+                MOV     R7, R12
                 LDR     R5, [R7, #24]
                 LDRB    R5, [R5, #-2]
                 CMP     R5, #50

@@ -396,9 +396,9 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
-              <FileName>sample.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\sample.c</FilePath>
+              <FilePath>.\Source\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -994,9 +994,9 @@
           <GroupName>main</GroupName>
           <Files>
             <File>
-              <FileName>sample.c</FileName>
+              <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Source\sample.c</FilePath>
+              <FilePath>.\Source\main.c</FilePath>
             </File>
           </Files>
         </Group>

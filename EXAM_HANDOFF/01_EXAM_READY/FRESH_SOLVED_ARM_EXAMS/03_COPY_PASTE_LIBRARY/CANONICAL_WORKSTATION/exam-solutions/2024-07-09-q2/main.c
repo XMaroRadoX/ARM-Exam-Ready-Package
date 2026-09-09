@@ -22,10 +22,7 @@ int main(void)
 {
   exam_init();
   initialize_maze();
-  if(exam_systick_config_ticks(0x100000u)!=EXAM_OK) {
-    leds_fill();
-    for (;;) __WFI();
-  }
+  /* The Q2 Reset_Handler starts SysTick with TICKINT clear. */
   depthFirstSearchRandom(&maze[0][0],ROWS,COLS,7u);
 
   for (;;) {

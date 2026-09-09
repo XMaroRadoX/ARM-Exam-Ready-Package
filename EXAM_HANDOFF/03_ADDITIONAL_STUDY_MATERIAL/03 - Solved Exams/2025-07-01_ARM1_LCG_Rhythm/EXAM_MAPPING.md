@@ -1,12 +1,12 @@
-# Exam mapping
+# July 1, 2025: seed-1 LCG paper
 
-- Exam ID: `E2025-07-01-A1`
-- Questions: `E2025-07-01-A1-Q1`, `E2025-07-01-A1-Q2`, `E2025-07-01-A1-Q3`
-- Tags: `abi:nonleaf`, `abi:stacked-args`, `alg:recurrence`, `board:gpio`, `board:joystick`, `board:timer`, `cpu:flags`, `mem:word-array`, `risk:irq-shared-state`, `risk:stack-alignment`, `state:event-loop`, `timing:periodic`
-- Patterns: `PAT-AAPCS-NONLEAF-001`, `PAT-AAPCS-STACK-SAFETY-001`, `PAT-AAPCS-STACKED-ARGS-001`, `PAT-ALG-RECURRENCE-001`, `PAT-CPU-FLAGS-001`, `PAT-GPIO-EVENT-001`, `PAT-GPIO-JOYSTICK-001`, `PAT-MEM-WORD-ARRAY-001`, `PAT-STATE-EVENT-LOOP-001`, `PAT-STATE-IRQ-HANDOFF-001`, `PAT-TIMER-OWNERSHIP-001`, `PAT-TIMER-PERIODIC-001`
+The attached [20250701.pdf](../../../02_ORIGINAL_MATERIALS/Exams/ARM%20questions/20250701.pdf) says A2. The library keeps its historical ID E2025-07-01-A1 because that entry matches the recurrence: seed 1, a=131, c=7, XOR iteration n, m=255. The separate seed-6/multiplier-157 variant is unchanged.
 
-| Question | Requirement | Source PDF | Verification |
-|---|---|---|---|
-| `E2025-07-01-A1-Q1` | Implement the requested linear congruential generator with five parameters and correct unsigned wraparound/modulo behavior. | `Material (8)\Exams\24-25\2025_07_01\ARM1.pdf` | `COMPILE_ONLY` / `COMPILE_ONLY` / `PHYSICAL_BOARD_NOT_TESTED` |
-| `E2025-07-01-A1-Q2` | Call the LCG repeatedly from Reset_Handler and maintain the required sequence/state without violating startup or call conventions. | `Material (8)\Exams\24-25\2025_07_01\ARM1.pdf` | `COMPILE_ONLY` / `COMPILE_ONLY` / `PHYSICAL_BOARD_NOT_TESTED` |
-| `E2025-07-01-A1-Q3` | Use Timer0 for a three-second LED sequence and accept only the joystick's first movement for the rhythm-game state transition. | `Material (8)\Exams\24-25\2025_07_01\ARM1.pdf` | `COMPILE_ONLY` / `COMPILE_ONLY` / `PHYSICAL_BOARD_NOT_TESTED` |
+| Question | Actual requirement | Complete answer |
+|---|---|---|
+| Q1 | Implement nextElementLCG; fill a DIM-byte array from Reset_Handler. | [Q1 files and explanation](Answer%20Source/Q1/README.md) |
+| Q2 | Timer0 every 3 seconds; only ten LCG calls; exactly one LED8-11 selected by modulo 4. | [Q2 files and explanation](Answer%20Source/Q2/README.md) |
+| Q3 | First joystick movement only; correct/wrong score; full last response window; LED4 wins, LED5 loses. | [Q3 files and RIT explanation](Answer%20Source/Q3/README.md) |
+
+The previous mapping incorrectly treated the reset-array test as Q2. It belongs to Q1. Q1's immediate test and Q2/Q3's timed application are separate complete builds.
+

@@ -3,8 +3,10 @@
                 THUMB
 
                 EXPORT  transpose
+                EXPORT  transposition
 
 ; void transpose(const uint8_t *source, uint8_t *destination)
+transposition
 transpose       PROC
                 PUSH    {R4-R10, LR}
                 MOV     R4, R0
